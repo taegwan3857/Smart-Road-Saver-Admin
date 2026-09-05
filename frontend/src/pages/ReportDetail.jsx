@@ -76,7 +76,7 @@ export default function ReportDetail() {
           <div className="doc-approval">
             <div className="approval-box">
               <div className="approval-title">기안자</div>
-              <div className="approval-sign">{data.author||'김관리'}</div>
+              <div className="approval-sign">S.R.S.관리자</div>
             </div>
             <div className="approval-box">
               <div className="approval-title">자동결재</div>
@@ -153,7 +153,7 @@ export default function ReportDetail() {
         <div style={{textAlign: "center"}}>
           <div className="paper-footer">
             Smart Road Saver 관제센터
-            <span className="doc-stamp">직인</span>
+            
           </div>
         </div>
       </div>
