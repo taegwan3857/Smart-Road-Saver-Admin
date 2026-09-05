@@ -103,9 +103,14 @@ export default function Dashboard() {
   });
 
   useEffect(() => {
-    if (window.kakao && window.kakao.maps) {
+    const initMap = () => {
+      if (!window.kakao || !window.kakao.maps) {
+        setTimeout(initMap, 500);
+        return;
+      }
       window.kakao.maps.load(() => {
         const container = document.getElementById('kakao-map');
+        if (!container) return;
         const options = {
           center: new window.kakao.maps.LatLng(37.4979, 127.0280),
           level: 4
@@ -120,7 +125,8 @@ export default function Dashboard() {
           }
         });
       });
-    }
+    };
+    initMap();
   }, [filteredEvents]);
 
   return (
@@ -198,7 +204,8 @@ export default function Dashboard() {
           </div>
 
           {/* 카카오맵 (우측) */}
-          <div id="kakao-map" style={{flex: 1, position: "relative", background: "#f1f5f9"}}>
+          <div style={{flex: 1, position: "relative", background: "#f1f5f9"}}>
+            <div id="kakao-map" style={{width: "100%", height: "100%"}}></div>
           </div>
         </div>
       </div>
