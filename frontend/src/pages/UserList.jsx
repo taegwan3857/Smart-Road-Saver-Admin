@@ -92,8 +92,7 @@ export default function UserList() {
 
       <div className="panel">
         <div className="board-filters">
-          <div style={{display:"flex", justifyContent:"space-between", width:"100%"}}>
-            <div className="filter-group">
+          <div className="filter-group" style={{display: "flex", flexWrap: "wrap", gap: "10px", width: "100%", justifyContent: "flex-start", alignItems: "center"}}>
               <CustomSelect 
                 options={["권한 전체", "관리자", "사용자"]} 
                 value={roleFilter} 
@@ -103,12 +102,10 @@ export default function UserList() {
                 <input type="text" className="form-input" placeholder="이름, 아이디 검색" value={userSearchInput} onChange={(e) => setUserSearchInput(e.target.value)} onKeyDown={handleUserKeyDown} />
                 <button className="btn-primary" onClick={handleUserSearch}>검색</button>
               </div>
-            </div>
-            <div style={{display:"flex", alignItems:"center"}}>
-              <button className="btn-secondary" style={{borderColor:"#ef4444", color:"#ef4444", background:"white", padding:"8px 16px", borderRadius:"6px", cursor:"pointer", fontWeight:"600"}} onClick={handleDeleteSelected}>
-                <i className="fas fa-trash-alt" style={{marginRight:"6px"}}></i>삭제
+              
+              <button className="btn-secondary" style={{borderColor:"#ef4444", color:"#ef4444", background:"white", padding:"8px 16px", borderRadius:"6px", cursor:"pointer", fontWeight:"600", marginLeft: "auto"}} onClick={handleDeleteSelected}>
+                <i className="fas fa-trash-alt" style={{marginRight:"6px"}}></i>선택 삭제
               </button>
-            </div>
           </div>
         </div>
 
@@ -138,7 +135,7 @@ export default function UserList() {
                   return (
                     <tr key={user.user_id||user.id||user._id||idx} onClick={() => navigate(`/users/${user.user_id||user.id||user._id}`)} style={{cursor: "pointer"}}>
                       <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(user.user_id||user.id||user._id)} onChange={(e) => handleSelectOne(e, user.user_id||user.id||user._id)} /></td>
-                      <td style={{fontWeight: "500"}}>{user.login_id||user.userId||'-'}</td>
+                      <td>{user.login_id||user.userId||'-'}</td>
                       <td>{user.name||'-'}</td>
                       <td>
                         <span className={`badge ${badgeClass}`}>
