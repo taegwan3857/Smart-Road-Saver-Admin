@@ -141,6 +141,9 @@ export default function DetectionList() {
       matchesType = translated.includes(typeFilter) || type.includes(typeFilter);
     }
 
+    const rl = (d.risk_level || '').toUpperCase();
+    const matchesRisk = riskFilter === '' || rl === riskFilter;
+
     let matchesPeriod = true;
     if (periodFilter !== '전체 기간' && (d.detected_at||d.created_at)) {
       const date = new Date(d.detected_at||d.created_at);
