@@ -660,3 +660,36 @@ body {
   40% { transform: translateY(-30px) scale(1.02); opacity: 1; }
   100% { transform: translateY(-30px) scale(0.9); opacity: 0; }
 }
+
+/* 인쇄 및 PDF 저장용 CSS */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  .sidebar, .header, .page-header-wrap, .btn-print, .btn-back, .btn-primary, .btn-secondary, .modal-overlay {
+    display: none !important;
+  }
+  .app-container, .main-wrapper, .content-area {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+  .document-paper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+  }
+  /* 컬러 출력 강제 */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

@@ -55,6 +55,7 @@ export default function ReportDetail() {
           
           
           
+          <button className="btn-print btn-outline" style={{marginRight: "8px"}} onClick={() => window.print()}><i className="fas fa-print"></i> 인쇄 / PDF 저장</button>
           <button className="btn-back" onClick={()=>navigate('/reports')}><i className="fas fa-list"></i> 목록으로</button>
         </div>
       </div>
