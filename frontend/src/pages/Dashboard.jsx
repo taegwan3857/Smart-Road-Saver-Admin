@@ -37,6 +37,13 @@ export default function Dashboard() {
   const [periodFilter, setPeriodFilter] = useState('전체 기간');
   const [mapInstance, setMapInstance] = useState(null);
   const [activeEventId, setActiveEventId] = useState(null);
+  const [navigatingId, setNavigatingId] = useState(null);
+
+  const handleNavigateDetail = (e, id) => {
+    e.stopPropagation();
+    setNavigatingId(id);
+    setTimeout(() => { navigate(`/detections/${id}`); }, 250);
+  };
   const markersRef = useRef([]);
   const overlayRef = useRef(null);
 
@@ -367,10 +374,10 @@ export default function Dashboard() {
                 </div>
               ) : (
                 filteredEvents.map(ev => (
-                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
+                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className={`list-item ${navigatingId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? 'navigating-out' : ''}`} onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
                       <span className="badge medium" style={{background: (ev.risk_level||'').toUpperCase()==='HIGH' ? '#ef4444' : (ev.risk_level||'').toUpperCase()==='MEDIUM' ? '#f59e0b' : (ev.risk_level||'').toUpperCase()==='LOW' ? '#10b981' : '#64748b', color:"#fff", display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
-                      <button onClick={(e) => { e.stopPropagation(); navigate(`/detections/${ev.event_id||ev.detection_id||ev.id||ev._id}`); }} style={{background: "none", border: "none", color: "var(--primary-color)", fontSize: "0.85rem", cursor: "pointer", fontWeight: 600}}>상세보기 &rarr;</button>
+                      <button className="detail-link-btn" onClick={(e) => handleNavigateDetail(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{ev.address||ev.location||'위치 정보 없음'}</div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>

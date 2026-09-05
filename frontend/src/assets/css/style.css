@@ -587,3 +587,41 @@ body {
 .sidebar-group-title:first-child {
   margin-top: 12px;
 }
+
+/* 상세보기 버튼 및 네비게이션 애니메이션 */
+.detail-link-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.detail-link-btn:hover {
+  background: rgba(29, 49, 98, 0.08);
+}
+.detail-link-btn .arrow {
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+.detail-link-btn:hover .arrow {
+  transform: translateX(4px);
+}
+.detail-link-btn:active {
+  transform: scale(0.92);
+}
+
+.navigating-out {
+  animation: slideOutRight 0.25s forwards ease-in;
+  pointer-events: none;
+}
+@keyframes slideOutRight {
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  100% { transform: translateX(30px) scale(0.95); opacity: 0; }
+}
