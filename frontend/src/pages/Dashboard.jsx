@@ -199,12 +199,6 @@ export default function Dashboard() {
 
           {/* 카카오맵 (우측) */}
           <div id="kakao-map" style={{flex: 1, position: "relative", background: "#f1f5f9"}}>
-            {!window.kakao && (
-              <div style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", color: "#64748b", textAlign: "center", lineHeight: "1.6"}}>
-                <div>지도 영역입니다.</div>
-                <div style={{fontSize: "0.9rem"}}><code>index.html</code>에 카카오 지도 API 키를 등록하면 지도가 활성화됩니다.</div>
-              </div>
-            )}
           </div>
         </div>
       </div>
