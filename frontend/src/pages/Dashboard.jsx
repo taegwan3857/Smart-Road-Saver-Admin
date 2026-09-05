@@ -17,6 +17,13 @@ export default function Dashboard() {
   const [riskFilter, setRiskFilter] = useState('위험도 전체');
   const [periodFilter, setPeriodFilter] = useState('전체 기간');
 
+  const handlePanTo = (lat, lng) => {
+    if (mapInstance && window.kakao) {
+      const moveLatLon = new window.kakao.maps.LatLng(lat, lng);
+      mapInstance.panTo(moveLatLon);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -116,6 +123,7 @@ export default function Dashboard() {
           level: 4
         };
         const map = new window.kakao.maps.Map(container, options);
+        setMapInstance(map);
         
         filteredEvents.forEach(ev => {
           if (ev.latitude && ev.longitude) {
@@ -190,13 +198,16 @@ export default function Dashboard() {
                 </div>
               ) : (
                 filteredEvents.map(ev => (
-                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => navigate(`/detections/${ev.event_id||ev.detection_id||ev.id||ev._id}`)} style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
+                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => handlePanTo(ev.latitude, ev.longitude)} style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
                       <span className="badge medium" style={{background: getTypeColor(ev.event_type||ev.type)==='danger'?'var(--color-danger)':'var(--color-warning)', color:"#fff"}}>{ev.event_type||ev.type||'위험 요소'}</span>
-                      <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>{ev.detected_at||ev.created_at ? new Date(ev.detected_at||ev.created_at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}) : '-'}</span>
+                      <button onClick={(e) => { e.stopPropagation(); navigate(`/detections/${ev.event_id||ev.detection_id||ev.id||ev._id}`); }} style={{background: "none", border: "none", color: "var(--primary-color)", fontSize: "0.85rem", cursor: "pointer", fontWeight: 600}}>상세보기 &rarr;</button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{ev.address||ev.location||'위치 정보 없음'}</div>
-                    <div style={{fontSize:"0.8rem",color:"#94a3b8"}}><i className="fas fa-map-marker-alt"></i> {ev.latitude||'-'}, {ev.longitude||'-'}</div>
+                    <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                      <div style={{fontSize:"0.8rem",color:"#94a3b8"}}><i className="fas fa-map-marker-alt"></i> {ev.latitude||'-'}, {ev.longitude||'-'}</div>
+                      <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>{ev.detected_at||ev.created_at ? new Date(ev.detected_at||ev.created_at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}) : '-'}</span>
+                    </div>
                   </div>
                 ))
               )}
