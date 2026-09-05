@@ -16,6 +16,7 @@ export default function Dashboard() {
   const [typeFilter, setTypeFilter] = useState('위험 유형 전체');
   const [riskFilter, setRiskFilter] = useState('위험도 전체');
   const [periodFilter, setPeriodFilter] = useState('전체 기간');
+  const [mapInstance, setMapInstance] = useState(null);
 
   const handlePanTo = (lat, lng) => {
     if (mapInstance && window.kakao) {
