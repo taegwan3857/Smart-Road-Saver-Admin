@@ -164,10 +164,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
-  font-weight: bold;
-  color: #b91c1c; 
+}
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid #dc2626;
+  border-radius: 50%;
+  color: #dc2626;
   font-family: 'KoPub Batang', serif;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  text-align: center;
+  transform: rotate(-3deg);
+  opacity: 0.9;
+  box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.2);
 }
 
 .doc-meta-table {

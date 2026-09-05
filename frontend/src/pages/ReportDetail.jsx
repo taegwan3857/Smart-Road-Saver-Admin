@@ -77,15 +77,15 @@ export default function ReportDetail() {
           <div className="doc-approval">
             <div className="approval-box">
               <div className="approval-title">기안자</div>
-              <div className="approval-sign">S.R.S.관리자</div>
+              <div className="approval-sign"><span className="stamp">S.R.S<br/>관리자</span></div>
             </div>
             <div className="approval-box">
               <div className="approval-title">자동결재</div>
-              <div className="approval-sign">시스템</div>
+              <div className="approval-sign"><span className="stamp">시스템</span></div>
             </div>
             <div className="approval-box">
               <div className="approval-title">센터장</div>
-              <div className="approval-sign">전결</div>
+              <div className="approval-sign"><span className="stamp">전&nbsp;&nbsp;결</span></div>
             </div>
           </div>
         </div>
