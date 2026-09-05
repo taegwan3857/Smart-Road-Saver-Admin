@@ -75,7 +75,7 @@ export default function DetectionDetail() {
     }
   };
 
-  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>데이터 불러오는 중...</div></div>;
+  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
   if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>감지 데이터를 찾을 수 없습니다.</div></div>;
 
   return (

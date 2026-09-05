@@ -66,7 +66,7 @@ export default function Login() {
               <input type="password" value={userPw} onChange={e=>setUserPw(e.target.value)} placeholder="비밀번호를 입력하세요" required={false} />
             </div>
             <button type="submit" className="btn-login" disabled={isLoading}>
-              {isLoading ? '로그인 중...' : '로그인'}
+              {'로그인'}
             </button>
           </form>
         </div>

@@ -116,7 +116,7 @@ export default function Header() {
           </span>
           <div style={{width: "1px", height: "14px", background: "#cbd5e1"}}></div>
           <span style={{color: "var(--text-main)", fontWeight: "600"}}>
-            {latestEvent ? `${eventAddress}_${translateType(latestEvent.obstacle_type||latestEvent.event_type||latestEvent.type)} 감지 (${formatEventTime(latestEvent.timestamp||latestEvent.created_at||latestEvent.detected_at||latestEvent.date)})` : '대기 중...'}
+            {latestEvent ? `${eventAddress}_${translateType(latestEvent.obstacle_type||latestEvent.event_type||latestEvent.type)} 감지 (${formatEventTime(latestEvent.timestamp||latestEvent.created_at||latestEvent.detected_at||latestEvent.date)})` : '실시간 감지 대기'}
           </span>
         </div>
       </div>

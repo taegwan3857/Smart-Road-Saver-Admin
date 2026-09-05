@@ -96,7 +96,7 @@ export default function UserList() {
             </thead>
             <tbody>
               {isUsersLoading ? (
-                <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"#94a3b8"}}>로딩 중...</td></tr>
+                <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"#94a3b8"}}></td></tr>
               ) : filteredUsers.length === 0 ? (
                 <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"#94a3b8"}}>검색 결과가 없습니다.</td></tr>
               ) : (

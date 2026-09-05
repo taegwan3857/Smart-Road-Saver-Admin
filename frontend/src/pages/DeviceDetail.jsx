@@ -24,7 +24,7 @@ export default function DeviceDetail() {
     fetchData();
   }, [id]);
 
-  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>데이터 불러오는 중...</div></div>;
+  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
   if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>장치 정보를 찾을 수 없습니다.</div></div>;
 
   return (
