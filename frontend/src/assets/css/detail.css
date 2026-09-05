@@ -239,10 +239,12 @@
   text-align: center;
   margin-top: 60px;
   margin-bottom: 20px;
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #000;
-  letter-spacing: 4px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #475569;
+  letter-spacing: 1px;
+  border-top: 1px solid #cbd5e1;
+  padding-top: 20px;
 }
 
 .doc-stamp {
