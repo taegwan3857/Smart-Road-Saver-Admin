@@ -126,6 +126,8 @@ export default function Dashboard() {
           level: 4
         };
         const map = new window.kakao.maps.Map(container, options);
+        // flex 레이아웃 등에서 크기가 안 잡히는 현상 방지
+        setTimeout(() => map.relayout(), 100);
         setMapInstance(map);
       });
     };
@@ -140,7 +142,10 @@ export default function Dashboard() {
     if (!mapInstance || !window.kakao || !window.kakao.maps) return;
     
     // 1. 기존 마커들 모두 지도에서 제거
-    markers.forEach(m => m.setMap(null));
+    setMarkers(prevMarkers => {
+      prevMarkers.forEach(m => m.setMap(null));
+      return [];
+    });
     
     // 2. 새 데이터 기반으로 새 마커 생성
     const newMarkers = [];
@@ -154,7 +159,6 @@ export default function Dashboard() {
     });
     setMarkers(newMarkers);
     
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filteredEvents, mapInstance]);
 
 
