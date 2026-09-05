@@ -210,8 +210,8 @@ export default function Dashboard() {
           titleWrap.style.cssText = "display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;";
           
           const title = document.createElement('div');
-          title.style.cssText = "font-weight:700; color:#0f172a; font-size:15px;";
-          title.innerText = getKoreanType(ev.obstacle_type || ev.event_type || ev.type);
+          title.style.cssText = "font-weight:700; color:#0f172a; font-size:15px; display:flex; align-items:center; gap:6px;";
+          title.innerHTML = `<i class="${iconClass}" style="color:${bgColor}"></i><span>${getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>`;
           
           const closeBtn = document.createElement('button');
           closeBtn.innerHTML = "&times;";
@@ -229,8 +229,8 @@ export default function Dashboard() {
           btnWrap.style.cssText = "display:flex; justify-content:flex-end;";
           
           const detailBtn = document.createElement('button');
-          detailBtn.style.cssText = "background:#3b82f6; color:#ffffff; border:none; padding:6px 12px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s;";
-          detailBtn.innerText = "상세 정보 보기";
+          detailBtn.style.cssText = "background:var(--primary-color, #1d3162); color:#ffffff; border:none; padding:6px 12px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:6px;";
+          detailBtn.innerHTML = '<i class="fas fa-search"></i><span>상세 정보 보기</span>';
           detailBtn.onclick = () => navigate(`/detections/${evId}`);
           
           btnWrap.appendChild(detailBtn);
