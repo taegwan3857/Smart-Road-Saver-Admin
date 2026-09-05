@@ -109,6 +109,8 @@ export default function Dashboard() {
     return matchesSearch && matchesType && matchesRisk && matchesPeriod;
   });
 
+
+  // 지도 인스턴스 초기화 (최초 1회)
   useEffect(() => {
     const initMap = () => {
       if (!window.kakao || !window.kakao.maps) {
@@ -117,25 +119,44 @@ export default function Dashboard() {
       }
       window.kakao.maps.load(() => {
         const container = document.getElementById('kakao-map');
-        if (!container) return;
+        if (!container || container.childNodes.length > 0) return; // 이미 지도가 그려져있으면 무시
+        
         const options = {
           center: new window.kakao.maps.LatLng(37.4979, 127.0280),
           level: 4
         };
         const map = new window.kakao.maps.Map(container, options);
         setMapInstance(map);
-        
-        filteredEvents.forEach(ev => {
-          if (ev.latitude && ev.longitude) {
-            const markerPosition = new window.kakao.maps.LatLng(ev.latitude, ev.longitude);
-            const marker = new window.kakao.maps.Marker({ position: markerPosition });
-            marker.setMap(map);
-          }
-        });
       });
     };
     initMap();
-  }, [filteredEvents]);
+  }, []); // 빈 의존성 배열로 마운트 시 1회만 실행
+
+  // 마커 업데이트 관리용 (이전 마커 지우기 위해 상태 저장)
+  const [markers, setMarkers] = useState([]);
+
+  // 데이터 변경 시 마커만 업데이트
+  useEffect(() => {
+    if (!mapInstance || !window.kakao || !window.kakao.maps) return;
+    
+    // 1. 기존 마커들 모두 지도에서 제거
+    markers.forEach(m => m.setMap(null));
+    
+    // 2. 새 데이터 기반으로 새 마커 생성
+    const newMarkers = [];
+    filteredEvents.forEach(ev => {
+      if (ev.latitude && ev.longitude) {
+        const markerPosition = new window.kakao.maps.LatLng(Number(ev.latitude), Number(ev.longitude));
+        const marker = new window.kakao.maps.Marker({ position: markerPosition });
+        marker.setMap(mapInstance);
+        newMarkers.push(marker);
+      }
+    });
+    setMarkers(newMarkers);
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filteredEvents, mapInstance]);
+
 
   return (
     <div className="content-area">
