@@ -162,14 +162,20 @@ export default function Dashboard() {
         const evId = ev.event_id || ev.detection_id || ev.id || ev._id;
         const eType = ev.obstacle_type || ev.event_type || ev.type || '';
         
-        // 커스텀 아이콘 생성 로직
+        // 1. 아이콘 모양은 위험 유형(obstacle_type)에 따라 결정
         let iconClass = 'fas fa-exclamation-triangle';
-        let bgColor = '#f59e0b';
-        if (eType === 'BLACK_ICE') { iconClass = 'fas fa-snowflake'; bgColor = '#3b82f6'; }
-        else if (eType === 'POTHOLE') { iconClass = 'fas fa-road'; bgColor = '#8b5cf6'; }
-        else if (eType === 'OBSTACLE') { iconClass = 'fas fa-box-open'; bgColor = '#f59e0b'; }
-        else if (eType === 'ANIMAL_CORPSE' || eType === 'ANIMAL') { iconClass = 'fas fa-paw'; bgColor = '#ef4444'; }
-        else if (eType === 'WET_ROAD') { iconClass = 'fas fa-tint'; bgColor = '#0ea5e9'; }
+        if (eType === 'BLACK_ICE') iconClass = 'fas fa-snowflake';
+        else if (eType === 'POTHOLE') iconClass = 'fas fa-road';
+        else if (eType === 'OBSTACLE') iconClass = 'fas fa-box-open';
+        else if (eType === 'ANIMAL_CORPSE' || eType === 'ANIMAL') iconClass = 'fas fa-paw';
+        else if (eType === 'WET_ROAD') iconClass = 'fas fa-tint';
+
+        // 2. 배경 색상은 위험도(risk_level)에 따라 결정
+        let bgColor = '#64748b'; // 기본(회색)
+        const rl = (ev.risk_level || '').toUpperCase();
+        if (rl === 'HIGH') bgColor = '#ef4444';      // 높음 (빨강)
+        else if (rl === 'MEDIUM') bgColor = '#f59e0b';// 주의 (주황)
+        else if (rl === 'LOW') bgColor = '#10b981';   // 낮음 (초록)
         
         const iconContent = document.createElement('div');
         const isActive = activeEventId === evId;
@@ -284,9 +290,9 @@ export default function Dashboard() {
             <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물", "젖은 노면"]} value={typeFilter} onChange={setTypeFilter} style={{width: "150px"}} />
             <CustomSelect options={[
               { value: '', label: '위험도 전체' },
-              { value: 'HIGH', label: '높음' },
-              { value: 'MEDIUM', label: '주의' },
-              { value: 'LOW', label: '낮음' }
+              { value: 'HIGH', label: '높음', color: '#ef4444' },
+              { value: 'MEDIUM', label: '주의', color: '#f59e0b' },
+              { value: 'LOW', label: '낮음', color: '#10b981' }
             ]} value={riskFilter} onChange={setRiskFilter} style={{width: "140px"}} />
             <CustomSelect options={["전체 기간", "오늘", "최근 1주일", "최근 1개월"]} value={periodFilter} onChange={setPeriodFilter} style={{width: "130px"}} />
             <div className="search-box" style={{marginLeft: "4px"}}>
@@ -314,7 +320,7 @@ export default function Dashboard() {
                 filteredEvents.map(ev => (
                   <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
-                      <span className="badge medium" style={{background: getTypeColor(ev.obstacle_type||ev.event_type||ev.type)==='danger'?'var(--color-danger)':'var(--color-warning)', color:"#fff"}}>{getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
+                      <span className="badge medium" style={{background: (ev.risk_level||'').toUpperCase()==='HIGH' ? '#ef4444' : (ev.risk_level||'').toUpperCase()==='MEDIUM' ? '#f59e0b' : (ev.risk_level||'').toUpperCase()==='LOW' ? '#10b981' : '#64748b', color:"#fff"}}>{getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
                       <button onClick={(e) => { e.stopPropagation(); navigate(`/detections/${ev.event_id||ev.detection_id||ev.id||ev._id}`); }} style={{background: "none", border: "none", color: "var(--primary-color)", fontSize: "0.85rem", cursor: "pointer", fontWeight: 600}}>상세보기 &rarr;</button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{ev.address||ev.location||'위치 정보 없음'}</div>
