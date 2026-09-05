@@ -89,14 +89,14 @@ export default function Dashboard() {
     
     let matchesType = true;
     if (typeFilter !== '위험 유형 전체') {
-      const t = String(ev.event_type||ev.type||'');
+      const t = String(ev.obstacle_type||ev.event_type||ev.type||'');
       if (typeFilter === '장애물/낙하물' && !t.includes('장애물') && !t.includes('낙하물')) matchesType = false;
       else if (typeFilter !== '장애물/낙하물' && !t.includes(typeFilter)) matchesType = false;
     }
 
     let matchesRisk = true;
     if (riskFilter !== '위험도 전체') {
-      const color = getTypeColor(ev.event_type||ev.type);
+      const color = getTypeColor(ev.obstacle_type||ev.event_type||ev.type);
       if (riskFilter === '높음 (High)' && color !== 'danger') matchesRisk = false;
       if (riskFilter === '주의 (Medium)' && color !== 'warning') matchesRisk = false;
     }
@@ -152,7 +152,7 @@ export default function Dashboard() {
       if (ev.latitude && ev.longitude) {
         const markerPosition = new window.kakao.maps.LatLng(Number(ev.latitude), Number(ev.longitude));
         const evId = ev.event_id || ev.detection_id || ev.id || ev._id;
-        const eType = ev.event_type || ev.type || '';
+        const eType = ev.obstacle_type || ev.event_type || ev.type || '';
         
         // 커스텀 아이콘 생성 로직
         let iconClass = 'fas fa-exclamation-triangle';
@@ -197,7 +197,7 @@ export default function Dashboard() {
           
           const title = document.createElement('div');
           title.style.cssText = "font-weight:700; color:#0f172a; font-size:15px;";
-          title.innerText = ev.event_type || ev.type || '위험 요소';
+          title.innerText = getKoreanType(ev.obstacle_type || ev.event_type || ev.type);
           
           const closeBtn = document.createElement('button');
           closeBtn.innerHTML = "&times;";
@@ -301,7 +301,7 @@ export default function Dashboard() {
                 filteredEvents.map(ev => (
                   <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "#eff6ff" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid #3b82f6" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
-                      <span className="badge medium" style={{background: getTypeColor(ev.event_type||ev.type)==='danger'?'var(--color-danger)':'var(--color-warning)', color:"#fff"}}>{ev.event_type||ev.type||'위험 요소'}</span>
+                      <span className="badge medium" style={{background: getTypeColor(ev.obstacle_type||ev.event_type||ev.type)==='danger'?'var(--color-danger)':'var(--color-warning)', color:"#fff"}}>{getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
                       <button onClick={(e) => { e.stopPropagation(); navigate(`/detections/${ev.event_id||ev.detection_id||ev.id||ev._id}`); }} style={{background: "none", border: "none", color: "var(--primary-color)", fontSize: "0.85rem", cursor: "pointer", fontWeight: 600}}>상세보기 &rarr;</button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{ev.address||ev.location||'위치 정보 없음'}</div>
