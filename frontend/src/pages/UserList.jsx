@@ -166,6 +166,8 @@ export default function UserList() {
         title="사용자 삭제"
         message={`선택한 사용자 ${selectedIds.length}명을 삭제하시겠습니까?`}
         type="danger"
+        confirmText="삭제"
+        cancelText="취소"
         onConfirm={handleDeleteSelected}
         onCancel={() => setIsDeleteModalOpen(false)}
       />
