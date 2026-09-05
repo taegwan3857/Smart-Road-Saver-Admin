@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userService } from '../services/userService';
 import CustomSelect from '../components/common/CustomSelect';
+import Modal from '../components/common/Modal';
 
 export default function UserList() {
   const navigate = useNavigate();
@@ -10,6 +11,18 @@ export default function UserList() {
   const [users, setUsers] = useState([]);
   const [isUsersLoading, setIsUsersLoading] = useState(true);
   const [selectedIds, setSelectedIds] = useState([]);
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [alertModal, setAlertModal] = useState({ isOpen: false, title: '', message: '', type: 'info' });
+
+  const confirmDelete = () => {
+    if (selectedIds.length === 0) {
+      setAlertModal({ isOpen: true, title: "알림", message: "삭제할 사용자를 선택해주세요.", type: "info" });
+      return;
+    }
+    setIsDeleteModalOpen(true);
+  };
+
   const handleSelectAll = (e) => {
     if (e.target.checked) {
       setSelectedIds(filteredUsers.map(user => user.user_id||user.id||user._id));
@@ -19,23 +32,19 @@ export default function UserList() {
   };
 
   const handleDeleteSelected = async () => {
-    if (selectedIds.length === 0) {
-      alert("삭제할 사용자를 선택해주세요.");
-      return;
-    }
-    if (!window.confirm(`선택한 사용자 ${selectedIds.length}명을 삭제하시겠습니까?`)) return;
+    setIsDeleteModalOpen(false);
     try {
       for (const id of selectedIds) {
         await userService.deleteUser(id);
       }
-      alert("삭제되었습니다.");
+      setAlertModal({ isOpen: true, title: "삭제 완료", message: "선택한 사용자가 삭제되었습니다.", type: "info" });
       setSelectedIds([]);
       // Refresh list
       const data = await userService.getUsers();
       setUsers(Array.isArray(data) ? data : (data?.users || data?.data || []));
     } catch (e) {
       console.error(e);
-      alert("삭제 처리 중 오류가 발생했습니다.");
+      setAlertModal({ isOpen: true, title: "오류", message: "삭제 처리 중 오류가 발생했습니다.", type: "danger" });
     }
   };
 
@@ -103,7 +112,7 @@ export default function UserList() {
                 <button className="btn-primary" onClick={handleUserSearch}>검색</button>
               </div>
               
-              <button className="btn-secondary" style={{borderColor:"#ef4444", color:"#ef4444", background:"white", padding:"8px 16px", borderRadius:"6px", cursor:"pointer", fontWeight:"600", marginLeft: "auto"}} onClick={handleDeleteSelected}>
+              <button className="btn-outline" style={{border: "1px solid #ef4444", color:"#ef4444", background:"white", padding:"8px 16px", borderRadius:"6px", cursor:"pointer", fontWeight:"600", marginLeft: "auto"}} onClick={confirmDelete}>
                 <i className="fas fa-trash-alt" style={{marginRight:"6px"}}></i>선택 삭제
               </button>
           </div>
@@ -151,6 +160,24 @@ export default function UserList() {
           </table>
         </div>
       </div>
+
+      <Modal 
+        isOpen={isDeleteModalOpen}
+        title="사용자 삭제"
+        message={`선택한 사용자 ${selectedIds.length}명을 삭제하시겠습니까?`}
+        type="danger"
+        onConfirm={handleDeleteSelected}
+        onCancel={() => setIsDeleteModalOpen(false)}
+      />
+      
+      <Modal 
+        isOpen={alertModal.isOpen}
+        title={alertModal.title}
+        message={alertModal.message}
+        type={alertModal.type}
+        onConfirm={() => setAlertModal({ ...alertModal, isOpen: false })}
+        onCancel={null}
+      />
     </div>
   );
 }
