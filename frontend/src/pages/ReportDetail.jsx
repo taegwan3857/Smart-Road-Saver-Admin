@@ -3,6 +3,17 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { reportService } from '../services/reportService';
 import Modal from '../components/common/Modal';
 
+const translateType = (type) => {
+  if (!type) return '위험 요소';
+  const t = String(type).toUpperCase();
+  if (t.includes('BLACK_ICE') || t.includes('블랙아이스')) return '블랙아이스';
+  if (t.includes('POTHOLE') || t.includes('포트홀')) return '포트홀';
+  if (t.includes('OBSTACLE') || t.includes('장애물')) return '장애물';
+  if (t.includes('ANIMAL') || t.includes('CORPSE')) return '동물 사체';
+  if (t.includes('WET_ROAD') || t.includes('젖은')) return '젖은 노면';
+  return type;
+};
+
 export default function ReportDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -94,7 +105,7 @@ export default function ReportDetail() {
             </tr>
             <tr>
               <th>위험 유형</th>
-              <td style={{fontWeight: "bold"}}>{data.event_type||data.type||'위험 요소'}</td>
+              <td style={{fontWeight: "bold"}}>{translateType(data.event_type||data.type)}</td>
               <th>위험도</th>
               <td style={{fontWeight: "bold"}}>중간</td>
             </tr>
@@ -115,7 +126,7 @@ export default function ReportDetail() {
           )) : (
             <>
               1. 평소 구정 발전과 구민 안전을 위해 애쓰시는 노고에 감사드립니다.<br/><br/>
-              2. 우리 구 관내 도로 모니터링 중, AI 스마트 관제 장비에 의해 아래와 같이 <strong>{data.event_type||data.type||'위험 요소'}</strong> 현상이 감지되었습니다.<br/><br/>
+              2. 우리 구 관내 도로 모니터링 중, AI 스마트 관제 장비에 의해 아래와 같이 <strong>{translateType(data.event_type||data.type)}</strong> 현상이 감지되었습니다.<br/><br/>
               3. 해당 구간은 차량 통행 시 2차 사고 발생 위험이 높으므로, 유관 부서의 즉각적인 현장 확인 및 안전 조치를 요청드립니다.<br/><br/>
               <strong>- 아 래 -</strong><br/><br/>
               가. 감지 일시 : {data.created_at ? new Date(data.created_at).toLocaleString('ko-KR') : '2026. 09. 04 18:32'}<br/>
