@@ -27,14 +27,14 @@ export default function Sidebar() {
         <span style={{marginLeft:"8px"}}>Smart Road Saver</span>
       </div>
       <nav className="sidebar-menu">
-        <div style={{fontSize:"0.75rem",color:"rgba(255,255,255,0.4)",margin:"12px 12px 4px",fontWeight:"600",letterSpacing:"1px"}}>모니터링</div>
+        <div className="sidebar-group-title">모니터링</div>
         <Link to="/" className={isActive("/")}><i className="fas fa-chart-line"></i> 대시보드</Link>
         
-        <div style={{fontSize:"0.75rem",color:"rgba(255,255,255,0.4)",margin:"24px 12px 4px",fontWeight:"600",letterSpacing:"1px"}}>데이터 관리</div>
+        <div className="sidebar-group-title">데이터 관리</div>
         <Link to="/detections" className={isActive("/detections")}><i className="fas fa-list"></i> 감지기록</Link>
         <Link to="/reports" className={isActive("/reports")}><i className="fas fa-file-alt"></i> 신고문서</Link>
         
-        <div style={{fontSize:"0.75rem",color:"rgba(255,255,255,0.4)",margin:"24px 12px 4px",fontWeight:"600",letterSpacing:"1px"}}>시스템 설정</div>
+        <div className="sidebar-group-title">시스템 설정</div>
         <Link to="/users" className={isActive("/users")}><i className="fas fa-users-cog"></i> 사용자 관리</Link>
       </nav>
       
