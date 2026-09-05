@@ -19,28 +19,35 @@ export default function CustomSelect({ options, value, onChange, className = "fo
     setIsOpen(false);
   };
 
+  const getLabel = (opt) => typeof opt === 'object' ? opt.label : opt;
+  const getValue = (opt) => typeof opt === 'object' ? opt.value : opt;
+  
+  const currentLabel = getLabel(options.find(opt => getValue(opt) === value)) || value;
+
   return (
     <div className="custom-select-container" ref={containerRef} style={style}>
       <div 
         className={`custom-select-trigger ${isOpen ? 'open' : ''}`} 
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="trigger-text">{value}</span>
+        <span className="trigger-text">{currentLabel}</span>
         <i className="fas fa-chevron-down" style={{fontSize:"0.8rem", color:"var(--text-muted)"}}></i>
       </div>
       
       {isOpen && (
         <div className="custom-select-options open">
           {options.map((opt, index) => {
-            const isSelected = value === opt;
+            const optValue = getValue(opt);
+            const optLabel = getLabel(opt);
+            const isSelected = value === optValue;
             return (
               <div 
                 key={index} 
                 className={`custom-option ${isSelected ? 'selected' : ''}`}
-                onClick={() => handleSelect(opt)}
+                onClick={() => handleSelect(optValue)}
               >
                 <i className="fas fa-check check-icon"></i>
-                {opt}
+                {optLabel}
               </div>
             );
           })}

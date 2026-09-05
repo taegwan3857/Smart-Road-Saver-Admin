@@ -23,7 +23,7 @@ export default function Dashboard() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [typeFilter, setTypeFilter] = useState('위험 유형 전체');
-  const [riskFilter, setRiskFilter] = useState('위험도 전체');
+  const [riskFilter, setRiskFilter] = useState('');
   const [periodFilter, setPeriodFilter] = useState('전체 기간');
   const [mapInstance, setMapInstance] = useState(null);
   const [activeEventId, setActiveEventId] = useState(null);
@@ -104,10 +104,9 @@ export default function Dashboard() {
     }
 
     let matchesRisk = true;
-    if (riskFilter !== '위험도 전체') {
-      const color = getTypeColor(ev.obstacle_type||ev.event_type||ev.type);
-      if (riskFilter === '높음 (High)' && color !== 'danger') matchesRisk = false;
-      if (riskFilter === '주의 (Medium)' && color !== 'warning') matchesRisk = false;
+    if (riskFilter !== '') {
+      const rl = (ev.risk_level || '').toUpperCase();
+      if (rl !== riskFilter) matchesRisk = false;
     }
 
     let matchesPeriod = true;
@@ -283,7 +282,12 @@ export default function Dashboard() {
           </div>
           <div className="filter-group" style={{gap: "10px", margin: 0}}>
             <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물", "젖은 노면"]} value={typeFilter} onChange={setTypeFilter} style={{width: "150px"}} />
-            <CustomSelect options={["위험도 전체", "높음 (High)", "주의 (Medium)"]} value={riskFilter} onChange={setRiskFilter} style={{width: "140px"}} />
+            <CustomSelect options={[
+              { value: '', label: '위험도 전체' },
+              { value: 'HIGH', label: '높음 (High)' },
+              { value: 'MEDIUM', label: '주의 (Medium)' },
+              { value: 'LOW', label: '낮음 (Low)' }
+            ]} value={riskFilter} onChange={setRiskFilter} style={{width: "140px"}} />
             <CustomSelect options={["전체 기간", "오늘", "최근 1주일", "최근 1개월"]} value={periodFilter} onChange={setPeriodFilter} style={{width: "130px"}} />
             <div className="search-box" style={{marginLeft: "4px"}}>
               <input type="text" className="form-input" placeholder="위치 또는 ID 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} style={{width: "180px"}} />
