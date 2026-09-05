@@ -204,8 +204,8 @@ export default function Dashboard() {
           </div>
 
           {/* 카카오맵 (우측) */}
-          <div style={{flex: 1, position: "relative", background: "#f1f5f9"}}>
-            <div id="kakao-map" style={{width: "100%", height: "100%"}}></div>
+          <div style={{flex: 1, position: "relative", background: "#f1f5f9", minHeight: "600px"}}>
+            <div id="kakao-map" style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></div>
           </div>
         </div>
       </div>
