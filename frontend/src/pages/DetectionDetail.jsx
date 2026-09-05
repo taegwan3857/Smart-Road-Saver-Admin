@@ -183,7 +183,7 @@ export default function DetectionDetail() {
               <div className="info-value"><span style={{color: (data.risk_level||'').toUpperCase() === 'HIGH' ? '#ef4444' : (data.risk_level||'').toUpperCase() === 'MEDIUM' ? '#f59e0b' : (data.risk_level||'').toUpperCase() === 'LOW' ? '#10b981' : 'var(--color-danger)', fontWeight: "700"}}>{translateType(data.obstacle_type||data.event_type||data.type)}</span></div>
             </div>
             <div className="info-item">
-              <div className="info-label">AI 신뢰도 (Confidence)</div>
+              <div className="info-label">AI 신뢰도</div>
               <div className="info-value">{data.confidence||data.score||'-'}%</div>
             </div>
             <div className="info-item">
