@@ -1,4 +1,5 @@
 {
+  "alias": ["smart-road-saver-admin-center.vercel.app"],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
