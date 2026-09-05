@@ -27,7 +27,7 @@ export default function Sidebar() {
         <span style={{marginLeft:"8px"}}>Smart Road Saver</span>
       </div>
       <nav className="sidebar-menu">
-        <div className="sidebar-group-title">관제대시보드</div>
+        <div className="sidebar-group-title">관제 대시보드</div>
         <Link to="/" className={isActive("/")}><i className="fas fa-chart-line"></i> 대시보드</Link>
         
         <div className="sidebar-group-title">감지/신고 관리</div>
