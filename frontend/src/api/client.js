@@ -28,7 +28,10 @@ apiClient.interceptors.response.use(
       localStorage.removeItem('accessToken');
       localStorage.removeItem('access_token');
       localStorage.removeItem('user');
-      window.location.href = '/login';
+      // 로그인 페이지에서는 무한 새로고침이나 모달 깜빡임을 방지하기 위해 이동하지 않음
+      if (!window.location.pathname.includes('/login')) {
+        window.location.href = '/login';
+      }
     }
     return Promise.reject(error);
   }
