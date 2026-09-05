@@ -164,7 +164,7 @@ export default function DetectionDetail() {
             </div>
             <div className="info-item">
               <div className="info-label">위험 유형 (분류)</div>
-              <div className="info-value"><span style={{color: "var(--color-danger)", fontWeight: "700"}}>{data.obstacle_type||data.event_type||data.type||'알 수 없음'}</span></div>
+              <div className="info-value"><span style={{color: (data.risk_level||'').toUpperCase() === 'HIGH' ? '#ef4444' : (data.risk_level||'').toUpperCase() === 'MEDIUM' ? '#f59e0b' : (data.risk_level||'').toUpperCase() === 'LOW' ? '#10b981' : 'var(--color-danger)', fontWeight: "700"}}>{translateType(data.obstacle_type||data.event_type||data.type)}</span></div>
             </div>
             <div className="info-item">
               <div className="info-label">AI 신뢰도 (Confidence)</div>
