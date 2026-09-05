@@ -17,6 +17,28 @@ export default function UserList() {
       setSelectedIds([]);
     }
   };
+
+  const handleDeleteSelected = async () => {
+    if (selectedIds.length === 0) {
+      alert("삭제할 사용자를 선택해주세요.");
+      return;
+    }
+    if (!window.confirm(`선택한 사용자 ${selectedIds.length}명을 삭제하시겠습니까?`)) return;
+    try {
+      for (const id of selectedIds) {
+        await userService.deleteUser(id);
+      }
+      alert("삭제되었습니다.");
+      setSelectedIds([]);
+      // Refresh list
+      const data = await userService.getUsers();
+      setUsers(Array.isArray(data) ? data : (data?.users || data?.data || []));
+    } catch (e) {
+      console.error(e);
+      alert("삭제 처리 중 오류가 발생했습니다.");
+    }
+  };
+
   const handleSelectOne = (e, id) => {
     if (e.target.checked) {
       setSelectedIds([...selectedIds, id]);
@@ -70,15 +92,22 @@ export default function UserList() {
 
       <div className="panel">
         <div className="board-filters">
-          <div className="filter-group">
-            <CustomSelect 
-              options={["권한 전체", "관리자", "사용자"]} 
-              value={roleFilter} 
-              onChange={setRoleFilter} 
-            />
-            <div className="search-box">
-              <input type="text" className="form-input" placeholder="이름, 아이디 검색" value={userSearchInput} onChange={(e) => setUserSearchInput(e.target.value)} onKeyDown={handleUserKeyDown} />
-              <button className="btn-primary" onClick={handleUserSearch}>검색</button>
+          <div style={{display:"flex", justifyContent:"space-between", width:"100%"}}>
+            <div className="filter-group">
+              <CustomSelect 
+                options={["권한 전체", "관리자", "사용자"]} 
+                value={roleFilter} 
+                onChange={setRoleFilter} 
+              />
+              <div className="search-box">
+                <input type="text" className="form-input" placeholder="이름, 아이디 검색" value={userSearchInput} onChange={(e) => setUserSearchInput(e.target.value)} onKeyDown={handleUserKeyDown} />
+                <button className="btn-primary" onClick={handleUserSearch}>검색</button>
+              </div>
+            </div>
+            <div style={{display:"flex", alignItems:"center"}}>
+              <button className="btn-secondary" style={{borderColor:"#ef4444", color:"#ef4444", background:"white", padding:"8px 16px", borderRadius:"6px", cursor:"pointer", fontWeight:"600"}} onClick={handleDeleteSelected}>
+                <i className="fas fa-trash-alt" style={{marginRight:"6px"}}></i>삭제
+              </button>
             </div>
           </div>
         </div>
@@ -109,7 +138,7 @@ export default function UserList() {
                   return (
                     <tr key={user.user_id||user.id||user._id||idx} onClick={() => navigate(`/users/${user.user_id||user.id||user._id}`)} style={{cursor: "pointer"}}>
                       <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(user.user_id||user.id||user._id)} onChange={(e) => handleSelectOne(e, user.user_id||user.id||user._id)} /></td>
-                      <td style={{fontWeight: "700"}}>{user.login_id||user.userId||'-'}</td>
+                      <td style={{fontWeight: "500"}}>{user.login_id||user.userId||'-'}</td>
                       <td>{user.name||'-'}</td>
                       <td>
                         <span className={`badge ${badgeClass}`}>
