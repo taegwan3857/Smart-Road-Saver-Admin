@@ -257,9 +257,14 @@ export default function Dashboard() {
           btnWrap.style.cssText = "display:flex; justify-content:flex-end;";
           
           const detailBtn = document.createElement('button');
-          detailBtn.style.cssText = "background:var(--primary-color, #1d3162); color:#ffffff; border:none; padding:6px 12px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:6px;";
+          detailBtn.className = "overlay-detail-btn";
           detailBtn.innerHTML = '<i class="fas fa-search"></i><span>상세 정보 보기</span>';
-          detailBtn.onclick = () => navigate(`/detections/${evId}`);
+          detailBtn.onclick = () => {
+            content.classList.add('overlay-navigating-out');
+            setTimeout(() => {
+              navigate(`/detections/${evId}`);
+            }, 200);
+          };
           
           btnWrap.appendChild(detailBtn);
           content.appendChild(titleWrap);
