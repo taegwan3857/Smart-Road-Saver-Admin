@@ -4,6 +4,15 @@ import { dashboardService } from '../services/dashboardService';
 import { deviceService } from '../services/deviceService';
 import CustomSelect from "../components/common/CustomSelect";
 
+const getKoreanType = (type) => {
+  if (type === 'BLACK_ICE') return '블랙아이스';
+  if (type === 'POTHOLE') return '포트홀';
+  if (type === 'OBSTACLE') return '장애물';
+  if (type === 'ANIMAL_CORPSE' || type === 'ANIMAL') return '동물 사체';
+  if (type === 'WET_ROAD') return '젖은 노면';
+  return '위험 요소';
+};
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const [summary, setSummary] = useState(null);
