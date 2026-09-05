@@ -178,9 +178,9 @@ export default function Dashboard() {
             </div>
             <div style={{flex: 1, overflowY: "auto", padding: "12px"}}>
               {filteredEvents.length === 0 ? (
-                <div className="empty-state" style={{padding: "40px 0", border: "none", background: "transparent"}}>
-                  <i className="fas fa-search"></i>
-                  <p>조건에 맞는 감지 기록이 없습니다.</p>
+                <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", color: "#94a3b8", gap: "8px"}}>
+                  <i className="fas fa-search" style={{fontSize: "1.5rem"}}></i>
+                  <p style={{margin: 0}}>조건에 맞는 감지 기록이 없습니다.</p>
                 </div>
               ) : (
                 filteredEvents.map(ev => (
