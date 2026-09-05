@@ -96,7 +96,7 @@ export default function UserList() {
     <div className="content-area">
       <div className="page-header-wrap">
         <div className="page-title">사용자 관리</div>
-        <div className="page-subtitle">시스템 관리자 계정과 현장 사용자(관제 차량, AI 단말기 연동) 정보를 통합하여 관리합니다.</div>
+        <div className="page-subtitle">관리자 계정과 사용자 계정 정보를 통합하여 관리합니다.</div>
       </div>
 
       <div className="panel">
