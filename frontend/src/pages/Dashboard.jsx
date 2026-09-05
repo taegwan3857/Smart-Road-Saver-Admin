@@ -4,6 +4,16 @@ import { dashboardService } from '../services/dashboardService';
 import { deviceService } from '../services/deviceService';
 import CustomSelect from "../components/common/CustomSelect";
 
+const getHazardIcon = (type) => {
+  const t = String(type || '').toUpperCase();
+  if (t === 'BLACK_ICE') return 'fas fa-snowflake';
+  if (t === 'POTHOLE') return 'fas fa-road';
+  if (t === 'OBSTACLE') return 'fas fa-box-open';
+  if (t === 'ANIMAL_CORPSE' || t === 'ANIMAL') return 'fas fa-paw';
+  if (t === 'WET_ROAD') return 'fas fa-tint';
+  return 'fas fa-exclamation-triangle';
+};
+
 const getKoreanType = (type) => {
   if (type === 'BLACK_ICE') return '블랙아이스';
   if (type === 'POTHOLE') return '포트홀';
