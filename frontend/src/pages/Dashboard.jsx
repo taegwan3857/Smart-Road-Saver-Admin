@@ -275,7 +275,7 @@ export default function Dashboard() {
           <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div>
               <div className="summary-title">온라인 장치</div>
-              <div className="summary-value text-success" style={{display:"flex", alignItems:"center", gap:"8px"}}>
+              <div className="summary-value" style={{display:"flex", alignItems:"center", gap:"8px", color: "#10b981"}}>
                 {summary?.active_devices || deviceCount} <span style={{fontSize: "1rem", color: "var(--text-muted)", fontWeight: "500"}}>대 작동중</span>
               </div>
             </div>
@@ -288,7 +288,7 @@ export default function Dashboard() {
           <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div>
               <div className="summary-title">현재 경고 (발생/진행)</div>
-              <div className="summary-value text-warning">{events.length} <span style={{fontSize: "1rem", color: "var(--text-muted)", fontWeight: "500"}}>건</span></div>
+              <div className="summary-value" style={{color: "#f59e0b"}}>{events.length} <span style={{fontSize: "1rem", color: "var(--text-muted)", fontWeight: "500"}}>건</span></div>
             </div>
             <div style={{width:'46px', height:'46px', borderRadius:'12px', background:'rgba(245, 158, 11, 0.12)', color:'#f59e0b', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px'}}>
               <i className="fas fa-exclamation-triangle"></i>
@@ -299,7 +299,7 @@ export default function Dashboard() {
           <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div>
               <div className="summary-title">금일 등록 감지</div>
-              <div className="summary-value text-primary">{summary?.total_detections_today || 0} <span style={{fontSize: "1rem", color: "var(--text-muted)", fontWeight: "500"}}>건</span></div>
+              <div className="summary-value" style={{color: "var(--primary-color)"}}>{summary?.total_detections_today || 0} <span style={{fontSize: "1rem", color: "var(--text-muted)", fontWeight: "500"}}>건</span></div>
             </div>
             <div style={{width:'46px', height:'46px', borderRadius:'12px', background:'rgba(29, 49, 98, 0.08)', color:'var(--primary-color)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px'}}>
               <i className="fas fa-search-location"></i>
@@ -310,7 +310,7 @@ export default function Dashboard() {
           <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div>
               <div className="summary-title">자동 신고 완료</div>
-              <div className="summary-value text-success">{summary?.completed_reports || events.length} <span style={{fontSize: "1rem", color: "var(--text-muted)", fontWeight: "500"}}>건</span></div>
+              <div className="summary-value" style={{color: "#3b82f6"}}>{summary?.completed_reports || events.length} <span style={{fontSize: "1rem", color: "var(--text-muted)", fontWeight: "500"}}>건</span></div>
             </div>
             <div style={{width:'46px', height:'46px', borderRadius:'12px', background:'rgba(59, 130, 246, 0.12)', color:'#3b82f6', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px'}}>
               <i className="fas fa-check-circle"></i>
