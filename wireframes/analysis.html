@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>블랙아이스 분석 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <main class="content-area">
+        <div class="panel-header" style="margin-bottom: 20px;">
+           <h2 style="font-size: 1.25rem;">센서 파동 및 블랙아이스 분석</h2>
+        </div>
+        <div class="dashboard-grid">
+          
+          <div class="panel span-12" style="min-height: 400px;">
+            <div class="panel-header">시간대별 블랙아이스 의심 확률 (Recharts LineChart 자리)</div>
+            <div class="placeholder-block">그래프 영역 (Recharts)</div>
+          </div>
+
+          <div class="panel span-6" style="min-height: 300px;">
+            <div class="panel-header">mmWave 파형 분석</div>
+            <div class="placeholder-block">파형 그래프 영역</div>
+          </div>
+          
+          <div class="panel span-6" style="min-height: 300px;">
+            <div class="panel-header">최종 신뢰도 분포</div>
+            <div class="placeholder-block">파이 차트 영역</div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

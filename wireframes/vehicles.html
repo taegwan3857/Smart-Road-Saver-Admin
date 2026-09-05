@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차량 및 장치 관리 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <main class="content-area">
+        <div class="page-header-wrap">
+          <div class="page-title">차량 관리</div>
+          <div class="page-subtitle">관제 장치가 설치된 순찰 차량의 배차 및 실시간 운행 상태를 관리합니다.</div>
+        </div>
+        
+        <div class="panel">
+          <div class="board-filters">
+            <div class="filter-group">
+              <select class="form-select">
+                <option>차량 상태 전체</option>
+                <option>운행 중</option>
+                <option>대기 중</option>
+                <option>수리/점검</option>
+              </select>
+              <div class="search-box">
+                <input type="text" class="form-input" placeholder="차량 번호, 차종 검색">
+                <button class="btn-primary">검색</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <button class="btn-primary"><i class="fas fa-plus"></i> 차량 등록</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 40px; text-align: center;"><input type="checkbox"></th>
+                  <th>차량 번호</th>
+                  <th>관할 구역</th>
+                  <th>할당 장치 (Device ID)</th>
+                  <th>최근 운전자</th>
+                  <th>현재 상태</th>
+                  <th>누적 주행거리</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="window.location.href='vehicle-detail.html'" style="cursor:pointer;">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">12가 3456</td>
+                  <td>서대문구</td>
+                  <td>DEVICE_001</td>
+                  <td>박운전</td>
+                  <td><span class="badge low">운행 중</span></td>
+                  <td>12,450 km</td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <a href="vehicle-detail.html" class="btn-small" style="text-decoration: none; display: inline-block;">상세</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr onclick="window.location.href='vehicle-detail.html'" style="cursor:pointer;">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">34나 5678</td>
+                  <td>강남구</td>
+                  <td>DEVICE_002</td>
+                  <td>최기사</td>
+                  <td><span class="badge neutral">대기 중</span></td>
+                  <td>8,920 km</td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <a href="vehicle-detail.html" class="btn-small" style="text-decoration: none; display: inline-block;">상세</a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="board-pagination">
+            <a href="#" class="page-btn"><i class="fas fa-angle-left"></i></a>
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn"><i class="fas fa-angle-right"></i></a>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

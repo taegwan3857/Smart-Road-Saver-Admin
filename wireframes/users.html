@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용자 관리 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <main class="content-area">
+        <div class="page-header-wrap">
+          <div class="page-title">사용자 관리</div>
+          <div class="page-subtitle">시스템에 접근할 수 있는 관리자 및 운전자 계정 권한을 관리합니다.</div>
+        </div>
+        
+        <div class="panel">
+          <div class="board-filters">
+            <div class="filter-group">
+              <select class="form-select">
+                <option>권한 전체</option>
+                <option>최고 관리자</option>
+                <option>일반 관리자</option>
+                <option>관제 요원 (운전자)</option>
+              </select>
+              <div class="search-box">
+                <input type="text" class="form-input" placeholder="이름, 아이디, 소속 검색">
+                <button class="btn-primary">검색</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <button class="btn-primary"><i class="fas fa-user-plus"></i> 신규 등록</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 40px; text-align: center;"><input type="checkbox"></th>
+                  <th>아이디</th>
+                  <th>이름</th>
+                  <th>소속 / 부서</th>
+                  <th>권한</th>
+                  <th>최근 접속 일시</th>
+                  <th>상태</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="window.location.href='user-detail.html'" style="cursor:pointer;">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">admin_main</td>
+                  <td>김관리</td>
+                  <td>서울시 통합관제센터</td>
+                  <td><span class="badge high">최고 관리자</span></td>
+                  <td>2026-09-04 08:30</td>
+                  <td><span class="badge low">정상</span></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <button class="btn-small">수정</button>
+                      <button class="btn-small">정지</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr onclick="window.location.href='user-detail.html'" style="cursor:pointer;">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">driver_001</td>
+                  <td>박운전</td>
+                  <td>서대문구청 순찰팀</td>
+                  <td><span class="badge medium">관제 요원</span></td>
+                  <td>2026-09-04 17:10</td>
+                  <td><span class="badge low">정상</span></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <button class="btn-small">수정</button>
+                      <button class="btn-small">정지</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="board-pagination">
+            <a href="#" class="page-btn"><i class="fas fa-angle-left"></i></a>
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn"><i class="fas fa-angle-right"></i></a>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

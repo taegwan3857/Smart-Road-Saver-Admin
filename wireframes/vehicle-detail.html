@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차량 및 장치 상세 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <div class="content-area">
+        <div class="page-header-wrap" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div class="page-title" style="margin-bottom: 4px;">차량 상세 정보</div>
+            <div class="page-subtitle">관제 차량의 배차 정보 및 연동 장치 상태를 확인합니다.</div>
+          </div>
+          <a href="vehicles.html" class="btn-back"><i class="fas fa-list"></i> 목록으로</a>
+        </div>
+        
+        <!-- 프로필 헤더 -->
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <i class="fas fa-truck"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-title">
+              12가 3456 <span class="badge low">운행 중</span>
+            </div>
+            <div class="profile-meta">
+              <span><i class="fas fa-map-marker-alt"></i> 관할: 서대문구</span>
+              <span><i class="fas fa-user"></i> 현재 배차: 박운전 기사 (010-9988-7766)</span>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn-outline"><i class="fas fa-exchange-alt"></i> 배차 변경</button>
+            <button class="btn-primary"><i class="fas fa-video"></i> 실시간 관제 보기</button>
+          </div>
+        </div>
+
+        <div class="detail-cards-grid">
+          <!-- 차량 제원 및 상태 -->
+          <div class="detail-card">
+            <div class="detail-card-title"><i class="fas fa-car"></i> 차량 제원 및 상태</div>
+            <div class="info-grid" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="info-item">
+                <div class="info-label">차종</div>
+                <div class="info-value">현대 포터 II (특장차)</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">연식</div>
+                <div class="info-value">2022년형</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">총 주행거리</div>
+                <div class="info-value">12,450 km</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">최종 정비일</div>
+                <div class="info-value">2026-08-10</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 연동 장치 정보 -->
+          <div class="detail-card">
+            <div class="detail-card-title"><i class="fas fa-microchip"></i> 연동 AI 장치 (Device)</div>
+            <div style="display: flex; align-items: center; gap: 16px; padding: 16px; background: #f8fafc; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 16px;">
+              <div style="font-size: 2rem; color: var(--primary-color);"><i class="fas fa-server"></i></div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 4px;">DEVICE_001</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem;">SRS-Vision-V2 단말기</div>
+              </div>
+              <div><span class="badge low">정상 연결됨</span></div>
+            </div>
+            
+            <table class="log-table">
+              <thead>
+                <tr>
+                  <th>장치 센서</th>
+                  <th>상태</th>
+                  <th>최종 동기화</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>전방 카메라</td>
+                  <td><span class="badge low" style="background: transparent; padding: 0;">정상</span></td>
+                  <td>방금 전</td>
+                </tr>
+                <tr>
+                  <td>mmWave 레이다</td>
+                  <td><span class="badge low" style="background: transparent; padding: 0;">정상</span></td>
+                  <td>방금 전</td>
+                </tr>
+                <tr>
+                  <td>GPS 모듈</td>
+                  <td><span class="badge low" style="background: transparent; padding: 0;">수신 양호</span></td>
+                  <td>방금 전</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

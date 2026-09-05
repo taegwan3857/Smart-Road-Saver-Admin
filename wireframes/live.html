@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실시간 관제 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* 실시간 큐브 애니메이션(Live 느낌) */
+    .live-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-danger);
+      border-radius: 50%;
+      margin-right: 6px;
+      box-shadow: 0 0 0 0 rgba(225, 29, 72, 1);
+      animation: pulse-red 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
+    }
+    @keyframes pulse-red {
+      to { box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <main class="content-area">
+        <div class="page-header-wrap">
+          <div class="page-title">실시간 관제</div>
+          <div class="page-subtitle">차량별 실시간 감지 화면과 경고 대기열을 모니터링합니다.</div>
+        </div>
+        
+        <!-- Summary Cards for Live Status -->
+        <div class="dashboard-grid" style="margin-bottom: 24px;">
+          <div class="panel summary-card span-3">
+            <div class="summary-title">온라인 장치</div>
+            <div class="summary-value text-success" style="display:flex; align-items:center; gap:8px;">
+              42 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">대 작동중</span>
+            </div>
+          </div>
+          <div class="panel summary-card span-3">
+            <div class="summary-title">현재 경고 (발생/진행)</div>
+            <div class="summary-value text-warning">5 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">건</span></div>
+          </div>
+          <div class="panel summary-card span-3">
+            <div class="summary-title">금일 등록 감지</div>
+            <div class="summary-value text-primary">24 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">건</span></div>
+          </div>
+          <div class="panel summary-card span-3">
+            <div class="summary-title">신고 대기 (결재 전)</div>
+            <div class="summary-value text-danger">12 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">건</span></div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          
+          <!-- 실시간 관제 영상 (Main) -->
+          <div class="panel span-8" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+            <div class="panel-header" style="padding: 20px 24px 16px; border-bottom: 1px solid var(--border-light); margin-bottom: 0;">
+              <div>
+                <span class="live-indicator"></span> 실시간 차량 영상 (CAR_001)
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <select class="form-select" style="padding: 4px 28px 4px 10px; font-size: 0.85rem;">
+                  <option>CAR_001 (서대문구)</option>
+                  <option>CAR_002 (강남구)</option>
+                  <option>CAR_003 (송파구)</option>
+                </select>
+                <button class="btn-outline" style="padding: 4px 10px;"><i class="fas fa-expand"></i> 전체화면</button>
+              </div>
+            </div>
+            <div style="background: #0f172a; flex: 1; min-height: 480px; position: relative; display: flex; align-items: center; justify-content: center;">
+              <!-- 비디오 플레이스홀더 영역 -->
+              <div style="text-align: center; color: #475569;">
+                <i class="fas fa-video-slash" style="font-size: 3rem; margin-bottom: 16px;"></i>
+                <div style="font-size: 1.1rem; font-weight: 500;">실시간 스트리밍 대기 중</div>
+              </div>
+              
+              <!-- 바운딩 박스 UI 예시 -->
+              <div style="position: absolute; border: 3px solid var(--color-danger); width: 140px; height: 100px; top: 40%; left: 30%; background: rgba(225,29,72,0.1);">
+                <div style="background: var(--color-danger); color: white; font-size: 0.8rem; font-weight: 600; padding: 4px 8px; position: absolute; top: -28px; left: -3px; display: flex; align-items: center; gap: 6px;">
+                  <i class="fas fa-exclamation-triangle"></i> 결빙 (87%)
+                </div>
+              </div>
+              
+              <!-- 실시간 오버레이 데이터 -->
+              <div style="position: absolute; top: 16px; left: 16px; background: rgba(0,0,0,0.6); padding: 12px; border-radius: 8px; color: white; font-family: monospace; font-size: 0.9rem;">
+                <div>SPD: 42 km/h</div>
+                <div>LAT: 37.5729</div>
+                <div>LNG: 126.9794</div>
+                <div style="margin-top: 8px; color: #10b981;">● SENSOR_OK</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 실시간 경고 대기열 (Queue List) -->
+          <div class="panel span-4" style="display: flex; flex-direction: column; max-height: 560px;">
+            <div class="panel-header">
+              실시간 경고 대기열
+              <span class="badge high">New 3</span>
+            </div>
+            <div style="flex: 1; overflow-y: auto;">
+              
+              <!-- 실시간 큐 아이템 1 -->
+              <div class="alert-list-item">
+                <div class="alert-item-header">
+                  <div class="alert-item-title">
+                    <span class="status-dot danger"></span>
+                    블랙아이스 감지 (87%)
+                  </div>
+                  <div class="alert-item-time">방금 전</div>
+                </div>
+                <div class="alert-item-body">
+                  서대문구 연희로 10길 부근 결빙 의심
+                </div>
+                <div class="alert-item-actions">
+                  <button class="btn-micro primary">확인 (문서기안)</button>
+                  <button class="btn-micro outline">오탐 처리</button>
+                </div>
+              </div>
+
+              <!-- 실시간 큐 아이템 2 -->
+              <div class="alert-list-item">
+                <div class="alert-item-header">
+                  <div class="alert-item-title">
+                    <span class="status-dot warning"></span>
+                    포트홀 감지 (65%)
+                  </div>
+                  <div class="alert-item-time">3분 전</div>
+                </div>
+                <div class="alert-item-body">
+                  강남구 강남대로 24 앞 포트홀 의심
+                </div>
+                <div class="alert-item-actions">
+                  <button class="btn-micro primary">확인 (문서기안)</button>
+                  <button class="btn-micro outline">오탐 처리</button>
+                </div>
+              </div>
+              
+              <!-- 이미 처리된 큐 아이템 -->
+              <div class="alert-list-item" style="opacity: 0.7;">
+                <div class="alert-item-header">
+                  <div class="alert-item-title" style="color: var(--text-muted);">
+                    <span class="status-dot resolved"></span>
+                    장애물 감지 (92%)
+                  </div>
+                  <div class="alert-item-time">15분 전</div>
+                </div>
+                <div class="alert-item-body" style="text-decoration: line-through;">
+                  송파구 올림픽로 300 낙하물 의심
+                </div>
+                <div class="alert-resolved-text">
+                  <i class="fas fa-check"></i> 처리 완료 (기안됨)
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

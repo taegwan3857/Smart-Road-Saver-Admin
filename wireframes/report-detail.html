@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신고문서 상세 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <main class="content-area">
+        <div class="page-header-wrap" style="display: flex; justify-content: space-between; align-items: flex-start; max-width: 850px; margin: 0 auto 24px;">
+          <div>
+            <div class="page-title" style="margin-bottom: 4px;">결재 문서 검토</div>
+            <div class="page-subtitle">관련 부서로 발송될 신고 문서 양식을 검토하고 결재합니다.</div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-modal danger"><i class="fas fa-times"></i> 반려</button>
+            <button class="btn-modal primary"><i class="fas fa-check"></i> 승인 (결재)</button>
+            <a href="reports.html" class="btn-back"><i class="fas fa-list"></i> 목록으로</a>
+          </div>
+        </div>
+        
+        <!-- A4 문서 스타일 영역 -->
+        <div class="document-paper">
+          <div class="doc-header">도로 위험 발생 신고서</div>
+          
+          <div class="doc-approval-wrap">
+            <div class="doc-approval">
+              <div class="approval-box">
+                <div class="approval-title">기안자</div>
+                <div class="approval-sign">김관리</div>
+              </div>
+              <div class="approval-box">
+                <div class="approval-title">팀장</div>
+                <div class="approval-sign">검토중</div>
+              </div>
+              <div class="approval-box">
+                <div class="approval-title">센터장</div>
+                <div class="approval-sign"></div>
+              </div>
+            </div>
+          </div>
+
+          <table class="doc-meta-table">
+            <tr>
+              <th>문서 번호</th>
+              <td>DOC-2026-0158</td>
+              <th>기안 일자</th>
+              <td>2026-09-04 18:40</td>
+            </tr>
+            <tr>
+              <th>관련 감지 건</th>
+              <td>DT-20260904-001</td>
+              <th>위험 유형</th>
+              <td style="color: var(--color-danger); font-weight: bold;">블랙아이스</td>
+            </tr>
+            <tr>
+              <th>발생 위치</th>
+              <td colspan="3">서울시 서대문구 연희로 10길 (좌표: 37.5729, 126.9794)</td>
+            </tr>
+            <tr>
+              <th>제목</th>
+              <td colspan="3" style="font-weight: bold;">서대문구 연희로 10길 결빙(블랙아이스) 조치 요청</td>
+            </tr>
+          </table>
+
+          <div class="doc-content">
+            1. 평소 구정 발전과 구민 안전을 위해 애쓰시는 노고에 감사드립니다.<br><br>
+            2. 우리 구 관내 도로 순찰 중, AI 스마트 관제 장비(DEVICE_001)에 의해 아래와 같이 도로 결빙(블랙아이스) 현상이 감지되었습니다.<br><br>
+            3. 해당 구간은 차량 통행량이 많아 사고 발생 위험이 매우 높으므로, 즉각적인 제설제 살포 및 현장 안전 조치를 요청드립니다.<br><br>
+            - 아 래 -<br>
+            가. 감지 일시 : 2026. 09. 04 18:32<br>
+            나. 감지 장소 : 서대문구 연희로 10길<br>
+            다. 감지 확률 : AI 분석결과 87% (블랙아이스 주의)<br>
+            라. 요청 사항 : 긴급 제설 작업 및 경고판 설치<br>
+          </div>
+
+          <div class="doc-images">
+            <div class="doc-img-box">현장 카메라 사진 첨부</div>
+            <div class="doc-img-box">지도 위치 첨부</div>
+          </div>
+
+          <div class="paper-footer">
+            스마트 도로 안전 관제 센터장
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

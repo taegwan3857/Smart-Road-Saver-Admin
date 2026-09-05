@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용자 상세 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <div class="content-area">
+        <div class="page-header-wrap" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div class="page-title" style="margin-bottom: 4px;">사용자 상세 정보</div>
+            <div class="page-subtitle">해당 사용자의 계정 권한 및 활동 이력을 확인합니다.</div>
+          </div>
+          <a href="users.html" class="btn-back"><i class="fas fa-list"></i> 목록으로</a>
+        </div>
+        
+        <!-- 프로필 헤더 -->
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-title">
+              김관리 <span class="badge high">최고 관리자</span>
+            </div>
+            <div class="profile-meta">
+              <span><i class="fas fa-id-badge"></i> admin_main</span>
+              <span><i class="fas fa-building"></i> 서울시 통합관제센터 관제 1팀</span>
+              <span><i class="fas fa-envelope"></i> admin@seoul.go.kr</span>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn-outline"><i class="fas fa-key"></i> 비밀번호 초기화</button>
+            <button class="btn-primary"><i class="fas fa-edit"></i> 정보 수정</button>
+          </div>
+        </div>
+
+        <div class="detail-cards-grid">
+          <!-- 기본 정보 카드 -->
+          <div class="detail-card">
+            <div class="detail-card-title"><i class="fas fa-info-circle"></i> 기본 계정 정보</div>
+            <div class="info-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="info-item">
+                <div class="info-label">등록 일자</div>
+                <div class="info-value">2024-01-15</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">마지막 로그인</div>
+                <div class="info-value">2026-09-04 08:30:12</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">연락처</div>
+                <div class="info-value">010-1234-5678</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">계정 상태</div>
+                <div class="info-value"><span class="badge low">정상 활동 중</span></div>
+              </div>
+              <div class="info-item" style="grid-column: span 2;">
+                <div class="info-label">담당 업무 비고</div>
+                <div class="info-value" style="line-height: 1.5; padding: 12px; background: #f8fafc; border-radius: 6px; border: 1px solid var(--border-light);">
+                  - 시스템 마스터 권한 소유<br>
+                  - 야간 관제 스케줄 관리 및 긴급 신고 문서 최종 승인 권한<br>
+                  - 단말기 펌웨어 업데이트 권한
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 활동 로그 카드 -->
+          <div class="detail-card">
+            <div class="detail-card-title"><i class="fas fa-history"></i> 최근 시스템 접속 이력</div>
+            <table class="log-table">
+              <thead>
+                <tr>
+                  <th>일시</th>
+                  <th>IP 주소</th>
+                  <th>결과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2026-09-04 08:30:12</td>
+                  <td>112.154.21.33</td>
+                  <td><span class="badge low" style="background: transparent; padding: 0;">성공</span></td>
+                </tr>
+                <tr>
+                  <td>2026-09-03 08:25:44</td>
+                  <td>112.154.21.33</td>
+                  <td><span class="badge low" style="background: transparent; padding: 0;">성공</span></td>
+                </tr>
+                <tr>
+                  <td>2026-09-02 23:15:00</td>
+                  <td>211.23.11.9</td>
+                  <td><span class="badge high" style="background: transparent; padding: 0;">비밀번호 오류</span></td>
+                </tr>
+                <tr>
+                  <td>2026-09-02 08:31:05</td>
+                  <td>112.154.21.33</td>
+                  <td><span class="badge low" style="background: transparent; padding: 0;">성공</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 16px;">
+              <a href="#" style="color: var(--primary-color); font-size: 0.9rem; text-decoration: none; font-weight: 500;">+ 전체 이력 보기</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

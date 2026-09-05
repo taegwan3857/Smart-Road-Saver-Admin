@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감지기록 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <main class="content-area">
+        <div class="page-header-wrap">
+          <div class="page-title">감지 기록</div>
+          <div class="page-subtitle">AI 단말기가 도로 위에서 감지한 모든 위험 요소 기록을 조회합니다.</div>
+        </div>
+        
+        <div class="panel">
+          <!-- Filters -->
+          <div class="board-filters">
+            <div class="filter-group">
+              <select class="form-select">
+                <option>전체 기간</option>
+                <option>오늘</option>
+                <option>최근 1주일</option>
+                <option>최근 1개월</option>
+              </select>
+              <select class="form-select">
+                <option>위험 유형 전체</option>
+                <option>블랙아이스</option>
+                <option>포트홀</option>
+                <option>장애물</option>
+              </select>
+              <div class="search-box">
+                <input type="text" class="form-input" placeholder="감지 ID 또는 위치 검색">
+                <button class="btn-primary">검색</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <button class="btn-outline"><i class="fas fa-file-excel" style="color: #10b981; margin-right: 6px;"></i> 엑셀 다운로드</button>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 40px; text-align: center;"><input type="checkbox"></th>
+                  <th>감지 ID</th>
+                  <th>발생 일시</th>
+                  <th>위험 유형</th>
+                  <th>위험도 (신뢰도)</th>
+                  <th>위치 (주소)</th>
+                  <th>상태</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="window.location.href='detection-detail.html'">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">DT-20260904-001</td>
+                  <td>2026-09-04 18:32:11</td>
+                  <td>블랙아이스</td>
+                  <td><span class="badge high">위험 (87%)</span></td>
+                  <td>서대문구 연희로 10길</td>
+                  <td><span class="badge neutral">검토 대기</span></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <a href="detection-detail.html" class="btn-small" style="text-decoration: none; display: inline-block;">상세보기</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr onclick="window.location.href='detection-detail.html'">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">DT-20260904-002</td>
+                  <td>2026-09-04 18:15:45</td>
+                  <td>포트홀</td>
+                  <td><span class="badge medium">주의 (65%)</span></td>
+                  <td>강남구 강남대로 24</td>
+                  <td><span class="badge low">처리 완료</span></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <a href="detection-detail.html" class="btn-small" style="text-decoration: none; display: inline-block;">상세보기</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr onclick="window.location.href='detection-detail.html'">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">DT-20260904-003</td>
+                  <td>2026-09-04 17:42:01</td>
+                  <td>장애물 (낙하물)</td>
+                  <td><span class="badge high">위험 (92%)</span></td>
+                  <td>송파구 올림픽로 300</td>
+                  <td><span class="badge medium">신고 접수</span></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <a href="detection-detail.html" class="btn-small" style="text-decoration: none; display: inline-block;">상세보기</a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="board-pagination">
+            <a href="#" class="page-btn"><i class="fas fa-angle-double-left"></i></a>
+            <a href="#" class="page-btn"><i class="fas fa-angle-left"></i></a>
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn">2</a>
+            <a href="#" class="page-btn">3</a>
+            <a href="#" class="page-btn">4</a>
+            <a href="#" class="page-btn">5</a>
+            <a href="#" class="page-btn"><i class="fas fa-angle-right"></i></a>
+            <a href="#" class="page-btn"><i class="fas fa-angle-double-right"></i></a>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

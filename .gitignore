@@ -1,0 +1,6 @@
+*.js
+*.py
+*.html
+!frontend/**
+!wireframes/**
+.DS_Store

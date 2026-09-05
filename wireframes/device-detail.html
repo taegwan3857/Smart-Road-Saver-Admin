@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장치 상세 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <div class="content-area">
+        <div class="page-header-wrap" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div class="page-title" style="margin-bottom: 4px;">장치 상세 정보</div>
+            <div class="page-subtitle">AI Edge 단말기의 실시간 센서 상태 및 부하를 모니터링합니다.</div>
+          </div>
+          <a href="devices.html" class="btn-back"><i class="fas fa-list"></i> 목록으로</a>
+        </div>
+        
+        <!-- 프로필 헤더 -->
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-title">
+              DEVICE_001 <span class="badge low">온라인 (정상 작동)</span>
+            </div>
+            <div class="profile-meta">
+              <span><i class="fas fa-tag"></i> 모델: SRS-Vision-V2</span>
+              <span><i class="fas fa-network-wired"></i> Ping: 12ms (안정적)</span>
+              <span><i class="fas fa-code-branch"></i> 펌웨어: v2.1.4</span>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn-outline"><i class="fas fa-power-off"></i> 원격 재부팅</button>
+            <button class="btn-primary"><i class="fas fa-download"></i> 펌웨어 업데이트</button>
+          </div>
+        </div>
+
+        <div class="detail-cards-grid">
+          <!-- 센서 상태 카드 -->
+          <div class="detail-card">
+            <div class="detail-card-title"><i class="fas fa-satellite-dish"></i> 실시간 센서 및 네트워크 상태</div>
+            <div class="info-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="info-item">
+                <div class="info-label">카메라 센서</div>
+                <div class="info-value"><span style="color:var(--color-success); font-weight:600;">● 정상</span> (1080p, 60fps)</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">mmWave 레이다</div>
+                <div class="info-value"><span style="color:var(--color-success); font-weight:600;">● 정상</span> (반사파 수신율 98%)</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">GPS 수신 상태</div>
+                <div class="info-value"><span style="color:var(--color-success); font-weight:600;">● 정상</span> (위성 12개 연결됨)</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">네트워크 상태</div>
+                <div class="info-value"><span style="color:var(--color-success); font-weight:600;">● 5G 연결됨</span> (-68dBm)</div>
+              </div>
+              <div class="info-item" style="grid-column: span 2;">
+                <div class="info-label">실시간 연산 부하 (Edge AI)</div>
+                <div class="info-value">
+                  <div style="display:flex; justify-content:space-between; margin-bottom: 4px; font-size:0.85rem;"><span>NPU 점유율</span><span>42%</span></div>
+                  <div style="width:100%; background:#e2e8f0; height:8px; border-radius:4px; overflow:hidden;">
+                    <div style="width:42%; background:var(--primary-color); height:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 연결 차량 및 로그 -->
+          <div class="detail-card">
+            <div class="detail-card-title"><i class="fas fa-link"></i> 장착 차량 정보 및 최근 오류 로그</div>
+            <div style="display: flex; align-items: center; gap: 16px; padding: 16px; background: #f8fafc; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 16px;">
+              <div style="font-size: 2rem; color: var(--text-muted);"><i class="fas fa-truck"></i></div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 4px;">12가 3456 (서대문구 관할)</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem;">담당 기사: 박운전</div>
+              </div>
+              <div>
+                <button class="btn-micro outline">연결 해제</button>
+              </div>
+            </div>
+            
+            <table class="log-table">
+              <thead>
+                <tr>
+                  <th>시간</th>
+                  <th>이벤트 로그</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="color: var(--text-muted);">08:30:12</td>
+                  <td>기기 부팅 완료 및 서버 연결 성공</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--text-muted);">08:30:15</td>
+                  <td>GPS 신호 수신 확인 (Lock OK)</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--text-muted);">14:22:05</td>
+                  <td style="color: var(--color-danger); font-weight: 500;">네트워크 연결 순단 발생 (자동 복구됨)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

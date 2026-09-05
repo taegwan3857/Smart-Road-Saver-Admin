@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장치 상태 - Smart Road Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar-placeholder"></aside>
+    <div class="main-wrapper">
+      <header class="header" id="header-placeholder"></header>
+      <main class="content-area">
+        <div class="page-header-wrap">
+          <div class="page-title">장치 상태 관리</div>
+          <div class="page-subtitle">차량에 부착된 AI Edge 단말기의 실시간 센서 및 네트워크 상태를 모니터링합니다.</div>
+        </div>
+        
+        <div class="panel">
+          <div class="board-filters">
+            <div class="filter-group">
+              <select class="form-select">
+                <option>네트워크 상태 전체</option>
+                <option>연결됨 (Online)</option>
+                <option>연결 끊김 (Offline)</option>
+              </select>
+              <div class="search-box">
+                <input type="text" class="form-input" placeholder="장치 ID, 할당 차량 검색">
+                <button class="btn-primary">검색</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <button class="btn-outline"><i class="fas fa-sync"></i> 일괄 상태 갱신</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 40px; text-align: center;"><input type="checkbox"></th>
+                  <th>장치 ID</th>
+                  <th>할당 차량</th>
+                  <th>카메라 센서</th>
+                  <th>mmWave 센서</th>
+                  <th>GPS 신호</th>
+                  <th>펌웨어</th>
+                  <th>상태</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="window.location.href='device-detail.html'" style="cursor:pointer;">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">DEVICE_001</td>
+                  <td>SRS-Vision-V2</td>
+                  <td>12가 3456 (서대문구)</td>
+                  <td>v2.1.4</td>
+                  <td><span class="badge low">정상 작동 (12ms)</span></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <a href="device-detail.html" class="btn-small" style="text-decoration: none; display: inline-block;">상세</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr onclick="window.location.href='device-detail.html'" style="cursor:pointer;">
+                  <td style="text-align: center;" onclick="event.stopPropagation();"><input type="checkbox"></td>
+                  <td style="font-weight: 500;">DEVICE_002</td>
+                  <td>SRS-Vision-V1</td>
+                  <td>미할당</td>
+                  <td>v1.9.8</td>
+                  <td><span class="badge high">연결 끊김 (Offline)</span></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="action-buttons">
+                      <a href="device-detail.html" class="btn-small" style="text-decoration: none; display: inline-block;">상세</a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="board-pagination">
+            <a href="#" class="page-btn"><i class="fas fa-angle-left"></i></a>
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn"><i class="fas fa-angle-right"></i></a>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
