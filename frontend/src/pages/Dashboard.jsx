@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { dashboardService } from '../services/dashboardService';
 import { deviceService } from '../services/deviceService';
@@ -17,11 +17,15 @@ export default function Dashboard() {
   const [riskFilter, setRiskFilter] = useState('위험도 전체');
   const [periodFilter, setPeriodFilter] = useState('전체 기간');
   const [mapInstance, setMapInstance] = useState(null);
+  const [activeEventId, setActiveEventId] = useState(null);
+  const markersRef = useRef([]);
+  const overlayRef = useRef(null);
 
-  const handlePanTo = (lat, lng) => {
+  const handlePanTo = (ev) => {
     if (mapInstance && window.kakao) {
-      const moveLatLon = new window.kakao.maps.LatLng(lat, lng);
+      const moveLatLon = new window.kakao.maps.LatLng(Number(ev.latitude), Number(ev.longitude));
       mapInstance.panTo(moveLatLon);
+      setActiveEventId(ev.event_id || ev.detection_id || ev.id || ev._id);
     }
   };
 
@@ -135,32 +139,85 @@ export default function Dashboard() {
     initMap();
   }, []); // 빈 의존성 배열로 마운트 시 1회만 실행
 
-  // 마커 업데이트 관리용 (이전 마커 지우기 위해 상태 저장)
-  const [markers, setMarkers] = useState([]);
-
-  // 데이터 변경 시 마커만 업데이트
+  // 데이터 및 활성 이벤트 변경 시 마커/오버레이 업데이트
   useEffect(() => {
     if (!mapInstance || !window.kakao || !window.kakao.maps) return;
     
-    // 1. 기존 마커들 모두 지도에서 제거
-    setMarkers(prevMarkers => {
-      prevMarkers.forEach(m => m.setMap(null));
-      return [];
-    });
+    // 기존 마커 및 오버레이 제거
+    markersRef.current.forEach(m => m.setMap(null));
+    if (overlayRef.current) overlayRef.current.setMap(null);
+    markersRef.current = [];
     
-    // 2. 새 데이터 기반으로 새 마커 생성
-    const newMarkers = [];
     filteredEvents.forEach(ev => {
       if (ev.latitude && ev.longitude) {
         const markerPosition = new window.kakao.maps.LatLng(Number(ev.latitude), Number(ev.longitude));
         const marker = new window.kakao.maps.Marker({ position: markerPosition });
         marker.setMap(mapInstance);
-        newMarkers.push(marker);
+        
+        const evId = ev.event_id || ev.detection_id || ev.id || ev._id;
+        
+        // 마커 클릭 시 이벤트
+        window.kakao.maps.event.addListener(marker, 'click', () => {
+          setActiveEventId(evId);
+          mapInstance.panTo(markerPosition);
+        });
+        
+        markersRef.current.push(marker);
+        
+        // 활성화된 마커에 정보창(오버레이) 표시
+        if (activeEventId === evId) {
+          const content = document.createElement('div');
+          content.style.cssText = "padding:16px; background:#ffffff; border-radius:12px; border:1px solid #e2e8f0; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); min-width:220px; transform:translateY(-55px); position:relative;";
+          
+          // 삼각형 말풍선 꼬리
+          const tail = document.createElement('div');
+          tail.style.cssText = "position:absolute; bottom:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:12px; height:12px; background:#ffffff; border-right:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0;";
+          content.appendChild(tail);
+          
+          const titleWrap = document.createElement('div');
+          titleWrap.style.cssText = "display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;";
+          
+          const title = document.createElement('div');
+          title.style.cssText = "font-weight:700; color:#0f172a; font-size:15px;";
+          title.innerText = ev.event_type || ev.type || '위험 요소';
+          
+          const closeBtn = document.createElement('button');
+          closeBtn.innerHTML = "&times;";
+          closeBtn.style.cssText = "background:none; border:none; font-size:18px; color:#94a3b8; cursor:pointer; padding:0; line-height:1;";
+          closeBtn.onclick = (e) => { e.stopPropagation(); setActiveEventId(null); };
+          
+          titleWrap.appendChild(title);
+          titleWrap.appendChild(closeBtn);
+          
+          const addr = document.createElement('div');
+          addr.style.cssText = "font-size:13px; color:#64748b; margin-bottom:12px; word-break:keep-all;";
+          addr.innerText = ev.address || ev.location || '위치 정보 없음';
+          
+          const btnWrap = document.createElement('div');
+          btnWrap.style.cssText = "display:flex; justify-content:flex-end;";
+          
+          const detailBtn = document.createElement('button');
+          detailBtn.style.cssText = "background:#3b82f6; color:#ffffff; border:none; padding:6px 12px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s;";
+          detailBtn.innerText = "상세 정보 보기";
+          detailBtn.onclick = () => navigate(`/detections/${evId}`);
+          
+          btnWrap.appendChild(detailBtn);
+          content.appendChild(titleWrap);
+          content.appendChild(addr);
+          content.appendChild(btnWrap);
+          
+          const overlay = new window.kakao.maps.CustomOverlay({
+             position: markerPosition,
+             map: mapInstance,
+             content: content,
+             yAnchor: 1,
+             zIndex: 99
+          });
+          overlayRef.current = overlay;
+        }
       }
     });
-    setMarkers(newMarkers);
-    
-  }, [filteredEvents, mapInstance]);
+  }, [filteredEvents, mapInstance, activeEventId, navigate]);
 
 
   return (
@@ -224,7 +281,7 @@ export default function Dashboard() {
                 </div>
               ) : (
                 filteredEvents.map(ev => (
-                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => handlePanTo(ev.latitude, ev.longitude)} style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
+                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "#eff6ff" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid #3b82f6" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
                       <span className="badge medium" style={{background: getTypeColor(ev.event_type||ev.type)==='danger'?'var(--color-danger)':'var(--color-warning)', color:"#fff"}}>{ev.event_type||ev.type||'위험 요소'}</span>
                       <button onClick={(e) => { e.stopPropagation(); navigate(`/detections/${ev.event_id||ev.detection_id||ev.id||ev._id}`); }} style={{background: "none", border: "none", color: "var(--primary-color)", fontSize: "0.85rem", cursor: "pointer", fontWeight: 600}}>상세보기 &rarr;</button>
