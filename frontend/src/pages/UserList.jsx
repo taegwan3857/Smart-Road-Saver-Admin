@@ -112,8 +112,8 @@ export default function UserList() {
                 <button className="btn-primary" onClick={handleUserSearch}>검색</button>
               </div>
               
-              <button className="btn-outline" style={{border: "1px solid #ef4444", color:"#ef4444", background:"white", padding:"8px 16px", borderRadius:"6px", cursor:"pointer", fontWeight:"600", marginLeft: "auto"}} onClick={confirmDelete}>
-                <i className="fas fa-trash-alt" style={{marginRight:"6px"}}></i>선택 삭제
+              <button className="btn-outline" style={{marginLeft: "auto"}} onClick={confirmDelete}>
+                <i className="fas fa-trash-alt" style={{color:"#ef4444", marginRight:"6px"}}></i> 선택 삭제
               </button>
           </div>
         </div>
