@@ -110,13 +110,24 @@ export default function Dashboard() {
     }
 
     let matchesPeriod = true;
-    if (periodFilter !== '전체 기간' && (ev.created_at||ev.detected_at)) {
-      const date = new Date(ev.created_at||ev.detected_at);
+    const evDateStr = ev.last_detected_at || ev.first_detected_at || ev.created_at || ev.detected_at;
+    if (periodFilter !== '전체 기간' && evDateStr) {
+      const date = new Date(evDateStr);
       const now = new Date();
-      const diffDays = (now - date) / (1000 * 60 * 60 * 24);
-      if (periodFilter.includes('오늘') && diffDays > 1) matchesPeriod = false;
-      if (periodFilter.includes('최근 1주일') && diffDays > 7) matchesPeriod = false;
-      if (periodFilter.includes('최근 1개월') && diffDays > 30) matchesPeriod = false;
+      
+      if (periodFilter.includes('오늘')) {
+        // 오늘(자정 기준)
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        if (date < today) matchesPeriod = false;
+      }
+      else if (periodFilter.includes('최근 1주일')) {
+        const diffDays = (now - date) / (1000 * 60 * 60 * 24);
+        if (diffDays > 7) matchesPeriod = false;
+      }
+      else if (periodFilter.includes('최근 1개월')) {
+        const diffDays = (now - date) / (1000 * 60 * 60 * 24);
+        if (diffDays > 30) matchesPeriod = false;
+      }
     }
 
     return matchesSearch && matchesType && matchesRisk && matchesPeriod;

@@ -145,13 +145,23 @@ export default function DetectionList() {
     const matchesRisk = riskFilter === '' || rl === riskFilter;
 
     let matchesPeriod = true;
-    if (periodFilter !== '전체 기간' && (d.detected_at||d.created_at)) {
-      const date = new Date(d.detected_at||d.created_at);
+    const dDateStr = d.last_detected_at || d.first_detected_at || d.detected_at || d.created_at;
+    if (periodFilter !== '전체 기간' && dDateStr) {
+      const date = new Date(dDateStr);
       const now = new Date();
-      const diffDays = (now - date) / (1000 * 60 * 60 * 24);
-      if (periodFilter === '오늘' && diffDays > 1) matchesPeriod = false;
-      if (periodFilter === '최근 1주일' && diffDays > 7) matchesPeriod = false;
-      if (periodFilter === '최근 1개월' && diffDays > 30) matchesPeriod = false;
+      
+      if (periodFilter.includes('오늘')) {
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        if (date < today) matchesPeriod = false;
+      }
+      else if (periodFilter.includes('최근 1주일')) {
+        const diffDays = (now - date) / (1000 * 60 * 60 * 24);
+        if (diffDays > 7) matchesPeriod = false;
+      }
+      else if (periodFilter.includes('최근 1개월')) {
+        const diffDays = (now - date) / (1000 * 60 * 60 * 24);
+        if (diffDays > 30) matchesPeriod = false;
+      }
     }
 
     return matchesSearch && matchesType && matchesPeriod && matchesRisk;
