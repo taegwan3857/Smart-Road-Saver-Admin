@@ -151,23 +151,41 @@ export default function Dashboard() {
     filteredEvents.forEach(ev => {
       if (ev.latitude && ev.longitude) {
         const markerPosition = new window.kakao.maps.LatLng(Number(ev.latitude), Number(ev.longitude));
-        const marker = new window.kakao.maps.Marker({ position: markerPosition });
-        marker.setMap(mapInstance);
-        
         const evId = ev.event_id || ev.detection_id || ev.id || ev._id;
+        const eType = ev.event_type || ev.type || '';
         
-        // 마커 클릭 시 이벤트
-        window.kakao.maps.event.addListener(marker, 'click', () => {
+        // 커스텀 아이콘 생성 로직
+        let iconClass = 'fas fa-exclamation-triangle';
+        let bgColor = '#f59e0b';
+        if (eType === 'BLACK_ICE') { iconClass = 'fas fa-snowflake'; bgColor = '#3b82f6'; }
+        else if (eType === 'POTHOLE') { iconClass = 'fas fa-road'; bgColor = '#8b5cf6'; }
+        else if (eType === 'OBSTACLE') { iconClass = 'fas fa-box-open'; bgColor = '#f59e0b'; }
+        else if (eType === 'ANIMAL_CORPSE' || eType === 'ANIMAL') { iconClass = 'fas fa-paw'; bgColor = '#ef4444'; }
+        else if (eType === 'WET_ROAD') { iconClass = 'fas fa-tint'; bgColor = '#0ea5e9'; }
+        
+        const iconContent = document.createElement('div');
+        const isActive = activeEventId === evId;
+        iconContent.style.cssText = `width:${isActive?38:32}px;height:${isActive?38:32}px;background:${bgColor};color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 6px rgba(0,0,0,0.3);border:2px solid white;font-size:${isActive?18:14}px;cursor:pointer;transition:all 0.2s; position:relative; z-index: ${isActive?50:10};`;
+        iconContent.innerHTML = `<i class="${iconClass}"></i>`;
+        iconContent.onclick = () => {
           setActiveEventId(evId);
           mapInstance.panTo(markerPosition);
+        };
+        
+        const customMarker = new window.kakao.maps.CustomOverlay({
+          position: markerPosition,
+          map: mapInstance,
+          content: iconContent,
+          yAnchor: 0.5,
+          zIndex: isActive ? 50 : 10
         });
         
-        markersRef.current.push(marker);
+        markersRef.current.push(customMarker);
         
         // 활성화된 마커에 정보창(오버레이) 표시
         if (activeEventId === evId) {
           const content = document.createElement('div');
-          content.style.cssText = "padding:16px; background:#ffffff; border-radius:12px; border:1px solid #e2e8f0; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); min-width:220px; transform:translateY(-55px); position:relative;";
+          content.style.cssText = "padding:16px; background:#ffffff; border-radius:12px; border:1px solid #e2e8f0; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); min-width:220px; transform:translateY(-30px); position:relative;";
           
           // 삼각형 말풍선 꼬리
           const tail = document.createElement('div');
