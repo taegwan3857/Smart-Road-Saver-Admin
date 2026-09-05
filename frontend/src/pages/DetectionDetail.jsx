@@ -15,6 +15,22 @@ const formatEventId = (id) => {
 export default function DetectionDetail() {
   const { id } = useParams();
 
+
+  const getRiskLevelClass = (rl) => {
+    const r = (rl||'').toUpperCase();
+    if(r==='HIGH') return 'high';
+    if(r==='MEDIUM') return 'medium';
+    if(r==='LOW') return 'low';
+    return 'neutral';
+  };
+  const getRiskColors = (rl) => {
+    const r = (rl||'').toUpperCase();
+    if(r==='HIGH') return { bg: 'rgba(239, 68, 68, 0.12)', fg: '#ef4444' };
+    if(r==='MEDIUM') return { bg: 'rgba(245, 158, 11, 0.15)', fg: '#f59e0b' };
+    if(r==='LOW') return { bg: 'rgba(16, 185, 129, 0.15)', fg: '#10b981' };
+    return { bg: 'rgba(100, 116, 139, 0.15)', fg: '#64748b' };
+  };
+
   const translateType = (type) => {
     if (!type) return '위험';
     const t = String(type).toUpperCase();
@@ -89,12 +105,12 @@ export default function DetectionDetail() {
       </div>
 
       <div className="profile-header">
-        <div className="profile-avatar" style={{background:"rgba(225,29,72,0.1)",color:"var(--color-danger)"}}>
+        <div className="profile-avatar" style={{background: data ? getRiskColors(data.risk_level).bg : "rgba(225,29,72,0.1)", color: data ? getRiskColors(data.risk_level).fg : "var(--color-danger)"}}>
           {data ? <i className={`fas ${getCategoryIcon(data.obstacle_type||data.event_type||data.type)}`}></i> : <i className="fas fa-exclamation-triangle"></i>}
         </div>
         <div className="profile-info">
           <div className="profile-title">
-            {formatEventId(data.event_id||data.detection_id||data.id||data._id||id)} <span className={`badge ${Number(data.confidence||data.score||0) >= 80 ? 'high':'medium'}`}>{translateType(data.obstacle_type||data.event_type||data.type)} ({data.confidence||data.score||'-'}%)</span>
+            {formatEventId(data.event_id||data.detection_id||data.id||data._id||id)} <span className={`badge ${getRiskLevelClass(data?.risk_level)}`}>{translateType(data.obstacle_type||data.event_type||data.type)} ({data.confidence||data.score||'-'}%)</span>
           </div>
           <div className="profile-meta">
             <span><i className="far fa-clock"></i> {data.detected_at||data.created_at ? new Date(data.detected_at||data.created_at).toLocaleString('ko-KR') : '-'}</span>
