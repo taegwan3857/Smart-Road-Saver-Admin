@@ -184,7 +184,7 @@ export default function Dashboard() {
                 </div>
               ) : (
                 filteredEvents.map(ev => (
-                  <div key={ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => navigate(`/detections/${ev.detection_id||ev.id||ev._id}`)} style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
+                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className="list-item" onClick={() => navigate(`/detections/${ev.event_id||ev.detection_id||ev.id||ev._id}`)} style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
                       <span className="badge medium" style={{background: getTypeColor(ev.event_type||ev.type)==='danger'?'var(--color-danger)':'var(--color-warning)', color:"#fff"}}>{ev.event_type||ev.type||'위험 요소'}</span>
                       <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>{ev.detected_at||ev.created_at ? new Date(ev.detected_at||ev.created_at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}) : '-'}</span>
