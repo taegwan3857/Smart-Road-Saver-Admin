@@ -50,6 +50,7 @@ export default function DetectionList() {
   const [searchInput, setSearchInput] = useState('');
   const [periodFilter, setPeriodFilter] = useState('전체 기간');
   const [typeFilter, setTypeFilter] = useState('위험 유형 전체');
+  const [riskFilter, setRiskFilter] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,6 +85,22 @@ export default function DetectionList() {
     if (c >= 50) return `주의 (${c}%)`;
     return `낮음 (${c}%)`;
   };
+  
+  const getRiskLabel = (rl) => {
+    const r = (rl||'').toUpperCase();
+    if(r==='HIGH') return '높음';
+    if(r==='MEDIUM') return '주의';
+    if(r==='LOW') return '낮음';
+    return r || '주의';
+  };
+  const getRiskColor = (rl) => {
+    const r = (rl||'').toUpperCase();
+    if(r==='HIGH') return '#ef4444';
+    if(r==='MEDIUM') return '#f59e0b';
+    if(r==='LOW') return '#10b981';
+    return '#64748b';
+  };
+
   const getStatusBadge = (status) => {
     if (!status) return 'neutral';
     const s = status.toLowerCase();
@@ -134,7 +151,7 @@ export default function DetectionList() {
       if (periodFilter === '최근 1개월' && diffDays > 30) matchesPeriod = false;
     }
 
-    return matchesSearch && matchesType && matchesPeriod;
+    return matchesSearch && matchesType && matchesPeriod && matchesRisk;
   });
 
   const handleExcelDownload = () => {
@@ -148,7 +165,7 @@ export default function DetectionList() {
       const time = d.detected_at||d.created_at ? new Date(d.detected_at||d.created_at).toLocaleString("ko-KR") : "-";
       const vehicle = d.reported_vehicle||d.vehicle_number||"연결 장치";
       const type = translateType(d.obstacle_type||d.event_type||d.type);
-      const risk = d.status||d.risk_level||"중간";
+      const risk = getRiskLabel(d.risk_level);
       const address = addresses[d.event_id||d.detection_id||d.id||d._id] || (d.latitude && d.longitude ? `${d.latitude}, ${d.longitude}` : "-");
       const conf = d.confidence ? `${d.confidence}%` : (d.score ? `${d.score}%` : "82%");
       const count = d.cumulative_count ? `${d.cumulative_count}회` : "1회";
@@ -178,6 +195,12 @@ export default function DetectionList() {
           <div className="filter-group">
             <CustomSelect options={["전체 기간", "오늘", "최근 1주일", "최근 1개월"]} value={periodFilter} onChange={setPeriodFilter} />
             <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물", "젖은 노면"]} value={typeFilter} onChange={setTypeFilter} />
+            <CustomSelect options={[
+              { value: '', label: '위험도 전체' },
+              { value: 'HIGH', label: '높음', color: '#ef4444' },
+              { value: 'MEDIUM', label: '주의', color: '#f59e0b' },
+              { value: 'LOW', label: '낮음', color: '#10b981' }
+            ]} value={riskFilter} onChange={setRiskFilter} />
             <div className="search-box">
               <input type="text" className="form-input" placeholder="감지 ID 또는 위치 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} />
               <button className="btn-primary" onClick={handleSearch}>검색</button>
@@ -217,7 +240,7 @@ export default function DetectionList() {
                   <td>{d.detected_at||d.created_at ? new Date(d.detected_at||d.created_at).toLocaleString('ko-KR') : '-'}</td>
                   <td>{d.reported_vehicle||d.vehicle_number||'연결 장치'}</td>
                   <td>{translateType(d.obstacle_type||d.event_type||d.type)}</td>
-                  <td><span className={`badge ${getStatusBadge(d.status||d.risk_level)}`}>{getStatusLabel(d.status||d.risk_level||'중간')}</span></td>
+                  <td><span className="badge medium" style={{background: getRiskColor(d.risk_level), color: "#fff"}}>{getRiskLabel(d.risk_level)}</span></td>
                   <td>{addresses[d.event_id||d.detection_id||d.id||d._id] || (d.latitude && d.longitude ? `${d.latitude}, ${d.longitude}` : '-')}</td>
                   <td>{d.confidence ? `${d.confidence}%` : (d.score ? `${d.score}%` : '82%')}</td>
                   <td>{d.cumulative_count ? `${d.cumulative_count}회` : '1회'}</td>
