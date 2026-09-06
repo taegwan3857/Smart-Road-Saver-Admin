@@ -70,20 +70,46 @@ export default function UserList() {
         if (!hasRealAdmin) {
           try {
             const apiClient = (await import('../api/client')).default;
-            await apiClient.post('/api/users', {
+            const payload = {
+              user_id: 'admin',
+              userId: 'admin',
               login_id: 'admin',
+              username: 'admin',
               password: 'password123',
               name: 'S.R.S.관리자',
               email: 'mars@dongyang.ac.kr',
               phone: '010-7182-6783',
+              phone_number: '010-7182-6783',
+              contact: '010-7182-6783',
               role: 'ADMIN',
               status: '정상 (Active)'
-            });
+            };
+            const response = await apiClient.post('/api/users', payload);
+            console.log('Admin user injected successfully', response.data);
             // 생성 후 리스트 다시 불러오기
             const newData = await userService.getUsers();
             fetchedUsers = Array.isArray(newData) ? newData : (newData?.users || newData?.items || []);
           } catch (e) {
             console.error('Failed to create real admin:', e);
+            const errDetail = e.response?.data?.message || e.response?.data?.error || e.message;
+            alert('관리자 계정 DB 추가에 실패했습니다: ' + errDetail + '\n임시로 화면에만 표시합니다.');
+          }
+          
+          // DB 생성 실패 시에도 화면에는 보이도록 강제 추가
+          const stillMissing = !fetchedUsers.some(u => u.login_id === 'admin' || u.email === 'mars@dongyang.ac.kr');
+          if (stillMissing) {
+            fetchedUsers = [
+              {
+                id: 'admin_001',
+                user_id: 'admin_001',
+                login_id: 'admin',
+                name: 'S.R.S.관리자',
+                role: 'ADMIN',
+                phone: '010-7182-6783',
+                email: 'mars@dongyang.ac.kr'
+              },
+              ...fetchedUsers
+            ];
           }
         }
         setUsers(fetchedUsers);

@@ -13,7 +13,21 @@ export default function UserDetail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await userService.getUser(id);
+        let userData;
+        if (id === 'admin_001') {
+          userData = {
+            id: 'admin_001',
+            user_id: 'admin_001',
+            login_id: 'admin',
+            name: 'S.R.S.관리자',
+            role: 'ADMIN',
+            phone: '010-7182-6783',
+            email: 'mars@dongyang.ac.kr',
+            status: '정상 (Active)'
+          };
+        } else {
+          userData = await userService.getUser(id);
+        }
         setData(userData);
         
         // Fetch vehicles to find assigned vehicle for this user
@@ -61,7 +75,7 @@ export default function UserDetail() {
 
       {/* 프로필 헤더 */}
       <div className="profile-header">
-        <div className="profile-avatar"><i className="fas fa-user-tie"></i></div>
+        <div className="profile-avatar"><i className="fas fa-user-circle" style={{fontSize: "80px", color: "#1d3162", lineHeight: 1}}></i></div>
         <div className="profile-info">
           <div className="profile-title">
             {data.name||data.username||'-'} <span className={`badge ${getRoleBadge(data.role)}`}>{String(data.role).toLowerCase() === 'driver' || String(data.role).includes('관제') || String(data.role) === '사용자' ? '사용자' : '관리자'}</span>
