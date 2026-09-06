@@ -110,32 +110,36 @@ export default function Landing() {
       <section className="process-section" id="process">
         <div className="section-heading fade-up">
           <h2>서비스 소개</h2>
-          <p>4단계로 위험을 감지하고 해결합니다</p>
+          <p>AI 기술을 활용한 4단계 도로 위험물 자동 감지 및 신고 프로세스</p>
         </div>
         <div className="process-track">
           <div className="process-card-new fade-up d1">
             <div className="step-badge">STEP 01</div>
             <div className="step-icon"><i className="fas fa-video"></i></div>
-            <h3>주행 중 촬영</h3>
-            <p>스마트폰 앱이 도로 상황을 실시간으로 스캔합니다</p>
+            <h3>실시간 도로 스캔</h3>
+            <p className="process-sub">일반 스마트폰 카메라 활용</p>
+            <p className="process-desc">특수 장비 없이 차량에 부착된 스마트폰 앱을 통해 주행 중인 도로의 노면 상태를 실시간으로 촬영하고 영상 데이터를 수집합니다.</p>
           </div>
           <div className="process-card-new fade-up d2">
             <div className="step-badge">STEP 02</div>
-            <div className="step-icon"><i className="fas fa-search"></i></div>
-            <h3>AI 실시간 분석</h3>
-            <p>포트홀, 블랙아이스 등 위험 요소를 즉시 식별합니다</p>
+            <div className="step-icon"><i className="fas fa-brain"></i></div>
+            <h3>AI 위험물 분석</h3>
+            <p className="process-sub">실시간 Vision AI 구동</p>
+            <p className="process-desc">수집된 영상에서 포트홀, 블랙아이스, 균열 등의 위험 요소를 AI 모델이 즉각적으로 식별하고 위험도를 정밀하게 판별합니다.</p>
           </div>
           <div className="process-card-new fade-up d3">
             <div className="step-badge">STEP 03</div>
-            <div className="step-icon"><i className="fas fa-bell"></i></div>
-            <h3>관제 센터 알림</h3>
-            <p>감지 위치가 관제 시스템 지도에 실시간 표출됩니다</p>
+            <div className="step-icon"><i className="fas fa-map-marked-alt"></i></div>
+            <h3>관제 센터 동기화</h3>
+            <p className="process-sub">위험 구역 지도 표출</p>
+            <p className="process-desc">위험 요소가 감지된 정확한 GPS 위치와 현장 캡처 이미지가 관리자 웹 대시보드 지도에 즉시 표출되어 알림을 발생시킵니다.</p>
           </div>
           <div className="process-card-new fade-up d4">
             <div className="step-badge">STEP 04</div>
             <div className="step-icon"><i className="fas fa-paper-plane"></i></div>
-            <h3>유관 기관 자동 신고</h3>
-            <p>지자체 공문으로 자동 변환하여 신고를 접수합니다</p>
+            <h3>지자체 자동 신고</h3>
+            <p className="process-sub">공문서 자동 생성 및 이관</p>
+            <p className="process-desc">확인된 위험 데이터를 바탕으로 관할 지자체에 제출할 신고 공문서를 시스템이 자동 생성하여 원클릭으로 접수합니다.</p>
           </div>
         </div>
       </section>
