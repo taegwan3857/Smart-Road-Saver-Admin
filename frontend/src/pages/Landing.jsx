@@ -43,7 +43,7 @@ export default function Landing() {
         <nav className="nav-links">
           <a href="#process" onClick={(e) => { e.preventDefault(); scrollTo('process'); }}>서비스 소개</a>
           <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>주요 기능</a>
-          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>문의</a>
+          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>자주 묻는 질문</a>
         </nav>
       </header>
 
@@ -64,7 +64,7 @@ export default function Landing() {
       {/* Process */}
       <section className="process-section" id="process">
         <div className="section-heading fade-up">
-          <h2>작동 방식</h2>
+          <h2>서비스 소개</h2>
           <p>4단계로 위험을 감지하고 해결합니다</p>
         </div>
         <div className="process-timeline">
@@ -94,7 +94,7 @@ export default function Landing() {
       {/* Features */}
       <section className="features-section" id="features">
         <div className="section-heading fade-up">
-          <h2>핵심 기능</h2>
+          <h2>주요 기능</h2>
         </div>
         <div className="features-grid">
           <div className="feature-card fade-up d1">
