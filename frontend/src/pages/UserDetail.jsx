@@ -113,7 +113,7 @@ export default function UserDetail() {
             </div>
             <div className="info-item">
               <div className="info-label">계정 상태</div>
-              <div className="info-value"><span className={`badge ${data.status === '비활성' ? 'high' : 'low'}`}>{data.status||'정상 (Active)'}</span></div>
+              <div className="info-value"><span className={`badge ${data.status === 'INACTIVE' || data.status === '비활성' ? 'high' : 'low'}`}>{data.status === 'ACTIVE' ? '정상 (Active)' : data.status === 'INACTIVE' ? '비활성' : data.status || '정상 (Active)'}</span></div>
             </div>
             <div className="info-item">
               <div className="info-label">차량 번호</div>
