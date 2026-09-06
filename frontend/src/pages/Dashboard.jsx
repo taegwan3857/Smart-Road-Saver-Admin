@@ -238,8 +238,8 @@ export default function Dashboard() {
           titleWrap.style.cssText = "display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;";
           
           const title = document.createElement('div');
-          title.style.cssText = "font-weight:700; color:#0f172a; font-size:15px; display:flex; align-items:center; gap:6px;";
-          title.innerHTML = `<i class="${iconClass}" style="color:${bgColor}"></i><span>${getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>`;
+          title.style.cssText = `background:${bgColor}; color:#ffffff; padding:4px 10px; border-radius:20px; font-size:13px; font-weight:700; display:inline-flex; align-items:center; gap:6px;`;
+          title.innerHTML = `<i class="${iconClass}"></i><span>${getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>`;
           
           const closeBtn = document.createElement('button');
           closeBtn.innerHTML = "&times;";
