@@ -56,12 +56,17 @@
   background-size: 200% 200%;
   animation: gradientShift 8s ease infinite;
   color: #fff;
-  padding: 70px 48px 60px;
+  padding: 0 48px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.hero-section > * { position: relative; z-index: 2; }
+.hero-section > * { position: relative; z-index: 2; width: 100%; }
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -121,12 +126,18 @@
 
 /* Process */
 .process-section {
-  padding: 80px 48px;
+  padding: 0 48px;
   background: #f9fafb;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .section-heading {
   text-align: center;
   margin-bottom: 48px;
+  width: 100%;
 }
 .section-heading h2 {
   font-size: 1.8rem;
@@ -142,8 +153,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
   gap: 0;
 }
 .process-step {
@@ -190,14 +201,20 @@
 
 /* Features */
 .features-section {
-  padding: 80px 48px;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 0 48px;
+  width: 100%;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  width: 100%;
+  max-width: 1100px;
 }
 .feature-card {
   padding: 32px 28px;
@@ -225,12 +242,17 @@
 
 /* Q&A */
 .qa-section {
-  padding: 80px 48px;
+  padding: 0 48px;
   background: #f9fafb;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .qa-list {
+  width: 100%;
   max-width: 720px;
-  margin: 0 auto;
 }
 .qa-item {
   border-bottom: 1px solid #e5e7eb;
