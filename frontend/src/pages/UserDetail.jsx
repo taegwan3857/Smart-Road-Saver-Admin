@@ -13,20 +13,7 @@ export default function UserDetail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let userData;
-        if (id === 'admin_001') {
-          userData = {
-            id: 'admin_001',
-            user_id: 'admin_001',
-            login_id: 'admin',
-            name: '최고 관리자',
-            role: 'ADMIN',
-            phone: '010-1234-5678',
-            email: 'admin@srs.local'
-          };
-        } else {
-          userData = await userService.getUser(id);
-        }
+        const userData = await userService.getUser(id);
         setData(userData);
         
         // Fetch vehicles to find assigned vehicle for this user

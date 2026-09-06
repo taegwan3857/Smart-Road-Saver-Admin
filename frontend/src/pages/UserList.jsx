@@ -35,7 +35,7 @@ export default function UserList() {
     setIsDeleteModalOpen(false);
     try {
       for (const id of selectedIds) {
-        if (id !== 'admin_001') await userService.deleteUser(id);
+        await userService.deleteUser(id);
       }
       setAlertModal({ isOpen: true, title: "삭제 완료", message: "선택한 사용자가 삭제되었습니다.", type: "info" });
       setSelectedIds([]);
@@ -65,23 +65,26 @@ export default function UserList() {
         const data = await userService.getUsers();
         let fetchedUsers = Array.isArray(data) ? data : (data?.users || data?.items || []);
         
-        // 하드코딩된 시스템 관리자 계정 추가 (리스트 뷰 전용)
-        const hasAdmin = fetchedUsers.some(u => {
-          const r = String(u.role||'').toLowerCase();
-          return r === 'admin' || r === '관리자';
-        });
-        if (!hasAdmin) {
-          fetchedUsers = [
-            {
-              id: 'admin_001',
-              user_id: 'admin_001',
+        // 실제 DB에 관리자 계정 생성 (없는 경우)
+        const hasRealAdmin = fetchedUsers.some(u => u.login_id === 'admin' || u.email === 'mars@dongyang.ac.kr');
+        if (!hasRealAdmin) {
+          try {
+            const apiClient = (await import('../api/client')).default;
+            await apiClient.post('/api/users', {
               login_id: 'admin',
-              name: '최고 관리자',
+              password: 'password123',
+              name: 'S.R.S.관리자',
+              email: 'mars@dongyang.ac.kr',
+              phone: '010-7182-6783',
               role: 'ADMIN',
-              phone: '010-1234-5678',
-            },
-            ...fetchedUsers
-          ];
+              status: '정상 (Active)'
+            });
+            // 생성 후 리스트 다시 불러오기
+            const newData = await userService.getUsers();
+            fetchedUsers = Array.isArray(newData) ? newData : (newData?.users || newData?.items || []);
+          } catch (e) {
+            console.error('Failed to create real admin:', e);
+          }
         }
         setUsers(fetchedUsers);
       } catch (err) { console.error('User fetch error:', err); }
