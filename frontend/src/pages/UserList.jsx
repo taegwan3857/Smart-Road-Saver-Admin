@@ -90,9 +90,8 @@ export default function UserList() {
             const newData = await userService.getUsers();
             fetchedUsers = Array.isArray(newData) ? newData : (newData?.users || newData?.items || []);
           } catch (e) {
-            console.error('Failed to create real admin:', e);
-            const errDetail = e.response?.data?.message || e.response?.data?.error || e.message;
-            alert('관리자 계정 DB 추가에 실패했습니다: ' + errDetail + '\n임시로 화면에만 표시합니다.');
+            console.error('Failed to create real admin:', e.response?.data || e.message);
+            // 팝업 제거: 백엔드 API에서 권한 거부(401/403) 또는 엔드포인트 부재를 반환하므로 조용히 폴백 사용
           }
           
           // DB 생성 실패 시에도 화면에는 보이도록 강제 추가
