@@ -33,6 +33,12 @@ export default function Landing() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToSection = (e) => {
+    e.preventDefault();
+    const id = e.target.getAttribute('href').substring(1);
+    scrollTo(id);
+  };
+
   return (
     <div className="landing-container" ref={containerRef}>
       {/* Nav */}
@@ -41,14 +47,15 @@ export default function Landing() {
           <i className="fas fa-shield-alt"></i> Smart Road Saver
         </div>
         <nav className="nav-links">
-          <a href="#process" onClick={(e) => { e.preventDefault(); scrollTo('process'); }}>서비스 소개</a>
-          <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>주요 기능</a>
-          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>자주 묻는 질문</a>
+          <a href="#home" onClick={scrollToSection}>홈</a>
+          <a href="#process" onClick={scrollToSection}>서비스 소개</a>
+          <a href="#features" onClick={scrollToSection}>주요 기능</a>
+          <a href="#faq" onClick={scrollToSection}>자주 묻는 질문</a>
         </nav>
       </header>
 
       {/* Hero */}
-      <section className="hero-section">
+      <section className="hero-section" id="home">
         <div className="hero-bg">
           <span className="dot dot1"></span>
           <span className="dot dot2"></span>
