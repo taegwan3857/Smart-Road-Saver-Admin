@@ -49,6 +49,13 @@ export default function Landing() {
 
       {/* Hero */}
       <section className="hero-section">
+        <div className="hero-bg">
+          <span className="dot dot1"></span>
+          <span className="dot dot2"></span>
+          <span className="dot dot3"></span>
+          <span className="dot dot4"></span>
+          <span className="dot dot5"></span>
+        </div>
         <h1 className="hero-title">도로 위 숨은 위험을<br/>AI가 먼저 찾아냅니다</h1>
         <p className="hero-subtitle">
           스마트폰 카메라 기반 실시간 도로 위험물 감지 · 지자체 자동 신고 솔루션
