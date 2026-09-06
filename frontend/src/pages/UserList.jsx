@@ -35,7 +35,7 @@ export default function UserList() {
     setIsDeleteModalOpen(false);
     try {
       for (const id of selectedIds) {
-        await userService.deleteUser(id);
+        if (id !== 'admin_001') await userService.deleteUser(id);
       }
       setAlertModal({ isOpen: true, title: "삭제 완료", message: "선택한 사용자가 삭제되었습니다.", type: "info" });
       setSelectedIds([]);
@@ -63,7 +63,27 @@ export default function UserList() {
     const fetchUsers = async () => {
       try {
         const data = await userService.getUsers();
-        setUsers(Array.isArray(data) ? data : (data?.users || data?.items || []));
+        let fetchedUsers = Array.isArray(data) ? data : (data?.users || data?.items || []);
+        
+        // 하드코딩된 시스템 관리자 계정 추가 (리스트 뷰 전용)
+        const hasAdmin = fetchedUsers.some(u => {
+          const r = String(u.role||'').toLowerCase();
+          return r === 'admin' || r === '관리자';
+        });
+        if (!hasAdmin) {
+          fetchedUsers = [
+            {
+              id: 'admin_001',
+              user_id: 'admin_001',
+              login_id: 'admin',
+              name: '최고 관리자',
+              role: 'ADMIN',
+              phone: '010-1234-5678',
+            },
+            ...fetchedUsers
+          ];
+        }
+        setUsers(fetchedUsers);
       } catch (err) { console.error('User fetch error:', err); }
       finally { setIsUsersLoading(false); }
     };
@@ -125,7 +145,7 @@ export default function UserList() {
                 <th style={{width:"40px",textAlign:"center"}}><input type="checkbox" onChange={handleSelectAll} checked={filteredUsers.length > 0 && selectedIds.length === filteredUsers.length} /></th>
                 <th>아이디</th>
                 <th>이름</th>
-                <th>권한 등급</th>
+                <th>권한</th>
                 <th>연락처</th>
               </tr>
             </thead>
