@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/landing.css';
 
+function useFadeUp() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const targets = el.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    targets.forEach(t => observer.observe(t));
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
 export default function Landing() {
   const [openFaq, setOpenFaq] = useState(null);
+  const containerRef = useFadeUp();
 
   const faqs = [
     { q: "오탐(False Alarm) 처리는 어떻게 진행되나요?", a: "AI가 위험 요소로 식별했으나 실제 위험이 아닌 경우, 관리자가 감지기록 상세 페이지에서 '오탐 처리' 버튼을 눌러 지도에서 즉시 제외할 수 있습니다." },
@@ -12,14 +28,23 @@ export default function Landing() {
     { q: "운전자 앱은 누구나 사용할 수 있나요?", a: "네, 앱스토어에서 전용 앱을 다운로드하여 거치대에 켜두기만 하면 됩니다. 주행 중 카메라가 자동으로 도로를 스캔하며 위험 요소를 관제 센터로 전송합니다." }
   ];
 
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="landing-container">
+    <div className="landing-container" ref={containerRef}>
       {/* Nav */}
       <header className="landing-header">
         <div className="landing-logo">
           <i className="fas fa-shield-alt"></i> Smart Road Saver
         </div>
-        <Link to="/login" className="landing-btn-login">관리자 로그인</Link>
+        <nav className="nav-links">
+          <a href="#process" onClick={(e) => { e.preventDefault(); scrollTo('process'); }}>작동 방식</a>
+          <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>핵심 기능</a>
+          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>Q&A</a>
+        </nav>
       </header>
 
       {/* Hero */}
@@ -37,31 +62,31 @@ export default function Landing() {
       </section>
 
       {/* Process */}
-      <section className="process-section">
-        <div className="section-heading">
+      <section className="process-section" id="process">
+        <div className="section-heading fade-up">
           <h2>작동 방식</h2>
           <p>4단계로 위험을 감지하고 해결합니다</p>
         </div>
         <div className="process-grid">
-          <div className="process-card">
+          <div className="process-card fade-up d1">
             <span className="process-num">1</span>
             <i className="fas fa-car-side"></i>
             <h3>주행 중 촬영</h3>
             <p>스마트폰 앱을 켜고 주행하면 카메라가 도로 상황을 실시간으로 스캔합니다.</p>
           </div>
-          <div className="process-card">
+          <div className="process-card fade-up d2">
             <span className="process-num">2</span>
             <i className="fas fa-brain"></i>
             <h3>AI 분석</h3>
             <p>엣지 컴퓨팅 기반 AI가 포트홀, 블랙아이스 등 위험 요소를 즉시 식별합니다.</p>
           </div>
-          <div className="process-card">
+          <div className="process-card fade-up d3">
             <span className="process-num">3</span>
             <i className="fas fa-desktop"></i>
             <h3>관제 모니터링</h3>
             <p>감지된 위험 위치가 관제 시스템 지도에 실시간 경고로 표출됩니다.</p>
           </div>
-          <div className="process-card">
+          <div className="process-card fade-up d4">
             <span className="process-num">4</span>
             <i className="fas fa-file-signature"></i>
             <h3>자동 신고</h3>
@@ -71,22 +96,22 @@ export default function Landing() {
       </section>
 
       {/* Features */}
-      <section className="features-section">
-        <div className="section-heading">
+      <section className="features-section" id="features">
+        <div className="section-heading fade-up">
           <h2>핵심 기능</h2>
         </div>
         <div className="features-grid">
-          <div className="feature-card">
+          <div className="feature-card fade-up d1">
             <div className="feature-icon" style={{color: '#1d3162'}}><i className="fas fa-mobile-alt"></i></div>
             <h3>스마트폰 기반 감지</h3>
             <p>별도 장비 없이 운전자의 스마트폰 카메라만으로 블랙아이스, 포트홀, 장애물을 실시간 식별합니다.</p>
           </div>
-          <div className="feature-card">
+          <div className="feature-card fade-up d2">
             <div className="feature-icon" style={{color: '#1d3162'}}><i className="fas fa-map-marked-alt"></i></div>
             <h3>실시간 관제 대시보드</h3>
             <p>전국에서 수집되는 위험 요소 데이터를 지도 위에 시각화하여 현황을 한눈에 파악합니다.</p>
           </div>
-          <div className="feature-card">
+          <div className="feature-card fade-up d3">
             <div className="feature-icon" style={{color: '#1d3162'}}><i className="fas fa-paper-plane"></i></div>
             <h3>유관 기관 자동 발송</h3>
             <p>위험도가 높은 감지 건은 공문서 형태로 자동 변환하여 해당 지자체로 즉시 전송합니다.</p>
@@ -95,13 +120,13 @@ export default function Landing() {
       </section>
 
       {/* Q&A */}
-      <section className="qa-section">
-        <div className="section-heading">
+      <section className="qa-section" id="faq">
+        <div className="section-heading fade-up">
           <h2>자주 묻는 질문</h2>
         </div>
         <div className="qa-list">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="qa-item">
+            <div key={idx} className="qa-item fade-up">
               <button className="qa-question" onClick={() => setOpenFaq(openFaq === idx ? null : idx)}>
                 <span>{faq.q}</span>
                 <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`}></i>

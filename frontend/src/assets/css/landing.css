@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 /* Nav */
@@ -30,17 +31,21 @@
   align-items: center;
   gap: 10px;
 }
-.landing-btn-login {
-  padding: 10px 22px;
-  background: #1d3162;
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background 0.2s;
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
 }
-.landing-btn-login:hover { background: #15244b; }
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #1d3162;
+}
 
 /* Hero */
 .hero-section {
@@ -156,6 +161,7 @@
   border: 1px solid #eee;
   border-radius: 12px;
   background: #fff;
+  transition: border-color 0.2s;
 }
 .feature-card:hover { border-color: #1d3162; }
 .feature-icon {
@@ -231,14 +237,47 @@
   margin-bottom: 8px;
 }
 
+/* Scroll Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up.d1 { transition-delay: 0.1s; }
+.fade-up.d2 { transition-delay: 0.2s; }
+.fade-up.d3 { transition-delay: 0.3s; }
+.fade-up.d4 { transition-delay: 0.35s; }
+
+/* Hero Animation */
+.hero-section .hero-title,
+.hero-section .hero-subtitle,
+.hero-section .hero-btns {
+  animation: heroFadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+.hero-section .hero-subtitle { animation-delay: 0.15s; }
+.hero-section .hero-btns { animation-delay: 0.3s; }
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 900px) {
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .features-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: 2rem; }
   .landing-header { padding: 16px 24px; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 0.85rem; }
   .hero-section, .process-section, .features-section, .qa-section { padding-left: 24px; padding-right: 24px; }
 }
 @media (max-width: 600px) {
   .process-grid { grid-template-columns: 1fr; }
   .hero-btns { flex-direction: column; align-items: center; }
+  .nav-links { gap: 14px; }
 }
