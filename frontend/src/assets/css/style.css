@@ -707,7 +707,7 @@ body {
   position: relative;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: -2px; /* 미세한 수직 정렬 보정 */
   margin: 0;
   outline: none;
 }
