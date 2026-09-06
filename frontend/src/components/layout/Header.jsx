@@ -124,7 +124,7 @@ export default function Header() {
       {/* Right Side: Clock & Profile */}
       <div className="header-right" style={{display: "flex", alignItems: "center", gap: "16px"}}>
         <div style={{display: "flex", alignItems: "center", gap: "8px", fontSize: "0.95rem", color: "var(--text-muted)"}}>
-          <i className="far fa-clock"></i> <span style={{fontFamily: "monospace", fontSize: "1.05rem", fontWeight: "500"}}>{timeStr}</span>
+          <i className="far fa-clock"></i> <span style={{fontSize: "1.05rem", fontWeight: "500"}}>{timeStr}</span>
         </div>
         <div style={{width: "1px", height: "24px", background: "var(--border-light)", margin: "0 8px"}}></div>
         <div className="header-profile" style={{display: "flex", alignItems: "center", gap: "12px"}}>
