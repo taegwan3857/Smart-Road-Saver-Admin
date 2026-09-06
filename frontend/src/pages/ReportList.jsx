@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CustomSelect from "../components/common/CustomSelect";
 import { reportService } from '../services/reportService';
 
 export default function ReportList() {
@@ -28,7 +27,6 @@ export default function ReportList() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchInput, setSearchInput] = useState('');
-  const [statusFilter, setStatusFilter] = useState('진행 상태 전체');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,13 +64,7 @@ export default function ReportList() {
       matchesSearch = id.includes(term) || author.includes(term) || title.includes(term);
     }
     
-    let matchesStatus = true;
-    if (statusFilter !== '진행 상태 전체') {
-      const status = String(r.status||'결재 대기');
-      matchesStatus = status.includes(statusFilter);
-    }
-
-    return matchesSearch && matchesStatus;
+    return matchesSearch;
   });
 
   return (
@@ -85,7 +77,6 @@ export default function ReportList() {
       <div className="panel">
         <div className="board-filters">
           <div className="filter-group">
-            <CustomSelect options={["진행 상태 전체", "결재 대기", "승인 완료", "반려"]} value={statusFilter} onChange={setStatusFilter} />
             <div className="search-box">
               <input type="text" className="form-input" placeholder="문서 번호 또는 담당자 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} />
               <button className="btn-primary" onClick={handleSearch}>검색</button>
