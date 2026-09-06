@@ -70,7 +70,7 @@ export default function Landing() {
               <span className="text-highlight">AI가 먼저 찾아냅니다</span>
             </h1>
             <p className="hero-subtitle">
-              스마트폰 카메라 기반 실시간 도로 위험물 감지 및 지자체 자동 신고 솔루션
+              블랙박스 영상 기반 실시간 도로 위험물 감지 및 지자체 자동 신고 솔루션
             </p>
             <div className="hero-btns">
               <Link to="/login" className="btn-white">관제 시스템 접속</Link>
@@ -117,8 +117,8 @@ export default function Landing() {
             <div className="step-badge">STEP 01</div>
             <div className="step-icon"><i className="fas fa-video"></i></div>
             <h3>실시간 도로 스캔</h3>
-            <p className="process-sub">일반 스마트폰 카메라 활용</p>
-            <p className="process-desc">특수 장비 없이 차량에 부착된 스마트폰 앱을 통해 주행 중인 도로의 노면 상태를 실시간으로 촬영하고 영상 데이터를 수집합니다.</p>
+            <p className="process-sub">차량용 블랙박스 연동</p>
+            <p className="process-desc">별도의 특수 장비 없이 기존 차량에 설치된 블랙박스를 통해 주행 중인 도로의 노면 상태를 실시간으로 촬영하고 데이터를 수집합니다.</p>
           </div>
           <div className="process-card-new fade-up d2">
             <div className="step-badge">STEP 02</div>
@@ -152,11 +152,11 @@ export default function Landing() {
         </div>
         <div className="features-grid">
           <div className="feature-card fade-up d1 card-1">
-            <i className="fas fa-mobile-alt feature-watermark"></i>
+            <i className="fas fa-video feature-watermark"></i>
             <div className="feature-content">
-              <div className="feature-icon-wrapper"><i className="fas fa-mobile-alt"></i></div>
-              <h3>스마트폰 기반 감지</h3>
-              <p>별도 장비 없이 운전자의 스마트폰 카메라만으로 블랙아이스, 포트홀, 장애물을 실시간 식별합니다.</p>
+              <div className="feature-icon-wrapper"><i className="fas fa-video"></i></div>
+              <h3>블랙박스 기반 감지</h3>
+              <p>별도의 고가 장비 없이 일반 차량의 블랙박스 영상만으로 블랙아이스, 포트홀, 장애물을 실시간 식별합니다.</p>
             </div>
           </div>
           <div className="feature-card fade-up d2 card-2">
