@@ -309,16 +309,14 @@ body {
 }
 
 .badge {
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
-.badge.high { background: #ffe4e6; color: var(--color-danger); }
-.badge.medium { background: #fef3c7; color: var(--color-warning); }
-.badge.low { background: #d1fae5; color: var(--color-success); }
-.badge.neutral { background: #f1f5f9; color: var(--text-muted); }
+.badge.high { background: transparent; color: var(--color-danger); }
+.badge.medium { background: transparent; color: var(--color-warning); }
+.badge.low { background: transparent; color: var(--color-success); }
+.badge.neutral { background: transparent; color: var(--text-muted); }
 
 /* Realism Placeholders */
 .map-placeholder {
