@@ -111,11 +111,11 @@ export default function Header() {
           onClick={handleTickerClick} 
           style={{ cursor: latestEvent ? "pointer" : "default" }}
         >
-          <span style={{color: "var(--color-danger)", display: "flex", alignItems: "center", gap: "6px", fontWeight: "700"}}>
-            <i className="fas fa-circle" style={{fontSize: "0.6rem", animation: "pulse-dot 1.5s infinite"}}></i> 실시간 감지
+          <span style={{color: "var(--color-danger)", display: "flex", alignItems: "center", gap: "6px", fontWeight: "700", lineHeight: 1}}>
+            <i className="fas fa-circle" style={{fontSize: "0.5rem", marginTop: "1px", animation: "pulse-dot 1.5s infinite"}}></i> 실시간 감지
           </span>
           <div style={{width: "1px", height: "14px", background: "#cbd5e1"}}></div>
-          <span style={{color: "var(--text-main)", fontWeight: "600"}}>
+          <span style={{color: "var(--text-main)", display: "flex", alignItems: "center", fontWeight: "600", lineHeight: 1, paddingTop: "1px"}}>
             {latestEvent ? `${eventAddress}_${translateType(latestEvent.obstacle_type||latestEvent.event_type||latestEvent.type)} 감지 (${formatEventTime(latestEvent.timestamp||latestEvent.created_at||latestEvent.detected_at||latestEvent.date)})` : '실시간 감지 대기'}
           </span>
         </div>
