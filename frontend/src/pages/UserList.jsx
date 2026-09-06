@@ -194,11 +194,7 @@ export default function UserList() {
                       <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(user.user_id||user.id||user._id)} onChange={(e) => handleSelectOne(e, user.user_id||user.id||user._id)} /></td>
                       <td>{user.login_id||user.userId||'-'}</td>
                       <td>{user.name||'-'}</td>
-                      <td>
-                        <span className={`badge ${badgeClass}`}>
-                          {displayRole}
-                        </span>
-                      </td>
+                      <td>{displayRole}</td>
                       <td>{user.phone||user.phone_number||'-'}</td>
                     </tr>
                   );

@@ -78,7 +78,7 @@ export default function UserDetail() {
         <div className="profile-avatar"><i className="fas fa-user-circle" style={{fontSize: "80px", color: "#1d3162", lineHeight: 1}}></i></div>
         <div className="profile-info">
           <div className="profile-title">
-            {data.name||data.username||'-'} <span className={`badge ${getRoleBadge(data.role)}`}>{String(data.role).toLowerCase() === 'driver' || String(data.role).includes('관제') || String(data.role) === '사용자' ? '사용자' : '관리자'}</span>
+            {data.name||data.username||'-'} <span style={{fontSize: "1rem", color: "var(--text-muted)", marginLeft: "8px", fontWeight: "normal"}}>({String(data.role).toLowerCase() === 'driver' || String(data.role).includes('관제') || String(data.role) === '사용자' ? '사용자' : '관리자'})</span>
           </div>
           <div className="profile-meta">
             <span><i className="fas fa-id-badge"></i> 아이디: {data.login_id||data.email||'-'}</span>
