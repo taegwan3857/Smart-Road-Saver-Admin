@@ -110,9 +110,9 @@ export default function ReportList() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}></td></tr>
+                <tr><td colSpan="7" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}></td></tr>
               ) : filteredItems.length === 0 ? (
-                <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>신고 문서가 없습니다.</td></tr>
+                <tr><td colSpan="7" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>신고 문서가 없습니다.</td></tr>
               ) : filteredItems.map((r) => (
                 <tr key={r.report_id||r.id||r._id} onClick={()=>navigate(`/reports/${r.report_id||r.id||r._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(r.report_id||r.id||r._id)} onChange={(e) => handleSelectOne(e, r.report_id||r.id||r._id)} /></td>
