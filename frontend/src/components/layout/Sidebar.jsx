@@ -18,7 +18,10 @@ export default function Sidebar() {
     navigate("/login");
   };
 
-  const isActive = (path) => location.pathname === path ? "active" : "";
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/" ? "active" : "";
+    return location.pathname.startsWith(path) ? "active" : "";
+  };
 
   return (
     <>
