@@ -81,7 +81,7 @@ export default function ReportDetail() {
             </div>
             <div className="approval-box">
               <div className="approval-title">자동결재</div>
-              <div className="approval-sign"><span className="stamp">시스템</span></div>
+              <div className="approval-sign"><span className="stamp">SYSTEM</span></div>
             </div>
             <div className="approval-box">
               <div className="approval-title">센터장</div>
