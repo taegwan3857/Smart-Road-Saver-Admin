@@ -729,9 +729,9 @@ body {
   content: '';
   position: absolute;
   top: 1px;
-  left: 5px;
+  left: 4px;
   width: 4px;
-  height: 9px;
+  height: 8px;
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
@@ -747,5 +747,5 @@ body {
 
 @keyframes checkDraw {
   0% { opacity: 0; height: 0; }
-  100% { opacity: 1; height: 9px; }
+  100% { opacity: 1; height: 8px; }
 }
