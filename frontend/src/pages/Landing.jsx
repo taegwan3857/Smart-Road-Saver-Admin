@@ -105,25 +105,29 @@ export default function Landing() {
           <h2>서비스 소개</h2>
           <p>4단계로 위험을 감지하고 해결합니다</p>
         </div>
-        <div className="process-timeline">
-          <div className="process-step fade-up d1">
-            <div className="step-circle"><i className="fas fa-video"></i></div>
+        <div className="process-track">
+          <div className="process-card-new fade-up d1">
+            <div className="step-number">01</div>
+            <div className="step-icon"><i className="fas fa-video"></i></div>
             <h3>주행 중 촬영</h3>
             <p>스마트폰 앱이 도로 상황을 실시간으로 스캔합니다</p>
           </div>
-          <div className="process-step fade-up d2">
-            <div className="step-circle"><i className="fas fa-search"></i></div>
-            <h3>AI 분석</h3>
+          <div className="process-card-new step-even fade-up d2">
+            <div className="step-number">02</div>
+            <div className="step-icon"><i className="fas fa-search"></i></div>
+            <h3>AI 실시간 분석</h3>
             <p>포트홀, 블랙아이스 등 위험 요소를 즉시 식별합니다</p>
           </div>
-          <div className="process-step fade-up d3">
-            <div className="step-circle"><i className="fas fa-bell"></i></div>
-            <h3>관제 알림</h3>
+          <div className="process-card-new fade-up d3">
+            <div className="step-number">03</div>
+            <div className="step-icon"><i className="fas fa-bell"></i></div>
+            <h3>관제 센터 알림</h3>
             <p>감지 위치가 관제 시스템 지도에 실시간 표출됩니다</p>
           </div>
-          <div className="process-step fade-up d4">
-            <div className="step-circle"><i className="fas fa-paper-plane"></i></div>
-            <h3>자동 신고</h3>
+          <div className="process-card-new step-even fade-up d4">
+            <div className="step-number">04</div>
+            <div className="step-icon"><i className="fas fa-paper-plane"></i></div>
+            <h3>유관 기관 자동 신고</h3>
             <p>지자체 공문으로 자동 변환하여 신고를 접수합니다</p>
           </div>
         </div>
