@@ -40,6 +40,17 @@ export default function ReportList() {
     fetchData();
   }, []);
 
+  
+  const translateType = (type) => {
+    if (!type) return '-';
+    const t = String(type).toUpperCase();
+    if (t.includes('BLACK_ICE') || t.includes('블랙아이스')) return '블랙아이스';
+    if (t.includes('POTHOLE') || t.includes('포트홀')) return '포트홀';
+    if (t.includes('OBSTACLE') || t.includes('장애물')) return '장애물';
+    if (t.includes('ANIMAL') || t.includes('CORPSE')) return '동물 사체';
+    return type;
+  };
+
   const getStatusBadge = (status) => {
     if (!status) return 'neutral';
     const s = status.toLowerCase();
@@ -92,16 +103,15 @@ export default function ReportList() {
 
         <div className="table-responsive">
           <table className="data-table">
-            <thead>
+                        <thead>
               <tr>
                 <th style={{width:"40px",textAlign:"center"}}><input type="checkbox" onChange={handleSelectAll} checked={filteredItems.length > 0 && selectedIds.length === filteredItems.length} /></th>
-                <th>문서 번호</th>
-                <th>기안 일시</th>
-                <th>제목 (위험 유형)</th>
-                <th>관련 감지 ID</th>
-                <th>담당자</th>
-                <th>결재 상태</th>
-                
+                <th>신고 ID</th>
+                <th>유형</th>
+                <th>위치</th>
+                <th>감지 시간</th>
+                <th>신고자</th>
+                <th>상태</th>
               </tr>
             </thead>
             <tbody>
@@ -109,16 +119,15 @@ export default function ReportList() {
                 <tr><td colSpan="7" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}></td></tr>
               ) : filteredItems.length === 0 ? (
                 <tr><td colSpan="7" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>신고 문서가 없습니다.</td></tr>
-              ) : currentItems.map((r) => (
+                                          ) : currentItems.map((r) => (
                 <tr key={r.report_id||r.id||r._id} onClick={()=>navigate(`/reports/${r.report_id||r.id||r._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(r.report_id||r.id||r._id)} onChange={(e) => handleSelectOne(e, r.report_id||r.id||r._id)} /></td>
                   <td style={{fontWeight:"500"}}>{r.report_id||r.id||r._id||'-'}</td>
+                  <td>{translateType(r.type||r.event_type||r.obstacle_type)}</td>
+                  <td>{r.address || (r.latitude && r.longitude ? `${r.latitude}, ${r.longitude}` : '위치 정보 없음')}</td>
                   <td>{r.created_at ? new Date(r.created_at).toLocaleString('ko-KR') : '-'}</td>
-                  <td style={{textAlign:"left"}}>{r.title||r.subject||'-'}</td>
-                  <td>{r.event_id||r.detection_id||'-'}</td>
                   <td>{r.author||r.created_by||'-'}</td>
                   <td><span className={`badge ${getStatusBadge(r.status)}`}>{r.status||'결재 대기'}</span></td>
-                  
                 </tr>
               ))}
             </tbody>
