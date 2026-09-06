@@ -102,47 +102,54 @@
   color: #888;
   font-size: 1rem;
 }
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  max-width: 1100px;
+.process-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1000px;
   margin: 0 auto;
+  gap: 0;
 }
-.process-card {
+.process-step {
+  flex: 1;
   text-align: center;
-  padding: 32px 20px;
-  background: #fff;
-  border-radius: 12px;
+  position: relative;
 }
-.process-num {
-  display: inline-block;
-  width: 32px; height: 32px;
-  line-height: 32px;
+/* connecting line */
+.process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: calc(50% + 28px);
+  width: calc(100% - 56px);
+  height: 2px;
+  background: #d1d5db;
+}
+.step-circle {
+  width: 48px; height: 48px;
+  border-radius: 50%;
   background: #1d3162;
   color: #fff;
-  border-radius: 50%;
-  font-size: 0.85rem;
-  font-weight: 800;
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 2;
 }
-.process-card i {
-  display: block;
-  font-size: 2rem;
-  color: #1d3162;
-  margin-bottom: 16px;
-}
-.process-card h3 {
-  font-size: 1.1rem;
+.process-step h3 {
+  font-size: 1rem;
   font-weight: 700;
   color: #222;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
-.process-card p {
-  font-size: 0.9rem;
-  color: #777;
-  line-height: 1.55;
+.process-step p {
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.5;
   word-break: keep-all;
+  padding: 0 12px;
 }
 
 /* Features */
@@ -268,7 +275,9 @@
 }
 
 @media (max-width: 900px) {
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-timeline { flex-wrap: wrap; gap: 24px; }
+  .process-step { flex: 0 0 45%; }
+  .process-step:not(:last-child)::after { display: none; }
   .features-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: 2rem; }
   .landing-header { padding: 16px 24px; }
@@ -277,7 +286,7 @@
   .hero-section, .process-section, .features-section, .qa-section { padding-left: 24px; padding-right: 24px; }
 }
 @media (max-width: 600px) {
-  .process-grid { grid-template-columns: 1fr; }
+  .process-step { flex: 0 0 100%; }
   .hero-btns { flex-direction: column; align-items: center; }
   .nav-links { gap: 14px; }
 }
