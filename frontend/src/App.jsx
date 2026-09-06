@@ -16,6 +16,7 @@ import VehicleDetail from './pages/VehicleDetail';
 import DeviceList from './pages/DeviceList';
 import DeviceDetail from './pages/DeviceDetail';
 import Manual from './pages/Manual';
+import Landing from './pages/Landing';
 
 function Layout() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/intro" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
