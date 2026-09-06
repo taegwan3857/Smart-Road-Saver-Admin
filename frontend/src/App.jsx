@@ -15,6 +15,7 @@ import VehicleList from './pages/VehicleList';
 import VehicleDetail from './pages/VehicleDetail';
 import DeviceList from './pages/DeviceList';
 import DeviceDetail from './pages/DeviceDetail';
+import Manual from './pages/Manual';
 
 function Layout() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="vehicles/:id" element={<VehicleDetail />} />
           <Route path="devices" element={<DeviceList />} />
           <Route path="devices/:id" element={<DeviceDetail />} />
+          <Route path="manual" element={<Manual />} />
         </Route>
       </Routes>
     </BrowserRouter>

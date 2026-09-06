@@ -37,8 +37,11 @@ export default function Sidebar() {
         <Link to="/detections" className={isActive("/detections")}><i className="fas fa-list"></i> 감지기록</Link>
         <Link to="/reports" className={isActive("/reports")}><i className="fas fa-file-alt"></i> 신고 문서 관리</Link>
         
-        <div className="sidebar-group-title">계정 관리</div>
+                <div className="sidebar-group-title">계정 관리</div>
         <Link to="/users" className={isActive("/users")}><i className="fas fa-users-cog"></i> 사용자 관리</Link>
+        
+        <div className="sidebar-group-title">고객 지원</div>
+        <Link to="/manual" className={isActive("/manual")}><i className="fas fa-book"></i> 시스템 매뉴얼</Link>
       </nav>
       
       <div style={{padding:"20px",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:"auto"}}>
