@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/landing.css';
 
 export default function Landing() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const faqs = [
+    { q: "오탐(False Alarm) 처리는 어떻게 진행되나요?", a: "AI가 위험 요소로 식별했으나 실제 위험이 아닌 경우, 관리자가 대시보드 및 감지기록 상세 페이지에서 '오탐 처리' 버튼을 눌러 지도에서 즉시 제외할 수 있습니다." },
+    { q: "유관 기관 신고는 정말 자동으로 되나요?", a: "네, AI 신뢰도와 위험도(High) 기준을 충족하는 감지 건은 시스템 내부 설정에 따라 행정안전부 안전신문고나 지자체 도로관리 부서로 자동 기안 및 전송됩니다." },
+    { q: "야간이나 악천후에도 감지가 가능한가요?", a: "S.R.S 시스템의 AI 비전 모델은 다양한 조도와 기상 환경의 도로 데이터를 학습하여 야간이나 비 오는 날에도 높은 정확도로 위험을 감지해 냅니다." },
+    { q: "운전자 앱은 누구나 다운받아 쓸 수 있나요?", a: "네, 일반 사용자(운전자)는 앱스토어에서 전용 스마트폰 앱을 다운로드 받아 거치대에 켜두기만 하면 됩니다. 주행 중 카메라가 자동으로 도로를 스캔하며 위험 요소를 관제 센터로 전송합니다." }
+  ];
+
   return (
     <div className="landing-container">
       {/* Header */}
@@ -50,6 +59,39 @@ export default function Landing() {
             <div className="feature-icon" style={{color: '#10b981'}}><i className="fas fa-paper-plane"></i></div>
             <h3>유관 기관 자동 신고 발송</h3>
             <p>위험도가 높은 감지 건은 시스템이 즉각 공문서 형태로 자동 변환하여 해당 지자체 및 관할 부서로 즉시 전송합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      
+      {/* Q&A Section */}
+      <section style={{ padding: '80px 40px', backgroundColor: '#fff' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2 className="features-title" style={{ textAlign: 'center', marginBottom: '40px' }}>자주 묻는 질문 (Q&A)</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            {faqs.map((faq, idx) => (
+              <div key={idx} style={{ borderBottom: '1px solid #e2e8f0' }}>
+                <button 
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', padding: '24px 16px', fontSize: '1.1rem', fontWeight: '700', color: '#1e293b', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'background-color 0.2s' }}
+                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
+                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                >
+                  <span><span style={{color: 'var(--primary-color)', marginRight: '8px'}}>Q.</span>{faq.q}</span>
+                  <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`} style={{ color: '#94a3b8' }}></i>
+                </button>
+                <div style={{ 
+                  maxHeight: openFaq === idx ? '500px' : '0', 
+                  overflow: 'hidden', 
+                  transition: 'all 0.3s ease-in-out',
+                  opacity: openFaq === idx ? 1 : 0
+                }}>
+                  <div style={{ padding: '0 16px 24px 16px', color: '#64748b', lineHeight: '1.7', fontSize: '1.05rem', wordBreak: 'keep-all' }}>
+                    <span style={{color: '#e11d48', fontWeight: '800', marginRight: '8px'}}>A.</span>{faq.a}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
