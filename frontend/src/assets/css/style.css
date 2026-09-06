@@ -414,9 +414,9 @@ body {
 .btn-modal.primary:hover { background: #15244b; }
 
 .btn-modal.danger {
-  background: #ef4444; color: #fff;
+  background: var(--primary-color); color: #fff;
 }
-.btn-modal.danger:hover { background: #dc2626; }
+.btn-modal.danger:hover { opacity: 0.9; }
 
 /* === 커스텀 Select 드롭다운 디자인 === */
 .custom-select-container {
