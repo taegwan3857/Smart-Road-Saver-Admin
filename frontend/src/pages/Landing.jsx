@@ -64,8 +64,40 @@ export default function Landing() {
       </section>
 
       
+      
+      {/* Process Section */}
+      <section className="process-section">
+        <h2 className="process-title">어떻게 작동하나요?</h2>
+        <div className="process-grid">
+          <div className="process-step">
+            <div className="step-icon-wrap"><i className="fas fa-car-side"></i></div>
+            <div className="step-badge">STEP 01</div>
+            <h3 className="step-title">주행 중 영상 촬영</h3>
+            <p className="step-desc">스마트폰 전용 앱을 켜고 주행하면, 카메라가 차량 전방의 도로 상황을 실시간으로 스캔합니다.</p>
+          </div>
+          <div className="process-step">
+            <div className="step-icon-wrap"><i className="fas fa-brain"></i></div>
+            <div className="step-badge">STEP 02</div>
+            <h3 className="step-title">AI 실시간 분석</h3>
+            <p className="step-desc">엣지 컴퓨팅 기반 AI가 포트홀, 블랙아이스 등 도로 위 위험 요소를 0.1초 만에 식별해 냅니다.</p>
+          </div>
+          <div className="process-step">
+            <div className="step-icon-wrap"><i className="fas fa-desktop"></i></div>
+            <div className="step-badge">STEP 03</div>
+            <h3 className="step-title">관제 센터 모니터링</h3>
+            <p className="step-desc">감지된 위험 위치와 이미지가 관제 시스템에 즉각 전송되어 지도 상에 경고 알림으로 표출됩니다.</p>
+          </div>
+          <div className="process-step">
+            <div className="step-icon-wrap"><i className="fas fa-file-signature"></i></div>
+            <div className="step-badge">STEP 04</div>
+            <h3 className="step-title">자동 신고 및 복구</h3>
+            <p className="step-desc">위험도가 높은 건은 시스템이 지자체 공문 양식으로 자동 변환하여 신고를 접수, 빠른 복구를 돕습니다.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Q&A Section */}
-      <section style={{ padding: '80px 40px', backgroundColor: '#fff' }}>
+      <section style={{ padding: '80px 40px', backgroundColor: '#f8fafc' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h2 className="features-title" style={{ textAlign: 'center', marginBottom: '40px' }}>자주 묻는 질문 (Q&A)</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
