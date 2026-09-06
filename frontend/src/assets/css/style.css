@@ -415,10 +415,11 @@ body {
   background: #fff; padding: 8px 14px; border: 1px solid var(--border-light);
   border-radius: 6px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
   color: var(--text-main);
+  white-space: nowrap;
 }
 .custom-select-trigger:hover { border-color: #cbd5e1; }
 .custom-select-options {
-  position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+  position: absolute; top: calc(100% + 4px); left: 0; min-width: 100%;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0,0,0,0.08);
@@ -433,6 +434,7 @@ body {
   padding: 8px 12px; border-radius: 6px; cursor: pointer;
   display: flex; align-items: center; gap: 8px;
   color: var(--text-main);
+  white-space: nowrap;
 }
 .custom-option:hover { background: #f1f5f9; }
 .custom-option .check-icon { opacity: 0; font-size: 0.8rem; width: 14px; }
