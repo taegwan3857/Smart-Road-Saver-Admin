@@ -119,7 +119,7 @@ export default function DetectionDetail() {
           </div>
         </div>
         <div className="profile-actions">
-          <button className="btn-modal secondary" onClick={() => setIsFalseAlarmModalOpen(true)}><i className="fas fa-ban"></i> 오탐 처리</button>
+          <button className="btn-outline" onClick={() => setIsFalseAlarmModalOpen(true)}><i className="fas fa-ban"></i> 오탐 처리</button>
         </div>
       </div>
 
