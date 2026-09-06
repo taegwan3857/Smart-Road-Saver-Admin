@@ -41,9 +41,9 @@ export default function Landing() {
           <i className="fas fa-shield-alt"></i> Smart Road Saver
         </div>
         <nav className="nav-links">
-          <a href="#process" onClick={(e) => { e.preventDefault(); scrollTo('process'); }}>작동 방식</a>
-          <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>핵심 기능</a>
-          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>Q&A</a>
+          <a href="#process" onClick={(e) => { e.preventDefault(); scrollTo('process'); }}>서비스 소개</a>
+          <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>주요 기능</a>
+          <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>문의</a>
         </nav>
       </header>
 
