@@ -56,15 +56,46 @@ export default function Landing() {
           <span className="dot dot4"></span>
           <span className="dot dot5"></span>
         </div>
-        <h1 className="hero-title">도로 위 숨은 위험을<br/>AI가 먼저 찾아냅니다</h1>
-        <p className="hero-subtitle">
-          스마트폰 카메라 기반 실시간 도로 위험물 감지 · 지자체 자동 신고 솔루션
-        </p>
-        <div className="hero-btns">
-          <Link to="/login" className="btn-white">관제 시스템 접속</Link>
-          <a href="#" className="btn-ghost">
-            <i className="fab fa-google-play" style={{marginRight: '6px'}}></i>앱 다운로드
-          </a>
+        <div className="hero-content">
+          <div className="hero-text-col">
+            <h1 className="hero-title">
+              도로 위 숨은 위험,<br/>
+              <span className="text-highlight">AI가 먼저 찾아냅니다</span>
+            </h1>
+            <p className="hero-subtitle">
+              스마트폰 카메라 기반 실시간 도로 위험물 감지 및 지자체 자동 신고 솔루션
+            </p>
+            <div className="hero-btns">
+              <Link to="/login" className="btn-white">관제 시스템 접속</Link>
+              <a href="#" className="btn-ghost">
+                <i className="fab fa-google-play" style={{marginRight: '6px'}}></i>앱 다운로드
+              </a>
+            </div>
+          </div>
+          <div className="hero-graphic-col">
+            <div className="floating-card card-scan">
+              <div className="card-icon blue"><i className="fas fa-camera"></i></div>
+              <div className="card-info">
+                <h4>실시간 도로 스캔</h4>
+                <p>AI Vision 모델 작동 중</p>
+              </div>
+              <div className="scan-line"></div>
+            </div>
+            <div className="floating-card card-alert">
+              <div className="card-icon red"><i className="fas fa-exclamation-triangle"></i></div>
+              <div className="card-info">
+                <h4>포트홀 감지</h4>
+                <p>정확도 98.2% · 위험도 높음</p>
+              </div>
+            </div>
+            <div className="floating-card card-report">
+              <div className="card-icon green"><i className="fas fa-paper-plane"></i></div>
+              <div className="card-info">
+                <h4>자동 신고 완료</h4>
+                <p>관할 지자체 전송 성공</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
