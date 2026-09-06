@@ -6,6 +6,7 @@ import { vehicleService } from '../services/vehicleService';
 export default function VehicleList() {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,6 +25,7 @@ export default function VehicleList() {
   }, []);
 
   const handleSearch = () => {
+    setCurrentPage(1);
     setSearchTerm(searchInput);
   };
   const handleKeyDown = (e) => {
@@ -50,6 +52,9 @@ export default function VehicleList() {
 
     return matchesSearch && matchesStatus;
   });
+
+  const totalPages = Math.ceil(filteredItems.length / 15) || 1;
+  const currentItems = filteredItems.slice((currentPage - 1) * 15, currentPage * 15);
 
   return (
     <div className="content-area">
@@ -91,7 +96,7 @@ export default function VehicleList() {
                 <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}></td></tr>
               ) : filteredItems.length === 0 ? (
                 <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>등록된 차량이 없습니다.</td></tr>
-              ) : filteredItems.map((v) => (
+              ) : currentItems.map((v) => (
                 <tr key={v.vehicle_id||v.id||v._id} onClick={()=>navigate(`/vehicles/${v.vehicle_id||v.id||v._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" /></td>
                   <td style={{fontWeight:"500"}}>{v.plate_number||v.license_plate||'-'}</td>
@@ -111,11 +116,35 @@ export default function VehicleList() {
           </table>
         </div>
 
-        <div className="board-pagination">
-          <a href="#" className="page-btn"><i className="fas fa-angle-left"></i></a>
-          <a href="#" className="page-btn active">1</a>
-          <a href="#" className="page-btn"><i className="fas fa-angle-right"></i></a>
-        </div>
+        
+        {totalPages > 1 && (
+          <div className="board-pagination">
+            <button className="page-btn" onClick={() => setCurrentPage(1)} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-double-left"></i></button>
+            <button className="page-btn" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-left"></i></button>
+            
+            {Array.from({length: Math.min(5, totalPages)}, (_, i) => {
+              let start = Math.max(1, currentPage - 2);
+              let end = Math.min(totalPages, start + 4);
+              if (end - start < 4) start = Math.max(1, end - 4);
+              const p = start + i;
+              if (p > totalPages) return null;
+              
+              return (
+                <button 
+                  key={p} 
+                  className={`page-btn ${currentPage === p ? 'active' : ''}`}
+                  onClick={() => setCurrentPage(p)}
+                  style={{cursor: 'pointer'}}
+                >
+                  {p}
+                </button>
+              );
+            })}
+            
+            <button className="page-btn" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-right"></i></button>
+            <button className="page-btn" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-double-right"></i></button>
+          </div>
+        )}
       </div>
     </div>
   );

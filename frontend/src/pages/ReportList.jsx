@@ -5,6 +5,7 @@ import { reportService } from '../services/reportService';
 export default function ReportList() {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedIds, setSelectedIds] = useState([]);
 
@@ -48,6 +49,7 @@ export default function ReportList() {
   };
 
   const handleSearch = () => {
+    setCurrentPage(1);
     setSearchTerm(searchInput);
   };
   const handleKeyDown = (e) => {
@@ -66,6 +68,9 @@ export default function ReportList() {
     
     return matchesSearch;
   });
+
+  const totalPages = Math.ceil(filteredItems.length / 15) || 1;
+  const currentItems = filteredItems.slice((currentPage - 1) * 15, currentPage * 15);
 
   return (
     <div className="content-area">
@@ -104,7 +109,7 @@ export default function ReportList() {
                 <tr><td colSpan="7" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}></td></tr>
               ) : filteredItems.length === 0 ? (
                 <tr><td colSpan="7" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>신고 문서가 없습니다.</td></tr>
-              ) : filteredItems.map((r) => (
+              ) : currentItems.map((r) => (
                 <tr key={r.report_id||r.id||r._id} onClick={()=>navigate(`/reports/${r.report_id||r.id||r._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(r.report_id||r.id||r._id)} onChange={(e) => handleSelectOne(e, r.report_id||r.id||r._id)} /></td>
                   <td style={{fontWeight:"500"}}>{r.report_id||r.id||r._id||'-'}</td>
@@ -120,11 +125,36 @@ export default function ReportList() {
           </table>
         </div>
 
-        <div className="board-pagination">
-          <a href="#" className="page-btn"><i className="fas fa-angle-left"></i></a>
-          <a href="#" className="page-btn active">1</a>
-          <a href="#" className="page-btn"><i className="fas fa-angle-right"></i></a>
-        </div>
+        
+        {totalPages > 1 && (
+          <div className="board-pagination">
+            <button className="page-btn" onClick={() => setCurrentPage(1)} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-double-left"></i></button>
+            <button className="page-btn" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-left"></i></button>
+            
+            {Array.from({length: Math.min(5, totalPages)}, (_, i) => {
+              // Show up to 5 pages around the current page
+              let start = Math.max(1, currentPage - 2);
+              let end = Math.min(totalPages, start + 4);
+              if (end - start < 4) start = Math.max(1, end - 4);
+              const p = start + i;
+              if (p > totalPages) return null;
+              
+              return (
+                <button 
+                  key={p} 
+                  className={`page-btn ${currentPage === p ? 'active' : ''}`}
+                  onClick={() => setCurrentPage(p)}
+                  style={{cursor: 'pointer'}}
+                >
+                  {p}
+                </button>
+              );
+            })}
+            
+            <button className="page-btn" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-right"></i></button>
+            <button className="page-btn" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-double-right"></i></button>
+          </div>
+        )}
       </div>
     </div>
   );

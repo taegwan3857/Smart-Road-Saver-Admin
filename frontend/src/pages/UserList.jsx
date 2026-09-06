@@ -140,6 +140,9 @@ export default function UserList() {
     return matchesSearch && matchesRole;
   });
 
+  const totalPages = Math.ceil(filteredUsers.length / 15) || 1;
+  const currentItems = filteredUsers.slice((currentPage - 1) * 15, currentPage * 15);
+
   return (
     <div className="content-area">
       <div className="page-header-wrap">
@@ -183,7 +186,7 @@ export default function UserList() {
               ) : filteredUsers.length === 0 ? (
                 <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"#94a3b8"}}>검색 결과가 없습니다.</td></tr>
               ) : (
-                filteredUsers.map((user, idx) => {
+                currentItems.map((user, idx) => {
                   const roleStr = String(user.role||'');
                   const isUser = roleStr.toLowerCase() === 'driver' || roleStr.includes('관제') || roleStr === '사용자';
                   const displayRole = isUser ? '사용자' : '관리자';
