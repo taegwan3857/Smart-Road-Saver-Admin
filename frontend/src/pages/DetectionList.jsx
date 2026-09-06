@@ -175,7 +175,7 @@ export default function DetectionList() {
     const headers = ["이벤트 ID", "감지 시간", "제보 차량", "유형", "위험도", "주소", "신뢰도", "누적 감지"];
     const rows = filteredItems.map(d => {
       const id = formatEventId(d.event_id||d.detection_id||d.id||d._id);
-      const time = d.detected_at||d.created_at ? new Date(d.detected_at||d.created_at).toLocaleString("ko-KR") : "-";
+      const time = d.first_detected_at||d.detected_at||d.created_at ? new Date(d.first_detected_at||d.detected_at||d.created_at).toLocaleString("ko-KR") : "-";
       const vehicle = d.reported_vehicle||d.vehicle_number||"연결 장치";
       const type = translateType(d.obstacle_type||d.event_type||d.type);
       const risk = getRiskLabel(d.risk_level);
@@ -250,7 +250,7 @@ export default function DetectionList() {
                 <tr key={d.detection_id||d.id||d._id} onClick={()=>navigate(`/detections/${d.detection_id||d.id||d._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(d.event_id||d.detection_id||d.id||d._id)} onChange={(e) => handleSelectOne(e, d.event_id||d.detection_id||d.id||d._id)} /></td>
                   <td style={{fontWeight:"500"}}>{formatEventId(d.event_id||d.detection_id||d.id||d._id)}</td>
-                  <td>{d.detected_at||d.created_at ? new Date(d.detected_at||d.created_at).toLocaleString('ko-KR') : '-'}</td>
+                  <td>{d.first_detected_at||d.detected_at||d.created_at ? new Date(d.first_detected_at||d.detected_at||d.created_at).toLocaleString('ko-KR') : '-'}</td>
                   <td>{d.reported_vehicle||d.vehicle_number||'연결 장치'}</td>
                   <td>{translateType(d.obstacle_type||d.event_type||d.type)}</td>
                   <td><span className="badge medium" style={{background: getRiskColor(d.risk_level), color: "#fff"}}>{getRiskLabel(d.risk_level)}</span></td>

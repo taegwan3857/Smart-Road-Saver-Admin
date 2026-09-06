@@ -113,7 +113,7 @@ export default function DetectionDetail() {
             {formatEventId(data.event_id||data.detection_id||data.id||data._id||id)} <span className="badge" style={{background: data ? getRiskColors(data.risk_level).bg : '#f1f5f9', color: data ? getRiskColors(data.risk_level).fg : '#64748b'}}>{translateType(data.obstacle_type||data.event_type||data.type)} ({data.confidence||data.score||'-'}%)</span>
           </div>
           <div className="profile-meta">
-            <span><i className="far fa-clock"></i> {data.detected_at||data.created_at ? new Date(data.detected_at||data.created_at).toLocaleString('ko-KR') : '-'}</span>
+            <span><i className="far fa-clock"></i> {data.first_detected_at||data.detected_at||data.created_at ? new Date(data.first_detected_at||data.detected_at||data.created_at).toLocaleString('ko-KR') : '-'}</span>
             <span><i className="fas fa-map-marker-alt"></i> {displayAddress}</span>
             <span><i className="fas fa-microchip"></i> 연동 장치: {data.device_id||data.device_name||'-'}</span>
           </div>
@@ -163,8 +163,8 @@ export default function DetectionDetail() {
               <div className="info-value">
                 {data.first_detected_at 
                   ? new Date(data.first_detected_at).toLocaleString('ko-KR') 
-                  : (data.detected_at||data.created_at 
-                      ? new Date(new Date(data.detected_at||data.created_at).getTime() - (data.cumulative_count > 1 ? (data.cumulative_count * 60000) : 0)).toLocaleString('ko-KR') 
+                  : (data.first_detected_at||data.detected_at||data.created_at 
+                      ? new Date(new Date(data.first_detected_at||data.detected_at||data.created_at).getTime() - (data.cumulative_count > 1 ? (data.cumulative_count * 60000) : 0)).toLocaleString('ko-KR') 
                       : '-')}
               </div>
             </div>
@@ -173,8 +173,8 @@ export default function DetectionDetail() {
               <div className="info-value">
                 {data.last_detected_at 
                   ? new Date(data.last_detected_at).toLocaleString('ko-KR') 
-                  : (data.detected_at||data.created_at 
-                      ? new Date(data.detected_at||data.created_at).toLocaleString('ko-KR') 
+                  : (data.first_detected_at||data.detected_at||data.created_at 
+                      ? new Date(data.first_detected_at||data.detected_at||data.created_at).toLocaleString('ko-KR') 
                       : '-')}
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function DetectionDetail() {
               <div style={{width: "100%", height: "250px"}}>
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={[
-                    { time: data.detected_at||data.created_at ? new Date(data.detected_at||data.created_at).toLocaleTimeString('ko-KR', {hour:'2-digit', minute:'2-digit'}) : '19:44', 신뢰도: Math.round(data.confidence||data.score||82) }
+                    { time: data.first_detected_at||data.detected_at||data.created_at ? new Date(data.first_detected_at||data.detected_at||data.created_at).toLocaleTimeString('ko-KR', {hour:'2-digit', minute:'2-digit'}) : '19:44', 신뢰도: Math.round(data.confidence||data.score||82) }
                   ]} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                     <XAxis dataKey="time" axisLine={true} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} />

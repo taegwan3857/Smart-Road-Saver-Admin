@@ -17,7 +17,7 @@ export const reportService = {
       status: '신고 완료',
       author: 'SYSTEM',
       created_by: 'SYSTEM',
-      created_at: ev.detected_at || ev.created_at || new Date().toISOString(),
+      created_at: ev.first_detected_at || ev.last_detected_at || ev.detected_at || ev.created_at || new Date().toISOString(),
       address: ev.address || ev.location || '위치 정보 없음',
       latitude: ev.latitude,
       longitude: ev.longitude
@@ -41,7 +41,7 @@ export const reportService = {
       status: '신고 완료',
       author: 'SYSTEM',
       created_by: 'SYSTEM',
-      created_at: ev.detected_at || ev.created_at || new Date().toISOString(),
+      created_at: ev.first_detected_at || ev.last_detected_at || ev.detected_at || ev.created_at || new Date().toISOString(),
       address: ev.address || ev.location || '위치 정보 없음',
       latitude: ev.latitude,
       longitude: ev.longitude
