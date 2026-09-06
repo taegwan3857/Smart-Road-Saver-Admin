@@ -13,113 +13,119 @@ export default function Landing() {
   ];
 
   return (
-    <div className="landing-container">
-      {/* Header */}
-      <header className="landing-header">
-        <div className="landing-logo">
+    <div className="landing-wrapper">
+      {/* Navigation */}
+      <nav className="landing-nav">
+        <div className="landing-brand">
           <i className="fas fa-shield-alt"></i> Smart Road Saver
         </div>
-        <nav>
-          <Link to="/login" className="landing-btn-login">관리자 시작하기</Link>
-        </nav>
-      </header>
+        <Link to="/login" className="btn-nav-login">관리자 접속</Link>
+      </nav>
 
       {/* Hero Section */}
-      <section className="hero-section">
-        <h1 className="hero-title">도로 위 숨은 위험,<br/>AI가 가장 먼저 찾고 해결합니다.</h1>
-        <p className="hero-subtitle">
-          스마트폰 기반 실시간 도로 위험물 감지 및 지자체 자동 신고 솔루션.<br/>
-          안전한 도로 환경, Smart Road Saver가 만들어갑니다.
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
-          <Link to="/login" className="landing-btn-login" style={{ padding: '16px 32px', fontSize: '1.1rem', backgroundColor: '#fff', color: 'var(--primary-color)' }}>
-            관제 시스템 로그인
-          </Link>
-          <a href="#" className="landing-btn-login" style={{ padding: '16px 32px', fontSize: '1.1rem', backgroundColor: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)' }}>
-            <i className="fab fa-google-play" style={{marginRight: '8px'}}></i> 앱 다운로드
-          </a>
+      <header className="hero-section">
+        <div className="hero-container">
+          <div className="hero-content">
+            <div className="hero-badge">AI 기반 실시간 도로 관제 솔루션</div>
+            <h1 className="hero-title">도로 위 숨은 위험,<br/>AI가 가장 먼저 찾고 해결합니다.</h1>
+            <p className="hero-desc">
+              스마트폰 기반 실시간 도로 위험물 감지 및 지자체 자동 신고 솔루션.<br/>
+              안전한 도로 환경, Smart Road Saver가 만들어갑니다.
+            </p>
+            <div className="hero-actions">
+              <Link to="/login" className="btn-hero-primary">관제 시스템 로그인</Link>
+              <button className="btn-hero-secondary"><i className="fab fa-google-play" style={{marginRight: '8px'}}></i> 앱 다운로드</button>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="visual-circle"></div>
+            <div className="visual-card top">
+              <i className="fas fa-exclamation-triangle" style={{color: '#f59e0b'}}></i> 블랙아이스 감지됨!
+            </div>
+            <div className="visual-card bottom">
+              <i className="fas fa-check-circle" style={{color: '#10b981'}}></i> 지자체 신고 발송 완료
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Process Section */}
+      <section className="process-wrapper">
+        <div className="section-container">
+          <h2 className="section-title">Smart Road Saver는 어떻게 작동하나요?</h2>
+          <p className="section-subtitle">단 4번의 매끄러운 단계를 통해 위험을 감지하고 해결합니다.</p>
+          <div className="process-grid">
+            <div className="process-card">
+              <div className="p-step">STEP 01</div>
+              <div className="p-icon"><i className="fas fa-car-side"></i></div>
+              <h3 className="p-title">주행 중 영상 촬영</h3>
+              <p className="p-desc">스마트폰 전용 앱을 켜고 주행하면, 카메라가 차량 전방의 도로 상황을 실시간으로 스캔합니다.</p>
+            </div>
+            <div className="process-card">
+              <div className="p-step">STEP 02</div>
+              <div className="p-icon"><i className="fas fa-brain"></i></div>
+              <h3 className="p-title">AI 실시간 분석</h3>
+              <p className="p-desc">엣지 컴퓨팅 기반 AI가 포트홀, 블랙아이스 등 도로 위 위험 요소를 0.1초 만에 식별해 냅니다.</p>
+            </div>
+            <div className="process-card">
+              <div className="p-step">STEP 03</div>
+              <div className="p-icon"><i className="fas fa-desktop"></i></div>
+              <h3 className="p-title">관제 센터 모니터링</h3>
+              <p className="p-desc">감지된 위험 위치와 이미지가 관제 시스템에 즉각 전송되어 지도 상에 경고 알림으로 표출됩니다.</p>
+            </div>
+            <div className="process-card">
+              <div className="p-step">STEP 04</div>
+              <div className="p-icon"><i className="fas fa-file-signature"></i></div>
+              <h3 className="p-title">자동 신고 및 복구</h3>
+              <p className="p-desc">위험도가 높은 건은 시스템이 지자체 공문 양식으로 자동 변환하여 신고를 접수, 빠른 복구를 돕습니다.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
-        <h2 className="features-title">Smart Road Saver 핵심 솔루션</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon" style={{color: '#3b82f6'}}><i className="fas fa-mobile-alt"></i></div>
-            <h3>AI 비전 인식 기반 감지</h3>
-            <p>별도의 고가 장비 없이, 운전자의 스마트폰 카메라를 통해 주행 중 블랙아이스, 포트홀, 장애물을 실시간으로 식별합니다.</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon" style={{color: '#f59e0b'}}><i className="fas fa-map-marked-alt"></i></div>
-            <h3>실시간 관제 대시보드</h3>
-            <p>전국에서 수집되는 도로 위험 요소 데이터를 지도 상에 시각화하여, 관리자가 실시간으로 현황을 파악하고 대응할 수 있습니다.</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon" style={{color: '#10b981'}}><i className="fas fa-paper-plane"></i></div>
-            <h3>유관 기관 자동 신고 발송</h3>
-            <p>위험도가 높은 감지 건은 시스템이 즉각 공문서 형태로 자동 변환하여 해당 지자체 및 관할 부서로 즉시 전송합니다.</p>
-          </div>
-        </div>
-      </section>
-
-      
-      
-      {/* Process Section */}
-      <section className="process-section">
-        <h2 className="process-title">어떻게 작동하나요?</h2>
-        <div className="process-grid">
-          <div className="process-step">
-            <div className="step-icon-wrap"><i className="fas fa-car-side"></i></div>
-            <div className="step-badge">STEP 01</div>
-            <h3 className="step-title">주행 중 영상 촬영</h3>
-            <p className="step-desc">스마트폰 전용 앱을 켜고 주행하면, 카메라가 차량 전방의 도로 상황을 실시간으로 스캔합니다.</p>
-          </div>
-          <div className="process-step">
-            <div className="step-icon-wrap"><i className="fas fa-brain"></i></div>
-            <div className="step-badge">STEP 02</div>
-            <h3 className="step-title">AI 실시간 분석</h3>
-            <p className="step-desc">엣지 컴퓨팅 기반 AI가 포트홀, 블랙아이스 등 도로 위 위험 요소를 0.1초 만에 식별해 냅니다.</p>
-          </div>
-          <div className="process-step">
-            <div className="step-icon-wrap"><i className="fas fa-desktop"></i></div>
-            <div className="step-badge">STEP 03</div>
-            <h3 className="step-title">관제 센터 모니터링</h3>
-            <p className="step-desc">감지된 위험 위치와 이미지가 관제 시스템에 즉각 전송되어 지도 상에 경고 알림으로 표출됩니다.</p>
-          </div>
-          <div className="process-step">
-            <div className="step-icon-wrap"><i className="fas fa-file-signature"></i></div>
-            <div className="step-badge">STEP 04</div>
-            <h3 className="step-title">자동 신고 및 복구</h3>
-            <p className="step-desc">위험도가 높은 건은 시스템이 지자체 공문 양식으로 자동 변환하여 신고를 접수, 빠른 복구를 돕습니다.</p>
+      <section className="features-wrapper">
+        <div className="section-container">
+          <h2 className="section-title">핵심 솔루션</h2>
+          <p className="section-subtitle">Smart Road Saver만이 제공하는 강력하고 유연한 기능들입니다.</p>
+          <div className="features-grid">
+            <div className="feature-box">
+              <div className="f-icon-circle"><i className="fas fa-mobile-alt"></i></div>
+              <h3 className="f-title">AI 비전 인식 기반 감지</h3>
+              <p className="f-desc">별도의 고가 장비 없이, 운전자의 스마트폰 카메라를 통해 주행 중 블랙아이스, 포트홀, 장애물을 실시간으로 식별합니다.</p>
+            </div>
+            <div className="feature-box">
+              <div className="f-icon-circle"><i className="fas fa-map-marked-alt"></i></div>
+              <h3 className="f-title">실시간 관제 대시보드</h3>
+              <p className="f-desc">전국에서 수집되는 도로 위험 요소 데이터를 지도 상에 시각화하여, 관리자가 실시간으로 현황을 파악하고 대응할 수 있습니다.</p>
+            </div>
+            <div className="feature-box">
+              <div className="f-icon-circle"><i className="fas fa-paper-plane"></i></div>
+              <h3 className="f-title">유관 기관 자동 신고 발송</h3>
+              <p className="f-desc">위험도가 높은 감지 건은 시스템이 즉각 공문서 형태로 자동 변환하여 해당 지자체 및 관할 부서로 즉시 전송합니다.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Q&A Section */}
-      <section style={{ padding: '80px 40px', backgroundColor: '#f8fafc' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 className="features-title" style={{ textAlign: 'center', marginBottom: '40px' }}>자주 묻는 질문 (Q&A)</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+      <section className="qa-wrapper">
+        <div className="section-container">
+          <h2 className="section-title">자주 묻는 질문 (Q&A)</h2>
+          <p className="section-subtitle">시스템 도입 전 궁금하신 점들을 확인해보세요.</p>
+          <div className="qa-list">
             {faqs.map((faq, idx) => (
-              <div key={idx} style={{ borderBottom: '1px solid #e2e8f0' }}>
-                <button 
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', padding: '24px 16px', fontSize: '1.1rem', fontWeight: '700', color: '#1e293b', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'background-color 0.2s' }}
-                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
-                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                >
-                  <div style={{display: "flex", alignItems: "flex-start", textAlign: "left"}}><span style={{color: "var(--primary-color)", marginRight: "8px", flexShrink: 0}}>Q.</span><span>{faq.q}</span></div>
+              <div key={idx} className={`qa-item ${openFaq === idx ? 'active' : ''}`}>
+                <button className="qa-btn" onClick={() => setOpenFaq(openFaq === idx ? null : idx)}>
+                  <div style={{display: 'flex', alignItems: 'flex-start'}}>
+                    <span style={{color: '#1d3162', marginRight: '12px', flexShrink: 0}}>Q.</span>
+                    <span>{faq.q}</span>
+                  </div>
                   <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`} style={{ color: '#94a3b8', flexShrink: 0, marginLeft: '16px' }}></i>
                 </button>
-                <div style={{ 
-                  maxHeight: openFaq === idx ? '500px' : '0', 
-                  overflow: 'hidden', 
-                  transition: 'all 0.3s ease-in-out',
-                  opacity: openFaq === idx ? 1 : 0
-                }}>
-                  <div style={{ padding: "0 16px 24px 16px", color: "#64748b", lineHeight: "1.7", fontSize: "1.05rem", wordBreak: "keep-all", display: "flex", alignItems: "flex-start" }}>
-                    <span style={{color: "#e11d48", fontWeight: "800", marginRight: "8px", flexShrink: 0}}>A.</span>
+                <div style={{ maxHeight: openFaq === idx ? '500px' : '0', overflow: 'hidden', transition: 'max-height 0.3s ease-in-out' }}>
+                  <div className="qa-answer">
+                    <span style={{color: '#e11d48', fontWeight: '800', marginRight: '12px', flexShrink: 0}}>A.</span>
                     <span>{faq.a}</span>
                   </div>
                 </div>
@@ -129,11 +135,16 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="cta-section">
+        <h2 className="cta-title">지금 바로 도로 위 안전 혁신에 동참하세요.</h2>
+        <p className="cta-desc">Smart Road Saver 앱을 다운로드하거나 관리자 시스템에 접속해보세요.</p>
+        <Link to="/login" className="btn-hero-primary" style={{display: 'inline-block'}}>관제 시스템 시작하기</Link>
+      </section>
+
       {/* Footer */}
       <footer className="landing-footer">
-        <div style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '16px', color: '#fff' }}>
-          <i className="fas fa-shield-alt"></i> Smart Road Saver
-        </div>
+        <div className="landing-footer-brand"><i className="fas fa-shield-alt"></i> Smart Road Saver</div>
         <p>© 2026 Smart Road Saver. All rights reserved.</p>
       </footer>
     </div>
