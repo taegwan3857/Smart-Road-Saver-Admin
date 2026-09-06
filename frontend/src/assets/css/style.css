@@ -245,7 +245,7 @@ body {
   background-color: var(--primary-color);
   color: white;
   border: 1px solid var(--primary-color);
-  border-radius: 0;
+  border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -262,7 +262,7 @@ body {
   background-color: #fff;
   color: var(--text-main);
   border: 1px solid #cbd5e1;
-  border-radius: 0;
+  border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -354,7 +354,7 @@ body {
 
 .modal-box {
   background: #fff;
-  border-radius: 0; /* 각진 모서리 */
+  border-radius: 12px;
   width: 100%; max-width: 400px;
   border: 1px solid #111827;
   border-top: 4px solid #111827; /* 굵고 정갈한 상단 라인 */
@@ -385,7 +385,7 @@ body {
 
 .btn-modal {
   padding: 6px 18px; 
-  border-radius: 0; /* 각진 버튼 */
+  border-radius: 6px;
   font-size: 0.9rem; 
   font-weight: 600; 
   cursor: pointer; 
@@ -534,7 +534,7 @@ body {
 .btn-micro {
   padding: 4px 12px;
   font-size: 0.8rem;
-  border-radius: 0;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
   transition: none;
