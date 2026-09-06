@@ -152,7 +152,7 @@ body {
   background: rgba(225, 29, 72, 0.04); 
   border: 1px solid rgba(225, 29, 72, 0.15); 
   padding: 6px 16px; 
-  border-radius: 20px; 
+  border-radius: 6px; 
   font-size: 0.95rem; 
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(225, 29, 72, 0.05);
