@@ -137,22 +137,32 @@ export default function Landing() {
       <section className="features-section" id="features">
         <div className="section-heading fade-up">
           <h2>주요 기능</h2>
+          <p>스마트 도로 관제를 위한 핵심 솔루션</p>
         </div>
         <div className="features-grid">
-          <div className="feature-card fade-up d1">
-            <div className="feature-icon" style={{color: '#1d3162'}}><i className="fas fa-mobile-alt"></i></div>
-            <h3>스마트폰 기반 감지</h3>
-            <p>별도 장비 없이 운전자의 스마트폰 카메라만으로 블랙아이스, 포트홀, 장애물을 실시간 식별합니다.</p>
+          <div className="feature-card fade-up d1 card-1">
+            <i className="fas fa-mobile-alt feature-watermark"></i>
+            <div className="feature-content">
+              <div className="feature-icon-wrapper"><i className="fas fa-mobile-alt"></i></div>
+              <h3>스마트폰 기반 감지</h3>
+              <p>별도 장비 없이 운전자의 스마트폰 카메라만으로 블랙아이스, 포트홀, 장애물을 실시간 식별합니다.</p>
+            </div>
           </div>
-          <div className="feature-card fade-up d2">
-            <div className="feature-icon" style={{color: '#1d3162'}}><i className="fas fa-map-marked-alt"></i></div>
-            <h3>실시간 관제 대시보드</h3>
-            <p>전국에서 수집되는 위험 요소 데이터를 지도 위에 시각화하여 현황을 한눈에 파악합니다.</p>
+          <div className="feature-card fade-up d2 card-2">
+            <i className="fas fa-map-marked-alt feature-watermark"></i>
+            <div className="feature-content">
+              <div className="feature-icon-wrapper"><i className="fas fa-map-marked-alt"></i></div>
+              <h3>실시간 관제 대시보드</h3>
+              <p>전국에서 수집되는 위험 요소 데이터를 지도 위에 시각화하여 현황을 한눈에 파악합니다.</p>
+            </div>
           </div>
-          <div className="feature-card fade-up d3">
-            <div className="feature-icon" style={{color: '#1d3162'}}><i className="fas fa-paper-plane"></i></div>
-            <h3>유관 기관 자동 발송</h3>
-            <p>위험도가 높은 감지 건은 공문서 형태로 자동 변환하여 해당 지자체로 즉시 전송합니다.</p>
+          <div className="feature-card fade-up d3 card-3">
+            <i className="fas fa-paper-plane feature-watermark"></i>
+            <div className="feature-content">
+              <div className="feature-icon-wrapper"><i className="fas fa-paper-plane"></i></div>
+              <h3>유관 기관 자동 발송</h3>
+              <p>위험도가 높은 감지 건은 공문서 형태로 자동 변환하여 해당 지자체로 즉시 전송합니다.</p>
+            </div>
           </div>
         </div>
       </section>
