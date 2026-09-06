@@ -59,7 +59,7 @@ export default function Landing() {
         <div style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '16px', color: '#fff' }}>
           <i className="fas fa-shield-alt"></i> Smart Road Saver
         </div>
-        <p>© 2024 Smart Road Saver. All rights reserved.</p>
+        <p>© 2026 Smart Road Saver. All rights reserved.</p>
       </footer>
     </div>
   );
