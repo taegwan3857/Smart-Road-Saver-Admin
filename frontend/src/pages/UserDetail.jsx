@@ -68,7 +68,7 @@ export default function UserDetail() {
       <div className="page-header-wrap" style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
         <div>
           <div className="page-title" style={{marginBottom:"4px"}}>사용자 상세 정보</div>
-          <div className="page-subtitle">해당 사용자의 기본 계정 정보와 배차된 관제 차량, 연동된 단말기 내역을 확인합니다.</div>
+          <div className="page-subtitle">해당 사용자의 기본 계정 정보와 등록된 차량, 연동된 단말기 내역을 확인합니다.</div>
         </div>
         <button className="btn-back" onClick={()=>navigate('/users')}><i className="fas fa-list"></i> 목록으로</button>
       </div>
