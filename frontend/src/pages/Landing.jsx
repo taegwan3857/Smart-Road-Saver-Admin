@@ -77,8 +77,8 @@ export default function Landing() {
                   onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
                   onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                 >
-                  <span><span style={{color: 'var(--primary-color)', marginRight: '8px'}}>Q.</span>{faq.q}</span>
-                  <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`} style={{ color: '#94a3b8' }}></i>
+                  <div style={{display: "flex", alignItems: "flex-start", textAlign: "left"}}><span style={{color: "var(--primary-color)", marginRight: "8px", flexShrink: 0}}>Q.</span><span>{faq.q}</span></div>
+                  <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`} style={{ color: '#94a3b8', flexShrink: 0, marginLeft: '16px' }}></i>
                 </button>
                 <div style={{ 
                   maxHeight: openFaq === idx ? '500px' : '0', 
@@ -86,8 +86,9 @@ export default function Landing() {
                   transition: 'all 0.3s ease-in-out',
                   opacity: openFaq === idx ? 1 : 0
                 }}>
-                  <div style={{ padding: '0 16px 24px 16px', color: '#64748b', lineHeight: '1.7', fontSize: '1.05rem', wordBreak: 'keep-all' }}>
-                    <span style={{color: '#e11d48', fontWeight: '800', marginRight: '8px'}}>A.</span>{faq.a}
+                  <div style={{ padding: "0 16px 24px 16px", color: "#64748b", lineHeight: "1.7", fontSize: "1.05rem", wordBreak: "keep-all", display: "flex", alignItems: "flex-start" }}>
+                    <span style={{color: "#e11d48", fontWeight: "800", marginRight: "8px", flexShrink: 0}}>A.</span>
+                    <span>{faq.a}</span>
                   </div>
                 </div>
               </div>
