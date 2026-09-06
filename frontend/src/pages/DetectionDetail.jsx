@@ -110,7 +110,7 @@ export default function DetectionDetail() {
         </div>
         <div className="profile-info">
           <div className="profile-title">
-            {formatEventId(data.event_id||data.detection_id||data.id||data._id||id)} <span className="badge" style={{background: data ? getRiskColors(data.risk_level).bg : '#f1f5f9', color: data ? getRiskColors(data.risk_level).fg : '#64748b'}}>{translateType(data.obstacle_type||data.event_type||data.type)} ({data.confidence||data.score||'-'}%)</span>
+            {formatEventId(data.event_id||data.detection_id||data.id||data._id||id)} <span className="badge" style={{background: "transparent", color: data ? getRiskColors(data.risk_level).fg : '#64748b'}}>{translateType(data.obstacle_type||data.event_type||data.type)} ({data.confidence||data.score||'-'}%)</span>
           </div>
           <div className="profile-meta">
             <span><i className="far fa-clock"></i> {data.first_detected_at||data.detected_at||data.created_at ? new Date(data.first_detected_at||data.detected_at||data.created_at).toLocaleString('ko-KR') : '-'}</span>

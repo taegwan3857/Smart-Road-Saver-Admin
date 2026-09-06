@@ -253,7 +253,7 @@ export default function DetectionList() {
                   <td>{d.first_detected_at||d.detected_at||d.created_at ? new Date(d.first_detected_at||d.detected_at||d.created_at).toLocaleString('ko-KR') : '-'}</td>
                   <td>{d.reported_vehicle||d.vehicle_number||'연결 장치'}</td>
                   <td>{translateType(d.obstacle_type||d.event_type||d.type)}</td>
-                  <td><span className="badge medium" style={{background: getRiskColor(d.risk_level), color: "#fff"}}>{getRiskLabel(d.risk_level)}</span></td>
+                  <td><span className="badge medium" style={{background: "transparent", color: getRiskColor(d.risk_level)}}>{getRiskLabel(d.risk_level)}</span></td>
                   <td>{addresses[d.event_id||d.detection_id||d.id||d._id] || (d.latitude && d.longitude ? `${d.latitude}, ${d.longitude}` : '-')}</td>
                   <td>{d.confidence ? `${d.confidence}%` : (d.score ? `${d.score}%` : '82%')}</td>
                   <td>{d.cumulative_count ? `${d.cumulative_count}회` : '1회'}</td>
