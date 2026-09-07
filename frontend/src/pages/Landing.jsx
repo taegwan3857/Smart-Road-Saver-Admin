@@ -219,17 +219,51 @@ export default function Landing() {
           <h2>Q&A</h2>
         </div>
         <div className="qa-list">
-          {faqs.map((faq, idx) => (
-            <div key={idx} className="qa-item fade-up">
-              <button className="qa-question" onClick={() => setOpenFaq(openFaq === idx ? null : idx)}>
-                <span>{faq.q}</span>
-                <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`}></i>
-              </button>
-              <div className="qa-answer-wrap" style={{ maxHeight: openFaq === idx ? '300px' : '0' }}>
-                <div className="qa-answer">{faq.a}</div>
-              </div>
+          <div className="qa-item fade-up d1">
+            <button className="qa-question" onClick={() => setOpenFaq(openFaq === 0 ? null : 0)}>
+              어떤 종류의 도로 위험물을 감지할 수 있나요?
+              <i className={`fas fa-chevron-${openFaq === 0 ? 'up' : 'down'}`}></i>
+            </button>
+            <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 0 ? '200px' : '0' }}>
+              <div className="qa-answer">포트홀, 크랙(균열), 낙하물과 같은 물리적 장애물은 물론, mmWave 레이더를 통해 눈에 보이지 않는 블랙아이스, 젖은 노면 등의 상태까지 종합적으로 감지합니다.</div>
             </div>
-          ))}
+          </div>
+          <div className="qa-item fade-up d2">
+            <button className="qa-question" onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}>
+              카메라도 있는데 왜 굳이 mmWave 레이더를 함께 사용하나요?
+              <i className={`fas fa-chevron-${openFaq === 1 ? 'up' : 'down'}`}></i>
+            </button>
+            <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 1 ? '200px' : '0' }}>
+              <div className="qa-answer">블랙아이스나 얇은 살얼음처럼 육안이나 일반 카메라 비전만으로는 구별하기 어려운 노면 상태를 정확히 탐지하기 위해서입니다. 레이더 반사 데이터와 비전 AI를 융합하여 주야간 및 악천후 환경에서도 99% 이상의 탐지 신뢰도를 제공합니다.</div>
+            </div>
+          </div>
+          <div className="qa-item fade-up d3">
+            <button className="qa-question" onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}>
+              동일한 포트홀이 여러 번 신고되면 어떻게 처리되나요?
+              <i className={`fas fa-chevron-${openFaq === 2 ? 'up' : 'down'}`}></i>
+            </button>
+            <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 2 ? '200px' : '0' }}>
+              <div className="qa-answer">시스템 백엔드에 구축된 PostGIS 공간 데이터베이스를 활용하여, 일정 반경 내에서 중복 수집된 동일 결함 데이터는 자동으로 하나의 건으로 병합(Deduplication) 처리됩니다. 이를 통해 관리자의 중복 업무를 최소화합니다.</div>
+            </div>
+          </div>
+          <div className="qa-item fade-up d4">
+            <button className="qa-question" onClick={() => setOpenFaq(openFaq === 3 ? null : 3)}>
+              지자체 신고는 어떻게 이루어지나요?
+              <i className={`fas fa-chevron-${openFaq === 3 ? 'up' : 'down'}`}></i>
+            </button>
+            <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 3 ? '200px' : '0' }}>
+              <div className="qa-answer">관리자 웹 대시보드에서 감지된 내역을 확인한 후 신고 버튼을 누르면, 시스템이 지정된 양식에 맞춰 관할 지자체용 공문서를 자동 생성 및 발송하여 번거로운 수작업을 없앴습니다.</div>
+            </div>
+          </div>
+          <div className="qa-item fade-up d5">
+            <button className="qa-question" onClick={() => setOpenFaq(openFaq === 4 ? null : 4)}>
+              시스템 도입을 위해 필요한 인프라는 무엇인가요?
+              <i className={`fas fa-chevron-${openFaq === 4 ? 'up' : 'down'}`}></i>
+            </button>
+            <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 4 ? '200px' : '0' }}>
+              <div className="qa-answer">전용 하드웨어(Jetson Nano 기반 AI 디바이스 및 센서 모듈)를 순찰 차량이나 관용차에 부착하기만 하면 됩니다. 대규모 도로 인프라 공사 없이 즉시 운영이 가능한 플러그 앤 플레이(Plug & Play) 방식을 지원합니다.</div>
+            </div>
+          </div>
         </div>
       </section>
 
