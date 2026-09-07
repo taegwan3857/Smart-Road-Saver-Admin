@@ -107,6 +107,7 @@ export default function Landing() {
 
       {/* Background */}
       <section className="background-section full-screen-section" id="background">
+        <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>프로젝트 배경 및 필요성</h2>
           <p>매년 20,000건 이상의 피해가 노면 결함으로 발생합니다.</p>
@@ -135,35 +136,39 @@ export default function Landing() {
             <p>사고 발생 전 위험 요인을 차단하고 도로 순찰을 자동화하여 안전사고를 근본적으로 감소시킵니다.</p>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Service Features */}
       <section className="service-features-section full-screen-section" id="service-features">
+        <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>주요 기능</h2>
           <p>기존 시스템의 한계를 극복하는 혁신적인 솔루션</p>
         </div>
         <div className="feature-cards">
           <div className="feature-card-modern fade-up d1">
-            <div className="f-icon"><i className="fas fa-layer-group"></i></div>
-            <h3>중복 병합 및 스마트 결함 관리</h3>
-            <p>PostGIS 기반 공간 분석을 통해 동일한 위치의<br />결함 데이터(포트홀 등)가 중복 신고되는 것을<br />방지하고 효과적으로 병합 관리합니다.</p>
+            <div className="f-icon"><i className="fas fa-microchip"></i></div>
+            <h3>엣지 디바이스 기반 AI 탐지</h3>
+            <p>Jetson Nano 및 YOLO11n 모델을 활용하여<br />현장에서 실시간으로 결함을 탐지하고 통신 지연을 최소화합니다.</p>
           </div>
           <div className="feature-card-modern fade-up d2">
-            <div className="f-icon"><i className="fas fa-file-signature"></i></div>
-            <h3>지자체 공문서 자동 생성</h3>
-            <p>감지된 위험 요소 데이터를 바탕으로<br />관할 지자체 제출용 표준 공문서를<br />시스템이 즉각 생성하여 업무 부담을 덜어줍니다.</p>
+            <div className="f-icon"><i className="fas fa-layer-group"></i></div>
+            <h3>PostGIS 중복 신고 병합</h3>
+            <p>수집된 방대한 결함 데이터를 PostGIS 공간 쿼리로<br />자동 병합(Deduplication)하여 동일 포트홀 중복 처리를 방지합니다.</p>
           </div>
           <div className="feature-card-modern fade-up d3">
-            <div className="f-icon"><i className="fas fa-satellite-dish"></i></div>
-            <h3>실시간 알림 및 통합 관제</h3>
-            <p>현장의 위험 상황은 모바일 앱을 통해 운전자에게<br />실시간 경고되며, 관리자 웹 대시보드 지도 위에<br />즉시 동기화되어 통합 관제가 가능합니다.</p>
+            <div className="f-icon"><i className="fas fa-file-signature"></i></div>
+            <h3>지자체 공문 자동화</h3>
+            <p>탐지된 위험 요소를 기반으로 지자체 신고용<br />표준 규격 공문서를 원클릭으로 자동 생성하고 발송합니다.</p>
           </div>
+        </div>
         </div>
       </section>
 
       {/* System Structure (Timeline) */}
       <section className="pdf-features-section full-screen-section" id="system">
+        <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>시스템 구성도</h2>
           <p>전용 하드웨어부터 모바일 앱까지</p>
@@ -211,10 +216,12 @@ export default function Landing() {
           </div>
 
         </div>
+        </div>
       </section>
 
       {/* Q&A */}
       <section className="qa-section full-screen-section" id="faq">
+        <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>Q&A</h2>
         </div>
@@ -264,6 +271,7 @@ export default function Landing() {
               <div className="qa-answer">전용 하드웨어(Jetson Nano 기반 AI 디바이스 및 센서 모듈)를 순찰 차량이나 관용차에 부착하기만 하면 됩니다. 대규모 도로 인프라 공사 없이 즉시 운영이 가능한 플러그 앤 플레이(Plug & Play) 방식을 지원합니다.</div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
