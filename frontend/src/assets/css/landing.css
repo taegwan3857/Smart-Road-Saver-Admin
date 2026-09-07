@@ -70,6 +70,9 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .bg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; width: 100%; margin-bottom: 60px; }
 .bg-card { background: #fff; padding: 40px 32px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; text-align: center; }
 .bg-icon { font-size: 3rem; margin-bottom: 24px; }
+.bg-icon.warning { color: #f59e0b; }
+.bg-icon.time { color: #64748b; }
+.bg-icon.danger { color: #ef4444; }
 .bg-card h3 { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 16px; }
 .bg-card p { color: #64748b; line-height: 1.6; word-break: keep-all; margin: 0; }
 .bg-solution { max-width: 800px; width: 100%; }

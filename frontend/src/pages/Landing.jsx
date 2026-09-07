@@ -84,17 +84,17 @@ export default function Landing() {
         </div>
         <div className="bg-grid">
           <div className="bg-card fade-up d1">
-            <div className="bg-icon warning">⚠️</div>
+            <div className="bg-icon warning"><i className="fas fa-exclamation-triangle"></i></div>
             <h3>사후 대처 신고 시스템</h3>
             <p>사고가 발생한 이후에야 대처가 이루어지는 기존 신고 시스템의 한계</p>
           </div>
           <div className="bg-card fade-up d2">
-            <div className="bg-icon time">⏳</div>
+            <div className="bg-icon time"><i className="fas fa-hourglass-half"></i></div>
             <h3>비효율적인 순찰 시스템</h3>
             <p>제한된 인력으로 광범위한 도로를 모두 순찰하기 어려운 현실</p>
           </div>
           <div className="bg-card fade-up d3">
-            <div className="bg-icon danger">🚨</div>
+            <div className="bg-icon danger"><i className="fas fa-hard-hat"></i></div>
             <h3>순찰 인력의 안전 위협</h3>
             <p>고속도로 및 위험 구간에서 사고 처리 중 발생하는 2차 사고 위험</p>
           </div>
