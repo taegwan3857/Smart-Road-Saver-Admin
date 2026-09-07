@@ -434,6 +434,7 @@ body {
   border-radius: 6px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
   color: var(--text-main);
   white-space: nowrap;
+  line-height: 1;
 }
 .custom-select-trigger:hover { border-color: #cbd5e1; }
 .custom-select-options {
@@ -453,6 +454,7 @@ body {
   display: flex; align-items: center; gap: 8px;
   color: var(--text-main);
   white-space: nowrap;
+  line-height: 1;
 }
 .custom-option:hover { background: #f1f5f9; }
 .custom-option .check-icon { opacity: 0; font-size: 0.8rem; width: 14px; }
@@ -619,7 +621,8 @@ body {
   display: inline-flex;
   align-items: center;
   transition: all 0.2s ease;
-  padding: 4px 8px;
+  padding: 4px 0px;
+  margin-right: -4px;
   border-radius: 4px;
 }
 .detail-link-btn:hover {
