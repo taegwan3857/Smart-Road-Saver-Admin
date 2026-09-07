@@ -268,7 +268,7 @@ export default function Landing() {
               <i className={`fas fa-chevron-${openFaq === 4 ? 'up' : 'down'}`}></i>
             </button>
             <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 4 ? '200px' : '0' }}>
-              <div className="qa-answer">전용 하드웨어(Jetson Nano 기반 AI 디바이스 및 센서 모듈)를 순찰 차량이나 관용차에 부착하기만 하면 됩니다. 대규모 도로 인프라 공사 없이 즉시 운영이 가능한 플러그 앤 플레이(Plug & Play) 방식을 지원합니다.</div>
+              <div className="qa-answer">전용 하드웨어(Jetson Nano 기반 AI 디바이스 및 센서 모듈)를 일반 사용자 차량에 부착하기만 하면 됩니다. 대규모 도로 인프라 공사 없이 즉시 운영이 가능한 플러그 앤 플레이(Plug & Play) 방식을 지원합니다.</div>
             </div>
           </div>
         </div>
