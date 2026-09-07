@@ -28,12 +28,24 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .nav-links a { text-decoration: none; color: #64748b; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
 .nav-links a:hover { color: #1d3162; }
 
+/* Full Height Section Settings */
+.full-screen-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 100px 48px;
+}
+
 /* Hero Section */
 .hero-section {
-  padding: 80px 48px 0; height: 100vh; min-height: 700px;
+  min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1d3162 100%);
   color: #fff; display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden; box-sizing: border-box;
+  padding: 80px 48px 0;
 }
 .hero-section::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -114,10 +126,10 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 /* Shared Section Settings */
 .section-heading { text-align: center; margin-bottom: 60px; }
 .section-heading h2 { font-size: 2.2rem; font-weight: 800; color: #1d3162; margin-bottom: 16px; }
-.section-heading p { font-size: 1.1rem; color: #64748b; }
+.section-heading p { font-size: 1.1rem; color: #64748b; margin: 0; }
 
 /* Background Section */
-.background-section { padding: 100px 48px; background: #f8fafc; display: flex; flex-direction: column; align-items: center; }
+.background-section { background: #f8fafc; }
 .bg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; width: 100%; margin-bottom: 60px; }
 .bg-card { background: #fff; padding: 40px 32px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; text-align: center; transition: transform 0.3s ease; }
 .bg-card:hover { transform: translateY(-5px); }
@@ -143,7 +155,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .solution-box p { color: #cbd5e1; font-size: 1.1rem; margin: 0; }
 
 /* Service Features */
-.service-features-section { padding: 100px 48px; background: #fff; display: flex; flex-direction: column; align-items: center; }
+.service-features-section { background: #fff; }
 .feature-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; width: 100%; }
 .feature-card-modern {
   background: #f8fafc; padding: 40px 32px; border-radius: 24px; border: 1px solid #e2e8f0;
@@ -162,7 +174,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .feature-card-modern p { color: #64748b; line-height: 1.6; margin: 0; }
 
 /* PDF Features Timeline */
-.pdf-features-section { padding: 100px 48px; background: #f8fafc; display: flex; flex-direction: column; align-items: center; }
+.pdf-features-section { background: #f8fafc; padding: 100px 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; box-sizing: border-box; }
 .pdf-timeline { max-width: 1000px; width: 100%; display: flex; flex-direction: column; gap: 40px; position: relative; }
 .pdf-timeline::before { content: ''; position: absolute; left: 40px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
 .pdf-timeline-item { display: flex; gap: 40px; position: relative; align-items: center; }
@@ -182,7 +194,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .pdf-content p { color: #64748b; line-height: 1.6; margin: 0; word-break: keep-all; font-size: 1.05rem; }
 
 /* Q&A Section */
-.qa-section { padding: 100px 48px; background: #fff; display: flex; flex-direction: column; align-items: center; }
+.qa-section { background: #fff; }
 .qa-list { max-width: 800px; width: 100%; display: flex; flex-direction: column; gap: 16px; }
 .qa-item { background: #f8fafc; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; }
 .qa-item:hover { border-color: #cbd5e1; }
@@ -203,8 +215,5 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   .pdf-icon { width: 60px; height: 60px; font-size: 1.5rem; }
   .pdf-content:hover, .pdf-timeline-item.slide-in-right .pdf-content:hover { transform: translateY(-5px); }
   .hero-graphic-col { display: none; }
-}
-
-@media (max-width: 900px) { 
   .hide-mobile, .bg-card br, .feature-card-modern br, .pdf-content br { display: none; }
 }

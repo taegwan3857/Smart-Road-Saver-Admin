@@ -104,7 +104,7 @@ export default function Landing() {
       </section>
 
       {/* Background */}
-      <section className="background-section" id="background">
+      <section className="background-section full-screen-section" id="background">
         <div className="section-heading fade-up">
           <h2>프로젝트 배경 및 필요성</h2>
           <p>매년 20,000건 이상의 피해가 노면 결함으로 발생합니다.</p>
@@ -136,7 +136,7 @@ export default function Landing() {
       </section>
 
       {/* Service Features */}
-      <section className="service-features-section" id="service-features">
+      <section className="service-features-section full-screen-section" id="service-features">
         <div className="section-heading fade-up">
           <h2>주요 기능</h2>
           <p>기존 시스템의 한계를 극복하는 혁신적인 솔루션</p>
@@ -161,7 +161,7 @@ export default function Landing() {
       </section>
 
       {/* System Structure (Timeline) */}
-      <section className="pdf-features-section" id="system">
+      <section className="pdf-features-section full-screen-section" id="system">
         <div className="section-heading fade-up">
           <h2>시스템 구성도</h2>
           <p>전용 하드웨어부터 모바일 앱까지</p>
@@ -212,7 +212,7 @@ export default function Landing() {
       </section>
 
       {/* Q&A */}
-      <section className="qa-section" id="faq">
+      <section className="qa-section full-screen-section" id="faq">
         <div className="section-heading fade-up">
           <h2>Q&A</h2>
         </div>
