@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, Navigate, useLocation } from 'react-router-dom';
 import Sidebar from './components/layout/Sidebar';
 import Header from './components/layout/Header';
 
@@ -17,6 +17,16 @@ import DeviceList from './pages/DeviceList';
 import DeviceDetail from './pages/DeviceDetail';
 import Manual from './pages/Manual';
 import Landing from './pages/Landing';
+
+function PrivateRoute({ children }) {
+  const token = localStorage.getItem('accessToken') || localStorage.getItem('access_token');
+  const location = useLocation();
+
+  if (!token) {
+    return <Navigate to="/intro" state={{ from: location }} replace />;
+  }
+  return children;
+}
 
 function Layout() {
   return (
@@ -36,7 +46,7 @@ export default function App() {
       <Routes>
         <Route path="/intro" element={<Landing />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
           <Route index element={<Dashboard />} />
           <Route path="detections" element={<DetectionList />} />
           <Route path="detections/:id" element={<DetectionDetail />} />
