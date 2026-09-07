@@ -42,10 +42,10 @@ export default function Landing() {
         </div>
         <nav className="nav-links">
           <a href="#home" onClick={scrollToSection}>홈</a>
-          <a href="#background" onClick={scrollToSection}>배경</a>
-          <a href="#service-features" onClick={scrollToSection}>서비스 특징</a>
-          <a href="#system" onClick={scrollToSection}>시스템 구조</a>
-          <a href="#faq" onClick={scrollToSection}>FAQ</a>
+          <a href="#background" onClick={scrollToSection}>프로젝트 배경</a>
+          <a href="#service-features" onClick={scrollToSection}>주요 기능</a>
+          <a href="#system" onClick={scrollToSection}>시스템 구성도</a>
+          <a href="#faq" onClick={scrollToSection}>Q&A</a>
         </nav>
       </header>
 
@@ -138,7 +138,7 @@ export default function Landing() {
       {/* Service Features */}
       <section className="service-features-section" id="service-features">
         <div className="section-heading fade-up">
-          <h2>핵심 서비스 특징</h2>
+          <h2>주요 기능</h2>
           <p>기존 시스템의 한계를 극복하는 혁신적인 솔루션</p>
         </div>
         <div className="feature-cards">
@@ -163,7 +163,7 @@ export default function Landing() {
       {/* System Structure (Timeline) */}
       <section className="pdf-features-section" id="system">
         <div className="section-heading fade-up">
-          <h2>End-to-End 시스템 구조</h2>
+          <h2>시스템 구성도</h2>
           <p>전용 하드웨어부터 모바일 앱까지</p>
         </div>
         <div className="pdf-timeline">
@@ -214,7 +214,7 @@ export default function Landing() {
       {/* Q&A */}
       <section className="qa-section" id="faq">
         <div className="section-heading fade-up">
-          <h2>자주 묻는 질문</h2>
+          <h2>Q&A</h2>
         </div>
         <div className="qa-list">
           {faqs.map((faq, idx) => (
