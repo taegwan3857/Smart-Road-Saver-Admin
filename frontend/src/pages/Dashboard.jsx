@@ -387,7 +387,17 @@ export default function Dashboard() {
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{ev.address||ev.location||'위치 정보 없음'}</div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                       <div style={{fontSize:"0.8rem",color:"#94a3b8"}}><i className="fas fa-map-marker-alt"></i> {ev.latitude||'-'}, {ev.longitude||'-'}</div>
-                      <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>{ev.first_detected_at||ev.detected_at||ev.created_at ? new Date(ev.first_detected_at||ev.detected_at||ev.created_at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}) : '-'}</span>
+                      <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>
+                        {ev.first_detected_at||ev.detected_at||ev.created_at 
+                          ? (() => {
+                              const d = new Date(ev.first_detected_at||ev.detected_at||ev.created_at);
+                              const m = d.getMonth() + 1;
+                              const day = d.getDate();
+                              const timeStr = d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+                              return `${m}월 ${day}일 ${timeStr}`;
+                            })() 
+                          : '-'}
+                      </span>
                     </div>
                   </div>
                 ))
