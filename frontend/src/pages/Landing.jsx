@@ -1,46 +1,40 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/landing.css';
 
-function useFadeUp() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const targets = el.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.15 });
-    targets.forEach(t => observer.observe(t));
-    return () => observer.disconnect();
-  }, []);
-  return ref;
-}
-
 export default function Landing() {
   const [openFaq, setOpenFaq] = useState(null);
-  const containerRef = useFadeUp();
 
-  const faqs = [
-    { q: "오탐(False Alarm) 처리는 어떻게 진행되나요?", a: "AI가 위험 요소로 식별했으나 실제 위험이 아닌 경우, 관리자가 감지기록 상세 페이지에서 '오탐 처리' 버튼을 눌러 지도에서 즉시 제외할 수 있습니다." },
-    { q: "유관 기관 신고는 정말 자동으로 되나요?", a: "네, AI 신뢰도와 위험도(High) 기준을 충족하는 감지 건은 시스템 설정에 따라 행정안전부 안전신문고나 지자체 도로관리 부서로 자동 기안 및 전송됩니다." },
-    { q: "야간이나 악천후에도 감지가 가능한가요?", a: "다양한 조도와 기상 환경의 도로 데이터를 학습한 AI 비전 모델이 야간이나 비 오는 날에도 높은 정확도로 위험을 감지합니다." },
-    { q: "운전자 앱은 누구나 사용할 수 있나요?", a: "네, 앱스토어에서 전용 앱을 다운로드하여 거치대에 켜두기만 하면 됩니다. 주행 중 카메라가 자동으로 도로를 스캔하며 위험 요소를 관제 센터로 전송합니다." }
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (e) => {
     e.preventDefault();
-    const id = e.target.getAttribute('href').substring(1);
-    scrollTo(id);
+    const targetId = e.currentTarget.getAttribute('href').substring(1);
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
+  const faqs = [
+    { q: "어떤 종류의 도로 위험물을 감지할 수 있나요?", a: "포트홀, 블랙아이스, 낙하물(장애물), 도로 균열 등을 실시간으로 감지합니다. 특히 mmWave 레이더를 통해 육안으로 식별이 어려운 결빙 상태도 정확하게 파악할 수 있습니다." },
+    { q: "기존 블랙박스에도 적용 가능한가요?", a: "네, 일반 차량에 부착된 블랙박스 카메라 영상과 당사의 센서 모듈(Jetson NANO, mmWave)을 결합하여 바로 활용할 수 있습니다." },
+    { q: "지자체 신고는 어떻게 이루어지나요?", a: "위험물이 감지되면 서버에서 위치(GPS) 및 현장 사진을 분석하여 공문서 형태로 자동 변환하며, 설정된 지자체 담당 부서로 자동 접수됩니다." },
+  ];
+
   return (
-    <div className="landing-container" ref={containerRef}>
+    <div className="landing-container">
       {/* Nav */}
       <header className="landing-header">
         <div className="landing-logo">
@@ -48,133 +42,120 @@ export default function Landing() {
         </div>
         <nav className="nav-links">
           <a href="#home" onClick={scrollToSection}>홈</a>
-          <a href="#process" onClick={scrollToSection}>서비스 소개</a>
-          <a href="#features" onClick={scrollToSection}>주요 기능</a>
-          <a href="#faq" onClick={scrollToSection}>자주 묻는 질문</a>
+          <a href="#background" onClick={scrollToSection}>선정 배경</a>
+          <a href="#features" onClick={scrollToSection}>시스템 구조</a>
+          <a href="#faq" onClick={scrollToSection}>FAQ</a>
         </nav>
       </header>
 
       {/* Hero */}
       <section className="hero-section" id="home">
-        <div className="hero-bg">
-          <span className="dot dot1"></span>
-          <span className="dot dot2"></span>
-          <span className="dot dot3"></span>
-          <span className="dot dot4"></span>
-          <span className="dot dot5"></span>
-        </div>
         <div className="hero-content">
-          <div className="hero-text-col">
+          <div className="hero-text-col fade-up">
             <h1 className="hero-title">
-              도로 위 숨은 위험,<br/>
-              <span className="text-highlight">AI가 먼저 찾아냅니다</span>
+              Smart Road Saver
             </h1>
             <p className="hero-subtitle">
-              블랙박스 영상 기반 실시간 도로 위험물 감지 및 지자체 자동 신고 솔루션
+              mmWave 레이더와 비전 AI를 결합하여 실시간 도로 결함 탐지 및 자동 신고를 통해 도로 안전사고를 예방하는 시스템
             </p>
             <div className="hero-btns">
-              <Link to="/login" className="btn-white">관제 시스템 접속</Link>
-              <a href="#" className="btn-ghost">
-                <i className="fab fa-google-play" style={{marginRight: '6px'}}></i>앱 다운로드
-              </a>
+              <Link to="/login" className="btn-primary">관제 시스템 접속</Link>
+              <a href="#background" onClick={scrollToSection} className="btn-secondary">자세히 보기</a>
             </div>
           </div>
-          <div className="hero-graphic-col">
-            <div className="floating-card card-scan">
-              <div className="card-icon blue"><i className="fas fa-camera"></i></div>
-              <div className="card-info">
-                <h4>실시간 도로 스캔</h4>
-                <p>AI Vision 모델 작동 중</p>
-              </div>
-              <div className="scan-line"></div>
-            </div>
-            <div className="floating-card card-alert">
-              <div className="card-icon red"><i className="fas fa-exclamation-triangle"></i></div>
-              <div className="card-info">
-                <h4>포트홀 감지</h4>
-                <p>정확도 98.2% · 위험도 높음</p>
-              </div>
-            </div>
-            <div className="floating-card card-report">
-              <div className="card-icon green"><i className="fas fa-paper-plane"></i></div>
-              <div className="card-info">
-                <h4>자동 신고 완료</h4>
-                <p>관할 지자체 전송 성공</p>
-              </div>
+          <div className="hero-graphic-col fade-up d1">
+            <div className="radar-animation">
+              <div className="radar-circle circle-1"></div>
+              <div className="radar-circle circle-2"></div>
+              <div className="radar-circle circle-3"></div>
+              <div className="radar-scanner"></div>
+              <div className="radar-dot dot-1"></div>
+              <div className="radar-dot dot-2"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="process-section" id="process">
+      {/* Background */}
+      <section className="background-section" id="background">
         <div className="section-heading fade-up">
-          <h2>서비스 소개</h2>
-          <p>AI 기술을 활용한 4단계 도로 위험물 자동 감지 및 신고 프로세스</p>
+          <h2>프로젝트 배경 및 필요성</h2>
+          <p>매년 20,000건 이상의 피해가 노면 결함으로 발생합니다.</p>
         </div>
-        <div className="process-track">
-          <div className="process-card-new fade-up d1">
-            <div className="step-badge">STEP 01</div>
-            <div className="step-icon"><i className="fas fa-video"></i></div>
-            <h3>실시간 도로 스캔</h3>
-            <p className="process-sub">차량용 블랙박스 연동</p>
-            <p className="process-desc">별도의 특수 장비 없이 기존 차량에 설치된 블랙박스를 통해 주행 중인 도로의 노면 상태를 실시간으로 촬영하고 데이터를 수집합니다.</p>
+        <div className="bg-grid">
+          <div className="bg-card fade-up d1">
+            <div className="bg-icon warning">⚠️</div>
+            <h3>사후 대처 신고 시스템</h3>
+            <p>사고가 발생한 이후에야 대처가 이루어지는 기존 신고 시스템의 한계</p>
           </div>
-          <div className="process-card-new fade-up d2">
-            <div className="step-badge">STEP 02</div>
-            <div className="step-icon"><i className="fas fa-brain"></i></div>
-            <h3>AI 위험물 분석</h3>
-            <p className="process-sub">실시간 Vision AI 구동</p>
-            <p className="process-desc">수집된 영상에서 포트홀, 블랙아이스, 균열 등의 위험 요소를 AI 모델이 즉각적으로 식별하고 위험도를 정밀하게 판별합니다.</p>
+          <div className="bg-card fade-up d2">
+            <div className="bg-icon time">⏳</div>
+            <h3>비효율적인 순찰 시스템</h3>
+            <p>제한된 인력으로 광범위한 도로를 모두 순찰하기 어려운 현실</p>
           </div>
-          <div className="process-card-new fade-up d3">
-            <div className="step-badge">STEP 03</div>
-            <div className="step-icon"><i className="fas fa-map-marked-alt"></i></div>
-            <h3>관제 센터 동기화</h3>
-            <p className="process-sub">위험 구역 지도 표출</p>
-            <p className="process-desc">위험 요소가 감지된 정확한 GPS 위치와 현장 캡처 이미지가 관리자 웹 대시보드 지도에 즉시 표출되어 알림을 발생시킵니다.</p>
+          <div className="bg-card fade-up d3">
+            <div className="bg-icon danger">🚨</div>
+            <h3>순찰 인력의 안전 위협</h3>
+            <p>고속도로 및 위험 구간에서 사고 처리 중 발생하는 2차 사고 위험</p>
           </div>
-          <div className="process-card-new fade-up d4">
-            <div className="step-badge">STEP 04</div>
-            <div className="step-icon"><i className="fas fa-paper-plane"></i></div>
-            <h3>지자체 자동 신고</h3>
-            <p className="process-sub">공문서 자동 생성 및 이관</p>
-            <p className="process-desc">확인된 위험 데이터를 바탕으로 관할 지자체에 제출할 신고 공문서를 시스템이 자동 생성하여 원클릭으로 접수합니다.</p>
+        </div>
+        <div className="bg-solution fade-up">
+          <div className="solution-box">
+            <i className="fas fa-check-circle"></i>
+            <h4>실제 도로 탐지와 신속한 신고 처리</h4>
+            <p>사고 발생 전 위험 요인을 차단하고 도로 순찰을 자동화하여 안전사고를 근본적으로 감소시킵니다.</p>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="features-section" id="features">
+      <section className="pdf-features-section" id="features">
         <div className="section-heading fade-up">
-          <h2>주요 기능</h2>
-          <p>스마트 도로 관제를 위한 핵심 솔루션</p>
+          <h2>시스템 주요 기능</h2>
+          <p>하드웨어부터 관리자 웹까지, 완벽한 End-to-End 솔루션</p>
         </div>
-        <div className="features-grid">
-          <div className="feature-card fade-up d1 card-1">
-            <i className="fas fa-video feature-watermark"></i>
-            <div className="feature-content">
-              <div className="feature-icon-wrapper"><i className="fas fa-video"></i></div>
-              <h3>블랙박스 기반 감지</h3>
-              <p>별도의 고가 장비 없이 일반 차량의 블랙박스 영상만으로 블랙아이스, 포트홀, 장애물을 실시간 식별합니다.</p>
+        <div className="pdf-timeline">
+          
+          <div className="pdf-timeline-item fade-up">
+            <div className="pdf-icon"><i className="fas fa-microchip"></i></div>
+            <div className="pdf-content">
+              <h3>하드웨어 (Jetson Nano)</h3>
+              <p>mmWave 레이더와 카메라 모듈을 결합하여 데이터를 수집합니다. 육안으로 식별 불가능한 젖음 및 결빙 상태를 mmWave 레이더 노면 반사 데이터를 통해 정확하게 수치화합니다.</p>
             </div>
           </div>
-          <div className="feature-card fade-up d2 card-2">
-            <i className="fas fa-map-marked-alt feature-watermark"></i>
-            <div className="feature-content">
-              <div className="feature-icon-wrapper"><i className="fas fa-map-marked-alt"></i></div>
-              <h3>실시간 관제 대시보드</h3>
-              <p>전국에서 수집되는 위험 요소 데이터를 지도 위에 시각화하여 현황을 한눈에 파악합니다.</p>
+
+          <div className="pdf-timeline-item fade-up d1">
+            <div className="pdf-icon"><i className="fas fa-brain"></i></div>
+            <div className="pdf-content">
+              <h3>AI / 딥러닝</h3>
+              <p>자체 개발 AI 모델을 통해 도로 상태(결빙, 젖음 등)를 추론하고, YOLO11n 모델을 활용하여 포트홀 및 장애물을 실시간으로 결함 탐지합니다.</p>
             </div>
           </div>
-          <div className="feature-card fade-up d3 card-3">
-            <i className="fas fa-paper-plane feature-watermark"></i>
-            <div className="feature-content">
-              <div className="feature-icon-wrapper"><i className="fas fa-paper-plane"></i></div>
-              <h3>유관 기관 자동 발송</h3>
-              <p>위험도가 높은 감지 건은 공문서 형태로 자동 변환하여 해당 지자체로 즉시 전송합니다.</p>
+
+          <div className="pdf-timeline-item fade-up d2">
+            <div className="pdf-icon"><i className="fas fa-server"></i></div>
+            <div className="pdf-content">
+              <h3>서버 / 백엔드</h3>
+              <p>수집된 위험 데이터를 중복 병합하고, 데이터베이스(Supabase)에 저장하여 실시간 결함 관리 및 지자체 자동 신고 로직을 수행합니다.</p>
             </div>
           </div>
+
+          <div className="pdf-timeline-item fade-up d3">
+            <div className="pdf-icon"><i className="fas fa-mobile-alt"></i></div>
+            <div className="pdf-content">
+              <h3>모바일 앱</h3>
+              <p>운전자에게 실시간 위험 요소 알림 및 상세 정보를 제공하여 안전 사고를 선제적으로 예방합니다.</p>
+            </div>
+          </div>
+
+          <div className="pdf-timeline-item fade-up d4">
+            <div className="pdf-icon"><i className="fas fa-desktop"></i></div>
+            <div className="pdf-content">
+              <h3>관리자 웹</h3>
+              <p>전국 도로의 위험 상황을 실시간 지도 기반으로 표출하며, 탐지 기록과 자동 신고 문서를 통합 관제합니다.</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -201,7 +182,7 @@ export default function Landing() {
       {/* Footer */}
       <footer className="landing-footer">
         <strong><i className="fas fa-shield-alt" style={{marginRight:'6px'}}></i>Smart Road Saver</strong>
-        <p>© 2026 Smart Road Saver. All rights reserved.</p>
+        <p>© 2026 Smart Road Saver. MARS / 웹응용소프트웨어공학과</p>
       </footer>
     </div>
   );
