@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../assets/css/landing.css';
 
 export default function Landing() {
   const [openFaq, setOpenFaq] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -26,6 +28,7 @@ export default function Landing() {
     const el = document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
     }
   };
 
@@ -42,7 +45,10 @@ export default function Landing() {
         <a href="#home" onClick={scrollToSection} className="landing-logo" style={{ textDecoration: 'none' }}>
           <i className="fas fa-shield-alt"></i> Smart Road Saver
         </a>
-        <nav className="nav-links">
+        <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+        </button>
+        <nav className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <a href="#home" onClick={scrollToSection}>홈</a>
           <a href="#background" onClick={scrollToSection}>프로젝트 배경</a>
           <a href="#service-features" onClick={scrollToSection}>주요 기능</a>
