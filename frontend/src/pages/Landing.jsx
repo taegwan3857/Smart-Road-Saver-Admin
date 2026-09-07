@@ -10,6 +10,8 @@ export default function Landing() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
         }
       });
     }, { threshold: 0.1 });
@@ -234,7 +236,7 @@ export default function Landing() {
       {/* Footer */}
       <footer className="landing-footer">
         <strong><i className="fas fa-shield-alt" style={{marginRight:'6px'}}></i>Smart Road Saver</strong>
-        <p>© 2026 Smart Road Saver. MARS / 웹응용소프트웨어공학과</p>
+        <p>© 2026 Smart Road Saver. All rights reserved.</p>
       </footer>
     </div>
   );
