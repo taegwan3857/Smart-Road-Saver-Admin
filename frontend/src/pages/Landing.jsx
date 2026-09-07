@@ -39,9 +39,9 @@ export default function Landing() {
     <div className="landing-container">
       {/* Nav */}
       <header className="landing-header">
-        <div className="landing-logo">
+        <a href="#home" onClick={scrollToSection} className="landing-logo" style={{ textDecoration: 'none' }}>
           <i className="fas fa-shield-alt"></i> Smart Road Saver
-        </div>
+        </a>
         <nav className="nav-links">
           <a href="#home" onClick={scrollToSection}>홈</a>
           <a href="#background" onClick={scrollToSection}>프로젝트 배경</a>
