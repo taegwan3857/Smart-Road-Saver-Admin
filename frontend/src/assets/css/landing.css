@@ -215,12 +215,54 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .landing-footer p { margin: 0; font-size: 0.9rem; }
 
 @media (max-width: 900px) {
+  .landing-header { padding: 0 24px; }
+  .nav-links { display: none; /* Hide nav on mobile for simplicity, or we could add a hamburger */ }
+  
+  .full-screen-section { padding: 80px 24px 40px 24px; }
+  .section-heading h2 { font-size: 1.8rem; }
+  .section-heading p { font-size: 1rem; }
+  
   .hero-content { flex-direction: column; text-align: center; }
-  .bg-grid, .feature-cards { grid-template-columns: 1fr; }
-  .pdf-timeline::before { left: 30px; }
-  .pdf-timeline-item, .pdf-timeline-item:nth-child(even) { flex-direction: column; gap: 16px; text-align: left; }
-  .pdf-icon { width: 60px; height: 60px; font-size: 1.5rem; }
-  .pdf-content:hover, .pdf-timeline-item.slide-in-right .pdf-content:hover { transform: translateY(-5px); }
+  .hero-title { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1rem; }
   .hero-graphic-col { display: none; }
+  
+  .bg-grid, .feature-cards { grid-template-columns: 1fr; gap: 20px; }
+  
+  .pdf-timeline::before { left: 30px; }
+  .pdf-timeline-item, .pdf-timeline-item:nth-child(even) { flex-direction: column; gap: 16px; text-align: left; align-items: flex-start; }
+  .pdf-timeline-item:nth-child(even) { flex-direction: column; text-align: left; }
+  .pdf-icon { width: 60px; height: 60px; font-size: 1.5rem; position: absolute; left: 0; top: 0; }
+  
+  /* Fix timeline line and icon positioning on mobile */
+  .pdf-timeline::before { left: 30px; }
+  .pdf-timeline-item { padding-left: 80px; align-items: stretch; }
+  .pdf-timeline-item:nth-child(even) { padding-left: 80px; padding-right: 0; align-items: stretch; }
+  .pdf-content { width: 100%; box-sizing: border-box; }
+  
+  .pdf-content:hover, .pdf-timeline-item.slide-in-right .pdf-content:hover { transform: translateY(-5px); }
+  
   .hide-mobile, .bg-card br, .feature-card-modern br, .pdf-content br { display: none; }
+  
+  .solution-box { padding: 24px; }
+  .solution-box h4 { font-size: 1.2rem; }
+  
+  .qa-question { padding: 16px; font-size: 1rem; }
+  .qa-answer { padding: 0 16px 16px 16px; }
+}
+
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
+  .section-heading h2 { font-size: 1.5rem; }
+  .landing-logo { font-size: 1.1rem; }
+  
+  .pdf-timeline::before { left: 20px; }
+  .pdf-icon { width: 40px; height: 40px; font-size: 1rem; }
+  .pdf-timeline-item { padding-left: 56px; }
+  .pdf-timeline-item:nth-child(even) { padding-left: 56px; }
+  .pdf-content { padding: 20px; }
+  .pdf-content h3 { font-size: 1.1rem; }
+  
+  .feature-card-modern, .bg-card { padding: 24px 20px; }
+  .full-screen-section { padding: 80px 16px 40px 16px; }
 }
