@@ -53,15 +53,21 @@ export default function Landing() {
       <section className="hero-section" id="home">
         <div className="hero-content">
           <div className="hero-text-col fade-up">
+            <div className="hero-badge">AI 기반 도로 안전 솔루션</div>
             <h1 className="hero-title">
-              Smart Road Saver
+              미래를 향한 안전한 길,<br />
+              <span className="text-gradient">Smart Road Saver</span>
             </h1>
             <p className="hero-subtitle">
-              mmWave 레이더와 비전 AI를 결합하여 실시간 도로 결함 탐지 및 자동 신고를 통해 도로 안전사고를 예방하는 시스템
+              mmWave 레이더와 비전 AI를 결합하여 실시간 도로 결함 탐지 및 지자체 자동 신고를 수행합니다. 단 한 번의 스캔으로 보이지 않는 블랙아이스까지 완벽하게 차단하세요.
             </p>
             <div className="hero-btns">
-              <Link to="/login" className="btn-primary">관리자 관제 접속</Link>
-              <a href="#background" onClick={scrollToSection} className="btn-secondary">솔루션 알아보기</a>
+              <Link to="/login" className="btn-primary">
+                관리자 관제 접속 <i className="fas fa-arrow-right" style={{marginLeft: '8px'}}></i>
+              </Link>
+              <a href="#background" onClick={scrollToSection} className="btn-secondary">
+                솔루션 알아보기
+              </a>
             </div>
           </div>
           <div className="hero-graphic-col slide-in-right">
@@ -71,13 +77,27 @@ export default function Landing() {
               <div className="radar-circle circle-3"></div>
               <div className="radar-scanner"></div>
               
-              {/* Floating Animation Elements */}
-              <div className="floating-badge badge-1"><i className="fas fa-bolt"></i> YOLO11n</div>
-              <div className="floating-badge badge-2"><i className="fas fa-wifi"></i> mmWave</div>
+              {/* Floating UI Elements to make it look advanced */}
+              <div className="floating-ui ui-top-right">
+                <i className="fas fa-circle text-green blinking"></i> 시스템 정상 작동
+              </div>
+              <div className="floating-ui ui-bottom-left">
+                <strong><i className="fas fa-bolt text-blue"></i> YOLO11n</strong>
+                <span>객체 탐지 활성화</span>
+              </div>
+              <div className="floating-ui ui-bottom-right">
+                <strong><i className="fas fa-wifi text-blue"></i> mmWave</strong>
+                <span>노면 상태 분석 중...</span>
+              </div>
+
               <div className="radar-dot dot-1"><div className="dot-ripple"></div></div>
               <div className="radar-dot dot-2"><div className="dot-ripple"></div></div>
             </div>
           </div>
+        </div>
+        <div className="scroll-indicator">
+          <span>Scroll Down</span>
+          <i className="fas fa-chevron-down bouncing"></i>
         </div>
       </section>
 
