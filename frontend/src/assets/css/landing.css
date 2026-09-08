@@ -161,59 +161,40 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .solution-box h4 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
 .solution-box p { color: #cbd5e1; font-size: 1.1rem; margin: 0; }
 
-/* Service Features (Modern Cards Redesign) */
-.service-features-section { background: #f1f5f9; padding: 120px 48px 80px 48px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box; position: relative; }
-.service-features-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,0.2), transparent); }
+/* Service Features (Corporate Redesign) */
+.service-features-section { background: #f8fafc; padding: 120px 48px 100px 48px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box; }
 
-.section-heading { text-align: center; margin-bottom: 80px; max-width: 600px; width: 100%; }
-.section-heading h2 { font-size: 2.8rem; font-weight: 800; color: #0f172a; margin: 0 0 20px 0; letter-spacing: -1px; }
-.section-heading p { font-size: 1.25rem; color: #64748b; margin: 0; word-break: keep-all; font-weight: 400; }
+.section-heading { text-align: center; margin-bottom: 70px; max-width: 600px; width: 100%; }
+.section-heading h2 { font-size: 2.6rem; font-weight: 800; color: #1d3162; margin: 0 0 16px 0; letter-spacing: -1px; }
+.section-heading p { font-size: 1.15rem; color: #64748b; margin: 0; word-break: keep-all; font-weight: 400; }
 
-.feature-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1200px; width: 100%; z-index: 2; }
+.feature-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; width: 100%; }
 .feature-card-modern {
   background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 24px;
-  padding: 48px 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 4px solid #1d3162;
+  border-radius: 8px;
+  padding: 40px 32px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
   position: relative;
-  overflow: hidden;
-}
-.feature-card-modern::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 .feature-card-modern:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 24px 48px rgba(59, 130, 246, 0.12);
-  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 10px 20px rgba(29, 49, 98, 0.1);
+  transform: translateY(-4px);
 }
-.feature-card-modern:hover::before { opacity: 1; }
 
 .feature-card-modern .f-icon {
-  width: 72px; height: 72px;
-  background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1));
-  color: #3b82f6;
-  border-radius: 20px;
+  width: 56px; height: 56px;
+  background: #f1f5f9;
+  color: #1d3162;
+  border-radius: 8px;
   display: flex; justify-content: center; align-items: center;
-  font-size: 2rem;
-  margin-bottom: 32px;
-  transition: all 0.4s ease;
-}
-.feature-card-modern:hover .f-icon { 
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6); 
-  color: #fff; 
-  transform: scale(1.1) rotate(-8deg); 
-  box-shadow: 0 10px 20px rgba(59,130,246,0.3);
+  font-size: 1.6rem;
+  margin-bottom: 24px;
 }
 
-.feature-card-modern h3 { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 16px; letter-spacing: -0.5px; line-height: 1.3; }
-.feature-card-modern p { color: #475569; font-size: 1.05rem; line-height: 1.7; margin: 0; word-break: keep-all; }
+.feature-card-modern h3 { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin-bottom: 16px; letter-spacing: -0.5px; line-height: 1.4; }
+.feature-card-modern p { color: #475569; font-size: 1.05rem; line-height: 1.6; margin: 0; word-break: keep-all; }
 
 /* PDF Features Timeline */
 .pdf-features-section { background: #f8fafc; padding: 100px 48px 60px 48px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box; }
