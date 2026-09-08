@@ -17,7 +17,9 @@
 }
 
 .form-select, .form-input {
-  padding: 8px 14px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 14px;
   border: 1px solid var(--border-light);
   border-radius: 6px;
   font-size: 0.9rem;
