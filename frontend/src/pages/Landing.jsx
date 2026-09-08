@@ -122,17 +122,17 @@ export default function Landing() {
           <div className="bg-card fade-up d1">
             <div className="bg-icon warning"><i className="fas fa-exclamation-triangle"></i></div>
             <h3>사후 대처 신고 시스템</h3>
-            <p>사고가 발생한 이후에야 대처가 이루어지는<br />기존 신고 시스템의 치명적인 한계</p>
+            <p>사고가 발생한 이후에야 대처가 이루어지는 기존 신고 시스템의 치명적인 한계</p>
           </div>
           <div className="bg-card fade-up d2">
             <div className="bg-icon time"><i className="fas fa-hourglass-half"></i></div>
             <h3>비효율적인 순찰 시스템</h3>
-            <p>제한된 인력으로 광범위한 전국 도로를<br />모두 실시간 순찰하기 어려운 현실</p>
+            <p>제한된 인력으로 광범위한 전국 도로를 모두 실시간 순찰하기 어려운 현실</p>
           </div>
           <div className="bg-card fade-up d3">
             <div className="bg-icon danger"><i className="fas fa-hard-hat"></i></div>
             <h3>순찰 인력의 안전 위협</h3>
-            <p>고속도로 및 위험 구간에서 사고 처리 중<br />발생하는 2차 사고의 위험성</p>
+            <p>고속도로 및 위험 구간에서 사고 처리 중 발생하는 2차 사고의 위험성</p>
           </div>
         </div>
         <div className="bg-solution fade-up">
@@ -156,17 +156,17 @@ export default function Landing() {
           <div className="feature-card-modern fade-up d1">
             <div className="f-icon"><i className="fas fa-microchip"></i></div>
             <h3>엣지 디바이스 기반 AI 탐지</h3>
-            <p>Jetson Nano 및 YOLO11n 모델을 활용하여<br />현장에서 실시간으로 결함을 탐지하고 통신 지연을 최소화합니다.</p>
+            <p>Jetson Nano 및 YOLO11n 모델을 활용하여 현장에서 실시간으로 결함을 탐지하고 통신 지연을 최소화합니다.</p>
           </div>
           <div className="feature-card-modern fade-up d2">
             <div className="f-icon"><i className="fas fa-layer-group"></i></div>
             <h3>PostGIS 중복 신고 병합</h3>
-            <p>수집된 방대한 결함 데이터를 PostGIS 공간 쿼리로<br />자동 병합(Deduplication)하여 동일 포트홀 중복 처리를 방지합니다.</p>
+            <p>수집된 방대한 결함 데이터를 PostGIS 공간 쿼리로 자동 병합(Deduplication)하여 동일 포트홀 중복 처리를 방지합니다.</p>
           </div>
           <div className="feature-card-modern fade-up d3">
             <div className="f-icon"><i className="fas fa-file-signature"></i></div>
             <h3>지자체 공문 자동화</h3>
-            <p>탐지된 위험 요소를 기반으로 지자체 신고용<br />표준 규격 공문서를 원클릭으로 자동 생성하고 발송합니다.</p>
+            <p>탐지된 위험 요소를 기반으로 지자체 신고용 표준 규격 공문서를 원클릭으로 자동 생성하고 발송합니다.</p>
           </div>
         </div>
         </div>
@@ -185,7 +185,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
             <div className="pdf-content">
               <h3>전용 하드웨어 플랫폼 (Jetson Nano)</h3>
-              <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된<br />전용 하드웨어 장치를 운영합니다. 육안 식별이 불가능한 젖음 및 결빙 상태를<br />레이더 반사 데이터를 통해 수치화합니다.</p>
+              <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다. 육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
             </div>
           </div>
 
@@ -193,7 +193,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-brain"></i></div>
             <div className="pdf-content">
               <h3>AI / 딥러닝 엣지 컴퓨팅</h3>
-              <p>Jetson Nano 디바이스 내에서 자체 개발 AI 모델(도로 상태 추론)과<br />YOLO11n 모델(포트홀/장애물 탐지)을 구동하여 지연 시간 없이<br />현장에서 즉각적인 결함 탐지를 수행합니다.</p>
+              <p>Jetson Nano 디바이스 내에서 자체 개발 AI 모델(도로 상태 추론)과 YOLO11n 모델(포트홀/장애물 탐지)을 구동하여 지연 시간 없이 현장에서 즉각적인 결함 탐지를 수행합니다.</p>
             </div>
           </div>
 
@@ -201,7 +201,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-server"></i></div>
             <div className="pdf-content">
               <h3>클라우드 서버 / 백엔드</h3>
-              <p>엣지 디바이스에서 전송된 위험 데이터를 실시간 통신 패키징(API)을 통해 수신합니다.<br />DB(Supabase)와 PostGIS 로직을 통해 데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
+              <p>엣지 디바이스에서 전송된 위험 데이터를 실시간 통신 패키징(API)을 통해 수신합니다. DB(Supabase)와 PostGIS 로직을 통해 데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
             </div>
           </div>
 
@@ -209,7 +209,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-mobile-alt"></i></div>
             <div className="pdf-content">
               <h3>모바일 앱 사용자</h3>
-              <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및<br />지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
+              <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및 지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
             </div>
           </div>
 
@@ -217,7 +217,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-desktop"></i></div>
             <div className="pdf-content">
               <h3>관제센터 (관리자 웹)</h3>
-              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 웹 기반 대시보드 지도 상에<br />표출하며, 실시간 탐지 기록과 지자체 신고 내역을 완벽하게 통합 관제합니다.</p>
+              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 웹 기반 대시보드 지도 상에 표출하며, 실시간 탐지 기록과 지자체 신고 내역을 완벽하게 통합 관제합니다.</p>
             </div>
           </div>
 

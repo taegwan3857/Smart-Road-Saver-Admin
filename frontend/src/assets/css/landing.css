@@ -178,7 +178,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 }
 .feature-card-modern:hover .f-icon { transform: scale(1.1) rotate(-5deg); background: #3b82f6; color: #fff; }
 .feature-card-modern h3 { font-size: 1.3rem; font-weight: 800; color: #1d3162; margin-bottom: 16px; }
-.feature-card-modern p { color: #64748b; line-height: 1.6; margin: 0; }
+.feature-card-modern p { color: #64748b; line-height: 1.6; margin: 0; word-break: keep-all; }
 
 /* PDF Features Timeline */
 .pdf-features-section { background: #f8fafc; padding: 100px 48px 60px 48px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box; }
