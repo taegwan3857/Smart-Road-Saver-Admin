@@ -631,9 +631,10 @@ body {
   font-weight: 600;
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   transition: all 0.2s ease;
-  padding: 6px 10px;
-  margin-right: -10px;
+  padding: 6px 14px;
+  margin-right: -14px;
   border-radius: 6px;
 }
 .detail-link-btn:hover {
@@ -641,7 +642,6 @@ body {
 }
 .detail-link-btn .arrow {
   display: inline-block;
-  margin-left: 4px;
   transition: transform 0.2s ease;
 }
 .detail-link-btn:hover .arrow {
