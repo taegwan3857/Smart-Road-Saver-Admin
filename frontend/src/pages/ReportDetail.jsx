@@ -127,7 +127,7 @@ export default function ReportDetail() {
           )) : (
             <>
               1. 평소 구정 발전과 구민 안전을 위해 애쓰시는 노고에 감사드립니다.<br/><br/>
-              2. 우리 구 관내 도로 모니터링 중, AI 스마트 관제 장비에 의해 아래와 같이 <strong>{translateType(data.event_type||data.type)}</strong> 현상이 감지되었습니다.<br/><br/>
+              2. 우리 구 관내 도로 모니터링 중, AI 스마트 관제 장비에 의해 아래와 같이 <strong>{translateType(data.event_type||data.type)}</strong>(이)가 감지되었습니다.<br/><br/>
               3. 해당 구간은 차량 통행 시 2차 사고 발생 위험이 높으므로, 유관 부서의 즉각적인 현장 확인 및 안전 조치를 요청드립니다.<br/><br/>
               <strong>- 아 래 -</strong><br/><br/>
               가. 감지 일시 : {data.created_at ? new Date(data.created_at).toLocaleString('ko-KR') : '2026. 09. 04 18:32'}<br/>
