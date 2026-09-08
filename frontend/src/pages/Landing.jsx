@@ -73,7 +73,7 @@ export default function Landing() {
             </p>
             <div className="hero-btns">
               <Link to="/login" className="btn-primary">
-                관리자 관제 접속 <i className="fas fa-arrow-right" style={{marginLeft: '8px'}}></i>
+                관리자 관제 센터 <i className="fas fa-arrow-right" style={{marginLeft: '8px'}}></i>
               </Link>
               <a href="#background" onClick={scrollToSection} className="btn-secondary">
                 솔루션 알아보기
