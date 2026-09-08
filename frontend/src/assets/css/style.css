@@ -612,7 +612,7 @@ body {
 
 /* 상세보기 버튼 및 네비게이션 애니메이션 */
 .detail-link-btn {
-  background: none;
+  background: transparent;
   border: none;
   color: var(--primary-color);
   font-size: 0.85rem;
@@ -621,9 +621,9 @@ body {
   display: inline-flex;
   align-items: center;
   transition: all 0.2s ease;
-  padding: 4px 0px;
-  margin-right: -4px;
-  border-radius: 4px;
+  padding: 6px 10px;
+  margin-right: -10px;
+  border-radius: 6px;
 }
 .detail-link-btn:hover {
   background: rgba(29, 49, 98, 0.08);
