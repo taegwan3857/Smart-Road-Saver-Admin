@@ -31,6 +31,24 @@ export default function ReportDetail() {
     fetchData();
   }, [id]);
 
+  useEffect(() => {
+    if (!data) return;
+    setTimeout(() => {
+      const container = document.getElementById('report-map');
+      if (!container || !window.kakao || !window.kakao.maps) return;
+      
+      window.kakao.maps.load(() => {
+        const lat = Number(data.latitude || 37.4979);
+        const lng = Number(data.longitude || 127.0280);
+        const position = new window.kakao.maps.LatLng(lat, lng);
+        const options = { center: position, level: 4 };
+        const map = new window.kakao.maps.Map(container, options);
+        const marker = new window.kakao.maps.Marker({ position });
+        marker.setMap(map);
+      });
+    }, 100);
+  }, [data]);
+
   const handleReject = () => {
     setIsRejectModalOpen(false);
     alert('반려 처리되었습니다.');
@@ -138,17 +156,18 @@ export default function ReportDetail() {
           )}
         </div>
 
-        <div className="doc-images">
+        <div className="doc-images" style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginTop: "40px"}}>
           {data.images && data.images.length > 0 ? (
-            data.images.map((img, i) => (
-              <div key={i} className="doc-img-box" style={{backgroundImage: `url(${img.url})`}}></div>
-            ))
+            <div className="doc-img-box" style={{backgroundImage: `url(${data.images[0].url})`}}></div>
           ) : (
-            <>
-              <div className="doc-img-box"><i className="fas fa-camera" style={{marginRight:"8px"}}></i> 현장 카메라 사진</div>
-              <div className="doc-img-box"><i className="fas fa-map-marker-alt" style={{marginRight:"8px"}}></i> 감지 위치 지도</div>
-            </>
+            <div className="doc-img-box"><i className="fas fa-camera" style={{marginRight:"8px"}}></i> 현장 카메라 사진</div>
           )}
+          <div className="doc-img-box" style={{padding: 0, position: 'relative'}}>
+            <div style={{position: 'absolute', zIndex: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', color: '#64748b'}}>
+              <i className="fas fa-map-marker-alt" style={{marginRight:"8px"}}></i> 감지 위치 지도
+            </div>
+            <div id="report-map" style={{width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1}}></div>
+          </div>
         </div>
 
         <div style={{textAlign: "center"}}>
