@@ -311,7 +311,7 @@ export default function Landing() {
               <i className="fas fa-microchip"></i>
             </div>
             <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>하드웨어 및 AI 팀</h3>
-            <p style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '500'}}>김찬희, 김시호, 김민건, 김수한</p>
+                        <p style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '500'}}>김시호, 김민건, 김수한</p>
           </div>
 
         </div>
