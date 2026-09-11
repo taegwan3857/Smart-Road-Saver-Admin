@@ -210,7 +210,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-mobile-alt"></i></div>
             <div className="pdf-content">
               <h3>모바일 앱 사용자</h3>
-              <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및 지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
+              <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및<br/>&nbsp;&nbsp;&nbsp;&nbsp;지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
             </div>
           </div>
 
