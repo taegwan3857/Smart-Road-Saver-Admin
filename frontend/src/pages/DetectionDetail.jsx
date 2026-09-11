@@ -198,26 +198,25 @@ export default function DetectionDetail() {
                 {data.latitude||'-'}, {data.longitude||'-'}
               </div>
             </div>
-            
-            <div style={{marginTop: "20px", borderTop: "1px solid var(--border-light)", paddingTop: "20px"}}>
-              <div style={{fontSize: "1.05rem", fontWeight: "700", color: "var(--text-main)", marginBottom: "16px"}}>실시간 신뢰도 변동 차트</div>
-              <div style={{width: "100%", height: "250px"}}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={[
-                    { time: data.first_detected_at||data.detected_at||data.created_at ? new Date(data.first_detected_at||data.detected_at||data.created_at).toLocaleTimeString('ko-KR', {hour:'2-digit', minute:'2-digit'}) : '19:44', 신뢰도: Math.round(data.confidence||data.score||82) }
-                  ]} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                    <XAxis dataKey="time" axisLine={true} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} />
-                    <YAxis domain={[30, 100]} axisLine={true} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} ticks={[30, 50, 70, 90, 100]} />
-                    <Tooltip contentStyle={{borderRadius: '8px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'}} />
-                    <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{fontSize: '13px', color: '#334155'}} />
-                    <Line type="monotone" dataKey="신뢰도" stroke="#1e293b" strokeWidth={2} dot={{ r: 4, fill: '#1e293b', strokeWidth: 0 }} activeDot={{ r: 6 }} name="신뢰도" />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            </div>
-
           </div>
+        </div>
+      </div>
+
+      <div className="detail-card" style={{marginTop: "24px"}}>
+        <div className="detail-card-title"><i className="fas fa-chart-line"></i> 실시간 신뢰도 변동 차트</div>
+        <div style={{width: "100%", height: "300px", paddingTop: "10px"}}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={[
+              { time: data.first_detected_at||data.detected_at||data.created_at ? new Date(data.first_detected_at||data.detected_at||data.created_at).toLocaleTimeString('ko-KR', {hour:'2-digit', minute:'2-digit'}) : '19:44', 신뢰도: Math.round(data.confidence||data.score||82) }
+            ]} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+              <XAxis dataKey="time" axisLine={true} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} />
+              <YAxis domain={[30, 100]} axisLine={true} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} ticks={[30, 50, 70, 90, 100]} />
+              <Tooltip contentStyle={{borderRadius: '8px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'}} />
+              <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{fontSize: '13px', color: '#334155'}} />
+              <Line type="monotone" dataKey="신뢰도" stroke="#1e293b" strokeWidth={2} dot={{ r: 4, fill: '#1e293b', strokeWidth: 0 }} activeDot={{ r: 6 }} name="신뢰도" />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
