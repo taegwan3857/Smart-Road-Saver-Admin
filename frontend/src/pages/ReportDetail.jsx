@@ -166,7 +166,7 @@ export default function ReportDetail() {
             position: 'relative'
           }}>
             {!(data.images && data.images.length > 0) && !data.image_url && (
-               <div style={{position: 'absolute', bottom: '10px', right: '10px', background: 'rgba(0,0,0,0.5)', color: '#fff', padding: '4px 8px', borderRadius: '4px', fontSize: '0.75rem'}}>
+               <div style={{position: 'absolute', bottom: '10px', right: '10px', background: 'rgba(0,0,0,0.5)', color: '#fff', padding: '4px 8px', borderRadius: '0', fontSize: '0.75rem'}}>
                  <i className="fas fa-camera"></i> 예시 사진
                </div>
             )}
