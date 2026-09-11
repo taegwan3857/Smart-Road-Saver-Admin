@@ -218,7 +218,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-desktop"></i></div>
             <div className="pdf-content">
               <h3>관제센터 (관리자 웹)</h3>
-              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 웹 기반 대시보드 지도 상에 표출하며, 실시간 탐지 기록과 지자체 신고 내역을 완벽하게 통합 관제합니다.</p>
+              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 웹 기반 대시보드 지도 상에 표출하며,<br/>&nbsp;&nbsp;&nbsp;&nbsp;실시간 탐지 기록과 지자체 신고 내역을 완벽하게 통합 관제합니다.</p>
             </div>
           </div>
 
