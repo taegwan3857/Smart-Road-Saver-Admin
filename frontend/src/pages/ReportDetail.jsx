@@ -159,18 +159,19 @@ export default function ReportDetail() {
         </div>
 
         <div className="doc-images" style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginTop: "40px"}}>
-          <div className="doc-img-box" style={{
-            backgroundImage: `url(${(data.images && data.images.length > 0) ? data.images[0].url : (data.image_url || 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80&w=800')})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative'
-          }}>
-            {!(data.images && data.images.length > 0) && !data.image_url && (
-               <div style={{position: 'absolute', bottom: '10px', right: '10px', background: 'rgba(0,0,0,0.5)', color: '#fff', padding: '4px 8px', borderRadius: '0', fontSize: '0.75rem'}}>
-                 <i className="fas fa-camera"></i> 예시 사진
-               </div>
-            )}
-          </div>
+          {(data.images && data.images.length > 0) || data.image_url ? (
+            <div className="doc-img-box" style={{
+              backgroundImage: `url(${(data.images && data.images.length > 0) ? data.images[0].url : data.image_url})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              position: 'relative'
+            }}></div>
+          ) : (
+            <div className="doc-img-box" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0'}}>
+              <i className="fas fa-image fa-2x" style={{marginBottom: '12px', color: '#cbd5e1'}}></i>
+              <span style={{fontSize: '0.9rem'}}>등록된 현장 사진이 없습니다</span>
+            </div>
+          )}
           <div className="doc-img-box" style={{padding: 0, position: 'relative'}}>
             <div style={{position: 'absolute', zIndex: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', color: '#64748b'}}>
               <i className="fas fa-map-marker-alt" style={{marginRight:"8px"}}></i> 감지 위치 지도
