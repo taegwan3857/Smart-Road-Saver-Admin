@@ -43,6 +43,8 @@ export default function ReportDetail() {
         const position = new window.kakao.maps.LatLng(lat, lng);
         const options = { center: position, level: 4 };
         const map = new window.kakao.maps.Map(container, options);
+        map.setDraggable(false);
+        map.setZoomable(false);
         const marker = new window.kakao.maps.Marker({ position });
         marker.setMap(map);
       });
