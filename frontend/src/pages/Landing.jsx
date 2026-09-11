@@ -281,6 +281,33 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Team Intro */}
+      <section className="qa-section full-screen-section" id="team" style={{backgroundColor: '#f8fafc'}}>
+        <div className="section-inner">
+        <div className="section-heading fade-up">
+          <h2>개발팀 소개</h2>
+          <p>Smart Road Saver를 기획하고 개발한 팀원들을 소개합니다</p>
+        </div>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px'}} className="fade-up d1">
+          <div className="feature-card-modern" style={{textAlign: 'center', padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className="f-icon" style={{margin: '0 auto 20px'}}><i className="fas fa-laptop-code"></i></div>
+            <h3>웹/앱 팀</h3>
+            <p style={{marginTop: '16px', fontSize: '1.1rem', color: '#475569', fontWeight: '600'}}>오태관, 박서현</p>
+          </div>
+          <div className="feature-card-modern" style={{textAlign: 'center', padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className="f-icon" style={{margin: '0 auto 20px'}}><i className="fas fa-server"></i></div>
+            <h3>서버 팀</h3>
+            <p style={{marginTop: '16px', fontSize: '1.1rem', color: '#475569', fontWeight: '600'}}>김찬희, 정세희</p>
+          </div>
+          <div className="feature-card-modern" style={{textAlign: 'center', padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className="f-icon" style={{margin: '0 auto 20px'}}><i className="fas fa-microchip"></i></div>
+            <h3>하드웨어 및 AI 팀</h3>
+            <p style={{marginTop: '16px', fontSize: '1.1rem', color: '#475569', fontWeight: '600'}}>김찬희, 김시호, 김민건, 김수한</p>
+          </div>
+        </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="landing-footer">
         <strong><i className="fas fa-shield-alt" style={{marginRight:'6px'}}></i>Smart Road Saver</strong>
