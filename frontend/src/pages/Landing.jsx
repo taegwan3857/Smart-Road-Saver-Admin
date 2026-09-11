@@ -186,7 +186,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
             <div className="pdf-content">
               <h3>전용 하드웨어 플랫폼 (Jetson Nano)</h3>
-              <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다. 육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
+              <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다.<br/>&nbsp;&nbsp;&nbsp;&nbsp;육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
             </div>
           </div>
 
