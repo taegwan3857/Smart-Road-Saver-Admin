@@ -113,7 +113,7 @@ export default function Landing() {
       </section>
 
       {/* Background */}
-      <section className="background-section full-screen-section" id="background">
+      <section className="background-section full-screen-section" id="background" style={{backgroundColor: '#ffffff'}}>
         <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>프로젝트 배경 및 필요성</h2>
@@ -147,7 +147,7 @@ export default function Landing() {
       </section>
 
       {/* Service Features */}
-      <section className="service-features-section full-screen-section" id="service-features">
+      <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#f8fafc'}}>
         <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>주요 기능</h2>
@@ -174,7 +174,7 @@ export default function Landing() {
       </section>
 
       {/* System Structure (Timeline) */}
-      <section className="pdf-features-section full-screen-section" id="system">
+      <section className="pdf-features-section full-screen-section" id="system" style={{backgroundColor: '#ffffff'}}>
         <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>시스템 구성도</h2>
@@ -227,7 +227,7 @@ export default function Landing() {
       </section>
 
       {/* Q&A */}
-      <section className="qa-section full-screen-section" id="faq">
+      <section className="qa-section full-screen-section" id="faq" style={{backgroundColor: '#f8fafc'}}>
         <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>Q&A</h2>
@@ -283,7 +283,7 @@ export default function Landing() {
       </section>
 
       {/* Team Intro */}
-      <section className="qa-section full-screen-section" id="team" style={{backgroundColor: '#f8fafc', padding: '100px 0'}}>
+      <section className="qa-section full-screen-section" id="team" style={{backgroundColor: '#ffffff', padding: '100px 0'}}>
         <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>개발자 소개</h2>
