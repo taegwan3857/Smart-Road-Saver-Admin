@@ -32,6 +32,9 @@ export default function Sidebar() {
       <nav className="sidebar-menu">
         <div className="sidebar-group-title">관제 대시보드</div>
         <Link to="/" className={isActive("/")}><i className="fas fa-chart-line"></i> 대시보드</Link>
+        <a href="/#team" className={isActive("/") ? "active" : ""} style={{display: "flex", alignItems: "center", padding: "10px 0", color: "inherit", textDecoration: "none"}}>
+          <i className="fas fa-users"></i> 팀 소개
+        </a>
         
         <div className="sidebar-group-title">감지/신고 관리</div>
         <Link to="/detections" className={isActive("/detections")}><i className="fas fa-list"></i> 감지기록</Link>
