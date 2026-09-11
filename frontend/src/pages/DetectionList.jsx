@@ -226,7 +226,7 @@ export default function DetectionList() {
           </div>
           <div className="filter-group">
             
-            <button className="btn-outline" onClick={handleExcelDownload}><i className="fas fa-file-excel" style={{color:"#10b981",marginRight:"6px"}}></i> 엑셀 다운로드</button>
+            <button className="btn-outline" onClick={handleExcelDownload}><i className="fas fa-file-excel" style={{color:"#10b981"}}></i> 엑셀 다운로드</button>
           </div>
         </div>
 

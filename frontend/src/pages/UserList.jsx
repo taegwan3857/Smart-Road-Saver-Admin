@@ -165,7 +165,7 @@ export default function UserList() {
               </div>
               
               <button className="btn-outline" style={{marginLeft: "auto"}} onClick={confirmDelete}>
-                <i className="fas fa-trash-alt" style={{color:"#ef4444", marginRight:"6px"}}></i> 선택 삭제
+                <i className="fas fa-trash-alt" style={{color:"#ef4444"}}></i> 선택 삭제
               </button>
           </div>
         </div>

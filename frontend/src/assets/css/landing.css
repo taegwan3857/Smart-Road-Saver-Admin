@@ -2,7 +2,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background: #ffffff; color: #333; }
 .landing-container {
-  width: 100%; min-height: 100vh;  overflow-x: hidden;
+  width: 100%; height: 100vh; overflow-x: hidden; overflow-y: auto;
 }
 
 /* Base Animations */
