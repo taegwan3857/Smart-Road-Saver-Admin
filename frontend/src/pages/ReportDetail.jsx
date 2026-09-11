@@ -159,11 +159,18 @@ export default function ReportDetail() {
         </div>
 
         <div className="doc-images" style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginTop: "40px"}}>
-          {data.images && data.images.length > 0 ? (
-            <div className="doc-img-box" style={{backgroundImage: `url(${data.images[0].url})`}}></div>
-          ) : (
-            <div className="doc-img-box"><i className="fas fa-camera" style={{marginRight:"8px"}}></i> 현장 카메라 사진</div>
-          )}
+          <div className="doc-img-box" style={{
+            backgroundImage: `url(${(data.images && data.images.length > 0) ? data.images[0].url : (data.image_url || 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80&w=800')})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            position: 'relative'
+          }}>
+            {!(data.images && data.images.length > 0) && !data.image_url && (
+               <div style={{position: 'absolute', bottom: '10px', right: '10px', background: 'rgba(0,0,0,0.5)', color: '#fff', padding: '4px 8px', borderRadius: '4px', fontSize: '0.75rem'}}>
+                 <i className="fas fa-camera"></i> 예시 사진
+               </div>
+            )}
+          </div>
           <div className="doc-img-box" style={{padding: 0, position: 'relative'}}>
             <div style={{position: 'absolute', zIndex: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', color: '#64748b'}}>
               <i className="fas fa-map-marker-alt" style={{marginRight:"8px"}}></i> 감지 위치 지도
