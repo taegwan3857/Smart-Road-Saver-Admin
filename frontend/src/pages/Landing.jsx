@@ -54,6 +54,7 @@ export default function Landing() {
           <a href="#service-features" onClick={scrollToSection}>주요 기능</a>
           <a href="#system" onClick={scrollToSection}>시스템 구성도</a>
           <a href="#faq" onClick={scrollToSection}>Q&A</a>
+          <a href="#team" onClick={scrollToSection}>개발자 소개</a>
         </nav>
       </header>
 
