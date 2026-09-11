@@ -146,14 +146,14 @@ export default function ReportDetail() {
             <React.Fragment key={i}>{line}<br/></React.Fragment>
           )) : (
             <>
-              1. 평소 구정 발전과 구민 안전을 위해 애쓰시는 노고에 감사드립니다.<br/><br/>
-              2. 우리 구 관내 도로 모니터링 중, AI 스마트 관제 장비에 의해 아래와 같이 <strong>{translateType(data.event_type||data.type)}</strong>(이)가 감지되었습니다.<br/><br/>
-              3. 해당 구간은 차량 통행 시 2차 사고 발생 위험이 높으므로, 유관 부서의 즉각적인 현장 확인 및 안전 조치를 요청드립니다.<br/><br/>
-              <strong>- 아 래 -</strong><br/><br/>
+              1. 구정 발전과 구민 안전을 위해 헌신하시는 노고에 깊이 감사드립니다.<br/><br/>
+              2. 관내 도로 모니터링 시스템(AI 스마트 관제)을 통해 아래와 같이 <strong>도로 내 위험 요소[{translateType(data.event_type||data.type)}]</strong>가 감지되었음을 보고합니다.<br/><br/>
+              3. 해당 구간은 차량 통행 시 2차 사고 발생 우려가 높으므로, 소관 부서의 신속한 현장 확인 및 안전 조치를 요청합니다.<br/><br/>
+              <strong>[ 상세 내역 ]</strong><br/><br/>
               가. 감지 일시 : {data.created_at ? new Date(data.created_at).toLocaleString('ko-KR') : '2026. 09. 04 18:32'}<br/>
-              나. 감지 장소 : {data.address||data.location||'서대문구 연희로 10길'}<br/>
-              다. 감지 확률 : AI 분석결과 {data.confidence||'87'}% 신뢰도<br/>
-              라. 요청 사항 : 현장 출동 및 위험 요소 제거<br/>
+              나. 감지 위치 : {data.address||data.location||'서대문구 연희로 10길'}<br/>
+              다. 분석 결과 : AI 영상 판독 신뢰도 {data.confidence||'87'}%<br/>
+              라. 조치 요청 : 현장 출동 및 즉각적인 위험 요소 제거<br/>
             </>
           )}
         </div>
