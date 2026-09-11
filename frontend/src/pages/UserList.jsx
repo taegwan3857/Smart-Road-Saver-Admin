@@ -34,6 +34,13 @@ export default function UserList() {
 
   const handleDeleteSelected = async () => {
     setIsDeleteModalOpen(false);
+
+    // 기본 관리자 계정 삭제 방지
+    if (selectedIds.includes('admin') || selectedIds.includes('admin_001')) {
+      setAlertModal({ isOpen: true, title: "삭제 불가", message: "기본 관리자 계정은 삭제할 수 없습니다.", type: "danger" });
+      return;
+    }
+
     try {
       for (const id of selectedIds) {
         await userService.deleteUser(id);
@@ -45,7 +52,15 @@ export default function UserList() {
       setUsers(Array.isArray(data) ? data : (data?.users || data?.data || []));
     } catch (e) {
       console.error(e);
-      setAlertModal({ isOpen: true, title: "오류", message: "삭제 처리 중 오류가 발생했습니다.", type: "danger" });
+      let msg = "삭제 처리 중 오류가 발생했습니다.";
+      if (e.response?.data?.error?.message) {
+        msg = e.response.data.error.message;
+      } else if (e.response?.data?.message) {
+        msg = e.response.data.message;
+      } else if (e.message) {
+        msg = e.message;
+      }
+      setAlertModal({ isOpen: true, title: "오류", message: msg, type: "danger" });
     }
   };
 
