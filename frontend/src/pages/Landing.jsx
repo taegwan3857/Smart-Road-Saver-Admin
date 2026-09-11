@@ -286,7 +286,7 @@ export default function Landing() {
       <section className="qa-section full-screen-section" id="team" style={{backgroundColor: '#f8fafc', padding: '100px 0'}}>
         <div className="section-inner">
         <div className="section-heading fade-up">
-          <h2>개발팀 소개</h2>
+          <h2>개발자 소개</h2>
           <p>Smart Road Saver를 기획하고 개발한 팀원들을 소개합니다</p>
         </div>
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1000px', margin: '0 auto'}} className="fade-up d1">
