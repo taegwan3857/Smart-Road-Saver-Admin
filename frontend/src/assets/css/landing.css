@@ -259,7 +259,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   
   .pdf-content:hover, .pdf-timeline-item.slide-in-right .pdf-content:hover { transform: translateY(-5px); }
   
-  .hide-mobile, .bg-card br, .feature-card-modern br { display: none; }
+  .hide-mobile, .feature-card-modern br { display: none; }
   
   .solution-box { padding: 24px; }
   .solution-box h4 { font-size: 1.2rem; }
