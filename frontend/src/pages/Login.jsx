@@ -45,11 +45,11 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="login-card-split">
-        <div className="login-left" style={{justifyContent: "flex-start", paddingTop: "120px"}}>
+        <div className="login-left">
           <i className="fas fa-shield-alt" style={{fontSize:"3rem",marginBottom:"20px"}}></i>
           <h1>Smart Road Saver</h1>
           <p>실시간 센서 데이터와 AI 분석으로<br />도로 위의 위험을 가장 먼저 감지합니다.</p>
-          <div style={{position: "absolute", bottom: "40px", fontSize: "0.85rem", color: "rgba(255, 255, 255, 0.5)"}}>
+          <div className="login-copyright">
             &copy; 2026 Smart Road Saver. All rights reserved.
           </div>
         </div>

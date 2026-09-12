@@ -158,3 +158,42 @@
     text-align: center;
   }
 }
+
+/* Base styles for the new classes and fixing the inline styles removed */
+.login-left {
+  justify-content: center; /* Was flex-start with 120px padding before */
+}
+
+.login-copyright {
+  position: absolute;
+  bottom: 40px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+
+@media (min-width: 901px) {
+  .login-left {
+    justify-content: flex-start;
+    padding-top: 120px;
+  }
+  .login-copyright {
+    left: 40px;
+    text-align: left;
+    width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .login-copyright {
+    position: relative;
+    bottom: auto;
+    margin-top: 32px;
+  }
+  
+  .login-left p br {
+    display: none;
+  }
+}
