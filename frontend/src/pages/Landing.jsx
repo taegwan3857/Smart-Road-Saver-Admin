@@ -186,7 +186,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
             <div className="pdf-content">
               <h3>전용 하드웨어 플랫폼 (Jetson Nano)</h3>
-              <p>기존 블랙박스 의존도를 탈피하여 <br className="hide-desktop" /><strong>mmWave 레이더와 카메라 모듈</strong>이 <br className="hide-desktop" />통합된 전용 하드웨어 장치를 운영합니다.<br /><br />육안 식별이 불가능한 젖음 및 결빙 상태를 <br className="hide-desktop" />레이더 반사 데이터를 통해 수치화합니다.</p>
+              <p>기존 블랙박스 의존도를 탈피하여 <br className="hide-desktop" /><strong>mmWave 레이더와 카메라 모듈</strong>이 <br className="hide-desktop" />통합된 전용 하드웨어 장치를 운영합니다. <br className="hide-desktop" />육안 식별이 불가능한 젖음 및 결빙 상태를 <br className="hide-desktop" />레이더 반사 데이터를 통해 수치화합니다.</p>
             </div>
           </div>
 
@@ -202,7 +202,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-server"></i></div>
             <div className="pdf-content">
               <h3>클라우드 서버 / 백엔드</h3>
-              <p>엣지 디바이스에서 전송된 위험 데이터를 <br className="hide-desktop" />실시간 통신 패키징(API)을 통해 수신합니다.<br /><br />DB(Supabase)와 PostGIS 로직을 통해 <br className="hide-desktop" />데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
+              <p>엣지 디바이스에서 전송된 위험 데이터를 <br className="hide-desktop" />실시간 통신 패키징(API)을 통해 수신합니다. <br className="hide-desktop" />DB(Supabase)와 PostGIS 로직을 통해 <br className="hide-desktop" />데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
             </div>
           </div>
 
@@ -218,7 +218,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-desktop"></i></div>
             <div className="pdf-content">
               <h3>관제센터 (관리자 웹)</h3>
-              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 <br className="hide-desktop" />웹 기반 대시보드 지도 상에 표출하며,<br /><br />실시간 탐지 기록과 지자체 신고 내역을 <br className="hide-desktop" />완벽하게 통합 관제합니다.</p>
+              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 <br className="hide-desktop" />웹 기반 대시보드 지도 상에 표출하며, <br className="hide-desktop" />실시간 탐지 기록과 지자체 신고 내역을 <br className="hide-desktop" />완벽하게 통합 관제합니다.</p>
             </div>
           </div>
 
