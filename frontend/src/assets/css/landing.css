@@ -238,8 +238,10 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   .section-heading p { font-size: 1rem; }
   
   .hero-content { flex-direction: column; text-align: center; }
-  .hero-title { font-size: 2.5rem; }
+  .hero-title { font-size: 2.5rem; word-break: keep-all; }
   .hero-subtitle { font-size: 1rem; }
+  .hero-btns { flex-direction: column; width: 100%; gap: 12px; }
+  .hero-btns a { width: 100%; box-sizing: border-box; word-break: keep-all; white-space: nowrap; }
   .hero-graphic-col { display: none; }
   
   .bg-grid, .feature-cards { grid-template-columns: 1fr; gap: 20px; }

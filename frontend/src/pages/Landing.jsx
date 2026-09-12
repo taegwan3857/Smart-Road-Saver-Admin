@@ -67,9 +67,9 @@ export default function Landing() {
               미래를 향한 안전한 길,<br />
               <span className="text-gradient">Smart Road Saver</span>
             </h1>
-            <p className="hero-subtitle">
-              mmWave 레이더와 비전 AI를 결합하여 실시간 도로 결함 탐지 및<br className="hide-mobile" />
-              지자체 자동 신고를 수행합니다. 단 한 번의 스캔으로<br className="hide-mobile" />
+            <p className="hero-subtitle" style={{ wordBreak: 'keep-all' }}>
+              mmWave 레이더와 비전 AI를 결합하여 실시간 도로 결함 탐지 및 <br className="hide-mobile" />
+              지자체 자동 신고를 수행합니다. 단 한 번의 스캔으로 <br className="hide-mobile" />
               보이지 않는 블랙아이스까지 완벽하게 차단하세요.
             </p>
             <div className="hero-btns">
