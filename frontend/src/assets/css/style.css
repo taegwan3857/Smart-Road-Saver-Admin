@@ -938,3 +938,48 @@ body {
     padding: 0 16px;
   }
 }
+
+@media (max-width: 900px) {
+  /* Hide sidebar text, show only icons */
+  .menu-text {
+    display: none;
+  }
+  
+  .sidebar-menu a {
+    justify-content: center;
+    padding: 12px !important;
+  }
+  
+  .sidebar-menu a i {
+    font-size: 1.4rem;
+    margin: 0 !important;
+  }
+  
+  /* Fix header overlapping and squishing */
+  .header {
+    justify-content: center;
+    gap: 8px;
+    padding: 0 8px;
+  }
+  
+  .header-right {
+    display: none !important; /* Hide clock and profile on mobile */
+  }
+  
+  .live-ticker {
+    width: 100%;
+    justify-content: center;
+    padding: 8px;
+  }
+  
+  .live-ticker span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .header-left {
+    width: 100%;
+    overflow: hidden;
+  }
+}

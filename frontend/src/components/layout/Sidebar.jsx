@@ -31,19 +31,19 @@ export default function Sidebar() {
       </div>
       <nav className="sidebar-menu">
         <div className="sidebar-group-title">관제 대시보드</div>
-        <Link to="/" className={isActive("/")}><i className="fas fa-chart-line"></i> 대시보드</Link>
+        <Link to="/" className={isActive("/")}><i className="fas fa-chart-line"></i> <span className="menu-text">대시보드</span></Link>
         
 
         <div className="sidebar-group-title">감지/신고 관리</div>
-        <Link to="/detections" className={isActive("/detections")}><i className="fas fa-list"></i> 감지기록</Link>
-        <Link to="/reports" className={isActive("/reports")}><i className="fas fa-file-alt"></i> 신고 문서 관리</Link>
+        <Link to="/detections" className={isActive("/detections")}><i className="fas fa-list"></i> <span className="menu-text">감지기록</span></Link>
+        <Link to="/reports" className={isActive("/reports")}><i className="fas fa-file-alt"></i> <span className="menu-text">신고 문서 관리</span></Link>
         
                 <div className="sidebar-group-title">계정 관리</div>
-        <Link to="/users" className={isActive("/users")}><i className="fas fa-users-cog"></i> 사용자 관리</Link>
+        <Link to="/users" className={isActive("/users")}><i className="fas fa-users-cog"></i> <span className="menu-text">사용자 관리</span></Link>
         
         <div className="sidebar-group-title">고객 지원</div>
-        <Link to="/manual" className={isActive("/manual")}><i className="fas fa-book"></i> 시스템 매뉴얼</Link>
-        <a href="#" className="mobile-logout" onClick={handleLogoutClick}><i className="fas fa-sign-out-alt"></i> 로그아웃</a>
+        <Link to="/manual" className={isActive("/manual")}><i className="fas fa-book"></i> <span className="menu-text">시스템 매뉴얼</span></Link>
+        <a href="#" className="mobile-logout" onClick={handleLogoutClick}><i className="fas fa-sign-out-alt"></i> <span className="menu-text">로그아웃</span></a>
       </nav>
       
       <div className="desktop-logout-wrapper" style={{padding:"20px",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:"auto"}}>
