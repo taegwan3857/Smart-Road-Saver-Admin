@@ -83,7 +83,7 @@
   background: #ffffff;
   max-width: 794px;
   margin: 0 auto 40px;
-  padding: 40px 40px;
+  padding: 30px 40px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 1px 5px rgba(0,0,0,0.05);
   border-radius: 0;
   color: #000;
@@ -104,13 +104,13 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .doc-header-logo {
   font-family: 'Inter', sans-serif;
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #1e3a8a;
   letter-spacing: -0.5px;
 }
@@ -118,11 +118,11 @@
 
 .doc-header {
   text-align: center;
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 4px;
-  margin-bottom: 50px;
-  padding-bottom: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: 2px solid #cbd5e1;
   color: #0f172a;
 }
@@ -130,7 +130,7 @@
 .doc-approval-wrap {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .doc-approval {
@@ -141,7 +141,7 @@
 }
 
 .approval-box {
-  width: 90px;
+  width: 80px;
   border-right: 1px solid #94a3b8;
   display: flex;
   flex-direction: column;
@@ -151,16 +151,16 @@
   background: #f1f5f9;
   border-bottom: 1px solid #94a3b8;
   text-align: center;
-  padding: 8px 0;
-  font-size: 0.85rem;
+  padding: 6px 0;
+  font-size: 0.8rem;
   font-weight: 600;
   font-family: 'Malgun Gothic', sans-serif;
   color: #334155;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .approval-sign {
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,13 +169,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border: 2px solid #dc2626;
   border-radius: 50%;
   color: #dc2626;
   font-family: 'KoPub Batang', serif;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: bold;
   letter-spacing: -0.5px;
   line-height: 1.2;
@@ -188,16 +188,16 @@
 .doc-meta-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   border-top: 2px solid #334155;
   font-family: 'Malgun Gothic', sans-serif;
 }
 
 .doc-meta-table th, .doc-meta-table td {
   border-bottom: 1px solid #e2e8f0;
-  padding: 14px 18px;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .doc-meta-table th {
@@ -215,12 +215,12 @@
 }
 
 .doc-content {
-  line-height: 1.8;
-  font-size: 1.05rem;
-  margin-bottom: 50px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
   white-space: pre-line;
   word-break: keep-all;
-  padding: 24px;
+  padding: 20px;
   background: #f8fafc;
   border-radius: 0;
   border: 1px solid #e2e8f0;
@@ -229,8 +229,8 @@
 
 .doc-images {
   display: flex;
-  gap: 20px;
-  margin-bottom: 50px;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .doc-img-box {
@@ -242,7 +242,7 @@
   border-radius: 0;
   overflow: hidden;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
-  height: 180px;
+  height: 160px;
   flex: 1;
   background-size: cover;
   background-position: center;
@@ -252,14 +252,14 @@
   position: relative;
   display: inline-block;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #475569;
   letter-spacing: 1px;
   border-top: 1px solid #cbd5e1;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .doc-stamp {
