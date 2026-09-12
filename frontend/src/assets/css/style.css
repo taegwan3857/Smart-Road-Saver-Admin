@@ -1043,3 +1043,13 @@ button, .btn-primary, .btn-secondary, .btn-outline, .btn-danger, .btn-back {
     flex-shrink: 0 !important;
   }
 }
+
+/* Fix for page-header-wrap on mobile (title and buttons side-by-side causing text wrapping) */
+@media (max-width: 900px) {
+  .page-header-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px;
+  }
+}
