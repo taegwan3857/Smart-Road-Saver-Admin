@@ -727,7 +727,7 @@ body {
 @media print {
   @page {
     size: A4;
-    margin: 8mm;
+    margin: 12mm;
   }
   body {
     background: #ffffff !important;
@@ -746,51 +746,76 @@ body {
   }
   .document-paper {
     width: 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
-    padding: 10px 15px !important;
+    padding: 20px 30px !important;
     box-shadow: none !important;
     border: none !important;
     border-radius: 0 !important;
     background: #ffffff !important;
     page-break-inside: avoid !important;
-    transform: scale(0.78) !important;
-    transform-origin: top center !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+  }
+  .document-paper::before {
+    display: none !important;
+  }
+  .document-paper .doc-header-top {
+    margin-bottom: 8px !important;
+  }
+  .document-paper .doc-header-logo {
+    font-size: 13px !important;
   }
   .document-paper .doc-header {
-    font-size: 1.2rem !important;
+    font-size: 16px !important;
     margin-bottom: 10px !important;
     padding-bottom: 8px !important;
   }
-  .document-paper .doc-content {
-    padding: 12px 16px !important;
-    font-size: 0.82rem !important;
-    line-height: 1.6 !important;
+  .document-paper .doc-approval-wrap {
     margin-bottom: 8px !important;
+  }
+  .document-paper .approval-box {
+    padding: 4px 12px !important;
+  }
+  .document-paper .approval-title {
+    font-size: 10px !important;
+    padding: 3px !important;
+  }
+  .document-paper .approval-sign {
+    padding: 6px !important;
+    min-height: 40px !important;
+  }
+  .document-paper .stamp {
+    font-size: 11px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .document-paper .doc-meta-table {
+    margin-bottom: 10px !important;
+  }
+  .document-paper .doc-meta-table th,
+  .document-paper .doc-meta-table td {
+    padding: 5px 10px !important;
+    font-size: 10.5px !important;
+  }
+  .document-paper .doc-content {
+    padding: 12px 18px !important;
+    font-size: 11px !important;
+    line-height: 1.7 !important;
+    margin: 10px 0 !important;
   }
   .document-paper .doc-images {
     margin-top: 10px !important;
     gap: 10px !important;
   }
   .document-paper .doc-img-box {
-    height: 150px !important;
-  }
-  .document-paper .doc-meta-table {
-    margin-bottom: 8px !important;
-  }
-  .document-paper .doc-meta-table th,
-  .document-paper .doc-meta-table td {
-    padding: 5px 8px !important;
-    font-size: 0.78rem !important;
-  }
-  .document-paper .doc-approval-wrap {
-    margin-bottom: 8px !important;
-  }
-  .document-paper .doc-header-top {
-    margin-bottom: 8px !important;
+    height: 130px !important;
+    min-height: unset !important;
   }
   .document-paper .paper-footer {
-    margin-top: 10px !important;
-    font-size: 0.85rem !important;
+    margin-top: 12px !important;
+    font-size: 11px !important;
+    padding-top: 8px !important;
   }
   /* 컬러 출력 강제 */
   * {
