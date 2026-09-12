@@ -283,13 +283,13 @@ export default function Landing() {
       </section>
 
       {/* Team Intro */}
-      <section className="qa-section full-screen-section" id="team" style={{backgroundColor: '#ffffff', padding: '100px 0'}}>
+      <section className="qa-section full-screen-section" id="team" style={{backgroundColor: '#ffffff'}}>
         <div className="section-inner">
         <div className="section-heading fade-up">
           <h2>개발자 소개</h2>
           <p>Smart Road Saver를 기획하고 개발한 팀원들을 소개합니다</p>
         </div>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', maxWidth: '1000px', margin: '0 auto'}} className="fade-up d1">
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
           
           <div style={{background: '#fff', borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
             <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
