@@ -50,7 +50,7 @@ export default function DeviceDetail() {
       <div className="detail-cards-grid">
         <div className="detail-card">
           <div className="detail-card-title"><i className="fas fa-info-circle"></i> 장치 상태 정보</div>
-          <div className="info-grid" style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px"}}>
+          <div className="info-grid" >
             <div className="info-item">
               <div className="info-label">카메라 센서</div>
               <div className="info-value"><span style={{color:"var(--color-success)", fontWeight:"600"}}>● {data.camera_status||'정상'}</span> (1080p, 60fps)</div>

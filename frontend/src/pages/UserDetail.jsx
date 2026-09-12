@@ -99,7 +99,7 @@ export default function UserDetail() {
         {/* 기본 정보 카드 */}
         <div className="detail-card">
           <div className="detail-card-title"><i className="fas fa-info-circle"></i> 기본 계정 정보</div>
-          <div className="info-grid" style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px"}}>
+          <div className="info-grid" >
             <div className="info-item">
               <div className="info-label">사용자 ID</div>
               <div className="info-value">{data.user_id||data.id||data._id||'-'}</div>

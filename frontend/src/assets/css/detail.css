@@ -429,3 +429,29 @@
     font-size: 1.5rem;
   }
 }
+
+@media (max-width: 900px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 20px;
+  }
+  .profile-avatar {
+    margin-right: 0 !important;
+  }
+  .profile-title {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .profile-meta {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+  .profile-actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+  }
+}

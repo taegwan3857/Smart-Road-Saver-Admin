@@ -983,3 +983,26 @@ body {
     overflow: hidden;
   }
 }
+
+/* Dashboard Map Mobile CSS */
+@media (max-width: 900px) {
+  .map-header-wrap {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px;
+  }
+  .map-body-wrap {
+    flex-direction: column-reverse !important;
+    height: auto !important;
+  }
+  .map-list-wrap {
+    width: 100% !important;
+    height: 400px;
+    border-right: none !important;
+    border-top: 1px solid #e2e8f0;
+  }
+  .map-container-wrap {
+    min-height: 400px !important;
+    width: 100% !important;
+  }
+}

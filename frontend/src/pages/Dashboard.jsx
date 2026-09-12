@@ -343,7 +343,7 @@ export default function Dashboard() {
 
       <div className="panel" style={{marginBottom: "24px", padding: 0, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid #e2e8f0", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)"}}>
         {/* 통합 헤더 및 필터 영역 */}
-        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 24px", borderBottom: "1px solid #e2e8f0", background: "#ffffff"}}>
+        <div className="map-header-wrap" style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 24px", borderBottom: "1px solid #e2e8f0", background: "#ffffff"}}>
           <div style={{fontWeight: 600, fontSize: "1.1rem", color: "var(--text-main)", display: "flex", alignItems: "center"}}>
             위험 위치 통합 모니터링
           </div>
@@ -364,9 +364,9 @@ export default function Dashboard() {
         </div>
 
         {/* 지도 및 리스트 영역 */}
-        <div style={{display: "flex", height: "600px"}}>
+        <div className="map-body-wrap" style={{display: "flex", height: "600px"}}>
           {/* 감지 위치 목록 (좌측) */}
-          <div style={{width: "340px", borderRight: "1px solid #e2e8f0", display: "flex", flexDirection: "column", background: "#f8fafc"}}>
+          <div className="map-list-wrap" style={{width: "340px", borderRight: "1px solid #e2e8f0", display: "flex", flexDirection: "column", background: "#f8fafc"}}>
             <div style={{padding: "16px 20px", borderBottom: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center", background: "#ffffff"}}>
               <span style={{fontWeight: 600, color: "var(--text-main)", fontSize: "1rem"}}>목록</span>
               <span className="badge neutral">{filteredEvents.length}건</span>
@@ -406,7 +406,7 @@ export default function Dashboard() {
           </div>
 
           {/* 카카오맵 (우측) */}
-          <div style={{flex: 1, position: "relative", background: "#f1f5f9", minHeight: "600px"}}>
+          <div className="map-container-wrap" style={{flex: 1, position: "relative", background: "#f1f5f9", minHeight: "600px"}}>
             <div id="kakao-map" style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></div>
           </div>
         </div>
