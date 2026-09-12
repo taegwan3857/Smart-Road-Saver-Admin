@@ -186,7 +186,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
             <div className="pdf-content">
               <h3>전용 하드웨어 플랫폼 (Jetson Nano)</h3>
-              <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다.<br/>&nbsp;&nbsp;&nbsp;&nbsp;육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
+              <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다.<br/>육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
             </div>
           </div>
 
@@ -210,7 +210,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-mobile-alt"></i></div>
             <div className="pdf-content">
               <h3>모바일 앱 사용자</h3>
-              <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및<br/>&nbsp;&nbsp;&nbsp;&nbsp;지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
+              <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및<br/>지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
             </div>
           </div>
 
