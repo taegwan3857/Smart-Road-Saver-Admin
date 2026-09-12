@@ -81,15 +81,17 @@
 
 .document-paper {
   background: #ffffff;
-  max-width: 850px;
+  max-width: 794px;
+  min-height: 1123px;
   margin: 0 auto 40px;
-  padding: 80px 60px;
+  padding: 60px 50px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 1px 5px rgba(0,0,0,0.05);
   border-radius: 0;
   color: #000;
   position: relative;
   font-family: 'KoPub Batang', 'Nanum Myeongjo', 'Batang', '바탕', 'Myeongjo', serif;
   border: 1px solid #e2e8f0;
+  aspect-ratio: 210 / 297;
 }
 
 .document-paper::before {
