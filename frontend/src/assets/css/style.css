@@ -725,6 +725,10 @@ body {
 
 /* 인쇄 및 PDF 저장용 CSS */
 @media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
   body {
     background: #ffffff !important;
   }
@@ -743,11 +747,36 @@ body {
   .document-paper {
     width: 100% !important;
     margin: 0 !important;
-    padding: 20px 0 !important;
+    padding: 15px 20px !important;
     box-shadow: none !important;
     border: none !important;
     border-radius: 0 !important;
     background: #ffffff !important;
+    page-break-inside: avoid !important;
+    font-size: 0.85rem !important;
+  }
+  .document-paper .doc-header {
+    font-size: 1.3rem !important;
+    margin-bottom: 15px !important;
+  }
+  .document-paper .doc-content {
+    padding: 15px 20px !important;
+    font-size: 0.85rem !important;
+    line-height: 1.7 !important;
+  }
+  .document-paper .doc-images {
+    margin-top: 15px !important;
+  }
+  .document-paper .doc-img-box {
+    height: 180px !important;
+  }
+  .document-paper .doc-meta-table th,
+  .document-paper .doc-meta-table td {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  .document-paper .doc-approval-wrap {
+    margin-bottom: 10px !important;
   }
   /* 컬러 출력 강제 */
   * {
