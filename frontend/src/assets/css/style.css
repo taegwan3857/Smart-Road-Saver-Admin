@@ -972,7 +972,7 @@ body {
     padding: 8px;
   }
   
-  .live-ticker span {
+  .ticker-content {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1005,4 +1005,15 @@ body {
     min-height: 400px !important;
     width: 100% !important;
   }
+}
+
+@media (max-width: 900px) {
+  .ticker-label {
+    flex-shrink: 0;
+  }
+}
+
+/* Global button fix for mobile */
+button, .btn-primary, .btn-secondary, .btn-outline, .btn-danger, .btn-back {
+  white-space: nowrap;
 }
