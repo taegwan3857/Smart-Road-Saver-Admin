@@ -43,9 +43,10 @@ export default function Sidebar() {
         
         <div className="sidebar-group-title">고객 지원</div>
         <Link to="/manual" className={isActive("/manual")}><i className="fas fa-book"></i> 시스템 매뉴얼</Link>
+        <a href="#" className="mobile-logout" onClick={handleLogoutClick}><i className="fas fa-sign-out-alt"></i> 로그아웃</a>
       </nav>
       
-      <div style={{padding:"20px",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:"auto"}}>
+      <div className="desktop-logout-wrapper" style={{padding:"20px",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:"auto"}}>
         <button onClick={handleLogoutClick} style={{display:"flex",alignItems:"center",justifyContent:"center",width:"100%",padding:"12px",background:"rgba(225,29,72,0.15)",color:"#fca5a5",border:"none",borderRadius:"6px",cursor:"pointer",fontSize:"0.9rem",fontWeight:"600",transition:"all 0.2s"}}
           onMouseOver={e=>{e.currentTarget.style.background='rgba(225,29,72,0.3)';e.currentTarget.style.color='#fff';}}
           onMouseOut={e=>{e.currentTarget.style.background='rgba(225,29,72,0.15)';e.currentTarget.style.color='#fca5a5';}}>
