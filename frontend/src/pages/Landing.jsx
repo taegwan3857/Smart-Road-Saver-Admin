@@ -140,7 +140,7 @@ export default function Landing() {
           <div className="solution-box animated-gradient">
             <i className="fas fa-check-circle bounce-icon"></i>
             <h4>실제 도로 탐지와 신속한 신고 처리</h4>
-            <p>사고 발생 전 위험 요인을 차단하고 도로 순찰을 자동화하여 안전사고를 근본적으로 감소시킵니다.</p>
+            <p>사고 발생 전 위험 요인을 차단하고<br />도로 순찰을 자동화하여<br />안전사고를 근본적으로 감소시킵니다.</p>
           </div>
         </div>
         </div>
@@ -186,7 +186,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
             <div className="pdf-content">
               <h3>전용 하드웨어 플랫폼 (Jetson Nano)</h3>
-              <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다.<br/>육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
+              <p>기존 블랙박스 의존도를 탈피하여<br /><strong>mmWave 레이더와 카메라 모듈</strong>이<br />통합된 전용 하드웨어 장치를 운영합니다.<br /><br />육안 식별이 불가능한 젖음 및 결빙 상태를<br />레이더 반사 데이터를 통해 수치화합니다.</p>
             </div>
           </div>
 
@@ -194,7 +194,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-brain"></i></div>
             <div className="pdf-content">
               <h3>AI / 딥러닝 엣지 컴퓨팅</h3>
-              <p>Jetson Nano 디바이스 내에서 자체 개발 AI 모델(도로 상태 추론)과 YOLO11n 모델(포트홀/장애물 탐지)을 구동하여 지연 시간 없이 현장에서 즉각적인 결함 탐지를 수행합니다.</p>
+              <p>Jetson Nano 디바이스 내에서 자체 개발<br />AI 모델(도로 상태 추론)과 YOLO11n<br />모델(포트홀/장애물 탐지)을 구동하여<br />지연 시간 없이 현장에서 즉각적인<br />결함 탐지를 수행합니다.</p>
             </div>
           </div>
 
@@ -202,7 +202,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-server"></i></div>
             <div className="pdf-content">
               <h3>클라우드 서버 / 백엔드</h3>
-              <p>엣지 디바이스에서 전송된 위험 데이터를 실시간 통신 패키징(API)을 통해 수신합니다. DB(Supabase)와 PostGIS 로직을 통해 데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
+              <p>엣지 디바이스에서 전송된 위험 데이터를<br />실시간 통신 패키징(API)을 통해 수신합니다.<br /><br />DB(Supabase)와 PostGIS 로직을 통해<br />데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
             </div>
           </div>
 
@@ -210,7 +210,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-mobile-alt"></i></div>
             <div className="pdf-content">
               <h3>모바일 앱 사용자</h3>
-              <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및<br/>지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
+              <p>전방 100m 이내 장애물 구간 진입 시<br />스마트폰 알림(실시간 위험 요소 알림) 및<br />지도 내 상세 정보를 제공하여<br />사용자의 안전 사고를 선제적으로 예방합니다.</p>
             </div>
           </div>
 
@@ -218,7 +218,7 @@ export default function Landing() {
             <div className="pdf-icon pulse-blue"><i className="fas fa-desktop"></i></div>
             <div className="pdf-content">
               <h3>관제센터 (관리자 웹)</h3>
-              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 웹 기반 대시보드 지도 상에 표출하며,<br/>실시간 탐지 기록과 지자체 신고 내역을 완벽하게 통합 관제합니다.</p>
+              <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을<br />웹 기반 대시보드 지도 상에 표출하며,<br /><br />실시간 탐지 기록과 지자체 신고 내역을<br />완벽하게 통합 관제합니다.</p>
             </div>
           </div>
 
