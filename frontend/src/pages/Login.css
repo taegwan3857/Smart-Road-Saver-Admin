@@ -193,7 +193,13 @@
     margin-top: 32px;
   }
   
-  .login-left p br {
-    display: none;
+}
+
+@media (max-width: 900px) {
+  .login-page {
+    height: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+    padding: 24px 16px;
   }
 }
