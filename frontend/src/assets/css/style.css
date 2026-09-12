@@ -1017,3 +1017,29 @@ body {
 button, .btn-primary, .btn-secondary, .btn-outline, .btn-danger, .btn-back {
   white-space: nowrap;
 }
+
+/* Fix Dashboard and Board filters on mobile */
+@media (max-width: 900px) {
+  .filter-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  .filter-group > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .filter-group .search-box {
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .filter-group .search-box input {
+    flex: 1 !important;
+    width: 100% !important;
+  }
+  .filter-group .search-box button {
+    flex-shrink: 0 !important;
+  }
+}
