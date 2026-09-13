@@ -146,14 +146,16 @@ export default function Landing() {
     </div>
    </section>
 
-   {/* Service Features */}
+   {/* Service Features & Expected Effects */}
    <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#f8fafc'}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
-     <h2>주요 기능</h2>
-     <p>기존 시스템의 한계를 극복하는 혁신적인 솔루션</p>
+     <h2>주요 기능 및 기대효과</h2>
+     <p>혁신적인 AI 솔루션이 가져올 스마트한 도로 관리의 미래</p>
     </div>
-    <div className="feature-cards">
+    
+    <div style={{marginBottom: "16px", fontWeight: "700", color: "#1d3162", fontSize: "1.2rem"}} className="fade-up">주요 기능</div>
+    <div className="feature-cards" style={{marginBottom: "40px"}}>
      <div className="feature-card-modern fade-up d1">
       <div className="f-icon"><i className="fas fa-microchip"></i></div>
       <h3>엣지 디바이스 기반 AI 탐지</h3>
@@ -168,6 +170,25 @@ export default function Landing() {
       <div className="f-icon"><i className="fas fa-file-signature"></i></div>
       <h3>지자체 공문 자동화</h3>
       <p>탐지된 위험 요소를 기반으로 지자체 신고용 표준 규격 공문서를 원클릭으로 자동 생성하고 발송합니다.</p>
+     </div>
+    </div>
+
+    <div style={{marginBottom: "16px", fontWeight: "700", color: "#059669", fontSize: "1.2rem"}} className="fade-up">기대효과</div>
+    <div className="feature-cards">
+     <div className="feature-card-modern fade-up d1" style={{borderTopColor: "#059669"}}>
+      <div className="f-icon" style={{color: "#059669", background: "rgba(5, 150, 105, 0.1)"}}><i className="fas fa-shield-alt"></i></div>
+      <h3>사전 교통사고 예방</h3>
+      <p>블랙아이스, 포트홀 등 치명적인 도로 위험물을 조기 발견 및 대처하여 시민의 안전을 확보하고 2차 사고를 방지합니다.</p>
+     </div>
+     <div className="feature-card-modern fade-up d2" style={{borderTopColor: "#059669"}}>
+      <div className="f-icon" style={{color: "#059669", background: "rgba(5, 150, 105, 0.1)"}}><i className="fas fa-chart-line"></i></div>
+      <h3>행정 업무 효율성 극대화</h3>
+      <p>수백 건의 중복 민원을 자동 병합하고 즉각적인 공문 생성 기능을 제공해 지자체 도로 관리 부서의 업무 피로도를 크게 낮춥니다.</p>
+     </div>
+     <div className="feature-card-modern fade-up d3" style={{borderTopColor: "#059669"}}>
+      <div className="f-icon" style={{color: "#059669", background: "rgba(5, 150, 105, 0.1)"}}><i className="fas fa-coins"></i></div>
+      <h3>유지보수 비용 절감</h3>
+      <p>도로 파손이 대형화되기 전 골든타임 내에 유지보수를 진행함으로써 장기적인 도로 보수 및 배상 예산을 획기적으로 절감합니다.</p>
      </div>
     </div>
     </div>
