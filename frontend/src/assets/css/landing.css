@@ -337,3 +337,64 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   flex-shrink: 0;
   margin-left: 12px;
 }
+
+/* New Service Features & Effects CSS */
+.feature-card-new {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.feature-card-new:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+.fc-icon {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: #2563eb;
+  border-radius: 16px;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+.fc-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1d3162;
+  background: #f1f5f9;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+.feature-card-new h3 {
+  font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 16px; line-height: 1.4; word-break: keep-all;
+}
+.feature-card-new p {
+  color: #64748b; font-size: 1.05rem; line-height: 1.6; margin: 0; word-break: keep-all; flex: 1;
+}
+
+.effect-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 36px;
+  transition: all 0.3s ease;
+}
+.effect-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+}
+
+@media (max-width: 900px) {
+  .effects-bento { padding: 40px 24px !important; }
+  .feature-card-new { padding: 32px 24px; }
+  .effect-item { padding: 24px; }
+}

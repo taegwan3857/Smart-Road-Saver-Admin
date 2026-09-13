@@ -147,50 +147,74 @@ export default function Landing() {
    </section>
 
    {/* Service Features & Expected Effects */}
-   <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#f8fafc'}}>
-    <div className="section-inner">
-    <div className="section-heading fade-up">
-     <h2>주요 기능 및 기대효과</h2>
-     <p>혁신적인 AI 솔루션이 가져올 스마트한 도로 관리의 미래</p>
-    </div>
-    
-    <div style={{marginBottom: "16px", fontWeight: "700", color: "#1d3162", fontSize: "1.2rem"}} className="fade-up">주요 기능</div>
-    <div className="feature-cards" style={{marginBottom: "40px"}}>
-     <div className="feature-card-modern fade-up d1">
-      <div className="f-icon"><i className="fas fa-microchip"></i></div>
-      <h3>엣지 디바이스 기반 AI 탐지</h3>
-      <p>Jetson Nano 및 YOLO11n 모델을 활용하여 현장에서 실시간으로 결함을 탐지하고 통신 지연을 최소화합니다.</p>
-     </div>
-     <div className="feature-card-modern fade-up d2">
-      <div className="f-icon"><i className="fas fa-layer-group"></i></div>
-      <h3>PostGIS 중복 신고 병합</h3>
-      <p>수집된 방대한 결함 데이터를 PostGIS 공간 쿼리로 자동 병합(Deduplication)하여 동일 포트홀 중복 처리를 방지합니다.</p>
-     </div>
-     <div className="feature-card-modern fade-up d3">
-      <div className="f-icon"><i className="fas fa-file-signature"></i></div>
-      <h3>지자체 공문 자동화</h3>
-      <p>탐지된 위험 요소를 기반으로 지자체 신고용 표준 규격 공문서를 원클릭으로 자동 생성하고 발송합니다.</p>
-     </div>
-    </div>
+   <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#f8fafc', padding: '100px 24px'}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+      
+      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
+       <h2 style={{fontSize: '2.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>주요 기능 및 기대효과</h2>
+       <p style={{fontSize: '1.2rem', color: '#64748b'}}>스마트 로드 세이버가 제안하는 안전한 도로의 미래</p>
+      </div>
+      
+      {/* 주요 기능 (3 Columns) */}
+      <div className="features-grid fade-up d1" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '60px'}}>
+        <div className="feature-card-new">
+          <div className="fc-icon"><i className="fas fa-broadcast-tower"></i></div>
+          <div className="fc-content">
+            <div className="fc-tag">하드웨어 & AI</div>
+            <h3>다중 센서 융합 탐지</h3>
+            <p>비전 AI 카메라와 mmWave 레이더를 결합하여 식별이 어려운 결빙(블랙아이스) 및 젖음 상태까지 수치화하여 실시간으로 완벽하게 탐지합니다.</p>
+          </div>
+        </div>
+        <div className="feature-card-new">
+          <div className="fc-icon"><i className="fas fa-database"></i></div>
+          <div className="fc-content">
+            <div className="fc-tag">백엔드 & 데이터</div>
+            <h3>자동 병합 및 원클릭 신고</h3>
+            <p>수집된 방대한 데이터를 PostGIS로 분석해 중복 신고를 방지하고, 지자체 표준 규격 공문서를 자동 생성하여 담당자에게 즉시 발송합니다.</p>
+          </div>
+        </div>
+        <div className="feature-card-new">
+          <div className="fc-icon"><i className="fas fa-mobile-alt"></i></div>
+          <div className="fc-content">
+            <div className="fc-tag">모바일 & 관리자 웹</div>
+            <h3>실시간 알림 및 통합 관제</h3>
+            <p>관리자는 웹 대시보드로 도로 전체 위험 상황을 통합 관제하고, 현장 근무자나 운전자는 모바일 앱을 통해 접근 전 실시간 위험 알림을 받습니다.</p>
+          </div>
+        </div>
+      </div>
 
-    <div style={{marginBottom: "16px", fontWeight: "700", color: "#059669", fontSize: "1.2rem"}} className="fade-up">기대효과</div>
-    <div className="feature-cards">
-     <div className="feature-card-modern fade-up d1" style={{borderTopColor: "#059669"}}>
-      <div className="f-icon" style={{color: "#059669", background: "rgba(5, 150, 105, 0.1)"}}><i className="fas fa-shield-alt"></i></div>
-      <h3>사전 교통사고 예방</h3>
-      <p>블랙아이스, 포트홀 등 치명적인 도로 위험물을 조기 발견 및 대처하여 시민의 안전을 확보하고 2차 사고를 방지합니다.</p>
-     </div>
-     <div className="feature-card-modern fade-up d2" style={{borderTopColor: "#059669"}}>
-      <div className="f-icon" style={{color: "#059669", background: "rgba(5, 150, 105, 0.1)"}}><i className="fas fa-chart-line"></i></div>
-      <h3>행정 업무 효율성 극대화</h3>
-      <p>수백 건의 중복 민원을 자동 병합하고 즉각적인 공문 생성 기능을 제공해 지자체 도로 관리 부서의 업무 피로도를 크게 낮춥니다.</p>
-     </div>
-     <div className="feature-card-modern fade-up d3" style={{borderTopColor: "#059669"}}>
-      <div className="f-icon" style={{color: "#059669", background: "rgba(5, 150, 105, 0.1)"}}><i className="fas fa-coins"></i></div>
-      <h3>유지보수 비용 절감</h3>
-      <p>도로 파손이 대형화되기 전 골든타임 내에 유지보수를 진행함으로써 장기적인 도로 보수 및 배상 예산을 획기적으로 절감합니다.</p>
-     </div>
-    </div>
+      {/* 기대효과 (Dark Banner Bento Box) */}
+      <div className="effects-bento fade-up d2" style={{background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', borderRadius: '24px', padding: '50px', color: '#fff', boxShadow: '0 20px 40px rgba(15, 23, 42, 0.15)'}}>
+        <div style={{textAlign: 'center', marginBottom: '40px'}}>
+          <h3 style={{fontSize: '1.8rem', fontWeight: '800', margin: '0 0 12px 0', color: '#38bdf8'}}>기대효과</h3>
+          <p style={{color: '#94a3b8', fontSize: '1.1rem', margin: 0}}>시스템 도입을 통해 달성하는 최종 목표</p>
+        </div>
+        
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px'}}>
+          <div className="effect-item">
+            <div className="ei-icon" style={{fontSize: '2.2rem', color: '#38bdf8', marginBottom: '20px'}}><i className="fas fa-shield-alt"></i></div>
+            <h4 style={{fontSize: '1.35rem', fontWeight: '700', marginBottom: '12px', color: '#fff'}}>사고 발생 전 위험 요인 차단</h4>
+            <p style={{color: '#cbd5e1', lineHeight: '1.6', fontSize: '1.05rem', margin: 0, wordBreak: 'keep-all'}}>
+              사후 대처에만 의존하던 기존 방식의 한계를 넘어, 선제적인 위험 탐지와 실시간 알림을 통해 운전자와 작업자의 안전사고를 근본적으로 예방합니다.
+            </p>
+          </div>
+          <div className="effect-item">
+            <div className="ei-icon" style={{fontSize: '2.2rem', color: '#38bdf8', marginBottom: '20px'}}><i className="fas fa-cogs"></i></div>
+            <h4 style={{fontSize: '1.35rem', fontWeight: '700', marginBottom: '12px', color: '#fff'}}>도로 순찰 자동화 및 행정 효율</h4>
+            <p style={{color: '#cbd5e1', lineHeight: '1.6', fontSize: '1.05rem', margin: 0, wordBreak: 'keep-all'}}>
+              비효율적이고 2차 사고 위험이 높은 인력 중심의 현장 순찰을 무인 시스템으로 완벽히 대체하고, 민원 신고 처리를 자동화하여 행정 효율을 극대화합니다.
+            </p>
+          </div>
+        </div>
+
+        <div style={{marginTop: '40px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.1)', textAlign: 'center'}}>
+          <div style={{display: 'inline-flex', alignItems: 'center', background: 'rgba(56, 189, 248, 0.1)', padding: '16px 32px', borderRadius: '100px', border: '1px solid rgba(56, 189, 248, 0.2)'}}>
+            <i className="fas fa-check-circle" style={{color: '#38bdf8', marginRight: '12px', fontSize: '1.4rem'}}></i>
+            <span style={{fontWeight: '800', fontSize: '1.15rem', color: '#e0f2fe', wordBreak: 'keep-all'}}>최종 목표 : 신속한 실제 도로 탐지를 통한 노면 결함 안전사고의 근본적 감소</span>
+          </div>
+        </div>
+      </div>
+
     </div>
    </section>
 
