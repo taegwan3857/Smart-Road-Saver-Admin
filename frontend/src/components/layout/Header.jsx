@@ -119,7 +119,7 @@ export default function Header() {
 
   const handleTickerClick = () => {
     if (latestEvent) {
-      const id = latestEvent.detection_id || latestEvent.id || latestEvent._id;
+      const id = latestEvent.event_id || latestEvent.detection_id || latestEvent.id || latestEvent._id;
       if (id) navigate(`/detections/${id}`);
     }
   };
