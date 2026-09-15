@@ -37,13 +37,23 @@ export const reportService = {
     try {
       let detailRes;
       try {
-        detailRes = await apiClient.get(`/api/events/${ev.event_id || ev.id}`);
-      } catch (e) {
         detailRes = await apiClient.get(`/api/detections/${ev.event_id || ev.id}`);
+      } catch (e) {
+        try {
+          detailRes = await apiClient.get(`/api/events/${ev.event_id || ev.id}`);
+        } catch (e2) {}
       }
       const detail = detailRes?.data?.data || detailRes?.data;
       if (detail) {
         ev = { ...ev, ...detail };
+        // 강제로 이미지 필드 복원
+        if (detail.detection_images && detail.detection_images.length > 0) {
+          ev.detection_images = detail.detection_images;
+        } else if (detail.event && detail.event.detection_images) {
+          ev.detection_images = detail.event.detection_images;
+        } else if (detail.images) {
+          ev.images = detail.images;
+        }
       }
     } catch (e) {
       console.error("단건 조회 실패, 목록 데이터로 폴백:", e);
