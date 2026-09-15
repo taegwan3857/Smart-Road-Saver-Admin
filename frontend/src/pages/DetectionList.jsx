@@ -62,10 +62,28 @@ export default function DetectionList() {
         const addrMap = {};
         for (const d of fetchedItems) {
           const id = d.event_id||d.detection_id||d.id||d._id;
-          const str = d.address||d.location||d.road_address||d.address_name;
-          if (str) addrMap[id] = str;
-          else if (d.latitude && d.longitude) addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
-          else addrMap[id] = '주소 정보 없음';
+          let str = d.address||d.location||d.road_address||d.address_name;
+          
+          if (typeof str === 'string' && str.startsWith('{')) {
+            try {
+              const obj = JSON.parse(str);
+              str = obj.address_name || obj.road_address_name || obj.road_address || str;
+            } catch(e) {}
+          }
+          if (typeof str === 'string') {
+            str = str.replace(/^대한민국\s+/, '');
+            if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
+              str = null;
+            }
+          }
+          
+          if (str && str !== 'null') {
+            addrMap[id] = str;
+          } else if (d.latitude && d.longitude) {
+            addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
+          } else {
+            addrMap[id] = '주소 정보 없음';
+          }
         }
         setAddresses(addrMap);
       } catch (err) { console.error(err); }

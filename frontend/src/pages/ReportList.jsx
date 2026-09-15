@@ -2,6 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { reportService } from '../services/reportService';
 
+
+const formatAddress = (addr, lat, lng) => {
+  if (!addr) {
+    if (lat && lng) return `${lat}, ${lng}`;
+    return '위치 정보 없음';
+  }
+  let str = String(addr);
+  if (str.startsWith('{')) {
+    try {
+      const obj = JSON.parse(str);
+      str = obj.address_name || obj.road_address_name || obj.road_address || str;
+    } catch(e) {}
+  }
+  str = str.replace(/^대한민국\s+/, '');
+  
+  if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
+    if (lat && lng) return `${lat}, ${lng}`;
+    return '위치 정보 없음';
+  }
+  return str;
+};
+
 export default function ReportList() {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
@@ -124,7 +146,7 @@ export default function ReportList() {
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(r.report_id||r.id||r._id)} onChange={(e) => handleSelectOne(e, r.report_id||r.id||r._id)} /></td>
                   <td style={{fontWeight:"500"}}>{r.report_id||r.id||r._id||'-'}</td>
                   <td>{translateType(r.type||r.event_type||r.obstacle_type)}</td>
-                  <td>{r.address || (r.latitude && r.longitude ? `${r.latitude}, ${r.longitude}` : '위치 정보 없음')}</td>
+                  <td>{formatAddress(r.address||r.location, r.latitude, r.longitude)}</td>
                   <td>{r.created_at ? new Date(r.created_at).toLocaleString('ko-KR') : '-'}</td>
                   <td>{r.author||r.created_by||'-'}</td>
                   <td><span className={`badge ${getStatusBadge(r.status)}`}>{r.status||'결재 대기'}</span></td>

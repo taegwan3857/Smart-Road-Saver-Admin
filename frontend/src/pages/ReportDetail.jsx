@@ -14,6 +14,28 @@ const translateType = (type) => {
   return type;
 };
 
+
+const formatAddress = (addr, lat, lng) => {
+  if (!addr) {
+    if (lat && lng) return `${lat}, ${lng}`;
+    return '위치 정보 없음';
+  }
+  let str = String(addr);
+  if (str.startsWith('{')) {
+    try {
+      const obj = JSON.parse(str);
+      str = obj.address_name || obj.road_address_name || obj.road_address || str;
+    } catch(e) {}
+  }
+  str = str.replace(/^대한민국\s+/, '');
+  
+  if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
+    if (lat && lng) return `${lat}, ${lng}`;
+    return '위치 정보 없음';
+  }
+  return str;
+};
+
 export default function ReportDetail() {
   const { id } = useParams();
   const getImageUrl = (path) => {
@@ -146,7 +168,7 @@ export default function ReportDetail() {
             </tr>
             <tr>
               <th>발생 위치</th>
-              <td colSpan="3">{data.address||data.location||'위치 정보 없음'}</td>
+              <td colSpan="3">{formatAddress(data.address||data.location, data.latitude, data.longitude)}</td>
             </tr>
             <tr>
               <th>GPS 좌표</th>
@@ -165,7 +187,7 @@ export default function ReportDetail() {
               3. 해당 구간은 차량 통행 시 2차 사고 발생 우려가 높으므로, 소관 부서의 신속한 현장 확인 및 안전 조치를 요청합니다.<br/><br/>
               <strong>[ 상세 내역 ]</strong><br/>
               가. 감지 일시 : {data.created_at ? new Date(data.created_at).toLocaleString('ko-KR') : '2026. 09. 04 18:32'}<br/>
-              나. 감지 위치 : {data.address||data.location||'서대문구 연희로 10길'}<br/>
+              나. 감지 위치 : {formatAddress(data.address||data.location, data.latitude, data.longitude)}<br/>
               다. 분석 결과 : AI 영상 판독 신뢰도 {data.confidence||'87'}%<br/>
               라. 조치 요청 : 현장 출동 및 즉각적인 위험 요소 제거<br/>
             </>
