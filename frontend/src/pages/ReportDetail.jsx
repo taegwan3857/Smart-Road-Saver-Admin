@@ -67,12 +67,20 @@ export default function ReportDetail() {
     alert('승인(결재) 처리되었습니다.');
   };
 
-  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
+  if (isLoading) return <div className="content-area">
+      <style>{
+  @media print {
+    .hide-on-print { display: none !important; }
+    .document-paper { box-shadow: none !important; border: none !important; margin: 0 !important; width: 100% !important; page-break-before: auto !important; }
+    body { background: white !important; }
+  }
+}</style>
+<div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
   if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>신고 문서를 찾을 수 없습니다.</div></div>;
 
   return (
     <div className="content-area">
-      <div className="page-header-wrap" style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+      <div className="page-header-wrap hide-on-print" style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
         <div>
           <div className="page-title" style={{marginBottom:"4px"}}>자동 발송 신고 문서 상세</div>
           <div className="page-subtitle">AI 관제 시스템이 위험 요소를 감지하여 유관 부서로 자동 발송한 긴급 신고 문서 내역입니다.</div>
