@@ -165,9 +165,9 @@ export default function ReportDetail() {
         </div>
 
         <div className="doc-images" style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginTop: "40px"}}>
-          {(data.images && data.images.length > 0) || data.image_url ? (
+          { (data.images && data.images.length > 0) || data.image_url || (data.detection_images && data.detection_images.length > 0) || (data.event && data.event.detection_images && data.event.detection_images.length > 0) ? (
             <div className="doc-img-box" style={{
-              backgroundImage: `url(${(data.images && data.images.length > 0) ? data.images[0].url : data.image_url})`,
+              backgroundImage: `url(${getImageUrl((data.images && data.images.length > 0) ? data.images[0].url : (data.image_url || (data.detection_images && data.detection_images[0]?.image_path) || (data.event?.detection_images && data.event.detection_images[0]?.image_path)))})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               position: 'relative'
