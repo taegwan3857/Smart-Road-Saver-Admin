@@ -176,7 +176,7 @@ export default function Landing() {
         <div className="feature-card-new">
           <div className="fc-icon"><i className="fas fa-desktop"></i></div>
           <div className="fc-content">
-            <div className="fc-tag">모바일 & 웹 시스템</div>
+            <div className="fc-tag">웹&앱 팀</div>
             <h3>실시간 알림 및 통합 관제</h3>
             <p>관리자는 웹 대시보드로 전체 상황을 한눈에 관제하고, 운전자와 현장 요원은 앱을 통해 위험 지역 접근 시 실시간 알림을 받습니다.</p>
           </div>
@@ -308,7 +308,7 @@ export default function Landing() {
       <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
        <i className="fas fa-mobile-alt"></i>
       </div>
-      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>웹/앱 팀</h3>
+      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>웹&앱 팀</h3>
       <p style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '500'}}>오태관, 박서현</p>
      </div>
 
