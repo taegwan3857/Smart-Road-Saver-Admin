@@ -9,7 +9,7 @@ export const getAddressFromCoords = async (lat, lng) => {
         const geocoder = new window.kakao.maps.services.Geocoder();
         geocoder.coord2Address(lng, lat, (res, status) => {
           if (status === window.kakao.maps.services.Status.OK) {
-            resolve(res[0].address.address_name);
+            resolve((res[0].road_address && res[0].road_address.address_name) ? res[0].road_address.address_name : res[0].address.address_name);
           } else {
             reject(new Error('Kakao geocoding failed'));
           }

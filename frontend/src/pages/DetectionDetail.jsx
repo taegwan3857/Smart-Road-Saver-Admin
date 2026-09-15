@@ -97,7 +97,7 @@ export default function DetectionDetail() {
         if (typeof addrStr === 'string' && addrStr.startsWith('{')) {
           try {
             const obj = JSON.parse(addrStr);
-            addrStr = obj.address_name || obj.road_address_name || obj.road_address || addrStr;
+            addrStr = obj.road_address_name || obj.road_address || obj.address_name || addrStr;
           } catch(e) {}
         }
         

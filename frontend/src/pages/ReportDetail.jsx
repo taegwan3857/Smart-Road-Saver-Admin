@@ -24,7 +24,7 @@ const formatAddress = (addr, lat, lng) => {
   if (str.startsWith('{')) {
     try {
       const obj = JSON.parse(str);
-      str = obj.address_name || obj.road_address_name || obj.road_address || str;
+      str = obj.road_address_name || obj.road_address || obj.address_name || str;
     } catch(e) {}
   }
   str = str.replace(/^대한민국\s+/, '');
