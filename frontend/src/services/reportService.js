@@ -30,8 +30,25 @@ export const reportService = {
     // 단건 조회도 무조건 감지 기록(Events)에서 가져옴
     const eventsRes = await apiClient.get('/api/events');
     const events = eventsRes.data?.data || eventsRes.data || [];
-    const ev = events.find(e => `REP-${e.event_id||e.id}` === id || String(e.event_id) === String(id) || String(e.id) === String(id)) || events[0];
+    let ev = events.find(e => `REP-${e.event_id||e.id}` === id || String(e.event_id) === String(id) || String(e.id) === String(id)) || events[0];
     if (!ev) return null;
+    
+    // 상세 정보를 불러와서 이미지 배열 등 추가 정보 병합
+    try {
+      let detailRes;
+      try {
+        detailRes = await apiClient.get(`/api/events/${ev.event_id || ev.id}`);
+      } catch (e) {
+        detailRes = await apiClient.get(`/api/detections/${ev.event_id || ev.id}`);
+      }
+      const detail = detailRes?.data?.data || detailRes?.data;
+      if (detail) {
+        ev = { ...ev, ...detail };
+      }
+    } catch (e) {
+      console.error("단건 조회 실패, 목록 데이터로 폴백:", e);
+    }
+
     return {
       id: `REP-${ev.event_id || ev.id || 1}`,
       report_id: `REP-${ev.event_id || ev.id || 1}`,
