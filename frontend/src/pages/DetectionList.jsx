@@ -62,35 +62,18 @@ export default function DetectionList() {
         const addrMap = {};
         for (const d of fetchedItems) {
           const id = d.event_id||d.detection_id||d.id||d._id;
-          let str = d.address||d.location||d.road_address||d.address_name;
-          
-          if (typeof str === 'string' && str.startsWith('{')) {
-            try {
-              const obj = JSON.parse(str);
-              str = obj.road_address_name || obj.road_address || obj.address_name || str;
-            } catch(e) {}
-          }
-          if (typeof str === 'string') {
-            str = str.replace(/^대한민국\s+/, '');
-
-          if (typeof str === 'string' && str.includes(',')) {
-            let parts = str.split(',').map(s => s.trim());
-            parts = parts.filter(p => p !== '대한민국');
-            parts = parts.filter(p => !/^\d{5}$/.test(p));
-            str = parts.reverse().join(' ');
-          }
-
-            if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
-              str = null;
-            }
-          }
-          
-          if (str && str !== 'null') {
-            addrMap[id] = str;
-          } else if (d.latitude && d.longitude) {
+          // 좌표가 있으면 무조건 카카오 지오코더로 도로명 주소 획득
+          if (d.latitude && d.longitude) {
             addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
           } else {
-            addrMap[id] = '주소 정보 없음';
+            let str = d.address||d.location||d.road_address||d.address_name;
+            if (typeof str === 'string' && str.startsWith('{')) {
+              try {
+                const obj = JSON.parse(str);
+                str = obj.road_address_name || obj.road_address || obj.address_name || str;
+              } catch(e) {}
+            }
+            addrMap[id] = (str && str !== 'null') ? str : '주소 정보 없음';
           }
         }
         setAddresses(addrMap);
