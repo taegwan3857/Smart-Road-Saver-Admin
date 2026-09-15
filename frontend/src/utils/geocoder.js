@@ -1,9 +1,23 @@
+// 카카오맵 SDK가 로딩될 때까지 대기 (최대 3초)
+const waitForKakao = () => new Promise((resolve) => {
+  if (window.kakao && window.kakao.maps) { resolve(true); return; }
+  let elapsed = 0;
+  const interval = setInterval(() => {
+    elapsed += 100;
+    if (window.kakao && window.kakao.maps) { clearInterval(interval); resolve(true); }
+    else if (elapsed >= 3000) { clearInterval(interval); resolve(false); }
+  }, 100);
+});
+
 export const getAddressFromCoords = async (lat, lng) => {
   if (Math.abs(Number(lat) - 37.4979) < 0.001 && Math.abs(Number(lng) - 127.028) < 0.001) {
     return '서울특별시 강남구 강남대로';
   }
   
-  if (window.kakao && window.kakao.maps) {
+  // 카카오 SDK 로딩 대기
+  const kakaoReady = await waitForKakao();
+  
+  if (kakaoReady) {
     try {
       const result = await new Promise((resolve, reject) => {
         window.kakao.maps.load(() => {
