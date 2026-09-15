@@ -156,7 +156,7 @@ export default function Landing() {
       </div>
       
       {/* 3 주요 기능 */}
-      <div className="features-grid fade-up d1" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '30px'}}>
+      <div className="features-grid fade-up d1" style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px', marginBottom: '30px'}}>
         <div className="feature-card-new">
           <div className="fc-icon"><i className="fas fa-microchip"></i></div>
           <div className="fc-content">
