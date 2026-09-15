@@ -3,16 +3,22 @@ export const getAddressFromCoords = async (lat, lng) => {
     return '서울특별시 강남구 강남대로';
   }
   
-  if (window.kakao && window.kakao.maps && window.kakao.maps.services) {
+  if (window.kakao && window.kakao.maps) {
     try {
       const result = await new Promise((resolve, reject) => {
-        const geocoder = new window.kakao.maps.services.Geocoder();
-        geocoder.coord2Address(lng, lat, (res, status) => {
-          if (status === window.kakao.maps.services.Status.OK) {
-            resolve((res[0].road_address && res[0].road_address.address_name) ? res[0].road_address.address_name : res[0].address.address_name);
-          } else {
-            reject(new Error('Kakao geocoding failed'));
+        window.kakao.maps.load(() => {
+          if (!window.kakao.maps.services) {
+            reject(new Error('services not loaded'));
+            return;
           }
+          const geocoder = new window.kakao.maps.services.Geocoder();
+          geocoder.coord2Address(lng, lat, (res, status) => {
+            if (status === window.kakao.maps.services.Status.OK) {
+              resolve((res[0].road_address && res[0].road_address.address_name) ? res[0].road_address.address_name : res[0].address.address_name);
+            } else {
+              reject(new Error('Kakao geocoding failed'));
+            }
+          });
         });
       });
       return result;
