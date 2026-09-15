@@ -150,9 +150,9 @@ export default function Landing() {
    <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       
-      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
-       <h2 style={{fontSize: '2.6rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.5px'}}>주요 기능</h2>
-       <p style={{fontSize: '1.2rem', color: '#64748b'}}>스마트 로드 세이버가 제안하는 안전한 도로의 미래</p>
+      <div className="section-heading fade-up">
+       <h2>주요 기능</h2>
+       <p>스마트 로드 세이버가 제안하는 안전한 도로의 미래</p>
       </div>
       
       {/* 3 주요 기능 */}
