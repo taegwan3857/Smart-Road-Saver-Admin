@@ -67,7 +67,7 @@ export default function Dashboard() {
         if (devList.length > 0) setDeviceCount(devList.length);
         
         setSummary(summaryData);
-        let list = Array.isArray(eventsData) ? eventsData : (eventsData?.events || eventsData?.items || []);
+        let list = Array.isArray(eventsData) ? eventsData : (eventsData?.events || eventsData?.data || eventsData?.events || eventsData?.items || []);
         list.sort((a, b) => {
           const timeA = new Date(a.first_detected_at || a.created_at || a.detected_at || 0).getTime();
           const timeB = new Date(b.first_detected_at || b.created_at || b.detected_at || 0).getTime();

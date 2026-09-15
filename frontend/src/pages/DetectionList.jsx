@@ -57,7 +57,7 @@ export default function DetectionList() {
     const fetchData = async () => {
       try {
         const data = await detectionService.getDetections();
-        const fetchedItems = Array.isArray(data) ? data : (data?.detections || data?.items || []);
+        const fetchedItems = Array.isArray(data) ? data : (data?.data || data?.detections || data?.items || []);
         setItems(fetchedItems);
         const addrMap = {};
         for (const d of fetchedItems) {
