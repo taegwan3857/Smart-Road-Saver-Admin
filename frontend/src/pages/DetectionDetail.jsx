@@ -52,6 +52,12 @@ export default function DetectionDetail() {
     return 'fa-image-slash';
   };
 
+  const getImageUrl = (path) => {
+    if (!path) return null;
+    if (path.startsWith('http')) return path;
+    return 'https://smart-road-saver-api.onrender.com' + (path.startsWith('/') ? '' : '/') + path;
+  };
+
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [displayAddress, setDisplayAddress] = useState('주소 정보 없음');
@@ -129,7 +135,7 @@ export default function DetectionDetail() {
           <div style={{flex:"1",background:"#f1f5f9",position:"relative",display:"flex",alignItems:"center",justifyContent:"center",minHeight:"400px"}}>
             {!imgError && (data.image_url || (data.detection_images && data.detection_images[0]?.image_path)) ? (
               <img 
-                src={data.image_url || (data.detection_images && data.detection_images[0]?.image_path)} 
+                src={getImageUrl(data.image_url || (data.detection_images && data.detection_images[0]?.image_path))} 
                 alt="감지 이미지" 
                 style={{maxWidth:"100%",maxHeight:"400px"}}
                 onError={() => setImgError(true)}

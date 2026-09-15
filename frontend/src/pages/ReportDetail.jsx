@@ -16,6 +16,12 @@ const translateType = (type) => {
 
 export default function ReportDetail() {
   const { id } = useParams();
+  const getImageUrl = (path) => {
+    if (!path) return null;
+    if (path.startsWith('http')) return path;
+    return 'https://smart-road-saver-api.onrender.com' + (path.startsWith('/') ? '' : '/') + path;
+  };
+
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
