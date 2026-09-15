@@ -62,18 +62,14 @@ export default function DetectionList() {
         const addrMap = {};
         for (const d of fetchedItems) {
           const id = d.event_id||d.detection_id||d.id||d._id;
-          // 좌표가 있으면 무조건 카카오 지오코더로 도로명 주소 획득
-          if (d.latitude && d.longitude) {
+          // events API가 도로명 주소를 제공하므로 우선 사용
+          const addr = d.address || d.location || d.road_address || d.address_name;
+          if (addr && addr !== 'null') {
+            addrMap[id] = addr;
+          } else if (d.latitude && d.longitude) {
             addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
           } else {
-            let str = d.address||d.location||d.road_address||d.address_name;
-            if (typeof str === 'string' && str.startsWith('{')) {
-              try {
-                const obj = JSON.parse(str);
-                str = obj.road_address_name || obj.road_address || obj.address_name || str;
-              } catch(e) {}
-            }
-            addrMap[id] = (str && str !== 'null') ? str : '주소 정보 없음';
+            addrMap[id] = '주소 정보 없음';
           }
         }
         setAddresses(addrMap);

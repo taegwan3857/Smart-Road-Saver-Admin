@@ -99,14 +99,15 @@ export default function Header() {
         if (list.length > 0) {
           const event = list[0];
           setLatestEvent(event);
-          // 좌표가 있으면 무조건 카카오 지오코더로 도로명 주소 획득 (API 구주소 사용 안 함)
-          if (event.latitude && event.longitude) {
+          // events API가 도로명 주소를 제공하므로 직접 사용
+          const addr = event.address || event.location || event.road_address || event.address_name;
+          if (addr) {
+            setEventAddress(formatAddress(addr));
+          } else if (event.latitude && event.longitude) {
             const geoAddr = await getAddressFromCoords(event.latitude, event.longitude);
             setEventAddress(geoAddr || '주소 정보 없음');
           } else {
-            const rawAddr = event.address||event.location||event.road_address||event.address_name;
-            const addrStr = formatAddress(rawAddr);
-            setEventAddress(addrStr || '주소 정보 없음');
+            setEventAddress('주소 정보 없음');
           }
         }
       } catch (err) {}
