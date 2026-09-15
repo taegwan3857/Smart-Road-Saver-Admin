@@ -186,7 +186,7 @@ export default function DetectionDetail() {
               <img 
                 src={getImageUrl(data.image_url || (data.detection_images && data.detection_images[0]?.image_path))} 
                 alt="감지 이미지" 
-                style={{maxWidth:"100%",maxHeight:"400px"}}
+                style={{width:"100%",height:"100%",objectFit:"contain"}}
                 onError={() => setImgError(true)}
               />
             ) : (
