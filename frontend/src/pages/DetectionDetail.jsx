@@ -91,10 +91,30 @@ export default function DetectionDetail() {
     const fetchData = async () => {
       try { const d = await detectionService.getDetection(id);
         setData(d);
-        const addrStr = d.address||d.location||d.road_address||d.address_name;
-        if (addrStr) setDisplayAddress(addrStr);
-        else if (d.latitude && d.longitude) setDisplayAddress(await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음');
-        else setDisplayAddress('주소 정보 없음'); }
+        let addrStr = d.address||d.location||d.road_address||d.address_name;
+        
+        // JSON 파싱 시도
+        if (typeof addrStr === 'string' && addrStr.startsWith('{')) {
+          try {
+            const obj = JSON.parse(addrStr);
+            addrStr = obj.address_name || obj.road_address_name || obj.road_address || addrStr;
+          } catch(e) {}
+        }
+        
+        if (typeof addrStr === 'string') {
+          addrStr = addrStr.replace(/^대한민국\s+/, '');
+          if (addrStr.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(addrStr)) {
+            addrStr = null; // 유효하지 않은 주소 형식이면 null로 처리해서 좌표로 변환 유도
+          }
+        }
+        
+        if (addrStr && addrStr !== 'null') {
+          setDisplayAddress(addrStr);
+        } else if (d.latitude && d.longitude) {
+          setDisplayAddress(await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음');
+        } else {
+          setDisplayAddress('주소 정보 없음');
+        } }
       catch (err) { console.error(err); }
       finally { setIsLoading(false); }
     };

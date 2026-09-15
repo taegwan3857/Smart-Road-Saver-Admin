@@ -23,6 +23,31 @@ const getKoreanType = (type) => {
   return '위험 요소';
 };
 
+
+const formatAddress = (addr, lat, lng) => {
+  if (!addr) {
+    if (lat && lng) return `${lat}, ${lng}`;
+    return '위치 정보 없음';
+  }
+  let str = String(addr);
+  // JSON 문자열인 경우 파싱 시도
+  if (str.startsWith('{')) {
+    try {
+      const obj = JSON.parse(str);
+      str = obj.address_name || obj.road_address_name || obj.road_address || str;
+    } catch(e) {}
+  }
+  // 불필요한 '대한민국 ' 제거
+  str = str.replace(/^대한민국\s+/, '');
+  
+  // PostGIS POINT 등 형태면 좌표로 변환 (또는 위경도로 대체)
+  if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
+    if (lat && lng) return `${lat}, ${lng}`;
+    return '위치 정보 없음';
+  }
+  return str;
+};
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const [summary, setSummary] = useState(null);
@@ -262,7 +287,7 @@ export default function Dashboard() {
           
           const addr = document.createElement('div');
           addr.style.cssText = "font-size:13px; color:#64748b; margin-bottom:12px; word-break:keep-all;";
-          addr.innerText = ev.address || ev.location || '위치 정보 없음';
+          addr.innerText = formatAddress(ev.address||ev.location, ev.latitude, ev.longitude);
           
           const btnWrap = document.createElement('div');
           btnWrap.style.cssText = "display:flex; justify-content:flex-end;";
@@ -395,7 +420,7 @@ export default function Dashboard() {
                       <span className="badge medium" style={{background: "transparent", color: (ev.risk_level||'').toUpperCase()==='HIGH' ? '#ef4444' : (ev.risk_level||'').toUpperCase()==='MEDIUM' ? '#f59e0b' : (ev.risk_level||'').toUpperCase()==='LOW' ? '#10b981' : '#64748b', display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
                       <button className="detail-link-btn" onClick={(e) => handleNavigateDetail(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
                     </div>
-                    <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{ev.address||ev.location||'위치 정보 없음'}</div>
+                    <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{formatAddress(ev.address||ev.location, ev.latitude, ev.longitude)}</div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                       <div style={{fontSize:"0.8rem",color:"#94a3b8"}}><i className="fas fa-map-marker-alt"></i> {ev.latitude||'-'}, {ev.longitude||'-'}</div>
                       <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>
