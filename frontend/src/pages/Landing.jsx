@@ -150,65 +150,37 @@ export default function Landing() {
    <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#ffffff', padding: '100px 24px', borderTop: '1px solid #f1f5f9'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       
-      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <span style={{color: '#1d3162', fontWeight: '700', letterSpacing: '2px', fontSize: '1rem', textTransform: 'uppercase', marginBottom: '12px', display: 'inline-block'}}>Key Features</span>
-       <h2 style={{fontSize: '2.8rem', fontWeight: '800', color: '#0f172a', marginBottom: '20px', letterSpacing: '-0.5px'}}>스마트 로드 세이버 주요 기능</h2>
-       <p style={{fontSize: '1.25rem', color: '#475569', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6'}}>첨단 센서 기술과 AI 분석으로 도로의 보이지 않는 위험까지 정확하게 파악하고 신속하게 대응합니다.</p>
+      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
+       <h2 style={{fontSize: '2.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>주요 기능 및 기대효과</h2>
+       <p style={{fontSize: '1.2rem', color: '#64748b'}}>스마트 로드 세이버가 제안하는 안전한 도로의 미래</p>
       </div>
       
-      <div className="features-showcase fade-up d1" style={{display: 'flex', flexDirection: 'column', gap: '40px', marginBottom: '100px'}}>
-        
-        {/* Feature 1 - Left align */}
-        <div style={{display: 'flex', flexWrap: 'wrap', background: '#f8fafc', borderRadius: '24px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 10px 30px rgba(0,0,0,0.02)'}}>
-          <div style={{flex: '1 1 400px', padding: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-            <div style={{width: '60px', height: '60px', borderRadius: '16px', background: '#e0e7ff', color: '#4f46e5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', marginBottom: '24px'}}>
-              <i className="fas fa-microchip"></i>
-            </div>
-            <div style={{fontWeight: '700', color: '#4f46e5', fontSize: '1rem', marginBottom: '12px'}}>하드웨어 & AI</div>
-            <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#0f172a', marginBottom: '20px'}}>다중 센서 융합 탐지</h3>
-            <p style={{color: '#475569', fontSize: '1.1rem', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>
-              비전 AI 카메라와 mmWave 레이더를 결합하여 식별이 어려운 결빙(블랙아이스) 및 젖음 상태까지 수치화하여 실시간으로 완벽하게 탐지합니다. 단일 센서의 한계를 극복한 최고의 정확도를 제공합니다.
-            </p>
-          </div>
-          <div style={{flex: '1 1 400px', minHeight: '300px', background: 'url("https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=80&w=1000&auto=format&fit=crop") center/cover', position: 'relative'}}>
-            <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(90deg, #f8fafc 0%, transparent 100%)'}}></div>
+      {/* 주요 기능 (3 Columns) */}
+      <div className="features-grid fade-up d1" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '60px'}}>
+        <div className="feature-card-new">
+          <div className="fc-icon"><i className="fas fa-broadcast-tower"></i></div>
+          <div className="fc-content">
+            <div className="fc-tag">하드웨어 & AI</div>
+            <h3>다중 센서 융합 탐지</h3>
+            <p>비전 AI 카메라와 mmWave 레이더를 결합하여 식별이 어려운 결빙(블랙아이스) 및 젖음 상태까지 수치화하여 실시간으로 완벽하게 탐지합니다.</p>
           </div>
         </div>
-
-        {/* Feature 2 - Right align */}
-        <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row-reverse', background: '#f8fafc', borderRadius: '24px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 10px 30px rgba(0,0,0,0.02)'}}>
-          <div style={{flex: '1 1 400px', padding: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-            <div style={{width: '60px', height: '60px', borderRadius: '16px', background: '#dcfce7', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', marginBottom: '24px'}}>
-              <i className="fas fa-server"></i>
-            </div>
-            <div style={{fontWeight: '700', color: '#16a34a', fontSize: '1rem', marginBottom: '12px'}}>백엔드 & 데이터</div>
-            <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#0f172a', marginBottom: '20px'}}>자동 병합 및 원클릭 신고</h3>
-            <p style={{color: '#475569', fontSize: '1.1rem', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>
-              수집된 방대한 데이터를 PostGIS로 분석해 중복 신고를 방지하고, 지자체 표준 규격 공문서를 자동 생성하여 담당자에게 즉시 발송합니다. 번거로운 서류 작업이 클릭 한 번으로 끝납니다.
-            </p>
-          </div>
-          <div style={{flex: '1 1 400px', minHeight: '300px', background: 'url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop") center/cover', position: 'relative'}}>
-            <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(270deg, #f8fafc 0%, transparent 100%)'}}></div>
+        <div className="feature-card-new">
+          <div className="fc-icon"><i className="fas fa-database"></i></div>
+          <div className="fc-content">
+            <div className="fc-tag">백엔드 & 데이터</div>
+            <h3>자동 병합 및 원클릭 신고</h3>
+            <p>수집된 방대한 데이터를 PostGIS로 분석해 중복 신고를 방지하고, 지자체 표준 규격 공문서를 자동 생성하여 담당자에게 즉시 발송합니다.</p>
           </div>
         </div>
-
-        {/* Feature 3 - Left align */}
-        <div style={{display: 'flex', flexWrap: 'wrap', background: '#f8fafc', borderRadius: '24px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 10px 30px rgba(0,0,0,0.02)'}}>
-          <div style={{flex: '1 1 400px', padding: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-            <div style={{width: '60px', height: '60px', borderRadius: '16px', background: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', marginBottom: '24px'}}>
-              <i className="fas fa-mobile-alt"></i>
-            </div>
-            <div style={{fontWeight: '700', color: '#d97706', fontSize: '1rem', marginBottom: '12px'}}>모바일 & 관리자 웹</div>
-            <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#0f172a', marginBottom: '20px'}}>실시간 알림 및 통합 관제</h3>
-            <p style={{color: '#475569', fontSize: '1.1rem', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>
-              관리자는 웹 대시보드로 도로 전체 위험 상황을 직관적으로 통합 관제하고, 현장 근무자나 운전자는 모바일 앱을 통해 위험 지역 접근 전 실시간 음성/푸시 알림을 받아 사고를 미연에 방지합니다.
-            </p>
-          </div>
-          <div style={{flex: '1 1 400px', minHeight: '300px', background: 'url("https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1000&auto=format&fit=crop") center/cover', position: 'relative'}}>
-            <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(90deg, #f8fafc 0%, transparent 100%)'}}></div>
+        <div className="feature-card-new">
+          <div className="fc-icon"><i className="fas fa-mobile-alt"></i></div>
+          <div className="fc-content">
+            <div className="fc-tag">모바일 & 관리자 웹</div>
+            <h3>실시간 알림 및 통합 관제</h3>
+            <p>관리자는 웹 대시보드로 도로 전체 위험 상황을 통합 관제하고, 현장 근무자나 운전자는 모바일 앱을 통해 접근 전 실시간 위험 알림을 받습니다.</p>
           </div>
         </div>
-
       </div>
 
       {/* 기대효과 */}
