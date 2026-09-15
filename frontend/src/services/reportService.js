@@ -18,9 +18,12 @@ export const reportService = {
       author: 'SYSTEM',
       created_by: 'SYSTEM',
       created_at: ev.first_detected_at || ev.last_detected_at || ev.detected_at || ev.created_at || new Date().toISOString(),
-      address: ev.address || ev.location || '위치 정보 없음',
+            address: ev.address || ev.location || '위치 정보 없음',
       latitude: ev.latitude,
-      longitude: ev.longitude
+      longitude: ev.longitude,
+      image_url: ev.image_url,
+      images: ev.images || ev.detection_images,
+      detection_images: ev.detection_images
     }));
   },
   getReport: async (id) => {
@@ -42,9 +45,12 @@ export const reportService = {
       author: 'SYSTEM',
       created_by: 'SYSTEM',
       created_at: ev.first_detected_at || ev.last_detected_at || ev.detected_at || ev.created_at || new Date().toISOString(),
-      address: ev.address || ev.location || '위치 정보 없음',
+            address: ev.address || ev.location || '위치 정보 없음',
       latitude: ev.latitude,
-      longitude: ev.longitude
+      longitude: ev.longitude,
+      image_url: ev.image_url,
+      images: ev.images || ev.detection_images,
+      detection_images: ev.detection_images
     };
   },
   createReport: async (eventId) => {
