@@ -82,7 +82,7 @@ export default function Login() {
 
       <Modal 
         isOpen={modalState.isOpen}
-        title={modalState.type === 'danger' ? "로그인 실패" : "입력 확인"}
+        title={modalState.type === 'danger' ? "로그인 실패" : "알림"}
         message={modalState.message}
         type={modalState.type}
         confirmText="확인"
