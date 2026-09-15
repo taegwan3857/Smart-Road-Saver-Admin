@@ -58,11 +58,22 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [summaryData, eventsData, devicesData] = await Promise.all([
-          dashboardService.getSummary().catch(() => null),
+        const [eventsDataRaw, devicesData] = await Promise.all([
           dashboardService.getEvents().catch(() => []),
           deviceService.getDevices().catch(() => [])
         ]);
+        
+        const eventsData = Array.isArray(eventsDataRaw) ? eventsDataRaw : (eventsDataRaw?.data || eventsDataRaw?.events || eventsDataRaw?.items || []);
+        
+        // 프론트엔드에서 직접 금일 등록 감지 건수 계산 (API 미구현 대응)
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const todayCount = eventsData.filter(ev => {
+          const d = new Date(ev.first_detected_at || ev.created_at || ev.detected_at);
+          return d >= today;
+        }).length;
+        
+        const summaryData = { total_detections_today: todayCount };
         const devList = Array.isArray(devicesData) ? devicesData : (devicesData?.items || []);
         if (devList.length > 0) setDeviceCount(devList.length);
         
