@@ -73,7 +73,7 @@ export default function Login() {
           <div className="login-warning">
             <i className="fas fa-exclamation-circle"></i>
             <div>
-              <strong>관계자 외 접속 금지</strong>
+              <strong>시스템 접근 제한 안내</strong>
               <p>본 시스템은 인가된 관리자만 접근할 수 있습니다. 무단 접근 시 관련 법령에 의해 처벌받을 수 있습니다.</p>
             </div>
           </div>
