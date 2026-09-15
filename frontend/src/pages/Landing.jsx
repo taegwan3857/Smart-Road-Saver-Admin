@@ -151,7 +151,7 @@ export default function Landing() {
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
-       <h2 style={{fontSize: '2.6rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.5px'}}>주요 기능 및 기대효과</h2>
+       <h2 style={{fontSize: '2.6rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.5px'}}>주요 기능</h2>
        <p style={{fontSize: '1.2rem', color: '#64748b'}}>스마트 로드 세이버가 제안하는 안전한 도로의 미래</p>
       </div>
       
@@ -180,34 +180,6 @@ export default function Landing() {
             <h3>실시간 알림 및 통합 관제</h3>
             <p>관리자는 웹 대시보드로 전체 상황을 한눈에 관제하고, 운전자와 현장 요원은 앱을 통해 위험 지역 접근 시 실시간 알림을 받습니다.</p>
           </div>
-        </div>
-      </div>
-
-      {/* 2 기대효과 */}
-      <div className="effects-grid fade-up d2" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '30px', marginBottom: '30px'}}>
-        <div className="feature-card-new" style={{borderTop: '4px solid #1d3162'}}>
-          <div className="fc-icon" style={{background: 'rgba(29, 49, 98, 0.08)', color: '#1d3162'}}><i className="fas fa-shield-check"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag" style={{background: 'transparent', padding: 0, color: '#1d3162', marginBottom: '8px'}}>Expected Effect 1</div>
-            <h3>사고 발생 전 위험 요인 차단</h3>
-            <p>사후 대처에만 의존하던 기존 방식의 한계를 넘어, 선제적인 위험 탐지와 실시간 알림을 통해 운전자와 작업자의 안전사고를 근본적으로 예방합니다.</p>
-          </div>
-        </div>
-        <div className="feature-card-new" style={{borderTop: '4px solid #38bdf8'}}>
-          <div className="fc-icon" style={{background: 'rgba(56, 189, 248, 0.1)', color: '#0284c7'}}><i className="fas fa-sync-alt"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag" style={{background: 'transparent', padding: 0, color: '#0284c7', marginBottom: '8px'}}>Expected Effect 2</div>
-            <h3>도로 순찰 자동화 및 행정 효율</h3>
-            <p>비효율적이고 위험한 인력 중심의 현장 순찰을 무인 시스템으로 완벽히 대체하고, 민원 신고 처리를 자동화하여 행정 효율을 극대화합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* 최종 목표 */}
-      <div className="fade-up d3" style={{background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '40px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.02)'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: '#ffffff', padding: '14px 28px', borderRadius: '100px', border: '1px solid #e2e8f0', boxShadow: '0 2px 10px rgba(0,0,0,0.02)'}}>
-          <i className="fas fa-flag-checkered" style={{color: '#1d3162', marginRight: '12px', fontSize: '1.4rem'}}></i>
-          <span style={{fontWeight: '700', fontSize: '1.2rem', color: '#0f172a', wordBreak: 'keep-all'}}>최종 목표 : 신속한 실제 도로 탐지를 통한 노면 결함 안전사고의 근본적 감소</span>
         </div>
       </div>
 
