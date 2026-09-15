@@ -91,6 +91,8 @@ export default function Header() {
     }
   }, []);
 
+  const lastEventId = useRef(null);
+
   useEffect(() => {
     const fetchLatest = async () => {
       try {
@@ -99,6 +101,26 @@ export default function Header() {
         if (list.length > 0) {
           const event = list[0];
           setLatestEvent(event);
+          
+          const currentId = event.event_id || event.detection_id || event.id || event._id;
+          
+          // 새로운 이벤트 감지 시 TTS 음성 안내
+          if (lastEventId.current && lastEventId.current !== currentId) {
+            let typeName = '위험 요소';
+            const t = String(event.obstacle_type || event.event_type || event.type || '').toUpperCase();
+            if (t.includes('BLACK_ICE')) typeName = '블랙아이스';
+            else if (t.includes('POTHOLE')) typeName = '포트홀';
+            else if (t.includes('OBSTACLE')) typeName = '장애물';
+            else if (t.includes('ANIMAL') || t.includes('CORPSE')) typeName = '동물 사체';
+            
+            if ('speechSynthesis' in window) {
+              const msg = new SpeechSynthesisUtterance(`새로운 ${typeName}가 감지되었습니다.`);
+              msg.lang = 'ko-KR';
+              window.speechSynthesis.speak(msg);
+            }
+          }
+          if (currentId) lastEventId.current = currentId;
+
           // events API가 도로명 주소를 제공하므로 직접 사용
           const addr = event.address || event.location || event.road_address || event.address_name;
           if (addr) {
