@@ -198,8 +198,14 @@ export default function Dashboard() {
         const container = document.getElementById('kakao-map');
         if (!container || container.childNodes.length > 0) return; // 이미 지도가 그려져있으면 무시
         
+        // 첫 번째 이벤트 위치로 지도 중심 설정 (없으면 기본값 강남역)
+        let initialLat = 37.4979;
+        let initialLng = 127.0280;
+        
+        // useEffect 외부 스코프에서 최신 데이터를 가져올 수 없으므로(빈 의존성 배열),
+        // 일단 기본값으로 그리고 아래의 마커 렌더링 useEffect에서 첫 로드 시 카메라를 이동시킴
         const options = {
-          center: new window.kakao.maps.LatLng(37.4979, 127.0280),
+          center: new window.kakao.maps.LatLng(initialLat, initialLng),
           level: 4
         };
         const map = new window.kakao.maps.Map(container, options);
@@ -318,6 +324,16 @@ export default function Dashboard() {
         }
       }
     });
+
+    // 만약 첫 로드 시 지도를 이벤트의 최신 위치로 옮기고자 한다면
+    if (filteredEvents.length > 0 && !window.__map_initial_panned) {
+      const firstEvent = filteredEvents[0];
+      if (firstEvent.latitude && firstEvent.longitude) {
+        const initialPos = new window.kakao.maps.LatLng(Number(firstEvent.latitude), Number(firstEvent.longitude));
+        mapInstance.setCenter(initialPos);
+        window.__map_initial_panned = true;
+      }
+    }
   }, [filteredEvents, mapInstance, activeEventId, navigate]);
 
 
