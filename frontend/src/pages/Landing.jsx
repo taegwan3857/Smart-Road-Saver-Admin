@@ -147,77 +147,83 @@ export default function Landing() {
    </section>
 
    {/* Service Features & Expected Effects */}
-   <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#ffffff', padding: '100px 24px', borderTop: '1px solid #f1f5f9'}}>
+   <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#f8fafc', padding: '120px 24px', borderTop: '1px solid #e2e8f0'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
-       <h2 style={{fontSize: '2.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>주요 기능 및 기대효과</h2>
+       <span style={{color: '#1d3162', fontWeight: '800', letterSpacing: '2px', fontSize: '0.95rem', textTransform: 'uppercase', marginBottom: '12px', display: 'inline-block', background: 'rgba(29, 49, 98, 0.08)', padding: '6px 16px', borderRadius: '100px'}}>Core Values</span>
+       <h2 style={{fontSize: '2.6rem', fontWeight: '800', color: '#0f172a', marginTop: '16px', marginBottom: '16px', letterSpacing: '-0.5px'}}>주요 기능 및 기대효과</h2>
        <p style={{fontSize: '1.2rem', color: '#64748b'}}>스마트 로드 세이버가 제안하는 안전한 도로의 미래</p>
       </div>
       
-      {/* 주요 기능 (3 Columns) */}
-      <div className="features-grid fade-up d1" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '60px'}}>
-        <div className="feature-card-new">
-          <div className="fc-icon"><i className="fas fa-broadcast-tower"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag">하드웨어 & AI</div>
-            <h3>다중 센서 융합 탐지</h3>
-            <p>비전 AI 카메라와 mmWave 레이더를 결합하여 식별이 어려운 결빙(블랙아이스) 및 젖음 상태까지 수치화하여 실시간으로 완벽하게 탐지합니다.</p>
-          </div>
-        </div>
-        <div className="feature-card-new">
-          <div className="fc-icon"><i className="fas fa-database"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag">백엔드 & 데이터</div>
-            <h3>자동 병합 및 원클릭 신고</h3>
-            <p>수집된 방대한 데이터를 PostGIS로 분석해 중복 신고를 방지하고, 지자체 표준 규격 공문서를 자동 생성하여 담당자에게 즉시 발송합니다.</p>
-          </div>
-        </div>
-        <div className="feature-card-new">
-          <div className="fc-icon"><i className="fas fa-mobile-alt"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag">모바일 & 관리자 웹</div>
-            <h3>실시간 알림 및 통합 관제</h3>
-            <p>관리자는 웹 대시보드로 도로 전체 위험 상황을 통합 관제하고, 현장 근무자나 운전자는 모바일 앱을 통해 접근 전 실시간 위험 알림을 받습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* 기대효과 */}
-      <div className="section-heading fade-up d2" style={{textAlign: 'center', marginBottom: '60px'}}>
-       <span style={{color: '#1d3162', fontWeight: '700', letterSpacing: '2px', fontSize: '1rem', textTransform: 'uppercase', marginBottom: '12px', display: 'inline-block'}}>Expected Effects</span>
-       <h2 style={{fontSize: '2.8rem', fontWeight: '800', color: '#0f172a', marginBottom: '20px', letterSpacing: '-0.5px'}}>시스템 도입 기대효과</h2>
-      </div>
-
-      <div className="effects-cards fade-up d2" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '50px'}}>
+      {/* 3 주요 기능 */}
+      <div className="features-grid fade-up d1" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginBottom: '24px'}}>
         
-        <div style={{background: '#ffffff', borderRadius: '24px', padding: '40px', border: '1px solid #e2e8f0', borderTop: '5px solid #1d3162', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column'}}>
-          <div style={{width: '70px', height: '70px', borderRadius: '50%', background: 'rgba(29, 49, 98, 0.08)', color: '#1d3162', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', marginBottom: '30px'}}>
-            <i className="fas fa-shield-check"></i>
+        <div style={{background: '#ffffff', borderRadius: '24px', padding: '36px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column'}}>
+          <div style={{background: '#f1f5f9', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1d3162', fontSize: '1.6rem', marginBottom: '24px'}}>
+            <i className="fas fa-microchip"></i>
           </div>
-          <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>사고 발생 전 위험 요인 차단</h3>
-          <p style={{color: '#475569', fontSize: '1.1rem', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>
-            사후 대처에만 의존하던 기존 방식의 한계를 넘어, 선제적인 위험 탐지와 실시간 알림을 통해 운전자와 작업자의 안전사고를 근본적으로 예방합니다.
-          </p>
+          <div style={{fontSize: '0.9rem', color: '#0284c7', fontWeight: '800', marginBottom: '10px'}}>하드웨어 & AI</div>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '14px', letterSpacing: '-0.5px'}}>다중 센서 융합 탐지</h3>
+          <p style={{color: '#64748b', fontSize: '1.05rem', lineHeight: '1.65', wordBreak: 'keep-all', margin: 0}}>비전 카메라와 mmWave 레이더를 결합하여 식별이 어려운 블랙아이스 및 젖음 상태까지 수치화해 실시간으로 완벽 탐지합니다.</p>
         </div>
 
-        <div style={{background: '#ffffff', borderRadius: '24px', padding: '40px', border: '1px solid #e2e8f0', borderTop: '5px solid #38bdf8', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column'}}>
-          <div style={{width: '70px', height: '70px', borderRadius: '50%', background: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', marginBottom: '30px'}}>
-            <i className="fas fa-chart-line"></i>
+        <div style={{background: '#ffffff', borderRadius: '24px', padding: '36px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column'}}>
+          <div style={{background: '#f1f5f9', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1d3162', fontSize: '1.6rem', marginBottom: '24px'}}>
+            <i className="fas fa-server"></i>
           </div>
-          <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>도로 순찰 자동화 및 행정 효율</h3>
-          <p style={{color: '#475569', fontSize: '1.1rem', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>
-            비효율적이고 2차 사고 위험이 높은 인력 중심의 현장 순찰을 무인 시스템으로 완벽히 대체하고, 민원 신고 처리를 자동화하여 행정 효율을 극대화합니다.
-          </p>
+          <div style={{fontSize: '0.9rem', color: '#0284c7', fontWeight: '800', marginBottom: '10px'}}>백엔드 & 데이터</div>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '14px', letterSpacing: '-0.5px'}}>자동 병합 및 공문서 생성</h3>
+          <p style={{color: '#64748b', fontSize: '1.05rem', lineHeight: '1.65', wordBreak: 'keep-all', margin: 0}}>PostGIS 공간 분석으로 동일 위치의 중복 신고를 병합하고, 지자체 표준 규격의 공식 문서(기안)를 자동 생성합니다.</p>
+        </div>
+
+        <div style={{background: '#ffffff', borderRadius: '24px', padding: '36px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column'}}>
+          <div style={{background: '#f1f5f9', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1d3162', fontSize: '1.6rem', marginBottom: '24px'}}>
+            <i className="fas fa-desktop"></i>
+          </div>
+          <div style={{fontSize: '0.9rem', color: '#0284c7', fontWeight: '800', marginBottom: '10px'}}>모바일 & 웹 시스템</div>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '14px', letterSpacing: '-0.5px'}}>실시간 알림 및 통합 관제</h3>
+          <p style={{color: '#64748b', fontSize: '1.05rem', lineHeight: '1.65', wordBreak: 'keep-all', margin: 0}}>관리자는 웹 대시보드로 전체 상황을 한눈에 관제하고, 운전자와 현장 요원은 앱을 통해 위험 지역 접근 시 실시간 알림을 받습니다.</p>
         </div>
 
       </div>
 
-      <div className="fade-up d3" style={{background: 'linear-gradient(135deg, #1d3162 0%, #0f172a 100%)', borderRadius: '20px', padding: '40px', textAlign: 'center', boxShadow: '0 20px 40px rgba(29, 49, 98, 0.2)'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.1)', padding: '12px 24px', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.2)'}}>
-          <i className="fas fa-flag-checkered" style={{color: '#38bdf8', marginRight: '12px', fontSize: '1.4rem'}}></i>
-          <span style={{fontWeight: '700', fontSize: '1.2rem', color: '#ffffff', wordBreak: 'keep-all'}}>최종 목표 : 신속한 실제 도로 탐지를 통한 노면 결함 안전사고의 근본적 감소</span>
+      {/* 기대효과 및 목표 (Bento 레이아웃) */}
+      <div className="effects-bento fade-up d2" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '24px'}}>
+        
+        {/* 효과 1 */}
+        <div style={{background: '#1d3162', borderRadius: '24px', padding: '48px', color: '#ffffff', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden'}}>
+          <div style={{position: 'absolute', right: '-20px', top: '-20px', opacity: '0.05', fontSize: '12rem'}}><i className="fas fa-shield-alt"></i></div>
+          <i className="fas fa-shield-check" style={{fontSize: '2.5rem', color: '#38bdf8', marginBottom: '24px', position: 'relative'}}></i>
+          <h3 style={{fontSize: '1.7rem', fontWeight: '800', marginBottom: '16px', position: 'relative', letterSpacing: '-0.5px'}}>사고 발생 전 위험 요인 차단</h3>
+          <p style={{color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0, position: 'relative'}}>
+            사후 대처에만 의존하던 기존 방식의 한계를 넘어, 선제적인 위험 탐지와 실시간 알림을 통해 안전사고를 근본적으로 예방합니다.
+          </p>
         </div>
+
+        {/* 효과 2 */}
+        <div style={{background: '#f0f9ff', borderRadius: '24px', padding: '48px', color: '#0f172a', display: 'flex', flexDirection: 'column', justifyContent: 'center', border: '1px solid #bae6fd', position: 'relative', overflow: 'hidden'}}>
+          <div style={{position: 'absolute', right: '-20px', bottom: '-20px', opacity: '0.1', fontSize: '12rem', color: '#0284c7'}}><i className="fas fa-route"></i></div>
+          <i className="fas fa-sync-alt" style={{fontSize: '2.5rem', color: '#0284c7', marginBottom: '24px', position: 'relative'}}></i>
+          <h3 style={{fontSize: '1.7rem', fontWeight: '800', marginBottom: '16px', position: 'relative', letterSpacing: '-0.5px'}}>도로 순찰 자동화 및 행정 효율</h3>
+          <p style={{color: '#334155', fontSize: '1.1rem', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0, position: 'relative'}}>
+            비효율적이고 위험한 인력 중심의 현장 순찰을 무인 시스템으로 대체하고, 민원 신고 처리를 자동화하여 행정 효율을 극대화합니다.
+          </p>
+        </div>
+
+        {/* 최종 목표 */}
+        <div style={{gridColumn: '1 / -1', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)', borderRadius: '24px', padding: '48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)'}}>
+          <div>
+            <div style={{color: '#38bdf8', fontWeight: '800', letterSpacing: '2px', marginBottom: '12px', fontSize: '0.95rem'}}>ULTIMATE GOAL</div>
+            <h3 style={{color: '#ffffff', fontSize: '2rem', fontWeight: '800', margin: 0, wordBreak: 'keep-all', letterSpacing: '-0.5px', lineHeight: '1.4'}}>
+              신속한 실제 도로 탐지를 통한<br/>노면 결함 안전사고의 근본적 감소
+            </h3>
+          </div>
+          <div style={{background: 'rgba(255,255,255,0.05)', width: '90px', height: '90px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)'}}>
+            <i className="fas fa-flag-checkered" style={{fontSize: '2.5rem', color: '#ffffff'}}></i>
+          </div>
+        </div>
+
       </div>
 
     </div>
