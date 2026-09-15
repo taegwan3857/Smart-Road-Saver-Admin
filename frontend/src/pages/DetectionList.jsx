@@ -257,7 +257,7 @@ export default function DetectionList() {
               ) : filteredItems.length === 0 ? (
                 <tr><td colSpan="9" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>감지 기록이 없습니다.</td></tr>
               ) : currentItems.map((d) => (
-                <tr key={d.detection_id||d.id||d._id} onClick={()=>navigate(`/detections/${d.detection_id||d.id||d._id}`)} style={{cursor:"pointer"}}>
+                <tr key={d.event_id||d.detection_id||d.id||d._id} onClick={()=>navigate(`/detections/${d.event_id||d.detection_id||d.id||d._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(d.event_id||d.detection_id||d.id||d._id)} onChange={(e) => handleSelectOne(e, d.event_id||d.detection_id||d.id||d._id)} /></td>
                   <td style={{fontWeight:"500"}}>{formatEventId(d.event_id||d.detection_id||d.id||d._id)}</td>
                   <td>{d.first_detected_at||d.detected_at||d.created_at ? new Date(d.first_detected_at||d.detected_at||d.created_at).toLocaleString('ko-KR') : '-'}</td>
