@@ -12,7 +12,7 @@ export default function Modal({ isOpen, title, message, type = 'info', confirmTe
     <div className="modal-overlay show">
       <div className="modal-box">
         <div className="modal-header">
-          <span>{title}</span>
+          <span>알림</span>
         </div>
         <div className="modal-body">
           <div>{message}</div>
