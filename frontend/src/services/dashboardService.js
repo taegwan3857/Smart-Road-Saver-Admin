@@ -5,8 +5,16 @@ export const dashboardService = {
     const response = await apiClient.get('/api/dashboard/summary');
     return response.data?.data || response.data;
   },
-  getEvents: async ({ lat = 37.5665, lng = 126.978, radiusMeters = 10000 } = {}) => {
-    const response = await apiClient.get(`/api/events?lat=${lat}&lng=${lng}&radius_meters=${radiusMeters}`);
+  getEvents: async (params = {}) => {
+    const { lat, lng, radiusMeters } = params;
+    let url = '/api/events';
+    const query = [];
+    if (lat) query.push(`lat=${lat}`);
+    if (lng) query.push(`lng=${lng}`);
+    if (radiusMeters) query.push(`radius_meters=${radiusMeters}`);
+    if (query.length > 0) url += `?${query.join('&')}`;
+    
+    const response = await apiClient.get(url);
     return response.data?.data || response.data;
   },
   getEvent: async (id) => {
