@@ -68,13 +68,13 @@ export default function ReportDetail() {
   };
 
   if (isLoading) return <div className="content-area">
-      <style>{
+      <style>{`
   @media print {
     .hide-on-print { display: none !important; }
     .document-paper { box-shadow: none !important; border: none !important; margin: 0 !important; width: 100% !important; page-break-before: auto !important; }
     body { background: white !important; }
   }
-}</style>
+`}</style>
 <div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
   if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>신고 문서를 찾을 수 없습니다.</div></div>;
 
