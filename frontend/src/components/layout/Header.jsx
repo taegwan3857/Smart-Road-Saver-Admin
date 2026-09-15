@@ -16,6 +16,29 @@ const translateType = (type) => {
   return type;
 };
 
+
+const formatAddress = (addr) => {
+  if (!addr) return '';
+  let str = String(addr);
+  if (str.startsWith('{')) {
+    try {
+      const obj = JSON.parse(str);
+      str = obj.address_name || obj.road_address_name || obj.road_address || str;
+    } catch(e) {}
+  }
+  str = str.replace(/^대한민국\s+/, '');
+  if (str.includes(',')) {
+    let parts = str.split(',').map(s => s.trim());
+    parts = parts.filter(p => p !== '대한민국');
+    parts = parts.filter(p => !/^\d{5}$/.test(p));
+    str = parts.reverse().join(' ');
+  }
+  if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
+    return '';
+  }
+  return str;
+};
+
 export default function Header() {
   const navigate = useNavigate();
   const [timeStr, setTimeStr] = useState('');
@@ -76,7 +99,8 @@ export default function Header() {
         if (list.length > 0) {
           const event = list[0];
           setLatestEvent(event);
-          const addrStr = event.address||event.location||event.road_address||event.address_name;
+          const rawAddr = event.address||event.location||event.road_address||event.address_name;
+          const addrStr = formatAddress(rawAddr);
           if (addrStr) setEventAddress(addrStr);
           else if (event.latitude && event.longitude) setEventAddress(await getAddressFromCoords(event.latitude, event.longitude) || '주소 정보 없음');
           else setEventAddress('주소 정보 없음');

@@ -103,6 +103,14 @@ export default function DetectionDetail() {
         
         if (typeof addrStr === 'string') {
           addrStr = addrStr.replace(/^대한민국\s+/, '');
+
+          if (addrStr.includes(',')) {
+            let parts = addrStr.split(',').map(s => s.trim());
+            parts = parts.filter(p => p !== '대한민국');
+            parts = parts.filter(p => !/^\d{5}$/.test(p));
+            addrStr = parts.reverse().join(' ');
+          }
+
           if (addrStr.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(addrStr)) {
             addrStr = null; // 유효하지 않은 주소 형식이면 null로 처리해서 좌표로 변환 유도
           }

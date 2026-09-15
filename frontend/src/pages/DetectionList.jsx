@@ -72,6 +72,14 @@ export default function DetectionList() {
           }
           if (typeof str === 'string') {
             str = str.replace(/^대한민국\s+/, '');
+
+          if (typeof str === 'string' && str.includes(',')) {
+            let parts = str.split(',').map(s => s.trim());
+            parts = parts.filter(p => p !== '대한민국');
+            parts = parts.filter(p => !/^\d{5}$/.test(p));
+            str = parts.reverse().join(' ');
+          }
+
             if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
               str = null;
             }
