@@ -84,6 +84,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
 
   const hazardTypeKor = data ? getKoreanType(data.obstacle_type || data.event_type || data.type) : '위험 요소';
   
+  // Format dates
   const formatTime = (ts) => {
     if (!ts) return '-';
     const d = new Date(ts);
@@ -101,31 +102,28 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
   const imageUrl = images.length > 0 ? images[0] : (data?.image_url || 'https://via.placeholder.com/800x450?text=No+Image');
 
   return (
-    <div className="modal-overlay show" onClick={handleBackdropClick} style={{zIndex: 9999, background: 'rgba(15, 23, 42, 0.6)'}}>
+    <div className="modal-overlay show" onClick={handleBackdropClick} style={{zIndex: 9999, background: 'rgba(0,0,0,0.6)'}}>
       <div className="modal-box" style={{
-        background: '#ffffff', 
-        color: 'var(--text-main)', 
+        background: '#111827', 
+        color: '#ffffff', 
         width: '100%', 
-        maxWidth: '700px',
+        maxWidth: '800px',
         padding: 0,
         overflow: 'hidden',
-        border: 'none',
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+        border: '1px solid rgba(255,255,255,0.1)'
       }}>
-        {/* Header */}
         <div style={{
           display: 'flex', 
           justifyContent: 'space-between', 
           alignItems: 'center', 
           padding: '20px 24px',
-          background: 'var(--primary-color)',
-          color: '#ffffff'
+          borderBottom: '1px solid rgba(255,255,255,0.1)'
         }}>
           <h2 style={{margin: 0, fontSize: '1.25rem', fontWeight: '700'}}>분석 정보</h2>
           <button onClick={onClose} style={{
             background: 'none', 
             border: 'none', 
-            color: 'rgba(255,255,255,0.8)', 
+            color: '#94a3b8', 
             fontSize: '1.5rem',
             cursor: 'pointer',
             padding: 0,
@@ -133,7 +131,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           }}>&times;</button>
         </div>
 
-        <div style={{padding: '24px', maxHeight: '75vh', overflowY: 'auto'}}>
+        <div style={{padding: '24px', maxHeight: '80vh', overflowY: 'auto'}}>
           {loading ? (
             <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터를 불러오는 중입니다...</div>
           ) : !data ? (
@@ -141,19 +139,19 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           ) : (
             <>
               {/* Image Section */}
-              <div style={{position: 'relative', width: '100%', marginBottom: '24px', borderRadius: '8px', overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0'}}>
-                <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', maxHeight: '350px', objectFit: 'contain', display: 'block'}} />
+              <div style={{position: 'relative', width: '100%', marginBottom: '24px', borderRadius: '12px', overflow: 'hidden', backgroundColor: '#000'}}>
+                <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', maxHeight: '400px', objectFit: 'contain', display: 'block'}} />
                 {images.length > 0 && (
                   <div style={{
                     position: 'absolute', 
-                    bottom: '12px', 
-                    right: '12px', 
-                    background: 'rgba(29, 49, 98, 0.85)', 
-                    color: '#fff',
+                    bottom: '16px', 
+                    right: '16px', 
+                    background: 'rgba(0,0,0,0.7)', 
                     padding: '6px 12px', 
                     borderRadius: '20px',
-                    fontSize: '0.8rem',
-                    fontWeight: '500'
+                    fontSize: '0.85rem',
+                    fontWeight: '500',
+                    border: '1px solid rgba(255,255,255,0.2)'
                   }}>
                     원본 스냅샷 보기 (1/{images.length})
                   </div>
@@ -164,43 +162,43 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '12px'
+                gap: '16px'
               }}>
-                <div style={{background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>장애물 종류</div>
-                  <div style={{fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)'}}>{hazardTypeKor}</div>
+                <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
+                  <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>장애물 종류</div>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700'}}>{hazardTypeKor}</div>
                 </div>
                 
-                <div style={{background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>위험 등급</div>
-                  <div style={{fontSize: '1.05rem', fontWeight: '700', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444'}}>
+                <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
+                  <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>위험 등급</div>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444'}}>
                     {(data.risk_level||'').toUpperCase() === 'LOW' ? '낮음' : '높음'}
                   </div>
                 </div>
 
-                <div style={{background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0', gridColumn: '1 / -1'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>발생 주소</div>
-                  <div style={{fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)'}}>{address}</div>
+                <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', gridColumn: '1 / -1'}}>
+                  <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>발생 주소</div>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700'}}>{address}</div>
                 </div>
 
-                <div style={{background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>최초 감지 시간</div>
-                  <div style={{fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
+                <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
+                  <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>최초 감지 시간</div>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700'}}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
                 </div>
 
-                <div style={{background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>최근 갱신 시간</div>
-                  <div style={{fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
+                <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
+                  <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>최근 갱신 시간</div>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700'}}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
                 </div>
 
-                <div style={{background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>누적 감지 횟수</div>
-                  <div style={{fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.cumulative_count || data.detection_count || data.count || 1}회 감지</div>
+                <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
+                  <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>누적 감지 횟수</div>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700'}}>{data.cumulative_count || data.detection_count || data.count || 1}회 감지</div>
                 </div>
 
-                <div style={{background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>공공기관 신고 상태</div>
-                  <div style={{fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.report_status ? '자동 신고 완료' : '미신고'}</div>
+                <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
+                  <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>공공기관 신고 상태</div>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700'}}>{data.report_status ? '자동 신고 완료' : '미신고'}</div>
                 </div>
               </div>
             </>
