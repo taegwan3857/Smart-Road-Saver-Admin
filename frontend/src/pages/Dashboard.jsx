@@ -337,13 +337,9 @@ export default function Dashboard() {
 
 
   return (
-    <div className="content-area">
-      <div className="page-header-wrap">
-        <div className="page-title">대시보드</div>
-        <div className="page-subtitle">S.R.S 관제 시스템의 핵심 지표와 실시간 위험 감지 현황을 한눈에 파악합니다.</div>
-      </div>
+    <div className="content-area" style={{display: "flex", flexDirection: "column", height: "calc(100vh - 60px)", overflow: "hidden"}}>
 
-      <div className="dashboard-grid" style={{marginBottom: "24px"}}>
+      <div className="dashboard-grid" style={{marginBottom: "16px", flexShrink: 0}}>
         <div className="panel summary-card span-3">
           <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
             <div>
@@ -392,9 +388,9 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="panel" style={{marginBottom: "24px", padding: 0, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid #e2e8f0", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)"}}>
+      <div className="panel" style={{flex: 1, padding: 0, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid #e2e8f0", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)", minHeight: 0}}>
         {/* 통합 헤더 및 필터 영역 */}
-        <div className="map-header-wrap" style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 24px", borderBottom: "1px solid #e2e8f0", background: "#ffffff"}}>
+        <div className="map-header-wrap" style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 24px", borderBottom: "1px solid #e2e8f0", background: "#ffffff", flexShrink: 0}}>
           <div style={{fontWeight: 600, fontSize: "1.1rem", color: "var(--text-main)", display: "flex", alignItems: "center"}}>
             위험 위치 통합 모니터링
           </div>
@@ -414,7 +410,7 @@ export default function Dashboard() {
         </div>
 
         {/* 지도 및 리스트 영역 */}
-        <div className="map-body-wrap" style={{display: "flex", height: "calc(100vh - 330px)", minHeight: "500px"}}>
+        <div className="map-body-wrap" style={{display: "flex", flex: 1, minHeight: 0}}>
           {/* 감지 위치 목록 (좌측) */}
           <div className="map-list-wrap" style={{width: "340px", borderRight: "1px solid #e2e8f0", display: "flex", flexDirection: "column", background: "#f8fafc"}}>
             <div style={{padding: "16px 20px", borderBottom: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center", background: "#ffffff"}}>
