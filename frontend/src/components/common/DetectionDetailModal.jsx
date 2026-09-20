@@ -134,7 +134,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           </button>
         </div>
 
-        <div style={{padding: '24px', maxHeight: '75vh', overflowY: 'auto'}}>
+        <div style={{padding: '20px', maxHeight: 'calc(90vh - 60px)', overflowY: 'auto'}}>
           {loading ? (
             <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터 불러오는 중</div>
           ) : !data ? (
@@ -144,9 +144,9 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
               {/* Image Section */}
               <div style={{position: 'relative', width: '100%', marginBottom: '24px', borderRadius: '8px', overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0'}}>
                 {imageUrl ? (
-                  <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', maxHeight: '400px', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
+                  <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', maxHeight: '200px', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
                 ) : (
-                  <div style={{width: '100%', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8'}}>
+                  <div style={{width: '100%', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8'}}>
                     원본 감지 데이터가 없음
                   </div>
                 )}
