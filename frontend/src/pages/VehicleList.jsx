@@ -71,8 +71,7 @@ export default function VehicleList() {
             <div className="search-box">
               <input type="text" className="form-input" placeholder="차량 번호, 운전자, 구역 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} />
               <button className="btn-primary" onClick={handleSearch}>검색</button>
-            </div>
-            <CustomSelect 
+              <CustomSelect 
               options={[
                 { value: 10, label: '10개씩 보기' },
                 { value: 15, label: '15개씩 보기' },
@@ -82,12 +81,12 @@ export default function VehicleList() {
               ]} 
               value={itemsPerPage} 
               onChange={(val) => { setItemsPerPage(Number(val)); setCurrentPage(1); }} 
+              style={{ width: '130px' }}
             />
+            </div>
           </div>
           <div className="filter-group">
             <button className="btn-primary"><i className="fas fa-plus"></i> 차량 등록</button>
-          
-            
           </div>
         </div>
 

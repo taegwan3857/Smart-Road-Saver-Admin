@@ -234,8 +234,7 @@ export default function DetectionList() {
             <div className="search-box">
               <input type="text" className="form-input" placeholder="감지 ID 또는 위치 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} />
               <button className="btn-primary" onClick={handleSearch}>검색</button>
-            </div>
-            <CustomSelect 
+              <CustomSelect 
               options={[
                 { value: 10, label: '10개씩 보기' },
                 { value: 15, label: '15개씩 보기' },
@@ -245,13 +244,13 @@ export default function DetectionList() {
               ]} 
               value={itemsPerPage} 
               onChange={(val) => { setItemsPerPage(Number(val)); setCurrentPage(1); }} 
+              style={{ width: '130px' }}
             />
+            </div>
           </div>
           <div className="filter-group">
             
             <button className="btn-outline" onClick={handleExcelDownload}><i className="fas fa-file-excel" style={{color:"#10b981"}}></i> 엑셀 다운로드</button>
-          
-            
           </div>
         </div>
 
