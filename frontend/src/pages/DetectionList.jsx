@@ -110,7 +110,7 @@ export default function DetectionList() {
   };
   const getRiskColor = (rl) => {
     const r = (rl||'').toUpperCase();
-    if(r==='LOW') return '#10b981';
+    if(r==='LOW') return '#eab308';
     return '#ef4444';
   };
 
@@ -228,7 +228,7 @@ export default function DetectionList() {
             <CustomSelect options={[
               { value: '', label: '위험도 전체' },
               { value: 'HIGH', label: '높음', color: '#ef4444' },
-              { value: 'LOW', label: '낮음', color: '#10b981' }
+              { value: 'LOW', label: '낮음', color: '#eab308' }
             ]} value={riskFilter} onChange={setRiskFilter} />
             <div className="search-box">
               <input type="text" className="form-input" placeholder="감지 ID 또는 위치 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} />

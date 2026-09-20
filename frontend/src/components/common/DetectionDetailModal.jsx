@@ -169,7 +169,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                 
                 <div style={{background: '#1f2937', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
                   <div style={{color: '#9ca3af', fontSize: '0.85rem', marginBottom: '8px'}}>위험 등급</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#10b981' : '#ef4444'}}>
+                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444'}}>
                     {(data.risk_level||'').toUpperCase() === 'LOW' ? 'LOW' : 'HIGH'}
                   </div>
                 </div>

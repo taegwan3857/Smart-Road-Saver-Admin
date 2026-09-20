@@ -290,7 +290,7 @@ export default function Dashboard() {
 
         // 2. 배경 색상은 위험도(risk_level)에 따라 결정
         const rl = (ev.risk_level || '').toUpperCase();
-        let bgColor = rl === 'LOW' ? '#10b981' : '#ef4444';
+        let bgColor = rl === 'LOW' ? '#eab308' : '#ef4444';
         
         const iconContent = document.createElement('div');
         const isActive = activeEventId === evId;
@@ -456,7 +456,7 @@ export default function Dashboard() {
             <CustomSelect options={[
               { value: '', label: '위험도 전체' },
               { value: 'HIGH', label: '높음', color: '#ef4444' },
-              { value: 'LOW', label: '낮음', color: '#10b981' }
+              { value: 'LOW', label: '낮음', color: '#eab308' }
             ]} value={riskFilter} onChange={setRiskFilter} style={{width: "140px"}} />
             <CustomSelect options={["전체 기간", "오늘", "최근 1주일", "최근 1개월"]} value={periodFilter} onChange={setPeriodFilter} style={{width: "130px"}} />
             <div className="search-box" style={{marginLeft: "4px"}}>
@@ -484,7 +484,7 @@ export default function Dashboard() {
                 filteredEvents.map(ev => (
                   <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className={`list-item ${navigatingId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? 'navigating-out' : ''}`} onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
-                      <span className="badge medium" style={{background: "transparent", color: (ev.risk_level||'').toUpperCase()==='LOW' ? '#10b981' : '#ef4444', display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
+                      <span className="badge medium" style={{background: "transparent", color: (ev.risk_level||'').toUpperCase()==='LOW' ? '#eab308' : '#ef4444', display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
                       <button className="detail-link-btn" onClick={(e) => openDetailModal(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{addresses[ev.event_id||ev.detection_id||ev.id||ev._id] || formatAddress(ev.address||ev.location, ev.latitude, ev.longitude)}</div>

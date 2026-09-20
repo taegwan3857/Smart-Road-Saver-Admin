@@ -164,7 +164,7 @@ export default function ReportDetail() {
               <th>위험 유형</th>
               <td style={{fontWeight: "bold"}}>{translateType(data.event_type||data.type)}</td>
               <th>위험도</th>
-              <td style={{fontWeight: "bold", color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#10b981' : '#ef4444'}}>{(data.risk_level||'').toUpperCase() === 'LOW' ? '낮음' : '높음'}</td>
+              <td style={{fontWeight: "bold", color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444'}}>{(data.risk_level||'').toUpperCase() === 'LOW' ? '낮음' : '높음'}</td>
             </tr>
             <tr>
               <th>발생 위치</th>

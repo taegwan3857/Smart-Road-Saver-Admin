@@ -23,7 +23,7 @@ export default function DetectionDetail() {
   };
   const getRiskColors = (rl) => {
     const r = (rl||'').toUpperCase();
-    if(r==='LOW') return { bg: 'rgba(16, 185, 129, 0.15)', fg: '#10b981' };
+    if(r==='LOW') return { bg: 'rgba(234, 179, 8, 0.15)', fg: '#eab308' };
     return { bg: 'rgba(239, 68, 68, 0.12)', fg: '#ef4444' };
   };
 
@@ -231,7 +231,7 @@ export default function DetectionDetail() {
             </div>
             <div className="info-item">
               <div className="info-label">위험 유형 (분류)</div>
-              <div className="info-value"><span style={{color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#10b981' : '#ef4444', fontWeight: "700"}}>{translateType(data.obstacle_type||data.event_type||data.type)}</span></div>
+              <div className="info-value"><span style={{color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444', fontWeight: "700"}}>{translateType(data.obstacle_type||data.event_type||data.type)}</span></div>
             </div>
             <div className="info-item">
               <div className="info-label">AI 신뢰도</div>
