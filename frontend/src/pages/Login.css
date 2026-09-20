@@ -12,7 +12,7 @@
 .login-card-split {
   display: flex;
   width: 100%;
-  max-width: 840px;
+  max-width: 960px;
   min-height: 520px;
   background: #ffffff;
   border-radius: 12px;
