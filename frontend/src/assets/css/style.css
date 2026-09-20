@@ -1059,10 +1059,10 @@ button, .btn-primary, .btn-secondary, .btn-outline, .btn-danger, .btn-back {
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
   padding: 0;
-  line-height: 1;
+  line-height: 0; /* Changed from 1 to 0 for exact icon centering */
   transition: all 0.3s ease-in-out;
   display: inline-flex;
   align-items: center;
