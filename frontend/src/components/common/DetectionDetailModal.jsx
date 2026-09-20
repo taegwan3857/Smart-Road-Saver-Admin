@@ -114,9 +114,12 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
         color: 'var(--text-main)', 
         width: '100%', 
         maxWidth: '800px',
+        maxHeight: '90vh',
         padding: 0,
         overflow: 'hidden',
         border: 'none',
+        display: 'flex',
+        flexDirection: 'column',
         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}>
         {/* Header - Light theme (Navy) */}
@@ -124,27 +127,28 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           display: 'flex', 
           justifyContent: 'space-between', 
           alignItems: 'center', 
-          padding: '16px 24px',
+          padding: '14px 24px',
           background: 'var(--primary-color)',
-          color: '#ffffff'
+          color: '#ffffff',
+          flexShrink: 0
         }}>
-          <h2 style={{margin: 0, fontSize: '1.25rem', fontWeight: '700'}}>분석 정보</h2>
+          <h2 style={{margin: 0, fontSize: '1.15rem', fontWeight: '700'}}>분석 정보</h2>
           <button onClick={onClose} className="modal-close-btn" style={{ fontSize: '1.25rem' }}>
             <i className="fas fa-times"></i>
           </button>
         </div>
 
-        <div style={{padding: '16px', maxHeight: 'calc(90vh - 56px)', overflowY: 'auto'}}>
+        <div style={{padding: '12px', flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0}}>
           {loading ? (
             <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터 불러오는 중</div>
           ) : !data ? (
             <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터를 찾을 수 없습니다.</div>
           ) : (
             <>
-              {/* Image Section - 원본 비율 */}
-              <div style={{position: 'relative', width: '100%', marginBottom: '12px', borderRadius: '8px', overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0'}}>
+              {/* Image Section - 원본 비율, 남는 공간에 맞춤 */}
+              <div style={{flex: 1, minHeight: 0, marginBottom: '10px', borderRadius: '8px', overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 {imageUrl ? (
-                  <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
+                  <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', height: '100%', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
                 ) : (
                   <div style={{width: '100%', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8'}}>
                     원본 감지 데이터가 없음
@@ -157,7 +161,8 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '8px'
+                gap: '8px',
+                flexShrink: 0
               }}>
                 <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
                   <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>장애물 종류</div>
