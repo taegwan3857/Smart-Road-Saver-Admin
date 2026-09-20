@@ -39,6 +39,31 @@ const formatAddress = (addr) => {
   return str;
 };
 
+const playAlertSound = () => {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const audioCtx = new AudioContext();
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    
+    oscillator.type = 'square';
+    oscillator.frequency.setValueAtTime(600, audioCtx.currentTime); // 600Hz
+    oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime + 0.1); // 1000Hz
+    
+    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); // volume
+    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + 0.3);
+  } catch(e) {
+    console.warn('Audio play failed', e);
+  }
+};
+
 export default function Header() {
   const navigate = useNavigate();
   const [timeStr, setTimeStr] = useState('');
@@ -58,14 +83,9 @@ export default function Header() {
         
         lastAnnouncedEventId.current = currentId;
         
-        if ('speechSynthesis' in window) {
-          const typeKo = translateType(latestEvent.obstacle_type||latestEvent.event_type||latestEvent.type);
-          const msg = new SpeechSynthesisUtterance(`새로운 위험 요소가 감지되었습니다. ${eventAddress}, ${typeKo} 감지.`);
-          msg.lang = 'ko-KR';
-          msg.rate = 1.0;
-          window.speechSynthesis.speak(msg);
+        if (lastAnnouncedEventId.current) { // Prevent beep on very first load
+          playAlertSound();
         }
-      }
     }
   }, [latestEvent, eventAddress]);
 
@@ -104,21 +124,7 @@ export default function Header() {
           
           const currentId = event.event_id || event.detection_id || event.id || event._id;
           
-          // 새로운 이벤트 감지 시 TTS 음성 안내
-          if (lastEventId.current && lastEventId.current !== currentId) {
-            let typeName = '위험 요소';
-            const t = String(event.obstacle_type || event.event_type || event.type || '').toUpperCase();
-            if (t.includes('BLACK_ICE')) typeName = '블랙아이스';
-            else if (t.includes('POTHOLE')) typeName = '포트홀';
-            else if (t.includes('OBSTACLE')) typeName = '장애물';
-            else if (t.includes('ANIMAL') || t.includes('CORPSE')) typeName = '동물 사체';
-            
-            if ('speechSynthesis' in window) {
-              const msg = new SpeechSynthesisUtterance(`새로운 ${typeName}가 감지되었습니다.`);
-              msg.lang = 'ko-KR';
-              window.speechSynthesis.speak(msg);
-            }
-          }
+          // playAlertSound는 위의 useEffect에서 처리됨
           if (currentId) lastEventId.current = currentId;
 
           // events API가 도로명 주소를 제공하므로 직접 사용

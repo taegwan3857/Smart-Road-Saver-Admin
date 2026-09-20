@@ -71,6 +71,7 @@ export default function Dashboard() {
   };
   const markersRef = useRef([]);
   const overlayRef = useRef(null);
+  const hasInitialPannedRef = useRef(false);
 
   const handlePanTo = (ev) => {
     if (mapInstance && window.kakao) {
@@ -325,13 +326,13 @@ export default function Dashboard() {
       }
     });
 
-    // 만약 첫 로드 시 지도를 이벤트의 최신 위치로 옮기고자 한다면
-    if (filteredEvents.length > 0 && !window.__map_initial_panned) {
+    // 만약 마운트 후 처음 데이터를 불러왔다면 지도를 최신 이벤트 위치로 옮김
+    if (filteredEvents.length > 0 && !hasInitialPannedRef.current) {
       const firstEvent = filteredEvents[0];
       if (firstEvent.latitude && firstEvent.longitude) {
         const initialPos = new window.kakao.maps.LatLng(Number(firstEvent.latitude), Number(firstEvent.longitude));
         mapInstance.setCenter(initialPos);
-        window.__map_initial_panned = true;
+        hasInitialPannedRef.current = true;
       }
     }
   }, [filteredEvents, mapInstance, activeEventId, navigate]);
