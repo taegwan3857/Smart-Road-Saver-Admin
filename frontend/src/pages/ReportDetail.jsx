@@ -92,9 +92,30 @@ export default function ReportDetail() {
   if (isLoading) return <div className="content-area">
       <style>{`
   @media print {
-    .hide-on-print { display: none !important; }
-    .document-paper { box-shadow: none !important; border: none !important; margin: 0 !important; width: 100% !important; page-break-before: auto !important; }
-    body { background: white !important; }
+    /* Hide everything except the document */
+    .hide-on-print,
+    .sidebar,
+    .main-header,
+    .page-header-wrap,
+    header,
+    nav,
+    .header-bar { display: none !important; }
+
+    /* Reset layout so document fills the page */
+    body, html, #root { background: white !important; margin: 0 !important; padding: 0 !important; }
+    .app-container, .main-wrapper, .content-area {
+      margin: 0 !important; padding: 0 !important;
+      width: 100% !important; max-width: 100% !important;
+      overflow: visible !important; height: auto !important;
+    }
+
+    /* Document paper styling for print */
+    .document-paper {
+      box-shadow: none !important; border: none !important;
+      margin: 0 !important; padding: 20px !important;
+      width: 100% !important; max-width: 100% !important;
+      page-break-before: auto !important;
+    }
   }
 `}</style>
 <div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
@@ -102,6 +123,29 @@ export default function ReportDetail() {
 
   return (
     <div className="content-area">
+      <style>{`
+  @media print {
+    .hide-on-print,
+    .sidebar,
+    .main-header,
+    .page-header-wrap,
+    header,
+    nav,
+    .header-bar { display: none !important; }
+    body, html, #root { background: white !important; margin: 0 !important; padding: 0 !important; }
+    .app-container, .main-wrapper, .content-area {
+      margin: 0 !important; padding: 0 !important;
+      width: 100% !important; max-width: 100% !important;
+      overflow: visible !important; height: auto !important;
+    }
+    .document-paper {
+      box-shadow: none !important; border: none !important;
+      margin: 0 !important; padding: 20px !important;
+      width: 100% !important; max-width: 100% !important;
+      page-break-before: auto !important;
+    }
+  }
+`}</style>
       <div className="page-header-wrap hide-on-print" style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
         <div>
           <div className="page-title" style={{marginBottom:"4px"}}>자동 발송 신고 문서 상세</div>
