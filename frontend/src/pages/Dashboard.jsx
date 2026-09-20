@@ -319,69 +319,7 @@ export default function Dashboard() {
         
         markersRef.current.push(customMarker);
         
-        // 활성화된 마커에 정보창(오버레이) 표시
-        if (activeEventId === evId) {
-          const content = document.createElement('div');
-          content.style.cssText = "padding:16px; background:#ffffff; border-radius:12px; border:1px solid #e2e8f0; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); min-width:220px; transform:translateY(-30px); position:relative;";
-          
-          // 삼각형 말풍선 꼬리
-          const tail = document.createElement('div');
-          tail.style.cssText = "position:absolute; bottom:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:12px; height:12px; background:#ffffff; border-right:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0;";
-          content.appendChild(tail);
-          
-          const titleWrap = document.createElement('div');
-          titleWrap.style.cssText = "display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;";
-          
-          const title = document.createElement('div');
-          title.style.cssText = `background:transparent; color:${bgColor}; font-size:14px; font-weight:700; display:inline-flex; align-items:center; gap:6px;`;
-          title.innerHTML = `<i class="${iconClass}"></i><span>${getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>`;
-          
-          const closeBtn = document.createElement('button');
-          closeBtn.innerHTML = "&times;";
-          closeBtn.style.cssText = "background:none; border:none; font-size:18px; color:#94a3b8; cursor:pointer; padding:0; line-height:1;";
-          closeBtn.onclick = (e) => { e.stopPropagation(); setActiveEventId(null); };
-          
-          titleWrap.appendChild(title);
-          titleWrap.appendChild(closeBtn);
-          
-          const addr = document.createElement('div');
-          addr.style.cssText = "font-size:13px; color:#64748b; margin-bottom:12px; word-break:keep-all;";
-          
-          const rawAddr = ev.address||ev.location;
-          if (rawAddr && !/GPS/i.test(rawAddr) && !/POINT/i.test(rawAddr)) {
-            addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
-          } else {
-            addr.innerText = '주소 정보 확인 중...';
-            getAddressFromCoords(ev.latitude, ev.longitude).then(res => {
-              if (res) addr.innerText = res;
-              else addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
-            });
-          }
-          
-          const btnWrap = document.createElement('div');
-          btnWrap.style.cssText = "display:flex; justify-content:flex-end;";
-          
-          const detailBtn = document.createElement('button');
-          detailBtn.className = "overlay-detail-btn";
-          detailBtn.innerHTML = '<i class="fas fa-search"></i><span>상세 정보 보기</span>';
-          detailBtn.onclick = (e) => {
-            handleNavigateDetail(e, evId);
-          };
-          
-          btnWrap.appendChild(detailBtn);
-          content.appendChild(titleWrap);
-          content.appendChild(addr);
-          content.appendChild(btnWrap);
-          
-          const overlay = new window.kakao.maps.CustomOverlay({
-             position: markerPosition,
-             map: mapInstance,
-             content: content,
-             yAnchor: 1,
-             zIndex: 99
-          });
-          overlayRef.current = overlay;
-        }
+        
       }
     });
 
