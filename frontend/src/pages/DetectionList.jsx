@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomSelect from "../components/common/CustomSelect";
 import { detectionService } from '../services/detectionService';
 import { getAddressFromCoords } from '../utils/geocoder';
+import Modal from '../components/common/Modal';
 
 const formatEventId = (id) => {
   if (!id) return "-";
@@ -27,6 +28,7 @@ export default function DetectionList() {
   const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(15);
+  const [isExcelModalOpen, setIsExcelModalOpen] = useState(false);
   const [addresses, setAddresses] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [selectedIds, setSelectedIds] = useState([]);
@@ -183,12 +185,17 @@ export default function DetectionList() {
   });
 
   const handleExcelDownload = () => {
-    if (filteredItems.length === 0) {
-      alert("다운로드할 데이터가 없습니다.");
+    if (selectedIds.length === 0) {
+      setIsExcelModalOpen(true);
       return;
     }
+    const itemsToDownload = filteredItems.filter(item => {
+      const id = item.event_id||item.detection_id||item.id||item._id;
+      return selectedIds.includes(id);
+    });
+
     const headers = ["이벤트 ID", "감지 시간", "제보 차량", "유형", "위험도", "주소", "신뢰도", "누적 감지"];
-    const rows = filteredItems.map(d => {
+    const rows = itemsToDownload.map(d => {
       const id = formatEventId(d.event_id||d.detection_id||d.id||d._id);
       const time = d.first_detected_at||d.detected_at||d.created_at ? new Date(d.first_detected_at||d.detected_at||d.created_at).toLocaleString("ko-KR") : "-";
       const vehicle = d.reported_vehicle||d.vehicle_number||"연결 장치";
@@ -329,6 +336,7 @@ export default function DetectionList() {
         </div>
         </div>
       </div>
+      <Modal isOpen={isExcelModalOpen} title="알림" message="엑셀로 다운로드할 항목을 먼저 선택해주세요." confirmText="확인" onConfirm={() => setIsExcelModalOpen(false)} />
     </div>
   );
 }
