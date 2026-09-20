@@ -51,7 +51,7 @@ export default function Manual() {
               </p>
               
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px' }}>
-                <img src="/images/manual/dashboard.png" alt="대시보드 화면" style={{ width: '100%', display: 'block' }} />
+                <img src="/images/manual/dashboard.png" alt="대시보드 화면" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
 
               <div style={{ background: '#f1f5f9', padding: '20px', borderRadius: '8px' }}>
@@ -76,7 +76,7 @@ export default function Manual() {
               
               <h4 style={{ fontSize: '1.1rem', marginBottom: '12px', marginTop: '32px' }}>1. 감지 기록 목록</h4>
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px' }}>
-                <img src="/images/manual/detection_list.png" alt="감지 기록 목록" style={{ width: '100%', display: 'block' }} />
+                <img src="/images/manual/detection_list.png" alt="감지 기록 목록" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
               <p style={{ color: 'var(--text-muted)', marginBottom: '32px', paddingLeft: '12px', borderLeft: '3px solid var(--border-light)' }}>
                 다양한 필터(기간, 위험 유형, 위험도)와 검색을 통해 원하는 데이터를 쉽게 찾아낼 수 있으며, 필요한 경우 목록 우측 상단의 <strong>[엑셀 다운로드]</strong> 버튼을 눌러 데이터를 추출할 수 있습니다.
@@ -84,7 +84,7 @@ export default function Manual() {
 
               <h4 style={{ fontSize: '1.1rem', marginBottom: '12px' }}>2. 감지 상세 (원본 이미지 확인)</h4>
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px' }}>
-                <img src="/images/manual/detection_detail.png" alt="감지 기록 상세" style={{ width: '100%', display: 'block' }} />
+                <img src="/images/manual/detection_detail.png" alt="감지 기록 상세" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
               <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--text-main)', lineHeight: '1.6' }}>
                 <li style={{ marginBottom: '8px' }}>목록에서 특정 항목을 클릭하면 나타나는 상세 창입니다.</li>
@@ -104,7 +104,7 @@ export default function Manual() {
               
               <h4 style={{ fontSize: '1.1rem', marginBottom: '12px', marginTop: '32px' }}>1. 신고 문서 목록</h4>
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px' }}>
-                <img src="/images/manual/report_list.png" alt="신고 문서 목록" style={{ width: '100%', display: 'block' }} />
+                <img src="/images/manual/report_list.png" alt="신고 문서 목록" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
               <p style={{ color: 'var(--text-muted)', marginBottom: '32px', paddingLeft: '12px', borderLeft: '3px solid var(--border-light)' }}>
                 고위험(높음)으로 판단된 감지 건들은 자동으로 시스템(SYSTEM)에 의해 신고 문서가 작성되며 상태가 '신고 완료'로 전환됩니다.
