@@ -179,6 +179,17 @@ export default function UserList() {
                 <input type="text" className="form-input" placeholder="이름, 아이디 검색" value={userSearchInput} onChange={(e) => setUserSearchInput(e.target.value)} onKeyDown={handleUserKeyDown} />
                 <button className="btn-primary" onClick={handleUserSearch}>검색</button>
               </div>
+            <CustomSelect 
+              options={[
+                { value: 10, label: '10개씩 보기' },
+                { value: 15, label: '15개씩 보기' },
+                { value: 30, label: '30개씩 보기' },
+                { value: 50, label: '50개씩 보기' },
+                { value: 100, label: '100개씩 보기' }
+              ]} 
+              value={itemsPerPage} 
+              onChange={(val) => { setItemsPerPage(Number(val)); setCurrentPage(1); }} 
+            />
               
               <button className="btn-outline" style={{marginLeft: "auto"}} onClick={confirmDelete}>
                 <i className="fas fa-trash-alt" style={{color:"#ef4444"}}></i> 선택 삭제

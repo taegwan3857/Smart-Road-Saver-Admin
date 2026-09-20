@@ -69,7 +69,6 @@ export default function DeviceList() {
               <input type="text" className="form-input" placeholder="장치 ID 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} />
               <button className="btn-primary" onClick={handleSearch}>검색</button>
             </div>
-          
             <CustomSelect 
               options={[
                 { value: 10, label: '10개씩 보기' },
@@ -81,6 +80,8 @@ export default function DeviceList() {
               value={itemsPerPage} 
               onChange={(val) => { setItemsPerPage(Number(val)); setCurrentPage(1); }} 
             />
+          
+            
           </div>
         </div>
 
