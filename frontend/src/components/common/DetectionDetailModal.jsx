@@ -134,7 +134,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
 
         <div style={{padding: '24px', maxHeight: '75vh', overflowY: 'auto'}}>
           {loading ? (
-            <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터를 불러오는 중입니다...</div>
+            <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터 불러오는 중</div>
           ) : !data ? (
             <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터를 찾을 수 없습니다.</div>
           ) : (
