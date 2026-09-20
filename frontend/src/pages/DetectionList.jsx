@@ -224,6 +224,17 @@ export default function DetectionList() {
         {/* Filters */}
         <div className="board-filters">
           <div className="filter-group">
+            <select 
+              value={itemsPerPage} 
+              onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }} 
+              style={{ padding: '8px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#fff', color: '#475569', fontSize: '0.95rem', cursor: 'pointer', outline: 'none', minWidth: '130px' }}
+            >
+              <option value={10}>10개씩 보기</option>
+              <option value={15}>15개씩 보기</option>
+              <option value={30}>30개씩 보기</option>
+              <option value={50}>50개씩 보기</option>
+              <option value={100}>100개씩 보기</option>
+            </select>
             <CustomSelect options={["전체 기간", "오늘", "최근 1주일", "최근 1개월"]} value={periodFilter} onChange={setPeriodFilter} />
             <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물"]} value={typeFilter} onChange={setTypeFilter} />
             <CustomSelect options={[
@@ -310,17 +321,6 @@ export default function DetectionList() {
           <button className="page-btn" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-right"></i></button>
           <button className="page-btn" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-double-right"></i></button>
         </div>
-          <select 
-            value={itemsPerPage} 
-            onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }} 
-            style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#fff', color: '#475569', fontSize: '0.9rem', cursor: 'pointer', outline: 'none' }}
-          >
-            <option value={10}>10개씩 보기</option>
-            <option value={15}>15개씩 보기</option>
-            <option value={30}>30개씩 보기</option>
-            <option value={50}>50개씩 보기</option>
-            <option value={100}>100개씩 보기</option>
-          </select>
         </div>
       </div>
     </div>

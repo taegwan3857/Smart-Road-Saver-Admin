@@ -251,17 +251,6 @@ export default function UserList() {
             <button className="page-btn" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-right"></i></button>
             <button className="page-btn" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-double-right"></i></button>
           </div>
-          <select 
-            value={itemsPerPage} 
-            onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }} 
-            style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#fff', color: '#475569', fontSize: '0.9rem', cursor: 'pointer', outline: 'none' }}
-          >
-            <option value={10}>10개씩 보기</option>
-            <option value={15}>15개씩 보기</option>
-            <option value={30}>30개씩 보기</option>
-            <option value={50}>50개씩 보기</option>
-            <option value={100}>100개씩 보기</option>
-          </select>
         </div>
       </div>
 
