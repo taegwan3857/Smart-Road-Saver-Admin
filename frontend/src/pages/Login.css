@@ -224,8 +224,10 @@
   margin-bottom: 4px;
 }
 .login-warning p {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   margin: 0;
   line-height: 1.4;
   color: #b91c1c;
+  word-break: keep-all;
+  letter-spacing: -0.5px;
 }
