@@ -520,7 +520,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-
-          </div>
+      <DetectionDetailModal isOpen={isDetailModalOpen} id={modalDetectionId} onClose={() => setIsDetailModalOpen(false)} />
+    </div>
   );
 }

@@ -205,7 +205,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-          </>
       <DetectionDetailModal isOpen={isModalOpen} id={modalId} onClose={() => setIsModalOpen(false)} />
     </>
   );
