@@ -156,21 +156,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                     원본 감지 데이터가 없음
                   </div>
                 )}
-                {images.length > 0 && imageUrl && (
-                  <div style={{
-                    position: 'absolute', 
-                    bottom: '12px', 
-                    right: '12px', 
-                    background: 'rgba(29, 49, 98, 0.85)', 
-                    color: '#fff',
-                    padding: '6px 12px', 
-                    borderRadius: '20px',
-                    fontSize: '0.8rem',
-                    fontWeight: '500'
-                  }}>
-                    원본 스냅샷 보기 (1/{images.length})
-                  </div>
-                )}
+                
               </div>
 
               {/* Grid Section */}
