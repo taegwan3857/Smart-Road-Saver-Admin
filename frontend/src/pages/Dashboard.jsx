@@ -414,7 +414,7 @@ export default function Dashboard() {
         </div>
 
         {/* 지도 및 리스트 영역 */}
-        <div className="map-body-wrap" style={{display: "flex", height: "600px"}}>
+        <div className="map-body-wrap" style={{display: "flex", height: "calc(100vh - 330px)", minHeight: "500px"}}>
           {/* 감지 위치 목록 (좌측) */}
           <div className="map-list-wrap" style={{width: "340px", borderRight: "1px solid #e2e8f0", display: "flex", flexDirection: "column", background: "#f8fafc"}}>
             <div style={{padding: "16px 20px", borderBottom: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center", background: "#ffffff"}}>
@@ -456,7 +456,7 @@ export default function Dashboard() {
           </div>
 
           {/* 카카오맵 (우측) */}
-          <div className="map-container-wrap" style={{flex: 1, position: "relative", background: "#f1f5f9", minHeight: "600px"}}>
+          <div className="map-container-wrap" style={{flex: 1, position: "relative", background: "#f1f5f9"}}>
             <div id="kakao-map" style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></div>
           </div>
         </div>
