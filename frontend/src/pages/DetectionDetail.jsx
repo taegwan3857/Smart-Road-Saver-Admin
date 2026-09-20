@@ -211,7 +211,7 @@ export default function DetectionDetail() {
             </div>
             <div className="info-item">
               <div className="info-label">누적 감지 횟수</div>
-              <div className="info-value">{data.cumulative_count ? `${data.cumulative_count}회` : '1회'}</div>
+              <div className="info-value">{(data.cumulative_count || data.detection_count || data.count) ? `${data.cumulative_count || data.detection_count || data.count}회` : '1회'}</div>
             </div>
             <div className="info-item">
               <div className="info-label">최초 감지 일시</div>
@@ -219,7 +219,7 @@ export default function DetectionDetail() {
                 {data.first_detected_at 
                   ? new Date(data.first_detected_at).toLocaleString('ko-KR') 
                   : (data.first_detected_at||data.detected_at||data.created_at 
-                      ? new Date(new Date(data.first_detected_at||data.detected_at||data.created_at).getTime() - (data.cumulative_count > 1 ? (data.cumulative_count * 60000) : 0)).toLocaleString('ko-KR') 
+                      ? new Date(new Date(data.first_detected_at||data.detected_at||data.created_at).getTime() - ((data.cumulative_count || data.detection_count || 1) > 1 ? ((data.cumulative_count || data.detection_count) * 60000) : 0)).toLocaleString('ko-KR') 
                       : '-')}
               </div>
             </div>

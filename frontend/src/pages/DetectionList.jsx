@@ -188,7 +188,7 @@ export default function DetectionList() {
       const risk = getRiskLabel(d.risk_level);
       const address = addresses[d.event_id||d.detection_id||d.id||d._id] || (d.latitude && d.longitude ? `${d.latitude}, ${d.longitude}` : "-");
       const conf = d.confidence ? `${d.confidence}%` : (d.score ? `${d.score}%` : "82%");
-      const count = d.cumulative_count ? `${d.cumulative_count}회` : "1회";
+      const count = (d.cumulative_count || d.detection_count || d.count) ? `${d.cumulative_count || d.detection_count || d.count}회` : "1회";
       return [id, time, vehicle, type, risk, address, conf, count].map(val => `"${String(val).replace(/"/g, '""')}"`).join(",");
     });
     const csvContent = "\uFEFF" + headers.join(",") + "\n" + rows.join("\n");
@@ -266,7 +266,7 @@ export default function DetectionList() {
                   <td><span className="badge medium" style={{background: "transparent", color: getRiskColor(d.risk_level)}}>{getRiskLabel(d.risk_level)}</span></td>
                   <td>{addresses[d.event_id||d.detection_id||d.id||d._id] || (d.latitude && d.longitude ? `${d.latitude}, ${d.longitude}` : '-')}</td>
                   <td>{d.confidence ? `${d.confidence}%` : (d.score ? `${d.score}%` : '82%')}</td>
-                  <td>{d.cumulative_count ? `${d.cumulative_count}회` : '1회'}</td>
+                  <td>{(d.cumulative_count || d.detection_count || d.count) ? `${d.cumulative_count || d.detection_count || d.count}회` : '1회'}</td>
                 </tr>
               ))}
             </tbody>
