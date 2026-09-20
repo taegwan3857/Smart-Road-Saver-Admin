@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { reportService } from '../services/reportService';
+import { getAddressFromCoords } from '../utils/geocoder';
 
 
 const formatAddress = (addr, lat, lng) => {
@@ -61,7 +62,6 @@ export default function ReportList() {
         setItems(fetchedItems);
         
         try {
-          const { getAddressFromCoords } = await import('../utils/geocoder');
           const addrMap = {};
           for (const d of fetchedItems) {
             const id = d.report_id||d.id||d._id;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CustomSelect from "../components/common/CustomSelect";
 import { dashboardService } from '../services/dashboardService';
 import { deviceService } from '../services/deviceService';
-import CustomSelect from "../components/common/CustomSelect";
+import { getAddressFromCoords } from '../utils/geocoder';
 
 const getHazardIcon = (type) => {
   const t = String(type || '').toUpperCase();
@@ -116,7 +117,6 @@ export default function Dashboard() {
         
         // Fetch missing road addresses using Geocoder
         try {
-          const { getAddressFromCoords } = await import('../utils/geocoder');
           let changed = false;
           const newAddrMap = { ...currentAddresses };
           for (const d of list) {
@@ -333,11 +333,9 @@ export default function Dashboard() {
             addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
           } else {
             addr.innerText = '주소 정보 확인 중...';
-            import('../utils/geocoder').then(module => {
-              module.getAddressFromCoords(ev.latitude, ev.longitude).then(res => {
-                if (res) addr.innerText = res;
-                else addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
-              });
+            getAddressFromCoords(ev.latitude, ev.longitude).then(res => {
+              if (res) addr.innerText = res;
+              else addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
             });
           }
           
