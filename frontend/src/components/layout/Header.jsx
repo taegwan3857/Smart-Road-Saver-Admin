@@ -46,21 +46,25 @@ const playAlertSound = () => {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!AudioContext) return;
     const audioCtx = new AudioContext();
-    const oscillator = audioCtx.createOscillator();
-    const gainNode = audioCtx.createGain();
-    
-    oscillator.type = 'square';
-    oscillator.frequency.setValueAtTime(600, audioCtx.currentTime); // 600Hz
-    oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime + 0.1); // 1000Hz
-    
-    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); // volume
-    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
-    
-    oscillator.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
-    
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.3);
+
+    // 삼중 경고 비프 (삐삐삐!)
+    const beepTimes = [0, 0.15, 0.30]; // 3연타 간격
+    beepTimes.forEach((startTime) => {
+      const oscillator = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(1200, audioCtx.currentTime + startTime);
+
+      gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime + startTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + startTime + 0.1);
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      oscillator.start(audioCtx.currentTime + startTime);
+      oscillator.stop(audioCtx.currentTime + startTime + 0.1);
+    });
   } catch(e) {
     console.warn('Audio play failed', e);
   }
