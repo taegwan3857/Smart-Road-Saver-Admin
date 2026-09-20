@@ -306,6 +306,7 @@ export default function Dashboard() {
         iconContent.onclick = () => {
           setActiveEventId(evId);
           mapInstance.panTo(markerPosition);
+          openDetailModal(null, evId);
         };
         
         const customMarker = new window.kakao.maps.CustomOverlay({
@@ -363,8 +364,8 @@ export default function Dashboard() {
           const detailBtn = document.createElement('button');
           detailBtn.className = "overlay-detail-btn";
           detailBtn.innerHTML = '<i class="fas fa-search"></i><span>상세 정보 보기</span>';
-          detailBtn.onclick = () => {
-            openDetailModal(null, evId);
+          detailBtn.onclick = (e) => {
+            handleNavigateDetail(e, evId);
           };
           
           btnWrap.appendChild(detailBtn);
@@ -492,7 +493,7 @@ export default function Dashboard() {
                   <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className={`list-item ${navigatingId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? 'navigating-out' : ''}`} onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
                       <span className="badge medium" style={{background: "transparent", color: (ev.risk_level||'').toUpperCase()==='LOW' ? '#eab308' : '#ef4444', display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
-                      <button className="detail-link-btn" onClick={(e) => openDetailModal(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
+                      <button className="detail-link-btn" onClick={(e) => handleNavigateDetail(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{addresses[ev.event_id||ev.detection_id||ev.id||ev._id] || formatAddress(ev.address||ev.location, ev.latitude, ev.longitude)}</div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
