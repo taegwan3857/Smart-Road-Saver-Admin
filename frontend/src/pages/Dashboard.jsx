@@ -63,6 +63,7 @@ export default function Dashboard() {
   const [mapInstance, setMapInstance] = useState(null);
   const [activeEventId, setActiveEventId] = useState(null);
   const [navigatingId, setNavigatingId] = useState(null);
+  const [addresses, setAddresses] = useState({});
 
   const handleNavigateDetail = (e, id) => {
     e.stopPropagation();
@@ -104,13 +105,35 @@ export default function Dashboard() {
         if (devList.length > 0) setDeviceCount(devList.length);
         
         setSummary(summaryData);
-        let list = Array.isArray(eventsData) ? eventsData : (eventsData?.events || eventsData?.data || eventsData?.events || eventsData?.items || []);
+        const list = Array.isArray(eventsData) ? eventsData : (eventsData?.events || eventsData?.data || eventsData?.events || eventsData?.items || []);
         list.sort((a, b) => {
           const timeA = new Date(a.first_detected_at || a.created_at || a.detected_at || 0).getTime();
           const timeB = new Date(b.first_detected_at || b.created_at || b.detected_at || 0).getTime();
           return timeB - timeA;
         });
+        
         setEvents(list);
+        
+        // Fetch missing road addresses using Geocoder
+        try {
+          const { getAddressFromCoords } = await import('../utils/geocoder');
+          const addrMap = {};
+          for (const d of list) {
+            const id = d.event_id || d.detection_id || d.id || d._id;
+            const addr = d.address || d.location || d.road_address || d.address_name;
+            if (addr && addr !== 'null' && !addr.includes('GPS (') && !addr.includes('POINT')) {
+              addrMap[id] = formatAddress(addr, d.latitude, d.longitude);
+            } else if (d.latitude && d.longitude) {
+              addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
+            } else {
+              addrMap[id] = '주소 정보 없음';
+            }
+          }
+          setAddresses(addrMap);
+        } catch (addrErr) {
+          console.warn('Geocoding error in dashboard:', addrErr);
+        }
+        
       } catch (err) {
         console.error('Dashboard fetch error:', err);
       } finally {
@@ -449,7 +472,7 @@ export default function Dashboard() {
                       <span className="badge medium" style={{background: "transparent", color: (ev.risk_level||'').toUpperCase()==='HIGH' ? '#ef4444' : (ev.risk_level||'').toUpperCase()==='MEDIUM' ? '#f59e0b' : (ev.risk_level||'').toUpperCase()==='LOW' ? '#10b981' : '#64748b', display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
                       <button className="detail-link-btn" onClick={(e) => handleNavigateDetail(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
                     </div>
-                    <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{formatAddress(ev.address||ev.location, ev.latitude, ev.longitude)}</div>
+                    <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{addresses[ev.event_id||ev.detection_id||ev.id||ev._id] || formatAddress(ev.address||ev.location, ev.latitude, ev.longitude)}</div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                       <div style={{fontSize:"0.8rem",color:"#94a3b8"}}><i className="fas fa-map-marker-alt"></i> {ev.latitude||'-'}, {ev.longitude||'-'}</div>
                       <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>

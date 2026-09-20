@@ -51,11 +51,33 @@ export default function ReportList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchInput, setSearchInput] = useState('');
 
+  const [addresses, setAddresses] = useState({});
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await reportService.getReports();
-        setItems(Array.isArray(data) ? data : (data?.reports || data?.items || []));
+        const fetchedItems = Array.isArray(data) ? data : (data?.reports || data?.items || []);
+        setItems(fetchedItems);
+        
+        try {
+          const { getAddressFromCoords } = await import('../utils/geocoder');
+          const addrMap = {};
+          for (const d of fetchedItems) {
+            const id = d.report_id||d.id||d._id;
+            const addr = d.address || d.location || d.road_address || d.address_name;
+            if (addr && addr !== 'null' && !addr.includes('GPS (') && !addr.includes('POINT')) {
+              addrMap[id] = formatAddress(addr, d.latitude, d.longitude);
+            } else if (d.latitude && d.longitude) {
+              addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
+            } else {
+              addrMap[id] = '주소 정보 없음';
+            }
+          }
+          setAddresses(addrMap);
+        } catch (e) {
+          console.warn('Geocoding error in report list:', e);
+        }
       } catch (err) { console.error(err); }
       finally { setIsLoading(false); }
     };
@@ -146,7 +168,7 @@ export default function ReportList() {
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" checked={selectedIds.includes(r.report_id||r.id||r._id)} onChange={(e) => handleSelectOne(e, r.report_id||r.id||r._id)} /></td>
                   <td style={{fontWeight:"500"}}>{r.report_id||r.id||r._id||'-'}</td>
                   <td>{translateType(r.type||r.event_type||r.obstacle_type)}</td>
-                  <td>{formatAddress(r.address||r.location, r.latitude, r.longitude)}</td>
+                  <td>{addresses[r.report_id||r.id||r._id] || formatAddress(r.address||r.location, r.latitude, r.longitude)}</td>
                   <td>{r.created_at ? new Date(r.created_at).toLocaleString('ko-KR') : '-'}</td>
                   <td>{r.author||r.created_by||'-'}</td>
                   <td><span className={`badge ${getStatusBadge(r.status)}`}>{r.status||'결재 대기'}</span></td>
