@@ -224,17 +224,6 @@ export default function DetectionList() {
         {/* Filters */}
         <div className="board-filters">
           <div className="filter-group">
-            <select 
-              value={itemsPerPage} 
-              onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }} 
-              style={{ padding: '8px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#fff', color: '#475569', fontSize: '0.95rem', cursor: 'pointer', outline: 'none', minWidth: '130px' }}
-            >
-              <option value={10}>10개씩 보기</option>
-              <option value={15}>15개씩 보기</option>
-              <option value={30}>30개씩 보기</option>
-              <option value={50}>50개씩 보기</option>
-              <option value={100}>100개씩 보기</option>
-            </select>
             <CustomSelect options={["전체 기간", "오늘", "최근 1주일", "최근 1개월"]} value={periodFilter} onChange={setPeriodFilter} />
             <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물"]} value={typeFilter} onChange={setTypeFilter} />
             <CustomSelect options={[
@@ -250,6 +239,18 @@ export default function DetectionList() {
           <div className="filter-group">
             
             <button className="btn-outline" onClick={handleExcelDownload}><i className="fas fa-file-excel" style={{color:"#10b981"}}></i> 엑셀 다운로드</button>
+          
+            <CustomSelect 
+              options={[
+                { value: 10, label: '10개씩 보기' },
+                { value: 15, label: '15개씩 보기' },
+                { value: 30, label: '30개씩 보기' },
+                { value: 50, label: '50개씩 보기' },
+                { value: 100, label: '100개씩 보기' }
+              ]} 
+              value={itemsPerPage} 
+              onChange={(val) => { setItemsPerPage(Number(val)); setCurrentPage(1); }} 
+            />
           </div>
         </div>
 

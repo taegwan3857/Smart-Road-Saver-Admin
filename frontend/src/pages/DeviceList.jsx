@@ -64,22 +64,23 @@ export default function DeviceList() {
       <div className="panel">
         <div className="board-filters">
           <div className="filter-group">
-            <select 
-              value={itemsPerPage} 
-              onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }} 
-              style={{ padding: '8px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#fff', color: '#475569', fontSize: '0.95rem', cursor: 'pointer', outline: 'none', minWidth: '130px' }}
-            >
-              <option value={10}>10개씩 보기</option>
-              <option value={15}>15개씩 보기</option>
-              <option value={30}>30개씩 보기</option>
-              <option value={50}>50개씩 보기</option>
-              <option value={100}>100개씩 보기</option>
-            </select>
             <CustomSelect options={["네트워크 상태 전체", "연결됨 (Online)", "연결 끊김 (Offline)"]} value={statusFilter} onChange={setStatusFilter} />
             <div className="search-box">
               <input type="text" className="form-input" placeholder="장치 ID 검색" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown} />
               <button className="btn-primary" onClick={handleSearch}>검색</button>
             </div>
+          
+            <CustomSelect 
+              options={[
+                { value: 10, label: '10개씩 보기' },
+                { value: 15, label: '15개씩 보기' },
+                { value: 30, label: '30개씩 보기' },
+                { value: 50, label: '50개씩 보기' },
+                { value: 100, label: '100개씩 보기' }
+              ]} 
+              value={itemsPerPage} 
+              onChange={(val) => { setItemsPerPage(Number(val)); setCurrentPage(1); }} 
+            />
           </div>
         </div>
 
