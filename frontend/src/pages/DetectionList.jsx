@@ -64,7 +64,7 @@ export default function DetectionList() {
           const id = d.event_id||d.detection_id||d.id||d._id;
           // events API가 도로명 주소를 제공하므로 우선 사용
           const addr = d.address || d.location || d.road_address || d.address_name;
-          if (addr && addr !== 'null') {
+          if (addr && addr !== 'null' && !addr.includes('GPS (')) {
             addrMap[id] = addr;
           } else if (d.latitude && d.longitude) {
             addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';

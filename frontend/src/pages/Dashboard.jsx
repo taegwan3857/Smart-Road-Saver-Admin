@@ -294,7 +294,19 @@ export default function Dashboard() {
           
           const addr = document.createElement('div');
           addr.style.cssText = "font-size:13px; color:#64748b; margin-bottom:12px; word-break:keep-all;";
-          addr.innerText = formatAddress(ev.address||ev.location, ev.latitude, ev.longitude);
+          
+          const rawAddr = ev.address||ev.location;
+          if (rawAddr && !rawAddr.includes('GPS (') && !rawAddr.includes('POINT')) {
+            addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
+          } else {
+            addr.innerText = '주소 정보 확인 중...';
+            import('../utils/geocoder').then(module => {
+              module.getAddressFromCoords(ev.latitude, ev.longitude).then(res => {
+                if (res) addr.innerText = res;
+                else addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
+              });
+            });
+          }
           
           const btnWrap = document.createElement('div');
           btnWrap.style.cssText = "display:flex; justify-content:flex-end;";

@@ -116,7 +116,7 @@ export default function DetectionDetail() {
           }
         }
         
-        if (addrStr && addrStr !== 'null') {
+        if (addrStr && addrStr !== 'null' && !addrStr.includes('GPS (')) {
           setDisplayAddress(addrStr);
         } else if (d.latitude && d.longitude) {
           setDisplayAddress(await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음');
