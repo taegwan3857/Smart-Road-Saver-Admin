@@ -105,17 +105,13 @@ export default function DetectionList() {
   
   const getRiskLabel = (rl) => {
     const r = (rl||'').toUpperCase();
-    if(r==='HIGH') return '높음';
-    if(r==='MEDIUM') return '주의';
     if(r==='LOW') return '낮음';
-    return r || '주의';
+    return '높음';
   };
   const getRiskColor = (rl) => {
     const r = (rl||'').toUpperCase();
-    if(r==='HIGH') return '#ef4444';
-    if(r==='MEDIUM') return '#f59e0b';
     if(r==='LOW') return '#10b981';
-    return '#64748b';
+    return '#ef4444';
   };
 
   const getStatusBadge = (status) => {

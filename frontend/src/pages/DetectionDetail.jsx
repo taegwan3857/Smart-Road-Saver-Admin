@@ -18,17 +18,13 @@ export default function DetectionDetail() {
 
   const getRiskLevelClass = (rl) => {
     const r = (rl||'').toUpperCase();
-    if(r==='HIGH') return 'high';
-    if(r==='MEDIUM') return 'medium';
     if(r==='LOW') return 'low';
-    return 'neutral';
+    return 'high';
   };
   const getRiskColors = (rl) => {
     const r = (rl||'').toUpperCase();
-    if(r==='HIGH') return { bg: 'rgba(239, 68, 68, 0.12)', fg: '#ef4444' };
-    if(r==='MEDIUM') return { bg: 'rgba(245, 158, 11, 0.15)', fg: '#f59e0b' };
     if(r==='LOW') return { bg: 'rgba(16, 185, 129, 0.15)', fg: '#10b981' };
-    return { bg: 'rgba(100, 116, 139, 0.15)', fg: '#64748b' };
+    return { bg: 'rgba(239, 68, 68, 0.12)', fg: '#ef4444' };
   };
 
   const translateType = (type) => {
@@ -235,7 +231,7 @@ export default function DetectionDetail() {
             </div>
             <div className="info-item">
               <div className="info-label">위험 유형 (분류)</div>
-              <div className="info-value"><span style={{color: (data.risk_level||'').toUpperCase() === 'HIGH' ? '#ef4444' : (data.risk_level||'').toUpperCase() === 'MEDIUM' ? '#f59e0b' : (data.risk_level||'').toUpperCase() === 'LOW' ? '#10b981' : 'var(--color-danger)', fontWeight: "700"}}>{translateType(data.obstacle_type||data.event_type||data.type)}</span></div>
+              <div className="info-value"><span style={{color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#10b981' : '#ef4444', fontWeight: "700"}}>{translateType(data.obstacle_type||data.event_type||data.type)}</span></div>
             </div>
             <div className="info-item">
               <div className="info-label">AI 신뢰도</div>
