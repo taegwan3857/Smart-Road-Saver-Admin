@@ -217,11 +217,10 @@ export default function DetectionList() {
         <div className="board-filters">
           <div className="filter-group">
             <CustomSelect options={["전체 기간", "오늘", "최근 1주일", "최근 1개월"]} value={periodFilter} onChange={setPeriodFilter} />
-            <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물", "젖은 노면"]} value={typeFilter} onChange={setTypeFilter} />
+            <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물"]} value={typeFilter} onChange={setTypeFilter} />
             <CustomSelect options={[
               { value: '', label: '위험도 전체' },
               { value: 'HIGH', label: '높음', color: '#ef4444' },
-              { value: 'MEDIUM', label: '주의', color: '#f59e0b' },
               { value: 'LOW', label: '낮음', color: '#10b981' }
             ]} value={riskFilter} onChange={setRiskFilter} />
             <div className="search-box">
