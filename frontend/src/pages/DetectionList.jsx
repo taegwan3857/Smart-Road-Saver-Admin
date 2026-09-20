@@ -4,6 +4,8 @@ import CustomSelect from "../components/common/CustomSelect";
 import { detectionService } from '../services/detectionService';
 import { getAddressFromCoords } from '../utils/geocoder';
 import Modal from '../components/common/Modal';
+import ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 const formatEventId = (id) => {
   if (!id) return "-";
@@ -184,7 +186,7 @@ export default function DetectionList() {
     return matchesSearch && matchesType && matchesPeriod && matchesRisk;
   });
 
-  const handleExcelDownload = () => {
+  const handleExcelDownload = async () => {
     if (selectedIds.length === 0) {
       setIsExcelModalOpen(true);
       return;
@@ -194,8 +196,58 @@ export default function DetectionList() {
       return selectedIds.includes(id);
     });
 
-    const headers = ["이벤트 ID", "감지 시간", "제보 차량", "유형", "위험도", "주소", "신뢰도", "누적 감지"];
-    const rows = itemsToDownload.map(d => {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('감지기록', { views: [{ showGridLines: false }] });
+
+    // Add title
+    worksheet.mergeCells('A1:H1');
+    const titleCell = worksheet.getCell('A1');
+    titleCell.value = 'Smart Road Saver 위험 요소 통합 감지 기록';
+    titleCell.font = { name: '맑은 고딕', size: 16, bold: true, color: { argb: 'FF1E293B' } };
+    titleCell.alignment = { vertical: 'middle', horizontal: 'center' };
+    
+    // Add subtitle / date
+    worksheet.mergeCells('A2:H2');
+    const subTitleCell = worksheet.getCell('A2');
+    subTitleCell.value = `추출 일시: ${new Date().toLocaleString('ko-KR')}`;
+    subTitleCell.font = { name: '맑은 고딕', size: 10, color: { argb: 'FF64748B' } };
+    subTitleCell.alignment = { vertical: 'middle', horizontal: 'right' };
+
+    worksheet.addRow([]); // empty row
+
+    // Columns
+    worksheet.columns = [
+      { header: '이벤트 ID', key: 'id', width: 18 },
+      { header: '감지 시간', key: 'time', width: 25 },
+      { header: '제보 차량', key: 'vehicle', width: 15 },
+      { header: '유형', key: 'type', width: 12 },
+      { header: '위험도', key: 'risk', width: 10 },
+      { header: '주소', key: 'address', width: 45 },
+      { header: '신뢰도', key: 'conf', width: 10 },
+      { header: '누적 감지', key: 'count', width: 10 }
+    ];
+
+    // Style header row (Row 4)
+    const headerRow = worksheet.getRow(4);
+    headerRow.eachCell((cell) => {
+      cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'FFF8FAFC' }
+      };
+      cell.font = { name: '맑은 고딕', size: 11, bold: true, color: { argb: 'FF334155' } };
+      cell.alignment = { vertical: 'middle', horizontal: 'center' };
+      cell.border = {
+        top: { style: 'thick', color: { argb: 'FF94A3B8' } },
+        bottom: { style: 'medium', color: { argb: 'FFCBD5E1' } },
+        left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+        right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+      };
+    });
+    headerRow.height = 25;
+
+    // Add data
+    itemsToDownload.forEach((d) => {
       const id = formatEventId(d.event_id||d.detection_id||d.id||d._id);
       const time = d.first_detected_at||d.detected_at||d.created_at ? new Date(d.first_detected_at||d.detected_at||d.created_at).toLocaleString("ko-KR") : "-";
       const vehicle = d.reported_vehicle||d.vehicle_number||"연결 장치";
@@ -204,17 +256,33 @@ export default function DetectionList() {
       const address = addresses[d.event_id||d.detection_id||d.id||d._id] || (d.latitude && d.longitude ? `${d.latitude}, ${d.longitude}` : "-");
       const conf = d.confidence ? `${d.confidence}%` : (d.score ? `${d.score}%` : "82%");
       const count = (d.cumulative_count || d.detection_count || d.count) ? `${d.cumulative_count || d.detection_count || d.count}회` : "1회";
-      return [id, time, vehicle, type, risk, address, conf, count].map(val => `"${String(val).replace(/"/g, '""')}"`).join(",");
+      
+      const row = worksheet.addRow({ id, time, vehicle, type, risk, address, conf, count });
+      
+      row.eachCell((cell, colNumber) => {
+        cell.font = { name: '맑은 고딕', size: 10, color: { argb: 'FF334155' } };
+        cell.border = {
+          bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+          right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+        };
+        
+        if (colNumber === 6) { // Address
+          cell.alignment = { vertical: 'middle', horizontal: 'left', wrapText: true };
+        } else {
+          cell.alignment = { vertical: 'middle', horizontal: 'center' };
+        }
+        
+        if (colNumber === 5) { // Risk
+          if (risk === '높음') cell.font = { name: '맑은 고딕', size: 10, bold: true, color: { argb: 'FFEF4444' } };
+          else if (risk === '낮음') cell.font = { name: '맑은 고딕', size: 10, bold: true, color: { argb: 'FFEAB308' } };
+        }
+      });
+      row.height = 24;
     });
-    const csvContent = "\uFEFF" + headers.join(",") + "\n" + rows.join("\n");
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.setAttribute("href", url);
-    link.setAttribute("download", `감지기록_${new Date().toISOString().slice(0,10)}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+
+    const buffer = await workbook.xlsx.writeBuffer();
+    saveAs(new Blob([buffer]), `Smart_Road_Saver_감지기록_${new Date().toISOString().slice(0,10)}.xlsx`);
   };
 
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage) || 1;
