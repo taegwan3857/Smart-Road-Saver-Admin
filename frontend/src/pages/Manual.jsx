@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 
+const InfoBox = ({ title, icon, children }) => (
+  <div style={{ background: '#f8fafc', padding: '20px', borderRadius: '8px', marginTop: '16px', marginBottom: '24px' }}>
+    <h4 style={{ margin: '0 0 12px 0', color: 'var(--primary-color)', fontSize: '1.05rem' }}>
+      <i className={`fas ${icon}`} style={{marginRight:'8px'}}></i>{title}
+    </h4>
+    <div style={{ margin: 0, color: 'var(--text-main)', lineHeight: '1.6' }}>
+      {children}
+    </div>
+  </div>
+);
+
 export default function Manual() {
   const [activeTab, setActiveTab] = useState('dashboard');
 
@@ -54,14 +65,13 @@ export default function Manual() {
                 <img src="/images/manual/dashboard.png" alt="대시보드 화면" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
 
-              <div style={{ background: '#f1f5f9', padding: '20px', borderRadius: '8px' }}>
-                <h4 style={{ margin: '0 0 12px 0', color: 'var(--primary-color)' }}><i className="fas fa-lightbulb" style={{marginRight:'8px'}}></i>활용 팁</h4>
-                <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--text-main)', lineHeight: '1.6' }}>
+              <InfoBox title="활용 팁" icon="fa-lightbulb">
+                <ul style={{ margin: 0, paddingLeft: '20px' }}>
                   <li><strong>위치 이동:</strong> 좌측 목록에서 특정 이벤트를 클릭하면 지도가 해당 위치로 자동 이동하며 마커가 강조됩니다.</li>
                   <li><strong>실시간 알림:</strong> 새로운 위험 요소가 발견될 경우 상단 헤더 영역에 알림이 표시되며 경고음이 울립니다.</li>
                   <li><strong>필터링:</strong> 지도 우측 상단의 필터를 통해 원하는 위험 유형과 위험도만 골라서 볼 수 있습니다.</li>
                 </ul>
-              </div>
+              </InfoBox>
             </div>
           )}
 
@@ -78,19 +88,26 @@ export default function Manual() {
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px' }}>
                 <img src="/images/manual/detection_list.png" alt="감지 기록 목록" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '32px', paddingLeft: '12px', borderLeft: '3px solid var(--border-light)' }}>
-                다양한 필터(기간, 위험 유형, 위험도)와 검색을 통해 원하는 데이터를 쉽게 찾아낼 수 있으며, 필요한 경우 목록 우측 상단의 <strong>[엑셀 다운로드]</strong> 버튼을 눌러 데이터를 추출할 수 있습니다.
-              </p>
+
+              <InfoBox title="데이터 활용 및 추출" icon="fa-search">
+                <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                  <li>다양한 필터(기간, 위험 유형, 위험도)와 검색을 통해 원하는 데이터를 쉽게 찾아낼 수 있습니다.</li>
+                  <li>필요한 경우 목록 우측 상단의 <strong>[엑셀 다운로드]</strong> 버튼을 눌러 데이터를 추출할 수 있습니다.</li>
+                </ul>
+              </InfoBox>
 
               <h4 style={{ fontSize: '1.1rem', marginBottom: '12px' }}>2. 감지 상세 (원본 이미지 확인)</h4>
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px' }}>
                 <img src="/images/manual/detection_detail.png" alt="감지 기록 상세" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
-              <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--text-main)', lineHeight: '1.6' }}>
-                <li style={{ marginBottom: '8px' }}>목록에서 특정 항목을 클릭하면 나타나는 상세 창입니다.</li>
-                <li style={{ marginBottom: '8px' }}>AI가 식별한 위험 요소(포트홀, 블랙아이스, 장애물 등)가 이미지 내에 <strong>바운딩 박스(노란색/빨간색 네모)</strong>로 표시됩니다.</li>
-                <li>오탐(잘못 감지된 건)으로 판단되는 경우 상단의 [오탐 처리] 버튼을 눌러 통계 및 지도에서 제외할 수 있습니다.</li>
-              </ul>
+
+              <InfoBox title="상세 정보 및 오탐 처리" icon="fa-info-circle">
+                <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                  <li>목록에서 특정 항목을 클릭하면 나타나는 상세 창입니다.</li>
+                  <li>AI가 식별한 위험 요소(포트홀, 블랙아이스, 장애물 등)가 이미지 내에 <strong>바운딩 박스(노란색/빨간색 네모)</strong>로 표시됩니다.</li>
+                  <li>오탐(잘못 감지된 건)으로 판단되는 경우 상단의 <strong>[오탐 처리]</strong> 버튼을 눌러 통계 및 지도에서 제외할 수 있습니다.</li>
+                </ul>
+              </InfoBox>
             </div>
           )}
 
@@ -106,21 +123,25 @@ export default function Manual() {
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px' }}>
                 <img src="/images/manual/report_list.png" alt="신고 문서 목록" style={{ maxWidth: '850px', width: '100%', margin: '0 auto', display: 'block' }} />
               </div>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '32px', paddingLeft: '12px', borderLeft: '3px solid var(--border-light)' }}>
-                고위험(높음)으로 판단된 감지 건들은 자동으로 시스템(SYSTEM)에 의해 신고 문서가 작성되며 상태가 '신고 완료'로 전환됩니다.
-              </p>
+
+              <InfoBox title="자동 발송 알림" icon="fa-robot">
+                <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                  <li>고위험(높음)으로 판단된 감지 건들은 <strong>자동으로 시스템(SYSTEM)에 의해 신고 문서가 작성</strong>됩니다.</li>
+                  <li>작성이 완료된 문서는 상태가 '신고 완료'로 전환되며 유관 부서로 자동 전달됩니다.</li>
+                </ul>
+              </InfoBox>
 
               <h4 style={{ fontSize: '1.1rem', marginBottom: '12px' }}>2. 문서 인쇄 및 PDF 저장</h4>
               <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px', background: '#e2e8f0', padding: '24px' }}>
                 <img src="/images/manual/report_detail.png" alt="신고 문서 인쇄" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', display: 'block', borderRadius: '4px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }} />
               </div>
-              <div style={{ background: '#eff6ff', padding: '20px', borderRadius: '8px', borderLeft: '4px solid #3b82f6' }}>
-                <strong style={{ display: 'block', marginBottom: '8px', color: '#1d4ed8' }}><i className="fas fa-print" style={{marginRight:'8px'}}></i> 인쇄 전용 모드 지원</strong>
-                <p style={{ margin: '0', color: 'var(--text-main)', lineHeight: '1.6' }}>
-                  우측 상단의 <strong>[인쇄 / PDF 저장]</strong> 버튼을 누르거나 키보드 <code>Ctrl + P</code>를 누르면 자동으로 <strong>문서 용지 형태의 본문 내용만 깔끔하게 출력</strong>됩니다.<br/>
-                  (사이드바, 헤더, 불필요한 버튼 등은 인쇄 화면에서 자동으로 숨겨집니다.)
-                </p>
-              </div>
+
+              <InfoBox title="인쇄 전용 모드 지원" icon="fa-print">
+                <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                  <li>우측 상단의 <strong>[인쇄 / PDF 저장]</strong> 버튼을 누르거나 키보드 <code>Ctrl + P</code>를 누르면 <strong>문서 용지 형태의 본문 내용만 깔끔하게 출력</strong>됩니다.</li>
+                  <li>사이드바, 헤더, 불필요한 버튼 등은 인쇄 화면에서 자동으로 숨겨집니다.</li>
+                </ul>
+              </InfoBox>
             </div>
           )}
         </div>
