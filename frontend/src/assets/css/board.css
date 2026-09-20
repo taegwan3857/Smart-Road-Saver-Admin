@@ -8,7 +8,6 @@
   margin-bottom: 20px;
   flex-wrap: nowrap;
   gap: 16px;
-  overflow-x: auto;
 }
 
 .filter-group {
