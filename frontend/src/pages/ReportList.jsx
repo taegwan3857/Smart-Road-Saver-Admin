@@ -179,35 +179,33 @@ export default function ReportList() {
         </div>
 
         
-        {totalPages > 1 && (
-          <div className="board-pagination">
-            <button className="page-btn" onClick={() => setCurrentPage(1)} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-double-left"></i></button>
-            <button className="page-btn" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-left"></i></button>
+        <div className="board-pagination">
+          <button className="page-btn" onClick={() => setCurrentPage(1)} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-double-left"></i></button>
+          <button className="page-btn" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} style={{cursor: currentPage===1?'default':'pointer', opacity: currentPage===1?0.5:1}}><i className="fas fa-angle-left"></i></button>
+          
+          {Array.from({length: Math.min(5, totalPages)}, (_, i) => {
+            // Show up to 5 pages around the current page
+            let start = Math.max(1, currentPage - 2);
+            let end = Math.min(totalPages, start + 4);
+            if (end - start < 4) start = Math.max(1, end - 4);
+            const p = start + i;
+            if (p > totalPages) return null;
             
-            {Array.from({length: Math.min(5, totalPages)}, (_, i) => {
-              // Show up to 5 pages around the current page
-              let start = Math.max(1, currentPage - 2);
-              let end = Math.min(totalPages, start + 4);
-              if (end - start < 4) start = Math.max(1, end - 4);
-              const p = start + i;
-              if (p > totalPages) return null;
-              
-              return (
-                <button 
-                  key={p} 
-                  className={`page-btn ${currentPage === p ? 'active' : ''}`}
-                  onClick={() => setCurrentPage(p)}
-                  style={{cursor: 'pointer'}}
-                >
-                  {p}
-                </button>
-              );
-            })}
-            
-            <button className="page-btn" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-right"></i></button>
-            <button className="page-btn" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-double-right"></i></button>
-          </div>
-        )}
+            return (
+              <button 
+                key={p} 
+                className={`page-btn ${currentPage === p ? 'active' : ''}`}
+                onClick={() => setCurrentPage(p)}
+                style={{cursor: 'pointer'}}
+              >
+                {p}
+              </button>
+            );
+          })}
+          
+          <button className="page-btn" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-right"></i></button>
+          <button className="page-btn" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages} style={{cursor: currentPage===totalPages?'default':'pointer', opacity: currentPage===totalPages?0.5:1}}><i className="fas fa-angle-double-right"></i></button>
+        </div>
       </div>
     </div>
   );
