@@ -41,11 +41,15 @@ const formatAddress = (addr, lat, lng) => {
   // 불필요한 '대한민국 ' 제거
   str = str.replace(/^대한민국\s+/, '');
   
-  // PostGIS POINT 등 형태면 좌표로 변환 (또는 위경도로 대체)
   if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
     if (lat && lng) return `${lat}, ${lng}`;
     return '위치 정보 없음';
   }
+  
+  if (/GPS/i.test(str)) {
+    return '도로명 주소 변환 중...';
+  }
+  
   return str;
 };
 
@@ -116,29 +120,34 @@ export default function Dashboard() {
         setEvents(list);
         
         // Fetch missing road addresses using Geocoder
-        try {
-          let changed = false;
-          const newAddrMap = { ...currentAddresses };
-          for (const d of list) {
-            const id = d.event_id || d.detection_id || d.id || d._id;
-            if (newAddrMap[id]) continue; // ALREADY GEOCODED
+        for (const d of list) {
+          const id = d.event_id || d.detection_id || d.id || d._id;
+          
+          setAddresses(prev => {
+            if (prev[id]) return prev; // Already have it in state
             
-            changed = true;
-            const addr = d.address || d.location || d.road_address || d.address_name;
-            if (addr && addr !== 'null' && !/GPS/i.test(addr) && !/POINT/i.test(addr)) {
-              newAddrMap[id] = formatAddress(addr, d.latitude, d.longitude);
-            } else if (d.latitude && d.longitude) {
-              newAddrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
-            } else {
-              newAddrMap[id] = '주소 정보 없음';
-            }
-          }
-          if (changed) {
-            currentAddresses = newAddrMap;
-            setAddresses(newAddrMap);
-          }
-        } catch (addrErr) {
-          console.warn('Geocoding error in dashboard:', addrErr);
+            // It's not in state, let's fetch it asynchronously without blocking the loop
+            const fetchAddr = async () => {
+              try {
+                let finalAddr = '주소 정보 없음';
+                const addr = d.address || d.location || d.road_address || d.address_name;
+                
+                if (addr && addr !== 'null' && !/GPS/i.test(addr) && !/POINT/i.test(addr)) {
+                  finalAddr = formatAddress(addr, d.latitude, d.longitude);
+                } else if (d.latitude && d.longitude) {
+                  finalAddr = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
+                }
+                
+                setAddresses(curr => ({ ...curr, [id]: finalAddr }));
+              } catch (e) {
+                console.warn('Geocoding error for id', id, e);
+              }
+            };
+            fetchAddr();
+            
+            // Mark as '변환 중...' temporarily so we don't refetch
+            return { ...prev, [id]: '도로명 주소 변환 중...' };
+          });
         }
         
       } catch (err) {

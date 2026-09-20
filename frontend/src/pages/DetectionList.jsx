@@ -59,20 +59,31 @@ export default function DetectionList() {
         const data = await detectionService.getDetections();
         const fetchedItems = Array.isArray(data) ? data : (data?.data || data?.detections || data?.items || []);
         setItems(fetchedItems);
-        const addrMap = {};
         for (const d of fetchedItems) {
           const id = d.event_id||d.detection_id||d.id||d._id;
-          // events API가 도로명 주소를 제공하므로 우선 사용
-          const addr = d.address || d.location || d.road_address || d.address_name;
-          if (addr && addr !== 'null' && !/GPS/i.test(addr)) {
-            addrMap[id] = addr;
-          } else if (d.latitude && d.longitude) {
-            addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
-          } else {
-            addrMap[id] = '주소 정보 없음';
-          }
+          
+          setAddresses(prev => {
+            if (prev[id]) return prev;
+            
+            const fetchAddr = async () => {
+              try {
+                let finalAddr = '주소 정보 없음';
+                const addr = d.address || d.location || d.road_address || d.address_name;
+                if (addr && addr !== 'null' && !/GPS/i.test(addr) && !/POINT/i.test(addr)) {
+                  let str = addr.replace(/^대한민국\s+/, '');
+                  finalAddr = str;
+                } else if (d.latitude && d.longitude) {
+                  finalAddr = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
+                }
+                setAddresses(curr => ({ ...curr, [id]: finalAddr }));
+              } catch (e) {
+                console.warn(e);
+              }
+            };
+            fetchAddr();
+            return { ...prev, [id]: '도로명 주소 변환 중...' };
+          });
         }
-        setAddresses(addrMap);
       } catch (err) { console.error(err); }
       finally { setIsLoading(false); }
     };
