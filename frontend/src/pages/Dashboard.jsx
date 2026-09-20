@@ -303,6 +303,7 @@ export default function Dashboard() {
         const isActive = activeEventId === evId;
         iconContent.style.cssText = `width:${isActive?38:32}px;height:${isActive?38:32}px;background:${bgColor};color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 6px rgba(0,0,0,0.3);border:2px solid white;font-size:${isActive?18:14}px;cursor:pointer;transition:all 0.2s; position:relative; z-index: ${isActive?50:10};`;
         iconContent.innerHTML = `<i class="${iconClass}"></i>`;
+        if (isActive) iconContent.classList.add('marker-active-jump');
         iconContent.onclick = () => {
           setActiveEventId(evId);
           mapInstance.panTo(markerPosition);

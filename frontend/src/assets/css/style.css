@@ -1077,3 +1077,13 @@ button, .btn-primary, .btn-secondary, .btn-outline, .btn-danger, .btn-back {
   background: rgba(255, 255, 255, 0.1);
   transform: rotate(90deg);
 }
+
+/* Map Marker Jump Animation */
+@keyframes markerJump {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+.marker-active-jump {
+  animation: markerJump 0.4s ease-in-out 4; /* Bounces 4 times */
+}
