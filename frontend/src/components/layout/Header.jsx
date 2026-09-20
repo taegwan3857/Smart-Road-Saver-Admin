@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { detectionService } from '../../services/detectionService';
-import DetectionDetailModal from "../common/DetectionDetailModal";
 
 import { authService } from '../../services/authService';
 import { getAddressFromCoords } from '../../utils/geocoder';
@@ -148,16 +147,10 @@ export default function Header() {
     return () => clearInterval(timer);
   }, []);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalId, setModalId] = useState(null);
-
-  const handleTickerClick = () => {
+    const handleTickerClick = () => {
     if (latestEvent) {
       const id = latestEvent.event_id || latestEvent.detection_id || latestEvent.id || latestEvent._id;
-      if (id) {
-        setModalId(id);
-        setIsModalOpen(true);
-      }
+      if (id) navigate(`/detections/${id}`);
     }
   };
 
@@ -208,11 +201,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <DetectionDetailModal 
-        isOpen={isModalOpen} 
-        id={modalId} 
-        onClose={() => setIsModalOpen(false)} 
-      />
-    </>
+          </>
   );
 }
