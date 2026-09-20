@@ -66,7 +66,7 @@ export default function ReportList() {
           for (const d of fetchedItems) {
             const id = d.report_id||d.id||d._id;
             const addr = d.address || d.location || d.road_address || d.address_name;
-            if (addr && addr !== 'null' && !addr.includes('GPS (') && !addr.includes('POINT')) {
+            if (addr && addr !== 'null' && !/GPS/i.test(addr) && !/POINT/i.test(addr)) {
               addrMap[id] = formatAddress(addr, d.latitude, d.longitude);
             } else if (d.latitude && d.longitude) {
               addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';

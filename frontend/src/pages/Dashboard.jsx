@@ -125,7 +125,7 @@ export default function Dashboard() {
             
             changed = true;
             const addr = d.address || d.location || d.road_address || d.address_name;
-            if (addr && addr !== 'null' && !addr.includes('GPS (') && !addr.includes('POINT')) {
+            if (addr && addr !== 'null' && !/GPS/i.test(addr) && !/POINT/i.test(addr)) {
               newAddrMap[id] = formatAddress(addr, d.latitude, d.longitude);
             } else if (d.latitude && d.longitude) {
               newAddrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
@@ -329,7 +329,7 @@ export default function Dashboard() {
           addr.style.cssText = "font-size:13px; color:#64748b; margin-bottom:12px; word-break:keep-all;";
           
           const rawAddr = ev.address||ev.location;
-          if (rawAddr && !rawAddr.includes('GPS (') && !rawAddr.includes('POINT')) {
+          if (rawAddr && !/GPS/i.test(rawAddr) && !/POINT/i.test(rawAddr)) {
             addr.innerText = formatAddress(rawAddr, ev.latitude, ev.longitude);
           } else {
             addr.innerText = '주소 정보 확인 중...';

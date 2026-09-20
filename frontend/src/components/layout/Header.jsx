@@ -130,7 +130,7 @@ export default function Header() {
 
           // events API가 도로명 주소를 제공하므로 직접 사용
           const addr = event.address || event.location || event.road_address || event.address_name;
-          if (addr && !addr.includes('GPS (')) {
+          if (addr && !/GPS/i.test(addr)) {
             setEventAddress(formatAddress(addr));
           } else if (event.latitude && event.longitude) {
             const geoAddr = await getAddressFromCoords(event.latitude, event.longitude);
