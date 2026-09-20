@@ -37,6 +37,7 @@ export default function CustomSelect({ options, value, onChange, className = "fo
       >
         <span className="trigger-text" style={{display:'flex', alignItems:'center'}}>
           {currentColor && <span style={{display:'inline-block', width:'10px', height:'10px', borderRadius:'50%', backgroundColor:currentColor, marginRight:'8px'}}></span>}
+          {currentIcon && <i className={currentIcon} style={{marginRight:'8px', color:'var(--text-muted)'}}></i>}
           {currentLabel}
         </span>
         <i className="fas fa-chevron-down" style={{fontSize:"0.8rem", color:"var(--text-muted)"}}></i>
@@ -59,6 +60,7 @@ export default function CustomSelect({ options, value, onChange, className = "fo
               >
                 <i className="fas fa-check check-icon" style={{marginRight:'8px'}}></i>
                 {optColor && <span style={{display:'inline-block', width:'10px', height:'10px', borderRadius:'50%', backgroundColor:optColor, marginRight:'8px'}}></span>}
+                {optIcon && <i className={optIcon} style={{marginRight:'8px', color:'var(--text-muted)'}}></i>}
                 {optLabel}
               </div>
             );
