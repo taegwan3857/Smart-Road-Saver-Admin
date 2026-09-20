@@ -129,15 +129,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           color: '#ffffff'
         }}>
           <h2 style={{margin: 0, fontSize: '1.25rem', fontWeight: '700'}}>분석 정보</h2>
-          <button onClick={onClose} style={{
-            background: 'none', 
-            border: 'none', 
-            color: 'rgba(255,255,255,0.8)', 
-            fontSize: '1.5rem',
-            cursor: 'pointer',
-            padding: 0,
-            lineHeight: 1
-          }}>&times;</button>
+          <button onClick={onClose} className="modal-close-btn">&times;</button>
         </div>
 
         <div style={{padding: '24px', maxHeight: '75vh', overflowY: 'auto'}}>
