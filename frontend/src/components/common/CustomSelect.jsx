@@ -22,10 +22,12 @@ export default function CustomSelect({ options, value, onChange, className = "fo
   const getLabel = (opt) => typeof opt === 'object' ? opt.label : opt;
   const getValue = (opt) => typeof opt === 'object' ? opt.value : opt;
   const getColor = (opt) => typeof opt === 'object' ? opt.color : null;
+  const getIcon = (opt) => typeof opt === 'object' ? opt.icon : null;
   
   const selectedOpt = options.find(opt => getValue(opt) === value);
   const currentLabel = selectedOpt ? getLabel(selectedOpt) : value;
   const currentColor = selectedOpt ? getColor(selectedOpt) : null;
+  const currentIcon = selectedOpt ? getIcon(selectedOpt) : null;
 
   return (
     <div className="custom-select-container" ref={containerRef} style={style}>
@@ -46,6 +48,7 @@ export default function CustomSelect({ options, value, onChange, className = "fo
             const optValue = getValue(opt);
             const optLabel = getLabel(opt);
             const optColor = getColor(opt);
+            const optIcon = getIcon(opt);
             const isSelected = value === optValue;
             return (
               <div 

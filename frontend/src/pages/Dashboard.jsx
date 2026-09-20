@@ -395,7 +395,12 @@ export default function Dashboard() {
             위험 위치 통합 모니터링
           </div>
           <div className="filter-group" style={{gap: "10px", margin: 0}}>
-            <CustomSelect options={["위험 유형 전체", "블랙아이스", "포트홀", "장애물"]} value={typeFilter} onChange={setTypeFilter} style={{width: "150px"}} />
+            <CustomSelect options={[
+              { value: "위험 유형 전체", label: "위험 유형 전체" },
+              { value: "블랙아이스", label: "블랙아이스", icon: "fas fa-snowflake" },
+              { value: "포트홀", label: "포트홀", icon: "fas fa-road" },
+              { value: "장애물", label: "장애물", icon: "fas fa-box-open" }
+            ]} value={typeFilter} onChange={setTypeFilter} style={{width: "150px"}} />
             <CustomSelect options={[
               { value: '', label: '위험도 전체' },
               { value: 'HIGH', label: '높음', color: '#ef4444' },
