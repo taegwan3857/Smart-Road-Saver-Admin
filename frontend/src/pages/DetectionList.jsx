@@ -199,36 +199,38 @@ export default function DetectionList() {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('감지기록', { views: [{ showGridLines: false }] });
 
-    // Add title
+    // Set Column Widths first
+    worksheet.getColumn(1).width = 18;
+    worksheet.getColumn(2).width = 25;
+    worksheet.getColumn(3).width = 15;
+    worksheet.getColumn(4).width = 12;
+    worksheet.getColumn(5).width = 10;
+    worksheet.getColumn(6).width = 45;
+    worksheet.getColumn(7).width = 10;
+    worksheet.getColumn(8).width = 10;
+
+    // Row 1: Title
     worksheet.mergeCells('A1:H1');
     const titleCell = worksheet.getCell('A1');
     titleCell.value = 'Smart Road Saver 위험 요소 통합 감지 기록';
     titleCell.font = { name: '맑은 고딕', size: 16, bold: true, color: { argb: 'FF1E293B' } };
     titleCell.alignment = { vertical: 'middle', horizontal: 'center' };
+    worksheet.getRow(1).height = 30;
     
-    // Add subtitle / date
+    // Row 2: Subtitle / date
     worksheet.mergeCells('A2:H2');
     const subTitleCell = worksheet.getCell('A2');
     subTitleCell.value = `추출 일시: ${new Date().toLocaleString('ko-KR')}`;
     subTitleCell.font = { name: '맑은 고딕', size: 10, color: { argb: 'FF64748B' } };
     subTitleCell.alignment = { vertical: 'middle', horizontal: 'right' };
 
-    worksheet.addRow([]); // empty row
+    // Row 3: Empty
+    worksheet.addRow([]); 
 
-    // Columns
-    worksheet.columns = [
-      { header: '이벤트 ID', key: 'id', width: 18 },
-      { header: '감지 시간', key: 'time', width: 25 },
-      { header: '제보 차량', key: 'vehicle', width: 15 },
-      { header: '유형', key: 'type', width: 12 },
-      { header: '위험도', key: 'risk', width: 10 },
-      { header: '주소', key: 'address', width: 45 },
-      { header: '신뢰도', key: 'conf', width: 10 },
-      { header: '누적 감지', key: 'count', width: 10 }
-    ];
-
-    // Style header row (Row 4)
-    const headerRow = worksheet.getRow(4);
+    // Row 4: Headers
+    const headers = ['이벤트 ID', '감지 시간', '제보 차량', '유형', '위험도', '주소', '신뢰도', '누적 감지'];
+    const headerRow = worksheet.addRow(headers);
+    headerRow.height = 25;
     headerRow.eachCell((cell) => {
       cell.fill = {
         type: 'pattern',
@@ -244,7 +246,6 @@ export default function DetectionList() {
         right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
       };
     });
-    headerRow.height = 25;
 
     // Add data
     itemsToDownload.forEach((d) => {
@@ -257,7 +258,7 @@ export default function DetectionList() {
       const conf = d.confidence ? `${d.confidence}%` : (d.score ? `${d.score}%` : "82%");
       const count = (d.cumulative_count || d.detection_count || d.count) ? `${d.cumulative_count || d.detection_count || d.count}회` : "1회";
       
-      const row = worksheet.addRow({ id, time, vehicle, type, risk, address, conf, count });
+      const row = worksheet.addRow([id, time, vehicle, type, risk, address, conf, count]);
       
       row.eachCell((cell, colNumber) => {
         cell.font = { name: '맑은 고딕', size: 10, color: { argb: 'FF334155' } };
