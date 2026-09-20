@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomSelect from "../components/common/CustomSelect";
+import DetectionDetailModal from "../components/common/DetectionDetailModal";
+
 import { dashboardService } from '../services/dashboardService';
 import { deviceService } from '../services/deviceService';
 import { getAddressFromCoords } from '../utils/geocoder';
@@ -70,10 +72,13 @@ export default function Dashboard() {
   const [navigatingId, setNavigatingId] = useState(null);
   const [addresses, setAddresses] = useState({});
 
-  const handleNavigateDetail = (e, id) => {
-    e.stopPropagation();
-    setNavigatingId(id);
-    setTimeout(() => { navigate(`/detections/${id}`); }, 250);
+  const [modalDetectionId, setModalDetectionId] = useState(null);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+
+  const openDetailModal = (e, id) => {
+    e?.stopPropagation();
+    setModalDetectionId(id);
+    setIsDetailModalOpen(true);
   };
   const markersRef = useRef([]);
   const overlayRef = useRef(null);
@@ -352,10 +357,7 @@ export default function Dashboard() {
           detailBtn.className = "overlay-detail-btn";
           detailBtn.innerHTML = '<i class="fas fa-search"></i><span>상세 정보 보기</span>';
           detailBtn.onclick = () => {
-            content.classList.add('overlay-navigating-out');
-            setTimeout(() => {
-              navigate(`/detections/${evId}`);
-            }, 200);
+            openDetailModal(null, evId);
           };
           
           btnWrap.appendChild(detailBtn);
@@ -483,7 +485,7 @@ export default function Dashboard() {
                   <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className={`list-item ${navigatingId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? 'navigating-out' : ''}`} onClick={() => handlePanTo(ev)} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
                       <span className="badge medium" style={{background: "transparent", color: (ev.risk_level||'').toUpperCase()==='LOW' ? '#10b981' : '#ef4444', display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
-                      <button className="detail-link-btn" onClick={(e) => handleNavigateDetail(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
+                      <button className="detail-link-btn" onClick={(e) => openDetailModal(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{addresses[ev.event_id||ev.detection_id||ev.id||ev._id] || formatAddress(ev.address||ev.location, ev.latitude, ev.longitude)}</div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
@@ -512,6 +514,12 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <DetectionDetailModal 
+        isOpen={isDetailModalOpen} 
+        id={modalDetectionId} 
+        onClose={() => setIsDetailModalOpen(false)} 
+      />
     </div>
   );
 }
