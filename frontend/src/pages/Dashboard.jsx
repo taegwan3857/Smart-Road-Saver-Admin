@@ -66,7 +66,7 @@ export default function Dashboard() {
   const [searchInput, setSearchInput] = useState('');
   const [typeFilter, setTypeFilter] = useState('위험 유형 전체');
   const [riskFilter, setRiskFilter] = useState('');
-  const [periodFilter, setPeriodFilter] = useState('전체 기간');
+  const [periodFilter, setPeriodFilter] = useState('오늘');
   const [mapInstance, setMapInstance] = useState(null);
   const [activeEventId, setActiveEventId] = useState(null);
   const [navigatingId, setNavigatingId] = useState(null);
