@@ -124,7 +124,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           display: 'flex', 
           justifyContent: 'space-between', 
           alignItems: 'center', 
-          padding: '20px 24px',
+          padding: '16px 24px',
           background: 'var(--primary-color)',
           color: '#ffffff'
         }}>
@@ -134,17 +134,17 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           </button>
         </div>
 
-        <div style={{padding: '20px', maxHeight: 'calc(90vh - 60px)', overflowY: 'auto'}}>
+        <div style={{padding: '16px', maxHeight: 'calc(90vh - 56px)', overflowY: 'auto'}}>
           {loading ? (
             <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터 불러오는 중</div>
           ) : !data ? (
             <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터를 찾을 수 없습니다.</div>
           ) : (
             <>
-              {/* Image Section */}
-              <div style={{position: 'relative', width: '100%', marginBottom: '24px', borderRadius: '8px', overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0'}}>
+              {/* Image Section - 원본 비율 */}
+              <div style={{position: 'relative', width: '100%', marginBottom: '12px', borderRadius: '8px', overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0'}}>
                 {imageUrl ? (
-                  <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', maxHeight: '200px', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
+                  <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
                 ) : (
                   <div style={{width: '100%', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8'}}>
                     원본 감지 데이터가 없음
@@ -153,47 +153,47 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                 
               </div>
 
-              {/* Grid Section */}
+              {/* Grid Section - 간격 축소 */}
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '12px'
+                gap: '8px'
               }}>
-                <div style={{background: '#ffffff', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>장애물 종류</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)'}}>{hazardTypeKor}</div>
+                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>장애물 종류</div>
+                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{hazardTypeKor}</div>
                 </div>
                 
-                <div style={{background: '#ffffff', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>위험 등급</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444'}}>
+                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>위험 등급</div>
+                  <div style={{fontSize: '1rem', fontWeight: '700', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444'}}>
                     {(data.risk_level||'').toUpperCase() === 'LOW' ? '낮음' : '높음'}
                   </div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0', gridColumn: '1 / -1'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>발생 주소</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)'}}>{address}</div>
+                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0', gridColumn: '1 / -1'}}>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>발생 주소</div>
+                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{address}</div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>최초 감지 시간</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
+                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>최초 감지 시간</div>
+                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>최근 갱신 시간</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
+                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>최근 갱신 시간</div>
+                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>누적 감지 횟수</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.cumulative_count || data.detection_count || data.count || 1}회 감지</div>
+                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>누적 감지 횟수</div>
+                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.cumulative_count || data.detection_count || data.count || 1}회 감지</div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '16px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.85rem', marginBottom: '4px'}}>공공기관 신고 상태</div>
-                  <div style={{fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.report_status ? '자동 신고 완료' : '미신고'}</div>
+                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>공공기관 신고 상태</div>
+                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.report_status ? '자동 신고 완료' : '미신고'}</div>
                 </div>
               </div>
             </>
