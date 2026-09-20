@@ -25,7 +25,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="sidebar-logo">
+      <div className="sidebar-logo" onClick={() => navigate("/")} style={{cursor: "pointer"}}>
         <i className="fas fa-shield-alt"></i>
         <span style={{marginLeft:"8px"}}>Smart Road Saver</span>
       </div>
