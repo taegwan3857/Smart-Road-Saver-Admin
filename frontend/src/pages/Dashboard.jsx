@@ -117,19 +117,26 @@ export default function Dashboard() {
         // Fetch missing road addresses using Geocoder
         try {
           const { getAddressFromCoords } = await import('../utils/geocoder');
-          const addrMap = {};
+          let changed = false;
+          const newAddrMap = { ...currentAddresses };
           for (const d of list) {
             const id = d.event_id || d.detection_id || d.id || d._id;
+            if (newAddrMap[id]) continue; // ALREADY GEOCODED
+            
+            changed = true;
             const addr = d.address || d.location || d.road_address || d.address_name;
             if (addr && addr !== 'null' && !addr.includes('GPS (') && !addr.includes('POINT')) {
-              addrMap[id] = formatAddress(addr, d.latitude, d.longitude);
+              newAddrMap[id] = formatAddress(addr, d.latitude, d.longitude);
             } else if (d.latitude && d.longitude) {
-              addrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
+              newAddrMap[id] = await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음';
             } else {
-              addrMap[id] = '주소 정보 없음';
+              newAddrMap[id] = '주소 정보 없음';
             }
           }
-          setAddresses(addrMap);
+          if (changed) {
+            currentAddresses = newAddrMap;
+            setAddresses(newAddrMap);
+          }
         } catch (addrErr) {
           console.warn('Geocoding error in dashboard:', addrErr);
         }
@@ -140,7 +147,10 @@ export default function Dashboard() {
         setIsLoading(false);
       }
     };
+    
     fetchData();
+    const intervalId = setInterval(fetchData, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   const getTypeColor = (type) => {
