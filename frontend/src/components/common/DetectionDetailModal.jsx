@@ -197,7 +197,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                 </div>
 
                 <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>공공기관 신고 상태</div>
+                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>신고 상태</div>
                   <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.report_status ? '자동 신고 완료' : '미신고'}</div>
                 </div>
               </div>
