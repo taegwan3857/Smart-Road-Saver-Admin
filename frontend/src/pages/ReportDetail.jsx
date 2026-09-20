@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { reportService } from '../services/reportService';
 import Modal from '../components/common/Modal';
+import { getAddressFromCoords } from '../utils/geocoder';
 
 const translateType = (type) => {
   if (!type) return '위험 요소';
@@ -12,28 +13,6 @@ const translateType = (type) => {
   if (t.includes('ANIMAL') || t.includes('CORPSE')) return '동물 사체';
   if (t.includes('WET_ROAD') || t.includes('젖은')) return '젖은 노면';
   return type;
-};
-
-
-const formatAddress = (addr, lat, lng) => {
-  if (!addr) {
-    if (lat && lng) return `${lat}, ${lng}`;
-    return '위치 정보 없음';
-  }
-  let str = String(addr);
-  if (str.startsWith('{')) {
-    try {
-      const obj = JSON.parse(str);
-      str = obj.road_address_name || obj.road_address || obj.address_name || str;
-    } catch(e) {}
-  }
-  str = str.replace(/^대한민국\s+/, '');
-  
-  if (str.includes('POINT') || /^[0-9a-fA-F]{20,}$/.test(str)) {
-    if (lat && lng) return `${lat}, ${lng}`;
-    return '위치 정보 없음';
-  }
-  return str;
 };
 
 export default function ReportDetail() {
@@ -47,12 +26,33 @@ export default function ReportDetail() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [displayAddress, setDisplayAddress] = useState('주소 정보 확인 중...');
   const [isRejectModalOpen, setIsRejectModalOpen] = useState(false);
   const [isApproveModalOpen, setIsApproveModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try { setData(await reportService.getReport(id)); }
+      try {
+        const d = await reportService.getReport(id);
+        setData(d);
+        
+        let addrStr = d.address || d.location || d.road_address || d.address_name;
+        if (addrStr && addrStr.startsWith('{')) {
+          try {
+            const obj = JSON.parse(addrStr);
+            addrStr = obj.road_address_name || obj.road_address || obj.address_name || addrStr;
+          } catch(e){}
+        }
+        if (addrStr) addrStr = addrStr.replace(/^대한민국\s+/, '');
+        
+        if (addrStr && addrStr !== 'null' && !/GPS/i.test(addrStr) && !/POINT/i.test(addrStr)) {
+          setDisplayAddress(addrStr);
+        } else if (d.latitude && d.longitude) {
+          setDisplayAddress(await getAddressFromCoords(d.latitude, d.longitude) || '주소 정보 없음');
+        } else {
+          setDisplayAddress('위치 정보 없음');
+        }
+      }
       catch (err) { console.error(err); }
       finally { setIsLoading(false); }
     };
@@ -168,7 +168,7 @@ export default function ReportDetail() {
             </tr>
             <tr>
               <th>발생 위치</th>
-              <td colSpan="3">{formatAddress(data.address||data.location, data.latitude, data.longitude)}</td>
+              <td colSpan="3">{displayAddress}</td>
             </tr>
             <tr>
               <th>GPS 좌표</th>
@@ -187,7 +187,7 @@ export default function ReportDetail() {
               3. 해당 구간은 차량 통행 시 2차 사고 발생 우려가 높으므로, 소관 부서의 신속한 현장 확인 및 안전 조치를 요청합니다.<br/><br/>
               <strong>[ 상세 내역 ]</strong><br/>
               가. 감지 일시 : {data.created_at ? new Date(data.created_at).toLocaleString('ko-KR') : '2026. 09. 04 18:32'}<br/>
-              나. 감지 위치 : {formatAddress(data.address||data.location, data.latitude, data.longitude)}<br/>
+              나. 감지 위치 : {displayAddress}<br/>
               다. 분석 결과 : AI 영상 판독 신뢰도 {data.confidence||'87'}%<br/>
               라. 조치 요청 : 현장 출동 및 즉각적인 위험 요소 제거<br/>
             </>
