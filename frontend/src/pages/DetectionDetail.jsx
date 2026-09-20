@@ -45,11 +45,11 @@ export default function DetectionDetail() {
   const getCategoryIcon = (type) => {
     const t = String(type).toUpperCase();
     if (t.includes('BLACK_ICE') || t.includes('블랙아이스')) return 'fa-snowflake';
-    if (t.includes('POTHOLE') || t.includes('포트홀')) return 'fa-exclamation-triangle';
-    if (t.includes('OBSTACLE') || t.includes('장애물')) return 'fa-traffic-cone';
+    if (t.includes('POTHOLE') || t.includes('포트홀')) return 'fa-road';
+    if (t.includes('OBSTACLE') || t.includes('장애물')) return 'fa-box-open';
     if (t.includes('ANIMAL') || t.includes('동물사체') || t.includes('CORPSE')) return 'fa-paw';
     if (t.includes('WET_ROAD') || t.includes('젖은')) return 'fa-tint';
-    return 'fa-image-slash';
+    return 'fa-exclamation-triangle';
   };
 
   const getImageUrl = (path) => {
