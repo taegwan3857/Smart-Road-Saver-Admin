@@ -86,6 +86,7 @@ export default function Header() {
         if (lastAnnouncedEventId.current) { // Prevent beep on very first load
           playAlertSound();
         }
+      }
     }
   }, [latestEvent, eventAddress]);
 
