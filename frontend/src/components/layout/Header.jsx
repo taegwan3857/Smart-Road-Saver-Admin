@@ -108,22 +108,6 @@ export default function Header() {
     };
     updateTime();
     const timer = setInterval(updateTime, 1000);
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add('dark-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark-theme');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDarkMode]);
-
-  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
-  
     return () => clearInterval(timer);
   }, []);
 
@@ -188,6 +172,23 @@ export default function Header() {
     const time = d.toLocaleTimeString('en-US', { hour12: false });
     return `${year}-${month}-${day} ${time}`;
   };
+
+
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
 
   return (
     <>
