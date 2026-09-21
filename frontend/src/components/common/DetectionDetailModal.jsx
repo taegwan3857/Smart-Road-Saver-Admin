@@ -157,48 +157,75 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                 
               </div>
 
-              {/* Grid Section - 간격 축소 */}
+              {/* Redesigned Info Panel */}
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '8px',
+                background: '#ffffff',
+                borderRadius: '12px',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
+                overflow: 'hidden',
                 flexShrink: 0
               }}>
-                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>장애물 종류</div>
-                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{hazardTypeKor}</div>
-                </div>
-                
-                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>위험 등급</div>
-                  <div style={{fontSize: '1rem', fontWeight: '700', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444'}}>
-                    {(data.risk_level||'').toUpperCase() === 'LOW' ? '낮음' : '높음'}
+                {/* Type & Risk */}
+                <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
+                  <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid #e2e8f0' }}>
+                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-car-crash" style={{color: '#94a3b8'}}></i> 장애물 종류
+                    </div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#1e293b' }}>{hazardTypeKor}</div>
+                  </div>
+                  <div style={{ flex: 1, padding: '14px 16px' }}>
+                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-exclamation-triangle" style={{color: '#94a3b8'}}></i> 위험 등급
+                    </div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: '800', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444' }}>
+                      {(data.risk_level||'').toUpperCase() === 'LOW' ? '낮음' : '높음'}
+                    </div>
                   </div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0', gridColumn: '1 / -1'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>발생 주소</div>
-                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{address}</div>
+                {/* Address */}
+                <div style={{ padding: '14px 16px', borderBottom: '1px solid #e2e8f0' }}>
+                  <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <i className="fas fa-map-marker-alt" style={{color: '#94a3b8'}}></i> 발생 주소
+                  </div>
+                  <div style={{ fontSize: '1rem', fontWeight: '600', color: '#334155' }}>{address}</div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>최초 감지 시간</div>
-                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
+                {/* Times */}
+                <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0' }}>
+                  <div style={{ flex: 1, padding: '12px 16px', borderRight: '1px solid #e2e8f0' }}>
+                    <div style={{ color: '#64748b', fontSize: '0.75rem', fontWeight: '600', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <i className="far fa-clock" style={{color: '#94a3b8'}}></i> 최초 감지 시간
+                    </div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: '500', color: '#475569' }}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
+                  </div>
+                  <div style={{ flex: 1, padding: '12px 16px' }}>
+                    <div style={{ color: '#64748b', fontSize: '0.75rem', fontWeight: '600', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <i className="fas fa-history" style={{color: '#94a3b8'}}></i> 최근 갱신 시간
+                    </div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: '500', color: '#475569' }}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
+                  </div>
                 </div>
 
-                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>최근 갱신 시간</div>
-                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
-                </div>
-
-                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>누적 감지 횟수</div>
-                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.cumulative_count || data.detection_count || data.count || 1}회 감지</div>
-                </div>
-
-                <div style={{background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
-                  <div style={{color: '#64748b', fontSize: '0.8rem', marginBottom: '2px'}}>신고 상태</div>
-                  <div style={{fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)'}}>{data.report_status ? '자동 신고 완료' : '미신고'}</div>
+                {/* Count & Status */}
+                <div style={{ display: 'flex', background: '#f8fafc' }}>
+                  <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid #e2e8f0' }}>
+                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-layer-group" style={{color: '#94a3b8'}}></i> 누적 감지 횟수
+                    </div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: '700', color: '#1e293b' }}>
+                      <span style={{ color: '#3b82f6', fontWeight: '800' }}>{data.cumulative_count || data.detection_count || data.count || 1}</span>회 감지
+                    </div>
+                  </div>
+                  <div style={{ flex: 1, padding: '14px 16px' }}>
+                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-shield-alt" style={{color: '#94a3b8'}}></i> 신고 상태
+                    </div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: '700', color: data.report_status ? '#10b981' : '#f59e0b', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      {data.report_status ? <><i className="fas fa-check-circle"></i> 자동 신고 완료</> : <><i className="fas fa-hourglass-half"></i> 미신고</>}
+                    </div>
+                  </div>
                 </div>
               </div>
             </>
