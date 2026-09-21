@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: var(--bg-body);
+  background-color: #f1f5f9;
   background-image: radial-gradient(circle at center, #ffffff 0%, #f4f7f9 100%);
 }
 
@@ -22,7 +22,7 @@
 
 .login-left {
   flex: 1;
-  background-color: var(--primary-color);
+  background-color: #1d3162;
   color: white;
   padding: 60px 40px;
   display: flex;
@@ -66,12 +66,12 @@
 .login-right h2 {
   font-size: 1.5rem;
   margin-bottom: 8px;
-  color: var(--text-main);
+  color: #1e293b;
   font-weight: 700;
 }
 
 .login-right p.subtitle {
-  color: var(--text-muted);
+  color: #64748b;
   margin-bottom: 32px;
   font-size: 0.95rem;
 }
@@ -84,14 +84,14 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--text-main);
+  color: #1e293b;
   font-size: 0.9rem;
 }
 
 .form-group input {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid var(--border-light);
+  border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 0.95rem;
   transition: all 0.2s;
@@ -100,7 +100,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: #1d3162;
   background-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(29, 49, 98, 0.1);
 }
@@ -108,7 +108,7 @@
 .btn-login {
   width: 100%;
   padding: 14px;
-  background-color: var(--primary-color);
+  background-color: #1d3162;
   color: white;
   border: none;
   border-radius: 6px;
@@ -120,7 +120,7 @@
 }
 
 .btn-login:hover {
-  background-color: var(--primary-hover);
+  background-color: #15244b;
 }
 
 @media (max-width: 900px) {

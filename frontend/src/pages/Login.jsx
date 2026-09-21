@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/authService';
 import Modal from '../components/common/Modal';
@@ -7,6 +7,12 @@ import './Login.css';
 export default function Login() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    // 로그인 페이지는 항상 라이트 모드로 고정
+    document.body.classList.remove('dark-theme');
+  }, []);
+
   const [userPw, setUserPw] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [modalState, setModalState] = useState({ isOpen: false, message: '', type: 'warning' });
