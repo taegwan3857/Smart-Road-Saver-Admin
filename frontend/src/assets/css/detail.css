@@ -86,7 +86,7 @@
   padding: 30px 40px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 1px 5px rgba(0,0,0,0.05);
   border-radius: 0;
-  color: #000;
+  color: var(--text-main);
   position: relative;
   font-family: 'KoPub Batang', 'Nanum Myeongjo', 'Batang', '바탕', 'Myeongjo', serif;
   border: 1px solid var(--border-light);
@@ -111,7 +111,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 1.1rem;
-  color: #1e3a8a;
+  color: var(--text-main);
   letter-spacing: -0.5px;
 }
 
@@ -124,7 +124,7 @@
   margin-bottom: 30px;
   padding-bottom: 15px;
   border-bottom: 2px solid #cbd5e1;
-  color: #0f172a;
+  color: var(--text-main);
 }
 
 .doc-approval-wrap {
@@ -189,7 +189,7 @@
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 25px;
-  border-top: 2px solid #334155;
+  border-top: 2px solid var(--text-main);
   font-family: 'Malgun Gothic', sans-serif;
 }
 
@@ -205,13 +205,13 @@
   font-weight: 600;
   text-align: left;
   width: 18%;
-  color: #475569;
+  color: var(--text-muted);
   border-right: 1px solid var(--border-light);
 }
 
 .doc-meta-table td {
   width: 32%;
-  color: #1e293b;
+  color: var(--text-main);
 }
 
 .doc-content {
@@ -256,7 +256,7 @@
   margin-bottom: 0px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--text-muted);
   letter-spacing: 1px;
   border-top: 1px solid #cbd5e1;
   padding-top: 10px;

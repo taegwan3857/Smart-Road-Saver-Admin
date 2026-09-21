@@ -105,9 +105,9 @@ export default function VehicleList() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}></td></tr>
+                <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"var(--text-light)"}}></td></tr>
               ) : filteredItems.length === 0 ? (
-                <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>등록된 차량이 없습니다.</td></tr>
+                <tr><td colSpan="8" style={{textAlign:"center",padding:"40px",color:"var(--text-light)"}}>등록된 차량이 없습니다.</td></tr>
               ) : currentItems.map((v) => (
                 <tr key={v.vehicle_id||v.id||v._id} onClick={()=>navigate(`/vehicles/${v.vehicle_id||v.id||v._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" /></td>

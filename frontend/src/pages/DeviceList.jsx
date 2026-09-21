@@ -97,9 +97,9 @@ export default function DeviceList() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr><td colSpan="6" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}></td></tr>
+                <tr><td colSpan="6" style={{textAlign:"center",padding:"40px",color:"var(--text-light)"}}></td></tr>
               ) : filteredItems.length === 0 ? (
-                <tr><td colSpan="6" style={{textAlign:"center",padding:"40px",color:"#94a3b8"}}>등록된 장치가 없습니다.</td></tr>
+                <tr><td colSpan="6" style={{textAlign:"center",padding:"40px",color:"var(--text-light)"}}>등록된 장치가 없습니다.</td></tr>
               ) : currentItems.map((d) => (
                 <tr key={d.device_id||d.id||d._id} onClick={()=>navigate(`/devices/${d.device_id||d.id||d._id}`)} style={{cursor:"pointer"}}>
                   <td style={{textAlign:"center"}} onClick={e=>e.stopPropagation()}><input type="checkbox" /></td>

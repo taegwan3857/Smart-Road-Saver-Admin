@@ -142,8 +142,8 @@ export default function DetectionDetail() {
     }
   };
 
-  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
-  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>감지 데이터를 찾을 수 없습니다.</div></div>;
+  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}></div></div>;
+  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}>감지 데이터를 찾을 수 없습니다.</div></div>;
 
   return (
     <div className="content-area">
@@ -161,7 +161,7 @@ export default function DetectionDetail() {
         </div>
         <div className="profile-info">
           <div className="profile-title">
-            {formatEventId(data.event_id||data.detection_id||data.id||data._id||id)} <span className="badge" style={{background: "transparent", color: data ? getRiskColors(data.risk_level).fg : '#64748b'}}>{translateType(data.obstacle_type||data.event_type||data.type)} ({data.confidence||data.score||'-'}%)</span>
+            {formatEventId(data.event_id||data.detection_id||data.id||data._id||id)} <span className="badge" style={{background: "transparent", color: data ? getRiskColors(data.risk_level).fg : "var(--text-muted)"}}>{translateType(data.obstacle_type||data.event_type||data.type)} ({data.confidence||data.score||'-'}%)</span>
           </div>
           <div className="profile-meta">
             <span><i className="far fa-clock"></i> {data.first_detected_at||data.detected_at||data.created_at ? new Date(data.first_detected_at||data.detected_at||data.created_at).toLocaleString('ko-KR') : '-'}</span>
@@ -177,7 +177,7 @@ export default function DetectionDetail() {
       <div className="detail-cards-grid">
         <div className="detail-card" style={{padding:"0",overflow:"hidden",display:"flex",flexDirection:"column"}}>
           <div className="detail-card-title" style={{padding:"24px 24px 0",border:"none",marginBottom:"16px"}}><i className="fas fa-camera"></i> 원본 감지 데이터 (Vision AI)</div>
-          <div style={{flex:"1",background:"#f1f5f9",position:"relative",display:"flex",alignItems:"center",justifyContent:"center",minHeight:"400px"}}>
+          <div style={{flex:"1",background:"var(--bg-hover)",position:"relative",display:"flex",alignItems:"center",justifyContent:"center",minHeight:"400px"}}>
             {!imgError && (data.image_url || (data.detection_images && data.detection_images[0]?.image_path)) ? (
               <img 
                 src={getImageUrl(data.image_url || (data.detection_images && data.detection_images[0]?.image_path))} 
@@ -186,7 +186,7 @@ export default function DetectionDetail() {
                 onError={() => setImgError(true)}
               />
             ) : (
-              <div style={{position:"absolute",color:"#94a3b8",fontWeight:"600",textAlign:"center"}}>
+              <div style={{position:"absolute",color:"var(--text-light)",fontWeight:"600",textAlign:"center"}}>
                 <i className="fas fa-image-slash" style={{fontSize:"3.5rem",marginBottom:"16px",display:"block"}}></i>
                 원본 감지 데이터가 없음
               </div>
@@ -258,12 +258,12 @@ export default function DetectionDetail() {
         <div style={{width: "100%", height: "300px", paddingTop: "10px"}}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-              <XAxis dataKey="time" axisLine={true} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} tickMargin={10} />
-              <YAxis domain={[30, 100]} axisLine={true} tickLine={false} tick={{fontSize: 12, fill: '#64748b'}} ticks={[30, 50, 70, 90, 100]} />
-              <Tooltip contentStyle={{borderRadius: '8px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'}} />
-              <Legend verticalAlign="bottom" align="right" iconType="circle" wrapperStyle={{fontSize: '13px', color: '#334155', paddingBottom: '10px'}} />
-              <Line type="monotone" dataKey="신뢰도" stroke="#1e293b" strokeWidth={2} dot={{ r: 4, fill: '#1e293b', strokeWidth: 0 }} activeDot={{ r: 6 }} name="신뢰도" />
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border-light)" />
+              <XAxis dataKey="time" axisLine={true} tickLine={false} tick={{fontSize: 12, fill: "var(--text-muted)"}} tickMargin={10} />
+              <YAxis domain={[30, 100]} axisLine={true} tickLine={false} tick={{fontSize: 12, fill: "var(--text-muted)"}} ticks={[30, 50, 70, 90, 100]} />
+              <Tooltip contentStyle={{borderRadius: '8px', border: '1px solid var(--border-light)', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)'}} />
+              <Legend verticalAlign="bottom" align="right" iconType="circle" wrapperStyle={{fontSize: '13px', color: "var(--text-main)", paddingBottom: '10px'}} />
+              <Line type="monotone" dataKey="신뢰도" stroke="var(--text-main)" strokeWidth={2} dot={{ r: 4, fill: "var(--text-main)", strokeWidth: 0 }} activeDot={{ r: 6 }} name="신뢰도" />
             </LineChart>
           </ResponsiveContainer>
         </div>

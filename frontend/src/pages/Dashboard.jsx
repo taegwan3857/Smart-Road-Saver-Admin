@@ -388,9 +388,9 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="panel" style={{flex: 1, padding: 0, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid #e2e8f0", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)", minHeight: 0}}>
+      <div className="panel" style={{flex: 1, padding: 0, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid var(--border-light)", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)", minHeight: 0}}>
         {/* 통합 헤더 및 필터 영역 */}
-        <div className="map-header-wrap" style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 24px", borderBottom: "1px solid #e2e8f0", background: "#ffffff", flexShrink: 0}}>
+        <div className="map-header-wrap" style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 24px", borderBottom: "1px solid var(--border-light)", background: "var(--bg-panel)", flexShrink: 0}}>
           <div style={{fontWeight: 600, fontSize: "1.1rem", color: "var(--text-main)", display: "flex", alignItems: "center"}}>
             위험 위치 통합 모니터링
           </div>
@@ -417,27 +417,27 @@ export default function Dashboard() {
         {/* 지도 및 리스트 영역 */}
         <div className="map-body-wrap" style={{display: "flex", flex: 1, minHeight: 0}}>
           {/* 감지 위치 목록 (좌측) */}
-          <div className="map-list-wrap" style={{width: "340px", borderRight: "1px solid #e2e8f0", display: "flex", flexDirection: "column", background: "#f8fafc"}}>
-            <div style={{padding: "16px 20px", borderBottom: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center", background: "#ffffff"}}>
+          <div className="map-list-wrap" style={{width: "340px", borderRight: "1px solid var(--border-light)", display: "flex", flexDirection: "column", background: "var(--bg-body)"}}>
+            <div style={{padding: "16px 20px", borderBottom: "1px solid var(--border-light)", display: "flex", justifyContent: "space-between", alignItems: "center", background: "var(--bg-panel)"}}>
               <span style={{fontWeight: 600, color: "var(--text-main)", fontSize: "1rem"}}>목록</span>
               <span className="badge neutral">{filteredEvents.length}건</span>
             </div>
             <div style={{flex: 1, overflowY: "auto", padding: "12px"}}>
               {filteredEvents.length === 0 ? (
-                <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", color: "#94a3b8", gap: "8px"}}>
+                <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--text-light)", gap: "8px"}}>
                   <i className="fas fa-search" style={{fontSize: "1.5rem"}}></i>
                   <p style={{margin: 0}}>조건에 맞는 감지 기록이 없습니다.</p>
                 </div>
               ) : (
                 filteredEvents.map(ev => (
-                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className={`list-item ${navigatingId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? 'navigating-out' : ''}`} onClick={(e) => { handlePanTo(ev); openDetailModal(e, ev.event_id||ev.detection_id||ev.id||ev._id); }} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "#ffffff", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid #e2e8f0", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
+                  <div key={ev.event_id||ev.detection_id||ev.id||ev._id} className={`list-item ${navigatingId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? 'navigating-out' : ''}`} onClick={(e) => { handlePanTo(ev); openDetailModal(e, ev.event_id||ev.detection_id||ev.id||ev._id); }} style={{background: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "rgba(29, 49, 98, 0.05)" : "var(--bg-panel)", border: activeEventId === (ev.event_id||ev.detection_id||ev.id||ev._id) ? "1px solid var(--primary-color)" : "1px solid var(--border-light)", borderRadius: "8px", padding: "16px", marginBottom: "12px", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px",alignItems:"center"}}>
                       <span className="badge medium" style={{background: "transparent", color: (ev.risk_level||'').toUpperCase()==='LOW' ? '#eab308' : '#ef4444', display:"inline-flex", alignItems:"center", gap:"6px"}}><i className={getHazardIcon(ev.obstacle_type || ev.event_type || ev.type)}></i> {getKoreanType(ev.obstacle_type || ev.event_type || ev.type)}</span>
                       <button className="detail-link-btn" onClick={(e) => handleNavigateDetail(e, ev.event_id||ev.detection_id||ev.id||ev._id)}>상세보기 <span className="arrow">&rarr;</span></button>
                     </div>
                     <div style={{fontWeight:"600",color:"var(--text-main)",fontSize:"0.95rem",lineHeight:"1.4",marginBottom:"6px"}}>{addresses[ev.event_id||ev.detection_id||ev.id||ev._id] || formatAddress(ev.address||ev.location, ev.latitude, ev.longitude)}</div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                      <div style={{fontSize:"0.8rem",color:"#94a3b8"}}><i className="fas fa-map-marker-alt"></i> {ev.latitude||'-'}, {ev.longitude||'-'}</div>
+                      <div style={{fontSize:"0.8rem",color:"var(--text-light)"}}><i className="fas fa-map-marker-alt"></i> {ev.latitude||'-'}, {ev.longitude||'-'}</div>
                       <span style={{fontSize:"0.85rem",color:"var(--text-muted)"}}>
                         {ev.first_detected_at||ev.detected_at||ev.created_at 
                           ? (() => {
@@ -457,7 +457,7 @@ export default function Dashboard() {
           </div>
 
           {/* 카카오맵 (우측) */}
-          <div className="map-container-wrap" style={{flex: 1, position: "relative", background: "#f1f5f9"}}>
+          <div className="map-container-wrap" style={{flex: 1, position: "relative", background: "var(--bg-hover)"}}>
             <div id="kakao-map" style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></div>
           </div>
         </div>

@@ -146,7 +146,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           ) : (
             <>
               {/* Image Section - 원본 비율, 남는 공간에 맞춤 */}
-              <div style={{flex: 1, minHeight: 0, marginBottom: '10px', borderRadius: '8px', overflow: 'hidden', background: 'var(--bg-hover)', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <div style={{flex: 1, minHeight: 0, marginBottom: '10px', borderRadius: '8px', overflow: 'hidden', background: 'var(--bg-hover)', border: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 {imageUrl ? (
                   <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', height: '100%', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
                 ) : (
@@ -161,14 +161,14 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
               <div style={{
                 background: 'var(--bg-panel)',
                 borderRadius: '12px',
-                border: '1px solid #e2e8f0',
+                border: '1px solid var(--border-light)',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
                 overflow: 'hidden',
                 flexShrink: 0
               }}>
                 {/* Type & Risk */}
-                <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0', background: 'var(--bg-body)' }}>
-                  <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid #e2e8f0' }}>
+                <div style={{ display: 'flex', borderBottom: '1px solid var(--border-light)', background: 'var(--bg-body)' }}>
+                  <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid var(--border-light)' }}>
                     <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <i className="fas fa-car-crash" style={{color: 'var(--text-light)'}}></i> 장애물 종류
                     </div>
@@ -185,7 +185,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                 </div>
 
                 {/* Address */}
-                <div style={{ padding: '14px 16px', borderBottom: '1px solid #e2e8f0' }}>
+                <div style={{ padding: '14px 16px', borderBottom: '1px solid var(--border-light)' }}>
                   <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <i className="fas fa-map-marker-alt" style={{color: 'var(--text-light)'}}></i> 발생 주소
                   </div>
@@ -193,8 +193,8 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                 </div>
 
                 {/* Times */}
-                <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0' }}>
-                  <div style={{ flex: 1, padding: '12px 16px', borderRight: '1px solid #e2e8f0' }}>
+                <div style={{ display: 'flex', borderBottom: '1px solid var(--border-light)' }}>
+                  <div style={{ flex: 1, padding: '12px 16px', borderRight: '1px solid var(--border-light)' }}>
                     <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: '600', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '5px' }}>
                       <i className="far fa-clock" style={{color: 'var(--text-light)'}}></i> 최초 감지 시간
                     </div>
@@ -210,7 +210,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
 
                 {/* Count & Status */}
                 <div style={{ display: 'flex', background: 'var(--bg-body)' }}>
-                  <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid #e2e8f0' }}>
+                  <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid var(--border-light)' }}>
                     <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <i className="fas fa-layer-group" style={{color: 'var(--text-light)'}}></i> 누적 감지 횟수
                     </div>

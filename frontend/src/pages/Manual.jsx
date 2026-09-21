@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const InfoBox = ({ title, icon, children }) => (
-  <div style={{ background: '#f8fafc', padding: '20px', borderRadius: '8px', marginTop: '16px', marginBottom: '24px' }}>
+  <div style={{ background: "var(--bg-body)", padding: '20px', borderRadius: '8px', marginTop: '16px', marginBottom: '24px' }}>
     <h4 style={{ margin: '0 0 12px 0', color: 'var(--primary-color)', fontSize: '1.05rem' }}>
       <i className={`fas ${icon}`} style={{marginRight:'8px'}}></i>{title}
     </h4>
@@ -28,7 +28,7 @@ export default function Manual() {
       </div>
       
       <div className="panel" style={{ padding: 0, overflow: 'hidden' }}>
-        <div style={{ display: 'flex', borderBottom: '1px solid var(--border-light)', backgroundColor: '#f8fafc' }}>
+        <div style={{ display: 'flex', borderBottom: '1px solid var(--border-light)', backgroundColor: "var(--bg-body)" }}>
           {tabs.map(tab => (
             <div 
               key={tab.id}
@@ -132,7 +132,7 @@ export default function Manual() {
               </InfoBox>
 
               <h4 style={{ fontSize: '1.1rem', marginBottom: '12px' }}>2. 문서 인쇄 및 PDF 저장</h4>
-              <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px', background: '#e2e8f0', padding: '24px' }}>
+              <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '24px', background: "var(--border-light)", padding: '24px' }}>
                 <img src="/images/manual/report_detail.png" alt="신고 문서 인쇄" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', display: 'block', borderRadius: '4px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }} />
               </div>
 

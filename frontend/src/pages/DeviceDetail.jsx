@@ -24,8 +24,8 @@ export default function DeviceDetail() {
     fetchData();
   }, [id]);
 
-  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
-  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>장치 정보를 찾을 수 없습니다.</div></div>;
+  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}></div></div>;
+  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}>장치 정보를 찾을 수 없습니다.</div></div>;
 
   return (
     <div className="content-area">
@@ -71,11 +71,11 @@ export default function DeviceDetail() {
               <div className="info-label">실시간 연산 부하 (Edge AI)</div>
               <div className="info-value">
                 <div style={{display:"flex", justifyContent:"space-between", marginBottom: "4px", fontSize:"0.85rem"}}><span>NPU 점유율</span><span>42%</span></div>
-                <div style={{width:"100%", height:"6px", background:"#e2e8f0", borderRadius:"3px", overflow:"hidden", marginBottom:"12px"}}>
+                <div style={{width:"100%", height:"6px", background:"var(--border-light)", borderRadius:"3px", overflow:"hidden", marginBottom:"12px"}}>
                   <div style={{width:"42%", height:"100%", background:"var(--primary-color)"}}></div>
                 </div>
                 <div style={{display:"flex", justifyContent:"space-between", marginBottom: "4px", fontSize:"0.85rem"}}><span>메모리 사용량 (3.2GB / 8GB)</span><span>40%</span></div>
-                <div style={{width:"100%", height:"6px", background:"#e2e8f0", borderRadius:"3px", overflow:"hidden"}}>
+                <div style={{width:"100%", height:"6px", background:"var(--border-light)", borderRadius:"3px", overflow:"hidden"}}>
                   <div style={{width:"40%", height:"100%", background:"var(--color-warning)"}}></div>
                 </div>
               </div>

@@ -17,8 +17,8 @@ export default function VehicleDetail() {
     fetchData();
   }, [id]);
 
-  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
-  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>차량 정보를 찾을 수 없습니다.</div></div>;
+  if (isLoading) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}></div></div>;
+  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}>차량 정보를 찾을 수 없습니다.</div></div>;
 
   return (
     <div className="content-area">
@@ -74,7 +74,7 @@ export default function VehicleDetail() {
         {/* 연동 장치 */}
         <div className="detail-card">
           <div className="detail-card-title"><i className="fas fa-microchip"></i> 연동 AI 장치 (Device)</div>
-          <div style={{display:"flex",alignItems:"center",gap:"16px",padding:"16px",background:"#f8fafc",border:"1px solid var(--border-light)",borderRadius:"8px",marginBottom:"16px"}}>
+          <div style={{display:"flex",alignItems:"center",gap:"16px",padding:"16px",background:"var(--bg-body)",border:"1px solid var(--border-light)",borderRadius:"8px",marginBottom:"16px"}}>
             <div style={{fontSize:"2rem",color:"var(--primary-color)"}}><i className="fas fa-server"></i></div>
             <div style={{flex:"1"}}>
               <div style={{fontWeight:"700",fontSize:"1.05rem",marginBottom:"4px"}}>{data.device_id||'-'}</div>

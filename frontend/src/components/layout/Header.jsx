@@ -215,7 +215,7 @@ export default function Header() {
           onClick={toggleDarkMode}
           style={{
             background: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', border: 'none', cursor: 'pointer',
-            color: isDarkMode ? '#fbbf24' : '#64748b', fontSize: '1.1rem',
+            color: isDarkMode ? '#fbbf24' : "var(--text-muted)", fontSize: '1.1rem',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             width: '36px', height: '36px', borderRadius: '50%',
             transition: 'all 0.3s'
@@ -234,7 +234,7 @@ export default function Header() {
             <div style={{fontSize: "0.95rem", fontWeight: "700", color: "var(--text-main)"}}>admin</div>
             <div style={{fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "2px"}}>S.R.S.관리자</div>
           </div>
-          <div className="profile-avatar-small" style={{width: "36px", height: "36px", background: "var(--primary-color)", color: "#fff", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem"}}>
+          <div className="profile-avatar-small" style={{width: "36px", height: "36px", background: "var(--primary-color)", color: "var(--bg-panel)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem"}}>
             <i className="fas fa-user"></i>
           </div>
         </div>

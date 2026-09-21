@@ -118,8 +118,8 @@ export default function ReportDetail() {
     }
   }
 `}</style>
-<div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}></div></div>;
-  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"#94a3b8"}}>신고 문서를 찾을 수 없습니다.</div></div>;
+<div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}></div></div>;
+  if (!data) return <div className="content-area"><div style={{padding:"60px",textAlign:"center",color:"var(--text-light)"}}>신고 문서를 찾을 수 없습니다.</div></div>;
 
   return (
     <div className="content-area">
@@ -247,13 +247,13 @@ export default function ReportDetail() {
               position: 'relative'
             }}></div>
           ) : (
-            <div className="doc-img-box" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0'}}>
+            <div className="doc-img-box" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: "var(--text-light)", background: "var(--bg-body)", border: '1px solid var(--border-light)', borderRadius: '0'}}>
               <i className="fas fa-image fa-2x" style={{marginBottom: '12px', color: '#cbd5e1'}}></i>
               <span style={{fontSize: '0.9rem'}}>등록된 현장 사진이 없습니다</span>
             </div>
           )}
           <div className="doc-img-box" style={{padding: 0, position: 'relative'}}>
-            <div style={{position: 'absolute', zIndex: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', color: '#64748b'}}>
+            <div style={{position: 'absolute', zIndex: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', color: "var(--text-muted)"}}>
               <i className="fas fa-map-marker-alt" style={{marginRight:"8px"}}></i> 감지 위치 지도
             </div>
             <div id="report-map" style={{width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1}}></div>

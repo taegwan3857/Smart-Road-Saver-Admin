@@ -113,7 +113,7 @@ export default function Landing() {
    </section>
 
    {/* Background */}
-   <section className="background-section full-screen-section" id="background" style={{backgroundColor: '#ffffff'}}>
+   <section className="background-section full-screen-section" id="background" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
      <h2>프로젝트 배경 및 필요성</h2>
@@ -147,7 +147,7 @@ export default function Landing() {
    </section>
 
    {/* Service Features & Expected Effects */}
-   <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
+   <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: "var(--bg-panel)", padding: '120px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       
       <div className="section-heading fade-up">
@@ -187,7 +187,7 @@ export default function Landing() {
    </section>
 
    {/* System Structure (Timeline) */}
-   <section className="pdf-features-section full-screen-section" id="system" style={{backgroundColor: '#ffffff'}}>
+   <section className="pdf-features-section full-screen-section" id="system" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
      <h2>시스템 구성도</h2>
@@ -240,7 +240,7 @@ export default function Landing() {
    </section>
 
    {/* Q&A */}
-   <section className="qa-section full-screen-section" id="faq" style={{backgroundColor: '#f8fafc'}}>
+   <section className="qa-section full-screen-section" id="faq" style={{backgroundColor: "var(--bg-body)"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
      <h2>Q&A</h2>
@@ -296,7 +296,7 @@ export default function Landing() {
    </section>
 
    {/* Team Intro */}
-   <section className="qa-section full-screen-section" id="team" style={{backgroundColor: '#ffffff'}}>
+   <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
      <h2>개발자 소개</h2>
@@ -304,28 +304,28 @@ export default function Landing() {
     </div>
     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
      
-     <div style={{background: '#fff', borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
+     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
       <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
        <i className="fas fa-mobile-alt"></i>
       </div>
       <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>웹&앱 팀</h3>
-      <p style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '500'}}>오태관, 박서현</p>
+      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>오태관, 박서현</p>
      </div>
 
-     <div style={{background: '#fff', borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
+     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
       <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
        <i className="fas fa-server"></i>
       </div>
       <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>서버 팀</h3>
-      <p style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '500'}}>김찬희, 정세희</p>
+      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김찬희, 정세희</p>
      </div>
 
-     <div style={{background: '#fff', borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
+     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
       <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
        <i className="fas fa-microchip"></i>
       </div>
       <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>하드웨어 및 AI 팀</h3>
-            <p style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '500'}}>김수한, 김시호, 김민건</p>
+            <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김수한, 김시호, 김민건</p>
      </div>
 
     </div>

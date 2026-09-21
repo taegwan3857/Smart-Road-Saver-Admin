@@ -415,7 +415,7 @@ body {
 }
 
 .video-placeholder {
-  background-color: #0f172a;
+  background-color: var(--text-main);
   border-radius: 8px;
   flex: 1;
   min-height: 250px;
@@ -457,7 +457,7 @@ body {
   text-align: center;
   font-size: 1.25rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-main);
 }
 
 .modal-body {

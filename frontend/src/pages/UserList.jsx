@@ -211,9 +211,9 @@ export default function UserList() {
             </thead>
             <tbody>
               {isUsersLoading ? (
-                <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"#94a3b8"}}></td></tr>
+                <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"var(--text-light)"}}></td></tr>
               ) : filteredUsers.length === 0 ? (
-                <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"#94a3b8"}}>검색 결과가 없습니다.</td></tr>
+                <tr><td colSpan="5" style={{textAlign:"center",padding:"20px",color:"var(--text-light)"}}>검색 결과가 없습니다.</td></tr>
               ) : (
                 currentItems.map((user, idx) => {
                   const roleStr = String(user.role||'');
