@@ -406,7 +406,7 @@ body {
 
 /* Realism Placeholders */
 .map-placeholder {
-  background-color: #e2e8f0;
+  background-color: var(--border-light);
   border-radius: 8px;
   flex: 1;
   min-height: 350px;
@@ -422,7 +422,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #475569;
+  color: var(--text-muted);
   position: relative;
 }
 
@@ -463,7 +463,7 @@ body {
 .modal-body {
   padding: 0 24px 32px 24px;
   text-align: center;
-  color: #475569;
+  color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
   word-break: keep-all;
@@ -492,7 +492,7 @@ body {
 .btn-modal.secondary {
   background: var(--bg-hover); color: var(--text-muted);
 }
-.btn-modal.secondary:hover { background: #e2e8f0; }
+.btn-modal.secondary:hover { background: var(--border-light); }
 
 .btn-modal.primary {
   background: var(--primary-color); color: #fff;
