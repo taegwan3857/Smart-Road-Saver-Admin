@@ -110,7 +110,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
   return (
     <div className="modal-overlay show" onClick={handleBackdropClick} style={{zIndex: 9999, background: 'rgba(15, 23, 42, 0.6)'}}>
       <div className="modal-box" style={{
-        background: '#ffffff', 
+        background: 'var(--bg-panel)', 
         color: 'var(--text-main)', 
         width: '100%', 
         maxWidth: '800px',
@@ -129,7 +129,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
           alignItems: 'center', 
           padding: '14px 24px',
           background: 'var(--primary-color)',
-          color: '#ffffff',
+          color: 'var(--bg-panel)',
           flexShrink: 0
         }}>
           <h2 style={{margin: 0, fontSize: '1.15rem', fontWeight: '700'}}>분석 정보</h2>
@@ -140,17 +140,17 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
 
         <div style={{padding: '12px', flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0}}>
           {loading ? (
-            <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터 불러오는 중</div>
+            <div style={{padding: '40px', textAlign: 'center', color: 'var(--text-light)'}}>데이터 불러오는 중</div>
           ) : !data ? (
-            <div style={{padding: '40px', textAlign: 'center', color: '#94a3b8'}}>데이터를 찾을 수 없습니다.</div>
+            <div style={{padding: '40px', textAlign: 'center', color: 'var(--text-light)'}}>데이터를 찾을 수 없습니다.</div>
           ) : (
             <>
               {/* Image Section - 원본 비율, 남는 공간에 맞춤 */}
-              <div style={{flex: 1, minHeight: 0, marginBottom: '10px', borderRadius: '8px', overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <div style={{flex: 1, minHeight: 0, marginBottom: '10px', borderRadius: '8px', overflow: 'hidden', background: 'var(--bg-hover)', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 {imageUrl ? (
                   <img src={imageUrl} alt="Detection snapshot" style={{width: '100%', height: '100%', objectFit: 'contain', display: 'block'}} onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/800x450?text=Image+Load+Failed'; }} />
                 ) : (
-                  <div style={{width: '100%', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8'}}>
+                  <div style={{width: '100%', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-light)'}}>
                     원본 감지 데이터가 없음
                   </div>
                 )}
@@ -159,7 +159,7 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
 
               {/* Redesigned Info Panel */}
               <div style={{
-                background: '#ffffff',
+                background: 'var(--bg-panel)',
                 borderRadius: '12px',
                 border: '1px solid #e2e8f0',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
@@ -167,16 +167,16 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
                 flexShrink: 0
               }}>
                 {/* Type & Risk */}
-                <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
+                <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0', background: 'var(--bg-body)' }}>
                   <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid #e2e8f0' }}>
-                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <i className="fas fa-car-crash" style={{color: '#94a3b8'}}></i> 장애물 종류
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-car-crash" style={{color: 'var(--text-light)'}}></i> 장애물 종류
                     </div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#1e293b' }}>{hazardTypeKor}</div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)' }}>{hazardTypeKor}</div>
                   </div>
                   <div style={{ flex: 1, padding: '14px 16px' }}>
-                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <i className="fas fa-exclamation-triangle" style={{color: '#94a3b8'}}></i> 위험 등급
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-exclamation-triangle" style={{color: 'var(--text-light)'}}></i> 위험 등급
                     </div>
                     <div style={{ fontSize: '1.1rem', fontWeight: '800', color: (data.risk_level||'').toUpperCase() === 'LOW' ? '#eab308' : '#ef4444' }}>
                       {(data.risk_level||'').toUpperCase() === 'LOW' ? '낮음' : '높음'}
@@ -186,41 +186,41 @@ export default function DetectionDetailModal({ isOpen, id, onClose }) {
 
                 {/* Address */}
                 <div style={{ padding: '14px 16px', borderBottom: '1px solid #e2e8f0' }}>
-                  <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <i className="fas fa-map-marker-alt" style={{color: '#94a3b8'}}></i> 발생 주소
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <i className="fas fa-map-marker-alt" style={{color: 'var(--text-light)'}}></i> 발생 주소
                   </div>
-                  <div style={{ fontSize: '1rem', fontWeight: '600', color: '#334155' }}>{address}</div>
+                  <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--text-main)' }}>{address}</div>
                 </div>
 
                 {/* Times */}
                 <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0' }}>
                   <div style={{ flex: 1, padding: '12px 16px', borderRight: '1px solid #e2e8f0' }}>
-                    <div style={{ color: '#64748b', fontSize: '0.75rem', fontWeight: '600', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                      <i className="far fa-clock" style={{color: '#94a3b8'}}></i> 최초 감지 시간
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: '600', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <i className="far fa-clock" style={{color: 'var(--text-light)'}}></i> 최초 감지 시간
                     </div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: '500', color: '#475569' }}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: '500', color: 'var(--text-muted)' }}>{formatTime(data.first_detected_at || data.detected_at || data.created_at)}</div>
                   </div>
                   <div style={{ flex: 1, padding: '12px 16px' }}>
-                    <div style={{ color: '#64748b', fontSize: '0.75rem', fontWeight: '600', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                      <i className="fas fa-history" style={{color: '#94a3b8'}}></i> 최근 갱신 시간
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: '600', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <i className="fas fa-history" style={{color: 'var(--text-light)'}}></i> 최근 갱신 시간
                     </div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: '500', color: '#475569' }}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: '500', color: 'var(--text-muted)' }}>{formatTime(data.last_detected_at || data.detected_at || data.created_at)}</div>
                   </div>
                 </div>
 
                 {/* Count & Status */}
-                <div style={{ display: 'flex', background: '#f8fafc' }}>
+                <div style={{ display: 'flex', background: 'var(--bg-body)' }}>
                   <div style={{ flex: 1, padding: '14px 16px', borderRight: '1px solid #e2e8f0' }}>
-                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <i className="fas fa-layer-group" style={{color: '#94a3b8'}}></i> 누적 감지 횟수
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-layer-group" style={{color: 'var(--text-light)'}}></i> 누적 감지 횟수
                     </div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: '700', color: '#1e293b' }}>
+                    <div style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)' }}>
                       <span style={{ color: '#3b82f6', fontWeight: '800' }}>{data.cumulative_count || data.detection_count || data.count || 1}</span>회 감지
                     </div>
                   </div>
                   <div style={{ flex: 1, padding: '14px 16px' }}>
-                    <div style={{ color: '#64748b', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <i className="fas fa-shield-alt" style={{color: '#94a3b8'}}></i> 신고 상태
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-shield-alt" style={{color: 'var(--text-light)'}}></i> 신고 상태
                     </div>
                     <div style={{ fontSize: '1.05rem', fontWeight: '700', color: data.report_status ? '#10b981' : '#f59e0b', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       {data.report_status ? <><i className="fas fa-check-circle"></i> 자동 신고 완료</> : <><i className="fas fa-hourglass-half"></i> 미신고</>}

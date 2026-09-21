@@ -24,7 +24,7 @@
   border-radius: 6px;
   font-size: 0.9rem;
   color: var(--text-main);
-  background-color: #fff;
+  background-color: var(--bg-input);
   outline: none;
   transition: all 0.2s;
 }
@@ -44,7 +44,7 @@
 .form-select option {
   padding: 12px;
   font-size: 0.95rem;
-  background: #ffffff;
+  background: var(--bg-panel);
   color: var(--text-main);
 }
 
@@ -84,7 +84,7 @@
   cursor: pointer;
 }
 .data-table tbody tr:hover td {
-  background-color: #f1f5f9; /* hover 시 배경색 살짝 변경 */
+  background-color: var(--bg-hover); /* hover 시 배경색 살짝 변경 */
 }
 
 /* 액션 버튼 그룹 (수정, 삭제 등) */
@@ -102,7 +102,7 @@
   color: var(--text-muted);
 }
 .btn-small:hover {
-  background: #f8fafc;
+  background: var(--bg-body);
   color: var(--text-main);
 }
 
@@ -123,7 +123,7 @@
   height: 32px;
   padding: 0 6px;
   border: 1px solid var(--border-light);
-  background-color: #fff;
+  background-color: var(--bg-input);
   border-radius: 6px;
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -132,7 +132,7 @@
 }
 
 .page-btn:hover {
-  background-color: #f8fafc;
+  background-color: var(--bg-body);
   color: var(--text-main);
 }
 
