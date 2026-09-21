@@ -8,6 +8,8 @@
   /* 바탕 및 패널 */
   --bg-body: #f4f7f9;
   --bg-panel: #ffffff;
+  --bg-input: #ffffff;
+  --bg-hover: #f1f5f9;
   
   /* 텍스트 */
   --text-main: #334155;
@@ -39,7 +41,7 @@ body.dark-theme {
   --bg-input: #334155;
   --bg-hover: #334155;
   
-  --text-main: var(--bg-body);
+  --text-main: #f8fafc;
   --text-muted: #cbd5e1;
   --text-light: #94a3b8;
   
@@ -83,7 +85,7 @@ body {
 
 .sidebar {
   width: 220px; /* 지도를 위해 적절히 슬림하게 */
-  background-color: var(--primary-color);
+  background-color: var(--sidebar-bg);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
