@@ -59,7 +59,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [summary, setSummary] = useState(null);
   const [events, setEvents] = useState([]);
-  const [deviceCount, setDeviceCount] = useState(5);
+  const [deviceCount, setDeviceCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -119,7 +119,7 @@ export default function Dashboard() {
         
         const summaryData = { total_detections_today: todayCount };
         const devList = Array.isArray(devicesData) ? devicesData : (devicesData?.items || []);
-        if (devList.length > 0) setDeviceCount(devList.length);
+        setDeviceCount(devList.length);
         
         setSummary(summaryData);
         const list = Array.isArray(eventsData) ? eventsData : (eventsData?.events || eventsData?.data || eventsData?.events || eventsData?.items || []);

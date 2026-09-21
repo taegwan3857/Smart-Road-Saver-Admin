@@ -10,7 +10,7 @@ export default function UserList() {
   // User State
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(15);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [isUsersLoading, setIsUsersLoading] = useState(true);
   const [selectedIds, setSelectedIds] = useState([]);
 
@@ -181,7 +181,6 @@ export default function UserList() {
                 <CustomSelect 
               options={[
                 { value: 10, label: '10개씩 보기' },
-                { value: 15, label: '15개씩 보기' },
                 { value: 30, label: '30개씩 보기' },
                 { value: 50, label: '50개씩 보기' },
                 { value: 100, label: '100개씩 보기' }

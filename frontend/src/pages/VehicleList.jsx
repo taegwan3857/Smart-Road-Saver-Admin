@@ -7,7 +7,7 @@ export default function VehicleList() {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(15);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [isLoading, setIsLoading] = useState(true);
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -74,7 +74,6 @@ export default function VehicleList() {
               <CustomSelect 
               options={[
                 { value: 10, label: '10개씩 보기' },
-                { value: 15, label: '15개씩 보기' },
                 { value: 30, label: '30개씩 보기' },
                 { value: 50, label: '50개씩 보기' },
                 { value: 100, label: '100개씩 보기' }
