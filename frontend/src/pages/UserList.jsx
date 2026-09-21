@@ -8,7 +8,27 @@ export default function UserList() {
   const navigate = useNavigate();
   
   // User State
+
+  const fetchAllUsers = async () => {
+    let allUsers = [];
+    let currentSkip = 0;
+    let hasMore = true;
+    while (hasMore) {
+      const res = await userService.getUsers({ skip: currentSkip, limit: 50 });
+      const list = Array.isArray(res) ? res : (res?.users || res?.items || res?.data || []);
+      if (list.length > 0) {
+        allUsers = [...allUsers, ...list];
+        currentSkip += 50;
+        if (list.length < 50) hasMore = false;
+      } else {
+        hasMore = false;
+      }
+    }
+    return allUsers;
+  };
+
   const [users, setUsers] = useState([]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [isUsersLoading, setIsUsersLoading] = useState(true);
@@ -49,7 +69,7 @@ export default function UserList() {
       setAlertModal({ isOpen: true, title: "삭제 완료", message: "선택한 사용자가 삭제되었습니다.", type: "info" });
       setSelectedIds([]);
       // Refresh list
-      const data = await userService.getUsers();
+      const data = await fetchAllUsers();
       setUsers(Array.isArray(data) ? data : (data?.users || data?.data || []));
     } catch (e) {
       console.error(e);
@@ -79,7 +99,7 @@ export default function UserList() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const data = await userService.getUsers();
+        const data = await fetchAllUsers();
         let fetchedUsers = Array.isArray(data) ? data : (data?.users || data?.items || []);
         
         // 실제 DB에 관리자 계정 생성 (없는 경우)
@@ -104,7 +124,7 @@ export default function UserList() {
             const response = await apiClient.post('/api/users', payload);
             console.log('Admin user injected successfully', response.data);
             // 생성 후 리스트 다시 불러오기
-            const newData = await userService.getUsers();
+            const newData = await fetchAllUsers();
             fetchedUsers = Array.isArray(newData) ? newData : (newData?.users || newData?.items || []);
           } catch (e) {
             console.error('Failed to create real admin:', e.response?.data || e.message);
