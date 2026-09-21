@@ -226,7 +226,7 @@ export default function Header() {
         </button>
         <div style={{display: "flex", alignItems: "center", gap: "6px", color: "var(--text-muted)", height: "100%"}}>
           <i className="far fa-clock" style={{fontSize: "1.1rem", display: "flex", alignItems: "center", paddingTop: "1px"}}></i> 
-          <span style={{fontSize: "1.05rem", fontWeight: "500", display: "flex", alignItems: "center"}}>{timeStr}</span>
+          <span style={{fontSize: "1.05rem", fontWeight: "500", display: "flex", alignItems: "center", fontVariantNumeric: "tabular-nums", minWidth: "165px", justifyContent: "center", letterSpacing: "0.5px"}}>{timeStr}</span>
         </div>
         <div style={{width: "1px", height: "24px", background: "var(--border-light)", margin: "0 8px"}}></div>
         <div className="header-profile" style={{display: "flex", alignItems: "center", gap: "12px"}}>
