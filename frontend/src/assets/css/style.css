@@ -36,21 +36,17 @@ body.dark-theme {
   --primary-color: #3b82f6;
   --primary-hover: #60a5fa;
   
-  --bg-body: #0f172a;
-  --bg-panel: #1e293b;
-  --bg-input: #334155;
-  --bg-hover: #334155;
+  --bg-body: #18181b;
+  --bg-panel: #27272a;
+  --bg-input: #3f3f46;
+  --bg-hover: #3f3f46;
   
-  --text-main: #f8fafc;
-  --text-muted: #cbd5e1;
-  --text-light: #94a3b8;
+  --text-main: #e4e4e7;
+  --text-muted: #a1a1aa;
+  --text-light: #71717a;
   
-  --border-light: #334155;
-  
-  --sidebar-bg: #020617;
-  --sidebar-hover: rgba(255, 255, 255, 0.1);
-  --sidebar-text: #94a3b8;
-  --sidebar-active: #ffffff;
+  --border-light: #3f3f46;
+  --sidebar-bg: #18181b;
 }
 
 * {
