@@ -303,30 +303,51 @@ body {
 .table-responsive {
   width: 100%;
   overflow-x: auto;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .data-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  min-width: 600px; /* 테이블 최소 너비 보장 */
+  min-width: 600px;
 }
 
 .data-table th, .data-table td {
-  padding: 14px 16px;
+  padding: 16px 20px;
   text-align: left;
   border-bottom: 1px solid var(--border-light);
 }
 
 .data-table th {
-  color: var(--text-muted);
+  color: #64748b;
   font-weight: 600;
   font-size: 0.85rem;
   background-color: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
-.data-table tr:hover td {
+.data-table td {
+  color: #334155;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.data-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.data-table tbody tr:hover td {
   background-color: #f8fafc;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .badge {

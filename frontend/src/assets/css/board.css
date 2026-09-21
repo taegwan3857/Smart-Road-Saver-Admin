@@ -82,9 +82,8 @@
 /* 게시판 테이블 호버 스타일 */
 .data-table tbody tr {
   cursor: pointer;
-  transition: background-color 0.15s;
 }
-.data-table tbody tr:hover {
+.data-table tbody tr:hover td {
   background-color: #f1f5f9; /* hover 시 배경색 살짝 변경 */
 }
 
