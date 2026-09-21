@@ -8,6 +8,22 @@ export default function Sidebar() {
   const location = useLocation();
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  React.useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
+
   const handleLogoutClick = (e) => {
     e.preventDefault();
     setIsLogoutModalOpen(true);
@@ -46,7 +62,13 @@ export default function Sidebar() {
         <a href="#" className="mobile-logout" onClick={handleLogoutClick}><i className="fas fa-sign-out-alt"></i> <span className="menu-text">로그아웃</span></a>
       </nav>
       
-      <div className="desktop-logout-wrapper" style={{padding:"20px",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:"auto"}}>
+      
+      <div className="desktop-logout-wrapper" style={{padding:"20px",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:"auto",display:"flex",flexDirection:"column",gap:"10px"}}>
+        <button onClick={toggleDarkMode} style={{display:"flex",alignItems:"center",justifyContent:"center",width:"100%",padding:"12px",background:"rgba(255,255,255,0.1)",color:"#f8fafc",border:"none",borderRadius:"6px",cursor:"pointer",fontSize:"0.9rem",fontWeight:"600",transition:"all 0.2s"}}
+          onMouseOver={e=>{e.currentTarget.style.background='rgba(255,255,255,0.2)';}}
+          onMouseOut={e=>{e.currentTarget.style.background='rgba(255,255,255,0.1)';}}>
+          <i className={isDarkMode ? "fas fa-sun" : "fas fa-moon"} style={{marginRight:"8px", color: isDarkMode ? "#fbbf24" : "#f8fafc"}}></i> {isDarkMode ? '라이트 모드 전환' : '다크 모드 전환'}
+        </button>
         <button onClick={handleLogoutClick} style={{display:"flex",alignItems:"center",justifyContent:"center",width:"100%",padding:"12px",background:"rgba(225,29,72,0.15)",color:"#fca5a5",border:"none",borderRadius:"6px",cursor:"pointer",fontSize:"0.9rem",fontWeight:"600",transition:"all 0.2s"}}
           onMouseOver={e=>{e.currentTarget.style.background='rgba(225,29,72,0.3)';e.currentTarget.style.color="var(--bg-panel)";}}
           onMouseOut={e=>{e.currentTarget.style.background='rgba(225,29,72,0.15)';e.currentTarget.style.color='#fca5a5';}}>

@@ -174,22 +174,7 @@ export default function Header() {
   };
 
 
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add('dark-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark-theme');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDarkMode]);
-
-  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
-
+  
   return (
     <>
       {/* Left Side: Real-time Ticker */}
@@ -211,19 +196,6 @@ export default function Header() {
 
       {/* Right Side: Clock & Profile */}
       <div className="header-right" style={{display: "flex", alignItems: "center", gap: "16px"}}>
-        <button 
-          onClick={toggleDarkMode}
-          style={{
-            background: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', border: 'none', cursor: 'pointer',
-            color: isDarkMode ? '#fbbf24' : "var(--text-muted)", fontSize: '1.1rem',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            width: '36px', height: '36px', borderRadius: '50%',
-            transition: 'all 0.3s'
-          }}
-          title={isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'}
-        >
-          <i className={isDarkMode ? "fas fa-sun" : "fas fa-moon"}></i>
-        </button>
         <div style={{display: "flex", alignItems: "center", gap: "6px", color: "var(--text-muted)", height: "100%"}}>
           <i className="far fa-clock" style={{fontSize: "1.1rem", display: "flex", alignItems: "center", paddingTop: "1px"}}></i> 
           <span style={{fontSize: "1.05rem", fontWeight: "500", display: "flex", alignItems: "center", fontVariantNumeric: "tabular-nums", minWidth: "165px", justifyContent: "center", letterSpacing: "0.5px"}}>{timeStr}</span>
