@@ -1,10 +1,10 @@
 import apiClient from '../api/client';
+import { detectionService } from './detectionService';
 
 export const reportService = {
   getReports: async (params = {}) => {
     // 100% 자동 생성 모드: 감지 기록(Events)을 무조건 신고 문서로 1:1 자동 렌더링
-    const eventsRes = await apiClient.get('/api/events');
-    const events = eventsRes.data?.data || eventsRes.data || [];
+    const events = await detectionService.getDetections(params);
     return events.map((ev, idx) => ({
       id: `REP-${ev.event_id || ev.id || idx}`,
       report_id: `REP-${ev.event_id || ev.id || idx}`,
@@ -18,7 +18,7 @@ export const reportService = {
       author: 'SYSTEM',
       created_by: 'SYSTEM',
       created_at: ev.first_detected_at || ev.last_detected_at || ev.detected_at || ev.created_at || new Date().toISOString(),
-            address: ev.address || ev.location || '위치 정보 없음',
+      address: ev.address || ev.location || '위치 정보 없음',
       latitude: ev.latitude,
       longitude: ev.longitude,
       image_url: ev.image_url,
@@ -28,8 +28,7 @@ export const reportService = {
   },
   getReport: async (id) => {
     // 단건 조회도 무조건 감지 기록(Events)에서 가져옴
-    const eventsRes = await apiClient.get('/api/events');
-    const events = eventsRes.data?.data || eventsRes.data || [];
+    const events = await detectionService.getDetections();
     let ev = events.find(e => `REP-${e.event_id||e.id}` === id || String(e.event_id) === String(id) || String(e.id) === String(id)) || events[0];
     if (!ev) return null;
     
@@ -72,7 +71,7 @@ export const reportService = {
       author: 'SYSTEM',
       created_by: 'SYSTEM',
       created_at: ev.first_detected_at || ev.last_detected_at || ev.detected_at || ev.created_at || new Date().toISOString(),
-            address: ev.address || ev.location || '위치 정보 없음',
+      address: ev.address || ev.location || '위치 정보 없음',
       latitude: ev.latitude,
       longitude: ev.longitude,
       image_url: ev.image_url,
