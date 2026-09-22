@@ -53,6 +53,7 @@ export default function Landing() {
    </header>
 
    {/* Hero */}
+   {/* Hero */}
    <section className="hero-section" id="home">
     <div className="hero-content">
      <div className="hero-text-col fade-up">
@@ -73,6 +74,27 @@ export default function Landing() {
        <a href="#purpose" onClick={scrollToSection} className="btn-secondary">
         솔루션 알아보기
        </a>
+      </div>
+     </div>
+     
+     <div className="hero-graphic-col slide-in-right">
+      <div className="radar-animation">
+       <div className="radar-circle circle-1"></div>
+       <div className="radar-circle circle-2"></div>
+       <div className="radar-circle circle-3"></div>
+       <div className="radar-scanner"></div>
+       
+       <div className="floating-ui ui-top-right">
+        <i className="fas fa-circle text-green blinking"></i> AI 분석 서버 활성화
+       </div>
+       <div className="floating-ui ui-bottom-left">
+        <strong><i className="fas fa-bolt text-blue"></i> YOLO11n</strong>
+        <span>객체 탐지 가동 중</span>
+       </div>
+       <div className="floating-ui ui-bottom-right">
+        <strong><i className="fas fa-wifi text-blue"></i> mmWave</strong>
+        <span>노면 상태 스캔</span>
+       </div>
       </div>
      </div>
     </div>
@@ -184,34 +206,40 @@ export default function Landing() {
    </section>
 
    {/* Team Intro */}
+   {/* Team Intro */}
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
-     <div className="section-heading fade-up">
-      <h2>동아리 소개</h2>
-      <p>동양미래대학교 컴퓨터공학부 웹응용소프트웨어공학과 동아리</p>
-     </div>
+    <div className="section-heading fade-up">
+     <h2>개발자 소개</h2>
+     <p>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
+    </div>
+    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
      
-     <div className="fade-up d1" style={{background: '#fff', borderRadius: '16px', border: '1px solid #e2e8f0', padding: '40px', maxWidth: '800px', margin: '0 auto', boxShadow: '0 10px 30px rgba(0,0,0,0.02)'}}>
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '32px', flexWrap: 'wrap'}}>
-        <div style={{fontSize: '2rem', fontWeight: '800', color: '#1d3162'}}>동아리명 : MARS</div>
+     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
+      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
+       <i className="fas fa-mobile-alt"></i>
       </div>
-      
-      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px'}}>
-        <div style={{padding: '20px', background: '#f8fafc', borderRadius: '12px', textAlign: 'center'}}>
-          <h4 style={{fontSize: '1.1rem', color: '#475569', marginBottom: '12px', fontWeight: '700'}}>지도교수</h4>
-          <p style={{fontSize: '1.2rem', color: '#0f172a', fontWeight: '800'}}>조강홍, 이동규</p>
-        </div>
-        
-        <div style={{padding: '20px', background: '#f8fafc', borderRadius: '12px', textAlign: 'center', gridColumn: '1 / -1'}}>
-          <h4 style={{fontSize: '1.1rem', color: '#475569', marginBottom: '12px', fontWeight: '700'}}>참여학생</h4>
-          <div style={{display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center'}}>
-            {['김찬희', '정세희', '김수한', '김시호', '김민건', '오태관', '박서현', '김병원', '유한영', '엄희재'].map((name, idx) => (
-              <span key={idx} style={{background: '#eff6ff', color: '#1d3162', padding: '8px 16px', borderRadius: '100px', fontWeight: '600'}}>{name}</span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>웹 & 앱 팀</h3>
+      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>오태관, 박서현</p>
      </div>
+
+     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
+      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
+       <i className="fas fa-server"></i>
+      </div>
+      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>서버 팀</h3>
+      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김찬희, 정세희</p>
+     </div>
+
+     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
+      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
+       <i className="fas fa-microchip"></i>
+      </div>
+      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>하드웨어 및 AI 팀</h3>
+      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김수한, 김시호, 김민건<br/><span style={{fontSize: '0.9rem'}}>김병원, 유한영, 엄희재</span></p>
+     </div>
+
+    </div>
     </div>
    </section>
 
