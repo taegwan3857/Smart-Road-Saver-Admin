@@ -147,9 +147,13 @@ export default function Header() {
         }
       } catch (err) {}
     };
-    fetchLatest();
-    const timer = setInterval(fetchLatest, 2000);
-    return () => clearInterval(timer);
+    let timerId;
+    const runPoller = async () => {
+      await fetchLatest();
+      timerId = setTimeout(runPoller, 1000);
+    };
+    runPoller();
+    return () => clearTimeout(timerId);
   }, []);
 
     const [isModalOpen, setIsModalOpen] = useState(false);

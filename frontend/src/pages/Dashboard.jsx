@@ -169,9 +169,13 @@ export default function Dashboard() {
       }
     };
     
-    fetchData();
-    const intervalId = setInterval(fetchData, 2000);
-    return () => clearInterval(intervalId);
+    let timerId;
+    const runPoller = async () => {
+      await fetchData();
+      timerId = setTimeout(runPoller, 1000);
+    };
+    runPoller();
+    return () => clearTimeout(timerId);
   }, []);
 
   const getTypeColor = (type) => {
