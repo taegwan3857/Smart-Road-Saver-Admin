@@ -103,7 +103,7 @@ export default function Dashboard() {
     const fetchData = async () => {
       try {
         const [eventsDataRaw, devicesData] = await Promise.all([
-          dashboardService.getEvents().catch(() => []),
+          dashboardService.getEvents({ dashboard: true }).catch(() => []),
           deviceService.getDevices().catch(() => [])
         ]);
         

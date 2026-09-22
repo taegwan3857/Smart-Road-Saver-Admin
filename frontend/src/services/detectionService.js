@@ -15,7 +15,8 @@ export const detectionService = {
     let page = 1;
     let hasMore = true;
     
-    while(hasMore && page <= 50) {
+    const maxPages = params.dashboard ? 5 : 50;
+    while(hasMore && page <= maxPages) {
       // Fetch 5 pages concurrently
       const promises = [];
       for(let i=0; i<5; i++) {

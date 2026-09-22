@@ -32,29 +32,23 @@ export default function Landing() {
   }
  };
 
- const faqs = [
-  { q: "어떤 종류의 도로 위험물을 감지할 수 있나요?", a: "포트홀, 낙하물(장애물), 젖은 노면, 블랙아이스(결빙) 등을 실시간으로 감지합니다. 특히 mmWave 레이더를 통해 육안으로 식별이 어려운 결빙 상태를 정확하게 판별합니다." },
-  { q: "기존 차량의 블랙박스와 연동되는 방식인가요?", a: "아닙니다. Smart Road Saver는 카메라, mmWave 레이더, Jetson NANO 보드가 결합된 전용 하드웨어 장비입니다. 차량에 장착하여 독립적으로 데이터를 수집하고 실시간 AI 추론을 수행합니다." },
-  { q: "지자체 신고는 어떻게 이루어지나요?", a: "AI가 결함을 탐지하면, 서버에서 중복 여부(PostGIS 활용)를 확인한 후 결함을 등록합니다. 등록된 결함 데이터를 기반으로 공문서 형태의 신고서가 시스템에서 자동 생성되어 유관 기관으로 원클릭 접수됩니다." },
- ];
-
  return (
   <div className="landing-container">
    {/* Nav */}
    <header className="landing-header">
     <a href="#home" onClick={scrollToSection} className="landing-logo" style={{ textDecoration: 'none' }}>
-     <i className="fas fa-shield-alt"></i> Smart Road Saver
+     <i className="fas fa-shield-alt"></i> SMART ROAD SAVER
     </a>
     <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
      <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
     </button>
     <nav className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
      <a href="#home" onClick={scrollToSection}>홈</a>
-     <a href="#background" onClick={scrollToSection}>프로젝트 배경</a>
-     <a href="#service-features" onClick={scrollToSection}>주요 기능</a>
-     <a href="#system" onClick={scrollToSection}>시스템 구성도</a>
-     <a href="#faq" onClick={scrollToSection}>Q&A</a>
-     <a href="#team" onClick={scrollToSection}>개발자 소개</a>
+     <a href="#purpose" onClick={scrollToSection}>개발 목적</a>
+     <a href="#features" onClick={scrollToSection}>주요 내용 및 특징</a>
+     <a href="#application" onClick={scrollToSection}>활용 분야</a>
+     <a href="#effects" onClick={scrollToSection}>기대 효과</a>
+     <a href="#team" onClick={scrollToSection}>동아리 소개</a>
     </nav>
    </header>
 
@@ -65,277 +59,166 @@ export default function Landing() {
       <div className="hero-badge">AI 기반 도로 안전 솔루션</div>
       <h1 className="hero-title">
        미래를 향한 안전한 길,<br />
-       <span className="text-gradient">Smart Road Saver</span>
+       <span className="text-gradient">SMART ROAD SAVER</span>
       </h1>
       <p className="hero-subtitle" style={{ wordBreak: 'keep-all' }}>
-       mmWave 레이더와 비전 AI를 결합하여 실시간 도로 결함 탐지 및 <br className="hide-mobile" />
-       지자체 자동 신고를 수행합니다. 단 한 번의 스캔으로 <br className="hide-mobile" />
-       보이지 않는 블랙아이스까지 완벽하게 차단하세요.
+       mmWave 레이더 센서와 비전 AI를 결합하여<br className="hide-mobile" />
+       주행 중 도로 위의 위험 요소를 실시간으로 탐지하고<br className="hide-mobile" />
+       자동 신고 및 알림을 통해 사고를 사전에 예방합니다.
       </p>
       <div className="hero-btns">
        <Link to="/login" className="btn-primary">
         관리자 관제 센터 <i className="fas fa-arrow-right" style={{marginLeft: '8px'}}></i>
        </Link>
-       <a href="#background" onClick={scrollToSection} className="btn-secondary">
+       <a href="#purpose" onClick={scrollToSection} className="btn-secondary">
         솔루션 알아보기
        </a>
       </div>
      </div>
-     <div className="hero-graphic-col slide-in-right">
-      <div className="radar-animation">
-       <div className="radar-circle circle-1"></div>
-       <div className="radar-circle circle-2"></div>
-       <div className="radar-circle circle-3"></div>
-       <div className="radar-scanner"></div>
-       
-       {/* Floating UI Elements */}
-       <div className="floating-ui ui-top-right">
-        <i className="fas fa-circle text-green blinking"></i> 시스템 정상 작동
-       </div>
-       <div className="floating-ui ui-bottom-left">
-        <strong><i className="fas fa-bolt text-blue"></i> YOLO11n</strong>
-        <span>객체 탐지 활성화</span>
-       </div>
-       <div className="floating-ui ui-bottom-right">
-        <strong><i className="fas fa-wifi text-blue"></i> mmWave</strong>
-        <span>노면 상태 분석 중...</span>
-       </div>
+    </div>
+   </section>
 
-       <div className="radar-dot dot-1"><div className="dot-ripple"></div></div>
-       <div className="radar-dot dot-2"><div className="dot-ripple"></div></div>
+   {/* Purpose */}
+   <section className="full-screen-section" id="purpose" style={{backgroundColor: "var(--bg-body)"}}>
+    <div className="section-inner">
+     <div className="section-heading fade-up">
+      <div className="hero-badge" style={{background: '#f1f5f9', color: '#1d3162', marginBottom: '16px', display: 'inline-block'}}>배경 및 목적</div>
+      <h2>개발 목적</h2>
+     </div>
+     <div className="bg-grid">
+      <div className="bg-card slide-in-left d1">
+       <div className="bg-icon"><i className="fas fa-exclamation-triangle"></i></div>
+       <h3>기존 시스템의 한계</h3>
+       <p>매년 2만 건 이상의 교통사고가 도로 위의 장애물과 포트홀, 결빙 등으로 발생하고 있습니다. 그러나 사고 후 신고 또는 기존 도로 순찰 탐지 방법은 막대한 비용과 시간이 소요될 뿐만 아니라 순찰원의 2차 사고 위험까지 가지고 있으며 사고가 발생한 후에야 운전자가 직접 신고하고 대처하는 방식에 의존하여 사고 예방에 한계가 있었습니다.</p>
+      </div>
+      <div className="bg-card slide-in-right d2">
+       <div className="bg-icon" style={{color: '#10b981', background: '#d1fae5'}}><i className="fas fa-shield-alt"></i></div>
+       <h3>SMART ROAD SAVER의 해결책</h3>
+       <p>블랙박스와 결합하거나 별도의 디바이스로 구성된 SMART ROAD SAVER는 mmWave 레이더 센서와 비전 AI를 결합하여 일반 자동차들이 주행 중 도로 위의 위험 요소를 실시간으로 탐지하고 즉각 자동신고 및 전파함으로써 노면 결함으로 인한 사고를 사전에 차단하고, 또한 사용자가 신고된 위치를 지날 때 자동으로 알림을 받아 사고 위험을 대비하여 사고를 최소화 할 수 있도록 개발된 서비스입니다.</p>
       </div>
      </div>
     </div>
-    <div className="scroll-indicator">
-     <span>Scroll Down</span>
-     <i className="fas fa-chevron-down bouncing"></i>
-    </div>
    </section>
 
-   {/* Background */}
-   <section className="background-section full-screen-section" id="background" style={{backgroundColor: "var(--bg-panel)"}}>
+   {/* Features */}
+   <section className="full-screen-section" id="features" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
-    <div className="section-heading fade-up">
-     <h2>프로젝트 배경 및 필요성</h2>
-     <p>매년 20,000건 이상의 피해가 노면 결함으로 발생합니다.</p>
-    </div>
-    <div className="bg-grid">
-     <div className="bg-card fade-up d1">
-      <div className="bg-icon warning"><i className="fas fa-exclamation-triangle"></i></div>
-      <h3>사후 대처 신고 시스템</h3>
-      <p>사고가 발생한 이후에야 대처가 이루어지는 기존 신고 시스템의 치명적인 한계</p>
+     <div className="section-heading fade-up">
+      <div className="hero-badge" style={{background: '#f1f5f9', color: '#1d3162', marginBottom: '16px', display: 'inline-block'}}>특징 및 구성</div>
+      <h2>주요 내용 및 특징</h2>
+      <p style={{marginTop: '16px', fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.6', wordBreak: 'keep-all'}}>
+       SMART ROAD SAVER는 하드웨어부터 AI 딥러닝, 백엔드 서버, 앱과 웹의 프론트엔드까지 모든 과정을 직접 구현하고 개발한 시스템입니다.
+      </p>
      </div>
-     <div className="bg-card fade-up d2">
-      <div className="bg-icon time"><i className="fas fa-hourglass-half"></i></div>
-      <h3>비효율적인 순찰 시스템</h3>
-      <p>제한된 인력으로 광범위한 전국 도로를 모두 실시간 순찰하기 어려운 현실</p>
+     <div className="feature-cards">
+      <div className="feature-card-modern fade-up d1">
+       <div className="f-icon"><i className="fas fa-microchip"></i></div>
+       <h3>하드웨어 및 AI</h3>
+       <p>기존에 비전 AI만을 사용해서 도로 위의 결함을 측정하였으나 육안으로 식별이 어려운 도로 결빙이나 젖은 노면과 같은 상태는 탐지가 힘들다는 한계를 맞닥뜨리고 mmWave 레이더를 도입하여 도로에 부딪혀 돌아오는 반사파를 통해 이러한 한계를 극복하였습니다.<br/><br/>mmWave 레이더 센서, 카메라, GPS 수신기가 Jetson Nano에 장착되어 있습니다. 도로 위의 위험 요소를 탐지하고 분석하는 AI 모델은 직접 추출하고 수집한 데이터를 라벨링과 전처리 등의 과정을 거치고 학습시켜 개발하였습니다.</p>
+      </div>
+      <div className="feature-card-modern fade-up d2">
+       <div className="f-icon"><i className="fas fa-server"></i></div>
+       <h3>백엔드 & 프론트엔드</h3>
+       <p>백엔드에서는 실시간 통신과 중복 위험 요소를 병합하는 로직 및 자동 신고 로직 등을 구축하였고 프론트엔드에서는 운전자에게 실시간 위험 접근 알림과 지도를 제공하는 모바일 앱과 전국 도로와 장치를 관제할 수 있는 관리자 웹 그리고 블랙박스나 전용 기기용 대시보드를 직접 개발하였습니다.</p>
+      </div>
      </div>
-     <div className="bg-card fade-up d3">
-      <div className="bg-icon danger"><i className="fas fa-hard-hat"></i></div>
-      <h3>순찰 인력의 안전 위협</h3>
-      <p>고속도로 및 위험 구간에서 사고 처리 중 발생하는 2차 사고의 위험성</p>
-     </div>
-    </div>
-    <div className="bg-solution fade-up">
-     <div className="solution-box animated-gradient">
-      <i className="fas fa-check-circle bounce-icon"></i>
-      <h4>실제 도로 탐지와 신속한 신고 처리</h4>
-      <p>사고 발생 전 위험 요인을 차단하고 도로 순찰을 자동화하여 안전사고를 근본적으로 감소시킵니다.</p>
-     </div>
-    </div>
     </div>
    </section>
 
-   {/* Service Features & Expected Effects */}
-   <section className="service-features-section full-screen-section" id="service-features" style={{backgroundColor: "var(--bg-panel)", padding: '120px 24px'}}>
-    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+   {/* Application */}
+   <section className="full-screen-section" id="application" style={{backgroundColor: "var(--bg-body)"}}>
+    <div className="section-inner">
+     <div className="section-heading fade-up">
+      <h2>활용 분야 및 적용 방안</h2>
+      <p>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
+     </div>
+     <div className="feature-cards" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
       
-      <div className="section-heading fade-up">
-       <h2>주요 기능</h2>
-       <p>스마트 로드 세이버가 제안하는 안전한 도로의 미래</p>
+      <div className="feature-card-new fade-up d1">
+       <div className="fc-icon"><i className="fas fa-bus"></i></div>
+       <h3>전국 단위 관제 (일반/공공 차량)</h3>
+       <p>일반 차량뿐만 아니라 시내버스, 택시, 도로순찰차량 등에 장착되어 전국의 도로를 탐지하고 관리할 수 있습니다. 이렇게 수집된 위험 요소는 지자체 및 도로관리기관에 자동으로 신고되어 신속한 보수를 가능하게 합니다.</p>
       </div>
       
-      {/* 3 주요 기능 */}
-      <div className="features-grid fade-up d1" style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px', marginBottom: '30px'}}>
-        <div className="feature-card-new">
-          <div className="fc-icon"><i className="fas fa-microchip"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag">하드웨어 & AI</div>
-            <h3>다중 센서 융합 탐지</h3>
-            <p>비전 카메라와 mmWave 레이더를 결합하여 식별이 어려운 블랙아이스 및 젖음 상태까지 수치화해 실시간으로 완벽 탐지합니다.</p>
-          </div>
-        </div>
-        <div className="feature-card-new">
-          <div className="fc-icon"><i className="fas fa-server"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag">백엔드 & 데이터</div>
-            <h3>자동 병합 및 공문서 생성</h3>
-            <p>PostGIS 공간 분석으로 동일 위치의 중복 신고를 병합하고, 지자체 표준 규격의 공식 문서(기안)를 자동 생성합니다.</p>
-          </div>
-        </div>
-        <div className="feature-card-new">
-          <div className="fc-icon"><i className="fas fa-desktop"></i></div>
-          <div className="fc-content">
-            <div className="fc-tag">웹&앱 팀</div>
-            <h3>실시간 알림 및 통합 관제</h3>
-            <p>관리자는 웹 대시보드로 전체 상황을 한눈에 관제하고, 운전자와 현장 요원은 앱을 통해 위험 지역 접근 시 실시간 알림을 받습니다.</p>
-          </div>
-        </div>
+      <div className="feature-card-new fade-up d2">
+       <div className="fc-icon"><i className="fas fa-mobile-alt"></i></div>
+       <h3>운전자 모바일 연동</h3>
+       <p>운전자는 모바일 앱이나 내비게이션 연동을 통해 전방 위험 요소에 접근 시 실시간으로 알림을 받아 사고를 사전에 대비하고 예방할 수 있습니다.</p>
       </div>
 
+      <div className="feature-card-new fade-up d3">
+       <div className="fc-icon"><i className="fas fa-desktop"></i></div>
+       <h3>관리자 웹 대시보드</h3>
+       <p>관리자는 웹 대시보드를 통해 전국의 도로를 한눈에 관제하고 유연하게 대처할 수 있으며 이러한 시스템은 도로 위의 모든 차량과 지도 서비스 그리고 도로관리기관 등 광범위하게 적용될 수 있습니다.</p>
+      </div>
+
+     </div>
     </div>
    </section>
 
-   {/* System Structure (Timeline) */}
-   <section className="pdf-features-section full-screen-section" id="system" style={{backgroundColor: "var(--bg-panel)"}}>
+   {/* Expected Effects */}
+   <section className="full-screen-section" id="effects" style={{background: '#0f172a', color: '#fff'}}>
     <div className="section-inner">
-    <div className="section-heading fade-up">
-     <h2>시스템 구성도</h2>
-     <p>전용 하드웨어부터 모바일 앱까지</p>
-    </div>
-    <div className="pdf-timeline">
-     
-     <div className="pdf-timeline-item slide-in-left">
-      <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
-      <div className="pdf-content">
-       <h3>전용 하드웨어 플랫폼 (Jetson Nano)</h3>
-       <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다. 육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
-      </div>
+     <div className="section-heading fade-up">
+      <h2 style={{color: '#fff'}}>기대 효과</h2>
      </div>
+     <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}} className="fade-up d1">
+      
+      <div className="effect-item">
+       <h3 style={{fontSize: '1.3rem', fontWeight: '800', marginBottom: '12px', color: '#60a5fa'}}><i className="fas fa-shield-alt" style={{marginRight: '8px'}}></i>안전사고의 근본적 감소</h3>
+       <p style={{color: '#cbd5e1', fontSize: '1.1rem', lineHeight: '1.6', wordBreak: 'keep-all'}}>SMART ROAD SAVER는 도로 위의 안전사고를 근본적으로 감소시킬 수 있습니다. 주행 중 도로 위의 결함이나 상태를 실시간으로 탐지 및 분석하고 자동으로 신고하여 신속한 보수를 지원함으로써 도로 위의 안전사고와 그로 인한 인명 피해를 줄일 수 있습니다.</p>
+      </div>
 
-     <div className="pdf-timeline-item slide-in-right d1">
-      <div className="pdf-icon pulse-blue"><i className="fas fa-brain"></i></div>
-      <div className="pdf-content">
-       <h3>AI / 딥러닝 엣지 컴퓨팅</h3>
-       <p>Jetson Nano 디바이스 내에서 자체 개발 AI 모델(도로 상태 추론)과 YOLO11n 모델(포트홀/장애물 탐지)을 구동하여 지연 시간 없이 현장에서 즉각적인 결함 탐지를 수행합니다.</p>
+      <div className="effect-item">
+       <h3 style={{fontSize: '1.3rem', fontWeight: '800', marginBottom: '12px', color: '#60a5fa'}}><i className="fas fa-car-crash" style={{marginRight: '8px'}}></i>노면 결함 피해 획기적 축소</h3>
+       <p style={{color: '#cbd5e1', fontSize: '1.1rem', lineHeight: '1.6', wordBreak: 'keep-all'}}>이러한 시스템은 일반 차량의 블랙박스나 전용 기기를 통해 쉽게 도입되어 전국의 도로를 상시 순찰할 수 있어 노면 결함으로 인한 피해를 획기적으로 낮출 수 있습니다. 또한 모바일 앱을 사용하는 운전자에게는 위험 요소에 접근하게 될 시 실시간 위험 접근 경고 알림을 전송하여 감속과 우회를 유도함으로써 도로 위의 사고에 미리 대처하고 예방할 수 있도록 돕습니다.</p>
       </div>
-     </div>
 
-     <div className="pdf-timeline-item slide-in-left d2">
-      <div className="pdf-icon pulse-blue"><i className="fas fa-server"></i></div>
-      <div className="pdf-content">
-       <h3>클라우드 서버 / 백엔드</h3>
-       <p>엣지 디바이스에서 전송된 위험 데이터를 실시간 통신 패키징(API)을 통해 수신합니다. DB(Supabase)와 PostGIS 로직을 통해 데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
+      <div className="effect-item">
+       <h3 style={{fontSize: '1.3rem', fontWeight: '800', marginBottom: '12px', color: '#60a5fa'}}><i className="fas fa-won-sign" style={{marginRight: '8px'}}></i>막대한 비용과 시간 절감</h3>
+       <p style={{color: '#cbd5e1', fontSize: '1.1rem', lineHeight: '1.6', wordBreak: 'keep-all'}}>나아가 기존에 인력 중심의 순찰 방식으로 인해 소모되던 막대한 비용과 시간을 SMART ROAD SAVER 도입으로 자동화하고 기존의 사후 신고 처리 방식을 실시간 자동 신고하는 방식으로 전환하여 대폭 절감함과 동시에 순찰 인력의 2차 사고 또한 방지할 수 있습니다.</p>
       </div>
-     </div>
 
-     <div className="pdf-timeline-item slide-in-right d3">
-      <div className="pdf-icon pulse-blue"><i className="fas fa-mobile-alt"></i></div>
-      <div className="pdf-content">
-       <h3>모바일 앱 사용자</h3>
-       <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및 지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
-      </div>
      </div>
-
-     <div className="pdf-timeline-item slide-in-left d4">
-      <div className="pdf-icon pulse-blue"><i className="fas fa-desktop"></i></div>
-      <div className="pdf-content">
-       <h3>관제센터 (관리자 웹)</h3>
-       <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 웹 기반 대시보드 지도 상에 표출하며, 실시간 탐지 기록과 지자체 신고 내역을 완벽하게 통합 관제합니다.</p>
-      </div>
-     </div>
-
-    </div>
-    </div>
-   </section>
-
-   {/* Q&A */}
-   <section className="qa-section full-screen-section" id="faq" style={{backgroundColor: "var(--bg-body)"}}>
-    <div className="section-inner">
-    <div className="section-heading fade-up">
-     <h2>Q&A</h2>
-    </div>
-    <div className="qa-list">
-     <div className="qa-item fade-up d1">
-      <button className="qa-question" onClick={() => setOpenFaq(openFaq === 0 ? null : 0)}>
-       어떤 종류의 도로 위험물을 감지할 수 있나요?
-       <i className={`fas fa-chevron-${openFaq === 0 ? 'up' : 'down'}`}></i>
-      </button>
-      <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 0 ? '200px' : '0' }}>
-       <div className="qa-answer">포트홀, 크랙(균열), 낙하물과 같은 물리적 장애물은 물론, mmWave 레이더를 통해 눈에 보이지 않는 블랙아이스, 젖은 노면 등의 상태까지 종합적으로 감지합니다.</div>
-      </div>
-     </div>
-     <div className="qa-item fade-up d2">
-      <button className="qa-question" onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}>
-       카메라도 있는데 왜 굳이 mmWave 레이더를 함께 사용하나요?
-       <i className={`fas fa-chevron-${openFaq === 1 ? 'up' : 'down'}`}></i>
-      </button>
-      <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 1 ? '200px' : '0' }}>
-       <div className="qa-answer">블랙아이스나 얇은 살얼음처럼 육안이나 일반 카메라 비전만으로는 구별하기 어려운 노면 상태를 정확히 탐지하기 위해서입니다. 레이더 반사 데이터와 비전 AI를 융합하여 주야간 및 악천후 환경에서도 99% 이상의 탐지 신뢰도를 제공합니다.</div>
-      </div>
-     </div>
-     <div className="qa-item fade-up d3">
-      <button className="qa-question" onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}>
-       동일한 포트홀이 여러 번 신고되면 어떻게 처리되나요?
-       <i className={`fas fa-chevron-${openFaq === 2 ? 'up' : 'down'}`}></i>
-      </button>
-      <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 2 ? '200px' : '0' }}>
-       <div className="qa-answer">시스템 백엔드에 구축된 PostGIS 공간 데이터베이스를 활용하여, 일정 반경 내에서 중복 수집된 동일 결함 데이터는 자동으로 하나의 건으로 병합(Deduplication) 처리됩니다. 이를 통해 관리자의 중복 업무를 최소화합니다.</div>
-      </div>
-     </div>
-     <div className="qa-item fade-up d4">
-      <button className="qa-question" onClick={() => setOpenFaq(openFaq === 3 ? null : 3)}>
-       지자체 신고는 어떻게 이루어지나요?
-       <i className={`fas fa-chevron-${openFaq === 3 ? 'up' : 'down'}`}></i>
-      </button>
-      <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 3 ? '200px' : '0' }}>
-       <div className="qa-answer">관리자 웹 대시보드에서 감지된 내역을 확인한 후 신고 버튼을 누르면, 시스템이 지정된 양식에 맞춰 관할 지자체용 공문서를 자동 생성 및 발송하여 번거로운 수작업을 없앴습니다.</div>
-      </div>
-     </div>
-     <div className="qa-item fade-up d5">
-      <button className="qa-question" onClick={() => setOpenFaq(openFaq === 4 ? null : 4)}>
-       시스템 도입을 위해 필요한 인프라는 무엇인가요?
-       <i className={`fas fa-chevron-${openFaq === 4 ? 'up' : 'down'}`}></i>
-      </button>
-      <div className="qa-answer-wrap" style={{ maxHeight: openFaq === 4 ? '200px' : '0' }}>
-       <div className="qa-answer">전용 하드웨어(Jetson Nano 기반 AI 디바이스 및 센서 모듈)를 일반 사용자 차량에 부착하기만 하면 됩니다. 대규모 도로 인프라 공사 없이 즉시 운영이 가능한 플러그 앤 플레이(Plug & Play) 방식을 지원합니다.</div>
-      </div>
-     </div>
-    </div>
     </div>
    </section>
 
    {/* Team Intro */}
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
-    <div className="section-heading fade-up">
-     <h2>개발자 소개</h2>
-     <p>Smart Road Saver를 기획하고 개발한 팀원들을 소개합니다</p>
-    </div>
-    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
+     <div className="section-heading fade-up">
+      <h2>동아리 소개</h2>
+      <p>동양미래대학교 컴퓨터공학부 웹응용소프트웨어공학과 동아리</p>
+     </div>
      
-     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
-      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
-       <i className="fas fa-mobile-alt"></i>
+     <div className="fade-up d1" style={{background: '#fff', borderRadius: '16px', border: '1px solid #e2e8f0', padding: '40px', maxWidth: '800px', margin: '0 auto', boxShadow: '0 10px 30px rgba(0,0,0,0.02)'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '32px', flexWrap: 'wrap'}}>
+        <div style={{fontSize: '2rem', fontWeight: '800', color: '#1d3162'}}>동아리명 : MARS</div>
       </div>
-      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>웹&앱 팀</h3>
-      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>오태관, 박서현</p>
-     </div>
-
-     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
-      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
-       <i className="fas fa-server"></i>
+      
+      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px'}}>
+        <div style={{padding: '20px', background: '#f8fafc', borderRadius: '12px', textAlign: 'center'}}>
+          <h4 style={{fontSize: '1.1rem', color: '#475569', marginBottom: '12px', fontWeight: '700'}}>지도교수</h4>
+          <p style={{fontSize: '1.2rem', color: '#0f172a', fontWeight: '800'}}>조강홍, 이동규</p>
+        </div>
+        
+        <div style={{padding: '20px', background: '#f8fafc', borderRadius: '12px', textAlign: 'center', gridColumn: '1 / -1'}}>
+          <h4 style={{fontSize: '1.1rem', color: '#475569', marginBottom: '12px', fontWeight: '700'}}>참여학생</h4>
+          <div style={{display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center'}}>
+            {['김찬희', '정세희', '김수한', '김시호', '김민건', '오태관', '박서현', '김병원', '유한영', '엄희재'].map((name, idx) => (
+              <span key={idx} style={{background: '#eff6ff', color: '#1d3162', padding: '8px 16px', borderRadius: '100px', fontWeight: '600'}}>{name}</span>
+            ))}
+          </div>
+        </div>
       </div>
-      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>서버 팀</h3>
-      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김찬희, 정세희</p>
      </div>
-
-     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
-      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
-       <i className="fas fa-microchip"></i>
-      </div>
-      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>하드웨어 및 AI 팀</h3>
-            <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김수한, 김시호, 김민건</p>
-     </div>
-
-    </div>
     </div>
    </section>
 
    {/* Footer */}
    <footer className="landing-footer">
-    <strong><i className="fas fa-shield-alt" style={{marginRight:'6px'}}></i>Smart Road Saver</strong>
-    <p>© 2026 Smart Road Saver. All rights reserved.</p>
+    <strong><i className="fas fa-shield-alt" style={{marginRight:'6px'}}></i>SMART ROAD SAVER</strong>
+    <p>© 2026 동양미래대학교 MARS. All rights reserved.</p>
    </footer>
   </div>
  );
