@@ -102,7 +102,7 @@ export default function Landing() {
 
    {/* Purpose */}
    {/* Purpose */}
-   <section className="full-screen-section" id="purpose" style={{backgroundColor: "#f8fafc"}}>
+   <section className="full-screen-section" id="purpose" style={{backgroundColor: "#ffffff"}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>개발 목적</h2>
@@ -128,7 +128,7 @@ export default function Landing() {
    {/* Features */}
    {/* Features */}
    {/* Features (Using the Timeline Design) */}
-   <section className="pdf-features-section full-screen-section" id="features" style={{backgroundColor: "#f8fafc"}}>
+   <section className="pdf-features-section full-screen-section" id="features" style={{backgroundColor: "#f1f5f9"}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>주요 내용 및 특징</h2>
@@ -166,7 +166,7 @@ export default function Landing() {
    </section>
 
    {/* Application */}
-   <section className="full-screen-section" id="application" style={{backgroundColor: "var(--bg-body)"}}>
+   <section className="full-screen-section" id="application" style={{backgroundColor: "#ffffff"}}>
     <div className="section-inner">
      <div className="section-heading fade-up">
       <h2>활용 분야 및 적용 방안</h2>
@@ -226,7 +226,7 @@ export default function Landing() {
 
    {/* System Architecture (Image from Poster) */}
    {/* System Architecture (CSS Built) */}
-   <section className="full-screen-section" id="system" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
+   <section className="full-screen-section" id="system" style={{backgroundColor: "#f1f5f9", padding: '100px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
      <div className="section-heading fade-up" style={{marginBottom: '60px'}}>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>시스템 구성도</h2>
@@ -286,7 +286,7 @@ export default function Landing() {
    
    {/* Team Intro */}
    {/* Team Intro */}
-   <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
+   <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "#ffffff"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
      <h2>개발자 소개</h2>
