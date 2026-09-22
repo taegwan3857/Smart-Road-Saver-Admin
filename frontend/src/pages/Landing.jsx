@@ -127,29 +127,39 @@ export default function Landing() {
 
    {/* Features */}
    {/* Features */}
-   <section className="full-screen-section" id="features" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
+   {/* Features (Using the Timeline Design) */}
+   <section className="pdf-features-section full-screen-section" id="features" style={{backgroundColor: "#f8fafc"}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
       <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>Core Features</div>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>주요 내용 및 특징</h2>
       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', lineHeight: '1.6', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>
-       <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI 딥러닝, 백엔드 서버, 앱과 웹의 프론트엔드까지 모든 과정을 직접 구현하고 개발한 통합 시스템입니다.
+       <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI 딥러닝, 백엔드 서버, 앱과 웹의 프론트엔드까지 모든 과정을 직접 구현하고 개발한 시스템입니다.
       </p>
      </div>
      
-     <div style={{display: 'flex', flexDirection: 'column', gap: '40px'}} className="fade-up d1">
-      <div style={{background: '#f8fafc', borderRadius: '24px', padding: '48px', border: '1px solid #e2e8f0', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center'}}>
-       <div style={{flex: '1 1 300px'}}>
-        <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#1e293b', marginBottom: '20px'}}>하드웨어 및 AI</h3>
-        <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all'}}>기존에 비전 AI만을 사용해서 도로 위의 결함을 측정하였으나 육안으로 식별이 어려운 도로 결빙이나 젖은 노면과 같은 상태는 탐지가 힘들다는 한계를 맞닥뜨리고 mmWave 레이더를 도입하여 도로에 부딪혀 돌아오는 반사파를 통해 이러한 한계를 극복하였습니다.</p>
-        <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all', marginTop: '16px'}}>mmWave 레이더 센서, 카메라, GPS 수신기가 Jetson Nano에 장착되어 있습니다. 도로 위의 위험 요소를 탐지하고 분석하는 AI 모델은 직접 추출하고 수집한 데이터를 라벨링과 전처리 등의 과정을 거치고 학습시켜 개발하였습니다.</p>
+     <div className="pdf-timeline">
+      <div className="pdf-timeline-item slide-in-left">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
+       <div className="pdf-content">
+        <h3>하드웨어 (mmWave 레이더 도입)</h3>
+        <p>하드웨어에서는 기존에 비전 AI만을 사용해서 도로 위의 결함을 측정하였으나 육안으로 식별이 어려운 도로 결빙이나 젖은 노면과 같은 상태는 탐지가 힘들다는 한계를 맞닥뜨리고 mmWave 레이더를 도입하여 도로에 부딪혀 돌아오는 반사파를 통해 이러한 한계를 극복하였습니다.</p>
        </div>
       </div>
 
-      <div style={{background: '#f8fafc', borderRadius: '24px', padding: '48px', border: '1px solid #e2e8f0', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center'}}>
-       <div style={{flex: '1 1 300px'}}>
-        <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#1e293b', marginBottom: '20px'}}>백엔드 & 프론트엔드</h3>
-        <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all'}}>백엔드에서는 실시간 통신과 중복 위험 요소를 병합하는 로직 및 자동 신고 로직 등을 구축하였고, 프론트엔드에서는 운전자에게 실시간 위험 접근 알림과 지도를 제공하는 모바일 앱과 전국 도로와 장치를 관제할 수 있는 관리자 웹 그리고 블랙박스나 전용 기기용 대시보드를 직접 개발하였습니다.</p>
+      <div className="pdf-timeline-item slide-in-right d1">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-brain"></i></div>
+       <div className="pdf-content">
+        <h3>AI 모델 및 데이터 학습</h3>
+        <p>mmWave 레이더 센서, 카메라, gps 수신기가 Jetson Nano에 장착되어 있습니다. 도로 위의 위험 요소를 탐지하고 분석하는 AI 모델은 직접 추출하고 수집한 데이터를 라벨링과 전처리 등의 과정을 거치고 학습시켜 개발하였습니다.</p>
+       </div>
+      </div>
+
+      <div className="pdf-timeline-item slide-in-left d2">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-server"></i></div>
+       <div className="pdf-content">
+        <h3>백엔드 및 프론트엔드 구축</h3>
+        <p>백엔드에서는 실시간 통신과 중복 위험 요소를 병합하는 로직 및 자동 신고 로직 등을 구축하였고 프론트엔드에서는 운전자에게 실시간 위험 접근 알림과 지도를 제공하는 모바일 앱과 전국 도로와 장치를 관제할 수 있는 관리자 웹 그리고 블랙박스나 전용 기기용 대시보드를 직접 개발하였습니다.</p>
        </div>
       </div>
      </div>
@@ -214,6 +224,18 @@ export default function Landing() {
     </div>
    </section>
 
+   {/* System Architecture (Image from Poster) */}
+   <section className="full-screen-section" id="system" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
+     <div className="section-heading fade-up" style={{marginBottom: '60px'}}>
+      <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>시스템 구성도</h2>
+     </div>
+     <div className="fade-up d1" style={{borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 40px rgba(0,0,0,0.05)', display: 'inline-block', border: '1px solid #e2e8f0'}}>
+      <img src="/system_arch.png" alt="시스템 구성도" style={{display: 'block', maxWidth: '100%', height: 'auto'}} />
+     </div>
+    </div>
+   </section>
+   
    {/* Team Intro */}
    {/* Team Intro */}
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
