@@ -156,6 +156,59 @@ export default function Landing() {
     </div>
    </section>
 
+   {/* System Architecture */}
+   <section className="pdf-features-section full-screen-section" id="system" style={{backgroundColor: "var(--bg-panel)"}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+     <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
+      <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>System Architecture</div>
+      <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>시스템 구성도</h2>
+      <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', lineHeight: '1.6'}}>전용 하드웨어부터 모바일 앱까지 완벽한 통합 관제</p>
+     </div>
+     
+     <div className="pdf-timeline">
+      <div className="pdf-timeline-item slide-in-left">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-microchip"></i></div>
+       <div className="pdf-content">
+        <h3>전용 하드웨어 플랫폼 (Jetson Nano)</h3>
+        <p>기존 블랙박스 의존도를 탈피하여 <strong>mmWave 레이더와 카메라 모듈</strong>이 통합된 전용 하드웨어 장치를 운영합니다. 육안 식별이 불가능한 젖음 및 결빙 상태를 레이더 반사 데이터를 통해 수치화합니다.</p>
+       </div>
+      </div>
+
+      <div className="pdf-timeline-item slide-in-right d1">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-brain"></i></div>
+       <div className="pdf-content">
+        <h3>AI / 딥러닝 엣지 컴퓨팅</h3>
+        <p>Jetson Nano 디바이스 내에서 자체 개발 AI 모델(도로 상태 추론)과 YOLO11n 모델(포트홀/장애물 탐지)을 구동하여 지연 시간 없이 현장에서 즉각적인 결함 탐지를 수행합니다.</p>
+       </div>
+      </div>
+
+      <div className="pdf-timeline-item slide-in-left d2">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-server"></i></div>
+       <div className="pdf-content">
+        <h3>클라우드 서버 / 백엔드</h3>
+        <p>엣지 디바이스에서 전송된 위험 데이터를 실시간 통신 패키징(API)을 통해 수신합니다. DB(PostgreSQL/PostGIS) 로직을 통해 데이터 정제 및 신고 자동화 프로세스를 처리합니다.</p>
+       </div>
+      </div>
+
+      <div className="pdf-timeline-item slide-in-right d3">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-mobile-alt"></i></div>
+       <div className="pdf-content">
+        <h3>모바일 앱 사용자</h3>
+        <p>전방 100m 이내 장애물 구간 진입 시 스마트폰 알림(실시간 위험 요소 알림) 및 지도 내 상세 정보를 제공하여 사용자의 안전 사고를 선제적으로 예방합니다.</p>
+       </div>
+      </div>
+
+      <div className="pdf-timeline-item slide-in-left d4">
+       <div className="pdf-icon pulse-blue"><i className="fas fa-desktop"></i></div>
+       <div className="pdf-content">
+        <h3>관제센터 (관리자 웹)</h3>
+        <p>전국 도로의 위험 상황(결함 종류, 위험도, 위경도 등)을 웹 기반 대시보드 지도 상에 표출하며, 실시간 탐지 기록과 지자체 신고 내역을 완벽하게 통합 관제합니다.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+
    {/* Application */}
    <section className="full-screen-section" id="application" style={{backgroundColor: "var(--bg-body)"}}>
     <div className="section-inner">
@@ -216,38 +269,68 @@ export default function Landing() {
 
    {/* Team Intro */}
    {/* Team Intro */}
-   <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
-    <div className="section-inner">
-    <div className="section-heading fade-up">
-     <h2>개발자 소개</h2>
-     <p>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
+   <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "#f8fafc", padding: '100px 24px'}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+    <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
+     <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>Team Introduction</div>
+     <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>동아리 소개</h2>
+     <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', lineHeight: '1.6'}}>SMART ROAD SAVER를 기획하고 개발한 동양미래대학교 MARS 팀원들을 소개합니다</p>
     </div>
-    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
+    
+    <div className="fade-up d1" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+     {/* Central Node / Architecture Root */}
+     <div style={{background: '#1e293b', color: '#fff', padding: '24px 60px', borderRadius: '20px', border: '1px solid #334155', boxShadow: '0 20px 40px rgba(15,23,42,0.15)', textAlign: 'center', position: 'relative', zIndex: 2}}>
+       <div style={{fontSize: '2.5rem', marginBottom: '12px', color: '#3b82f6'}}><i className="fas fa-users-cog"></i></div>
+       <h3 style={{fontSize: '1.8rem', fontWeight: '800', margin: '0 0 8px 0'}}>동아리 MARS</h3>
+       <p style={{fontSize: '1.1rem', color: '#94a3b8', margin: 0}}>Project SMART ROAD SAVER</p>
+     </div>
      
-     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
-      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
-       <i className="fas fa-mobile-alt"></i>
-      </div>
-      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>웹 & 앱 팀</h3>
-      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>오태관, 박서현</p>
-     </div>
+     {/* Architecture Lines Container */}
+     <div style={{width: '2px', height: '40px', background: '#cbd5e1', zIndex: 1}}></div>
 
-     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
-      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
-       <i className="fas fa-server"></i>
-      </div>
-      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>서버 팀</h3>
-      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김찬희, 정세희</p>
-     </div>
+     {/* Grid of Teams (Architecture Flow) */}
+     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', width: '100%', maxWidth: '1000px', position: 'relative', borderTop: '3px solid #cbd5e1', paddingTop: '40px'}}>
+       
+       {/* Connection dots */}
+       <div style={{position: 'absolute', top: '-7px', left: '16.66%', transform: 'translateX(-50%)', width: '11px', height: '11px', background: '#cbd5e1', borderRadius: '50%'}}></div>
+       <div style={{position: 'absolute', top: '-7px', left: '50%', transform: 'translateX(-50%)', width: '11px', height: '11px', background: '#cbd5e1', borderRadius: '50%'}}></div>
+       <div style={{position: 'absolute', top: '-7px', left: '83.33%', transform: 'translateX(-50%)', width: '11px', height: '11px', background: '#cbd5e1', borderRadius: '50%'}}></div>
 
-     <div style={{background: "var(--bg-panel)", borderRadius: '16px', padding: '40px 20px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.02)'}}>
-      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}>
-       <i className="fas fa-microchip"></i>
-      </div>
-      <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>하드웨어 및 AI 팀</h3>
-      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김수한, 김시호, 김민건</p>
-     </div>
+       {/* Team 1 */}
+       <div style={{background: '#ffffff', borderRadius: '20px', padding: '32px 24px', textAlign: 'center', border: '1px solid #e2e8f0', borderTopColor: '#3b82f6', borderTopWidth: '6px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', position: 'relative', marginTop: '-20px'}}>
+         <div style={{width: '2px', height: '20px', background: '#cbd5e1', position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)'}}></div>
+         <div style={{width: '64px', height: '64px', background: '#eff6ff', color: '#3b82f6', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}><i className="fas fa-mobile-alt"></i></div>
+         <h4 style={{fontSize: '1.3rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>웹 & 앱 팀</h4>
+         <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+           <span style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '600'}}>오태관</span>
+           <span style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '600'}}>박서현</span>
+         </div>
+       </div>
 
+       {/* Team 2 */}
+       <div style={{background: '#ffffff', borderRadius: '20px', padding: '32px 24px', textAlign: 'center', border: '1px solid #e2e8f0', borderTopColor: '#10b981', borderTopWidth: '6px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', position: 'relative', marginTop: '-20px'}}>
+         <div style={{width: '2px', height: '20px', background: '#cbd5e1', position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)'}}></div>
+         <div style={{width: '64px', height: '64px', background: '#ecfdf5', color: '#10b981', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}><i className="fas fa-server"></i></div>
+         <h4 style={{fontSize: '1.3rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>서버 팀</h4>
+         <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+           <span style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '600'}}>김찬희</span>
+           <span style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '600'}}>정세희</span>
+         </div>
+       </div>
+
+       {/* Team 3 */}
+       <div style={{background: '#ffffff', borderRadius: '20px', padding: '32px 24px', textAlign: 'center', border: '1px solid #e2e8f0', borderTopColor: '#f59e0b', borderTopWidth: '6px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', position: 'relative', marginTop: '-20px'}}>
+         <div style={{width: '2px', height: '20px', background: '#cbd5e1', position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)'}}></div>
+         <div style={{width: '64px', height: '64px', background: '#fffbeb', color: '#f59e0b', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', margin: '0 auto 20px'}}><i className="fas fa-microchip"></i></div>
+         <h4 style={{fontSize: '1.3rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>하드웨어 & AI 팀</h4>
+         <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+           <span style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '600'}}>김수한</span>
+           <span style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '600'}}>김시호</span>
+           <span style={{fontSize: '1.05rem', color: '#64748b', fontWeight: '600'}}>김민건</span>
+         </div>
+       </div>
+
+     </div>
     </div>
     </div>
    </section>
