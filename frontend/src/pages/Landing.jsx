@@ -176,20 +176,20 @@ export default function Landing() {
       
       <div style={{background: '#f8fafc', borderRadius: '24px', padding: '40px', border: '1px solid #e2e8f0', boxShadow: '0 10px 40px rgba(0,0,0,0.02)', display: 'flex', flexDirection: 'column'}}>
        <div style={{fontSize: '2.5rem', color: '#10b981', marginBottom: '24px'}}><i className="fas fa-bus"></i></div>
-       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>전국 단위 관제 인프라</h3>
-       <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', wordBreak: 'keep-all'}}>시내버스, 택시, 도로순찰차량 등에 장착되어 전국의 도로 상태를 실시간 스캔합니다. 지자체 및 도로관리기관에 자동 신고되어 신속한 보수가 이루어집니다.</p>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>전국 단위 관제 (일반/공공 차량)</h3>
+       <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', wordBreak: 'keep-all'}}>일반 차량뿐만 아니라 시내버스, 택시, 도로순찰차량 등에 장착되어 전국의 도로를 탐지하고 관리할 수 있습니다. 이렇게 수집된 위험 요소는 지자체 및 도로관리기관에 자동으로 신고되어 신속한 보수를 가능하게 합니다.</p>
       </div>
       
       <div style={{background: '#f8fafc', borderRadius: '24px', padding: '40px', border: '1px solid #e2e8f0', boxShadow: '0 10px 40px rgba(0,0,0,0.02)', display: 'flex', flexDirection: 'column'}}>
        <div style={{fontSize: '2.5rem', color: '#8b5cf6', marginBottom: '24px'}}><i className="fas fa-mobile-alt"></i></div>
        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>운전자 모바일 연동</h3>
-       <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', wordBreak: 'keep-all'}}>사용자 전용 모바일 앱이나 내비게이션 연동을 통해, 위험 구간에 300m 이내로 접근 시 실시간 푸시 알림과 경고음을 발생시켜 감속을 유도합니다.</p>
+       <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', wordBreak: 'keep-all'}}>운전자는 모바일 앱이나 내비게이션 연동을 통해 전방 위험 요소에 접근 시 실시간으로 알림을 받아 사고를 사전에 대비하고 예방할 수 있습니다.</p>
       </div>
 
       <div style={{background: '#f8fafc', borderRadius: '24px', padding: '40px', border: '1px solid #e2e8f0', boxShadow: '0 10px 40px rgba(0,0,0,0.02)', display: 'flex', flexDirection: 'column'}}>
        <div style={{fontSize: '2.5rem', color: '#f59e0b', marginBottom: '24px'}}><i className="fas fa-desktop"></i></div>
-       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>관리자 스마트 대시보드</h3>
-       <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', wordBreak: 'keep-all'}}>전국의 감지 이력과 실시간 디바이스 연결 상태를 한눈에 모니터링할 수 있는 지리정보(GIS) 기반 웹 대시보드를 제공하여 유연한 대응을 지원합니다.</p>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>관리자 웹 대시보드</h3>
+       <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', wordBreak: 'keep-all'}}>관리자는 웹 대시보드를 통해 전국의 도로를 한눈에 관제하고 유연하게 대처할 수 있으며 이러한 시스템은 도로 위의 모든 차량과 지도 서비스 그리고 도로관리기관 등 광범위하게 적용될 수 있습니다.</p>
       </div>
 
      </div>
@@ -207,20 +207,20 @@ export default function Landing() {
       
       <div style={{background: 'rgba(255,255,255,0.03)', borderRadius: '24px', padding: '40px', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 10px 40px rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column'}}>
        <div style={{fontSize: '2.5rem', color: '#60a5fa', marginBottom: '24px'}}><i className="fas fa-shield-alt"></i></div>
-       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>안전사고 근본적 예방</h3>
-       <p style={{fontSize: '1.05rem', color: '#94a3b8', lineHeight: '1.7', wordBreak: 'keep-all'}}>도로 위 결함과 상태를 24시간 실시간으로 탐지하고 즉각적인 관제 신고로 이어져, 보수 공사의 골든타임을 확보하고 인명 피해를 근본적으로 줄입니다.</p>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>안전사고의 근본적 감소</h3>
+       <p style={{fontSize: '1.05rem', color: '#94a3b8', lineHeight: '1.7', wordBreak: 'keep-all'}}>SMART ROAD SAVER는 도로 위의 안전사고를 근본적으로 감소시킬 수 있습니다. 주행 중 도로 위의 결함이나 상태를 실시간으로 탐지 및 분석하고 자동으로 신고하여 신속한 보수를 지원함으로써 도로 위의 안전사고와 그로 인한 인명 피해를 줄일 수 있습니다.</p>
       </div>
 
       <div style={{background: 'rgba(255,255,255,0.03)', borderRadius: '24px', padding: '40px', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 10px 40px rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column'}}>
        <div style={{fontSize: '2.5rem', color: '#60a5fa', marginBottom: '24px'}}><i className="fas fa-car-crash"></i></div>
-       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>2차 사고 피해 획기적 축소</h3>
-       <p style={{fontSize: '1.05rem', color: '#94a3b8', lineHeight: '1.7', wordBreak: 'keep-all'}}>블랙박스와 결합된 디바이스를 통해 방대한 도로 면적을 상시 커버합니다. 위험 접근 경고 푸시 알림으로 운전자의 자발적 감속과 우회를 유도하여 추가 피해를 방지합니다.</p>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>노면 결함 피해 획기적 축소</h3>
+       <p style={{fontSize: '1.05rem', color: '#94a3b8', lineHeight: '1.7', wordBreak: 'keep-all'}}>이러한 시스템은 일반 차량의 블랙박스나 전용 기기를 통해 쉽게 도입되어 전국의 도로를 상시 순찰할 수 있어 노면 결함으로 인한 피해를 획기적으로 낮출 수 있습니다. 또한 모바일 앱을 사용하는 운전자에게는 위험 요소에 접근하게 될 시 실시간 위험 접근 경고 알림을 전송하여 감속과 우회를 유도함으로써 도로 위의 사고에 미리 대처하고 예방할 수 있도록 돕습니다.</p>
       </div>
 
       <div style={{background: 'rgba(255,255,255,0.03)', borderRadius: '24px', padding: '40px', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 10px 40px rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column'}}>
        <div style={{fontSize: '2.5rem', color: '#60a5fa', marginBottom: '24px'}}><i className="fas fa-chart-line"></i></div>
-       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>유지보수 비용 극강의 절감</h3>
-       <p style={{fontSize: '1.05rem', color: '#94a3b8', lineHeight: '1.7', wordBreak: 'keep-all'}}>인력 중심의 순찰 방식과 사후 신고에 의존하던 낡은 체계를 완전 자동화하여 막대한 인건비와 소모 시간을 절감하고, 도로 관리의 효율성을 극대화합니다.</p>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>막대한 비용과 시간 절감</h3>
+       <p style={{fontSize: '1.05rem', color: '#94a3b8', lineHeight: '1.7', wordBreak: 'keep-all'}}>나아가 기존에 인력 중심의 순찰 방식으로 인해 소모되던 막대한 비용과 시간을 SMART ROAD SAVER 도입으로 자동화하고 기존의 사후 신고 처리 방식을 실시간 자동 신고하는 방식으로 전환하여 대폭 절감함과 동시에 순찰 인력의 2차 사고 또한 방지할 수 있습니다.</p>
       </div>
 
      </div>
@@ -301,7 +301,7 @@ export default function Landing() {
       <div style={{width: '80px', height: '80px', borderRadius: '24px', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', margin: '0 auto 24px'}}>
        <i className="fas fa-mobile-alt"></i>
       </div>
-      <h3 style={{fontSize: '1.5rem', color: '#1e293b', fontWeight: '800', marginBottom: '16px'}}>웹 & 앱 파트</h3>
+      <h3 style={{fontSize: '1.5rem', color: '#1e293b', fontWeight: '800', marginBottom: '16px'}}>웹 & 앱 팀</h3>
       <div style={{display: 'inline-block', background: '#ffffff', padding: '12px 24px', borderRadius: '12px', border: '1px solid #e2e8f0', fontSize: '1.1rem', color: '#475569', fontWeight: '600'}}>오태관, 박서현</div>
      </div>
 
@@ -309,7 +309,7 @@ export default function Landing() {
       <div style={{width: '80px', height: '80px', borderRadius: '24px', background: '#ecfdf5', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', margin: '0 auto 24px'}}>
        <i className="fas fa-server"></i>
       </div>
-      <h3 style={{fontSize: '1.5rem', color: '#1e293b', fontWeight: '800', marginBottom: '16px'}}>클라우드 서버 파트</h3>
+      <h3 style={{fontSize: '1.5rem', color: '#1e293b', fontWeight: '800', marginBottom: '16px'}}>서버 팀</h3>
       <div style={{display: 'inline-block', background: '#ffffff', padding: '12px 24px', borderRadius: '12px', border: '1px solid #e2e8f0', fontSize: '1.1rem', color: '#475569', fontWeight: '600'}}>김찬희, 정세희</div>
      </div>
 
@@ -317,7 +317,7 @@ export default function Landing() {
       <div style={{width: '80px', height: '80px', borderRadius: '24px', background: '#fef3c7', color: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', margin: '0 auto 24px'}}>
        <i className="fas fa-microchip"></i>
       </div>
-      <h3 style={{fontSize: '1.5rem', color: '#1e293b', fontWeight: '800', marginBottom: '16px'}}>하드웨어 & AI 파트</h3>
+      <h3 style={{fontSize: '1.5rem', color: '#1e293b', fontWeight: '800', marginBottom: '16px'}}>하드웨어 및 AI 팀</h3>
       <div style={{display: 'inline-block', background: '#ffffff', padding: '12px 24px', borderRadius: '12px', border: '1px solid #e2e8f0', fontSize: '1.1rem', color: '#475569', fontWeight: '600'}}>김수한, 김시호, 김민건</div>
      </div>
 
