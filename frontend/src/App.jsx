@@ -22,7 +22,7 @@ function PrivateRoute({ children }) {
   const token = localStorage.getItem('accessToken') || localStorage.getItem('access_token');
   const location = useLocation();
 
-  if (!token) {
+  if (!token || token === 'undefined' || token === 'null') {
     return <Navigate to="/intro" state={{ from: location }} replace />;
   }
   return children;
