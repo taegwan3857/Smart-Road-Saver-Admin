@@ -60,7 +60,7 @@ export default function Landing() {
       <div className="hero-badge">AI 기반 도로 안전 솔루션</div>
       <h1 className="hero-title">
        미래를 향한 안전한 길,<br />
-       <span className="text-gradient">SMART ROAD SAVER</span>
+       <span className="text-gradient" style={{whiteSpace: "nowrap"}}>SMART ROAD SAVER</span>
       </h1>
       <p className="hero-subtitle" style={{ wordBreak: 'keep-all' }}>
        mmWave 레이더 센서와 비전 AI를 결합하여<br className="hide-mobile" />
@@ -101,47 +101,56 @@ export default function Landing() {
    </section>
 
    {/* Purpose */}
-   <section className="full-screen-section" id="purpose" style={{backgroundColor: "var(--bg-body)"}}>
-    <div className="section-inner">
-     <div className="section-heading fade-up">
-      <div className="hero-badge" style={{background: '#f1f5f9', color: '#1d3162', marginBottom: '16px', display: 'inline-block'}}>배경 및 목적</div>
-      <h2>개발 목적</h2>
+   {/* Purpose */}
+   <section className="full-screen-section" id="purpose" style={{backgroundColor: "#f8fafc"}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+     <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
+      <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>Background & Purpose</div>
+      <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>개발 목적</h2>
      </div>
-     <div className="bg-grid">
-      <div className="bg-card slide-in-left d1">
-       <div className="bg-icon"><i className="fas fa-exclamation-triangle"></i></div>
-       <h3>기존 시스템의 한계</h3>
-       <p>매년 2만 건 이상의 교통사고가 도로 위의 장애물과 포트홀, 결빙 등으로 발생하고 있습니다. 그러나 사고 후 신고 또는 기존 도로 순찰 탐지 방법은 막대한 비용과 시간이 소요될 뿐만 아니라 순찰원의 2차 사고 위험까지 가지고 있으며 사고가 발생한 후에야 운전자가 직접 신고하고 대처하는 방식에 의존하여 사고 예방에 한계가 있었습니다.</p>
+     
+     <div style={{display: 'flex', gap: '30px', flexWrap: 'wrap'}} className="fade-up d1">
+      <div style={{flex: '1 1 400px', background: '#ffffff', borderRadius: '24px', padding: '48px', border: '1px solid #e2e8f0', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', display: 'flex', flexDirection: 'column'}}>
+       <div style={{width: '64px', height: '64px', background: '#f1f5f9', color: '#475569', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '32px'}}><i className="fas fa-exclamation-triangle"></i></div>
+       <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#1e293b', marginBottom: '20px'}}>기존 시스템의 한계</h3>
+       <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all', margin: 0}}>매년 2만 건 이상의 교통사고가 도로 위의 장애물과 포트홀, 결빙 등으로 발생하고 있습니다. 그러나 사고 후 신고 또는 기존 도로 순찰 탐지 방법은 막대한 비용과 시간이 소요될 뿐만 아니라 순찰원의 2차 사고 위험까지 가지고 있으며 사고가 발생한 후에야 운전자가 직접 신고하고 대처하는 방식에 의존하여 사고 예방에 한계가 있었습니다.</p>
       </div>
-      <div className="bg-card slide-in-right d2">
-       <div className="bg-icon" style={{color: '#10b981', background: '#d1fae5'}}><i className="fas fa-shield-alt"></i></div>
-       <h3>SMART ROAD SAVER의 해결책</h3>
-       <p>블랙박스와 결합하거나 별도의 디바이스로 구성된 SMART ROAD SAVER는 mmWave 레이더 센서와 비전 AI를 결합하여 일반 자동차들이 주행 중 도로 위의 위험 요소를 실시간으로 탐지하고 즉각 자동신고 및 전파함으로써 노면 결함으로 인한 사고를 사전에 차단하고, 또한 사용자가 신고된 위치를 지날 때 자동으로 알림을 받아 사고 위험을 대비하여 사고를 최소화 할 수 있도록 개발된 서비스입니다.</p>
+      
+      <div style={{flex: '1 1 400px', background: '#ffffff', borderRadius: '24px', padding: '48px', border: '1px solid #e2e8f0', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', display: 'flex', flexDirection: 'column'}}>
+       <div style={{width: '64px', height: '64px', background: '#eff6ff', color: '#3b82f6', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '32px'}}><i className="fas fa-shield-alt"></i></div>
+       <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#1e293b', marginBottom: '20px'}}><span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>의 해결책</h3>
+       <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all', margin: 0}}>블랙박스와 결합하거나 별도의 디바이스로 구성된 <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 mmWave 레이더 센서와 비전 AI를 결합하여 일반 자동차들이 주행 중 도로 위의 위험 요소를 실시간으로 탐지하고 즉각 자동신고 및 전파함으로써 노면 결함으로 인한 사고를 사전에 차단하고, 또한 사용자가 신고된 위치를 지날 때 자동으로 알림을 받아 사고 위험을 대비하여 사고를 최소화 할 수 있도록 개발된 서비스입니다.</p>
       </div>
      </div>
     </div>
    </section>
 
    {/* Features */}
-   <section className="full-screen-section" id="features" style={{backgroundColor: "var(--bg-panel)"}}>
-    <div className="section-inner">
-     <div className="section-heading fade-up">
-      <div className="hero-badge" style={{background: '#f1f5f9', color: '#1d3162', marginBottom: '16px', display: 'inline-block'}}>특징 및 구성</div>
-      <h2>주요 내용 및 특징</h2>
-      <p style={{marginTop: '16px', fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.6', wordBreak: 'keep-all'}}>
-       SMART ROAD SAVER는 하드웨어부터 AI 딥러닝, 백엔드 서버, 앱과 웹의 프론트엔드까지 모든 과정을 직접 구현하고 개발한 시스템입니다.
+   {/* Features */}
+   <section className="full-screen-section" id="features" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+     <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
+      <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>Core Features</div>
+      <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>주요 내용 및 특징</h2>
+      <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', lineHeight: '1.6', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>
+       <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI 딥러닝, 백엔드 서버, 앱과 웹의 프론트엔드까지 모든 과정을 직접 구현하고 개발한 통합 시스템입니다.
       </p>
      </div>
-     <div className="feature-cards">
-      <div className="feature-card-modern fade-up d1">
-       <div className="f-icon"><i className="fas fa-microchip"></i></div>
-       <h3>하드웨어 및 AI</h3>
-       <p>기존에 비전 AI만을 사용해서 도로 위의 결함을 측정하였으나 육안으로 식별이 어려운 도로 결빙이나 젖은 노면과 같은 상태는 탐지가 힘들다는 한계를 맞닥뜨리고 mmWave 레이더를 도입하여 도로에 부딪혀 돌아오는 반사파를 통해 이러한 한계를 극복하였습니다.<br/><br/>mmWave 레이더 센서, 카메라, GPS 수신기가 Jetson Nano에 장착되어 있습니다. 도로 위의 위험 요소를 탐지하고 분석하는 AI 모델은 직접 추출하고 수집한 데이터를 라벨링과 전처리 등의 과정을 거치고 학습시켜 개발하였습니다.</p>
+     
+     <div style={{display: 'flex', flexDirection: 'column', gap: '40px'}} className="fade-up d1">
+      <div style={{background: '#f8fafc', borderRadius: '24px', padding: '48px', border: '1px solid #e2e8f0', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center'}}>
+       <div style={{flex: '1 1 300px'}}>
+        <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#1e293b', marginBottom: '20px'}}>하드웨어 및 AI</h3>
+        <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all'}}>기존에 비전 AI만을 사용해서 도로 위의 결함을 측정하였으나 육안으로 식별이 어려운 도로 결빙이나 젖은 노면과 같은 상태는 탐지가 힘들다는 한계를 맞닥뜨리고 mmWave 레이더를 도입하여 도로에 부딪혀 돌아오는 반사파를 통해 이러한 한계를 극복하였습니다.</p>
+        <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all', marginTop: '16px'}}>mmWave 레이더 센서, 카메라, GPS 수신기가 Jetson Nano에 장착되어 있습니다. 도로 위의 위험 요소를 탐지하고 분석하는 AI 모델은 직접 추출하고 수집한 데이터를 라벨링과 전처리 등의 과정을 거치고 학습시켜 개발하였습니다.</p>
+       </div>
       </div>
-      <div className="feature-card-modern fade-up d2">
-       <div className="f-icon"><i className="fas fa-server"></i></div>
-       <h3>백엔드 & 프론트엔드</h3>
-       <p>백엔드에서는 실시간 통신과 중복 위험 요소를 병합하는 로직 및 자동 신고 로직 등을 구축하였고 프론트엔드에서는 운전자에게 실시간 위험 접근 알림과 지도를 제공하는 모바일 앱과 전국 도로와 장치를 관제할 수 있는 관리자 웹 그리고 블랙박스나 전용 기기용 대시보드를 직접 개발하였습니다.</p>
+
+      <div style={{background: '#f8fafc', borderRadius: '24px', padding: '48px', border: '1px solid #e2e8f0', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center'}}>
+       <div style={{flex: '1 1 300px'}}>
+        <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#1e293b', marginBottom: '20px'}}>백엔드 & 프론트엔드</h3>
+        <p style={{fontSize: '1.1rem', color: '#64748b', lineHeight: '1.8', wordBreak: 'keep-all'}}>백엔드에서는 실시간 통신과 중복 위험 요소를 병합하는 로직 및 자동 신고 로직 등을 구축하였고, 프론트엔드에서는 운전자에게 실시간 위험 접근 알림과 지도를 제공하는 모바일 앱과 전국 도로와 장치를 관제할 수 있는 관리자 웹 그리고 블랙박스나 전용 기기용 대시보드를 직접 개발하였습니다.</p>
+       </div>
       </div>
      </div>
     </div>
@@ -236,7 +245,7 @@ export default function Landing() {
        <i className="fas fa-microchip"></i>
       </div>
       <h3 style={{fontSize: '1.25rem', color: '#0f172a', fontWeight: '700', marginBottom: '12px'}}>하드웨어 및 AI 팀</h3>
-      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김수한, 김시호, 김민건<br/><span style={{fontSize: '0.9rem'}}>김병원, 유한영, 엄희재</span></p>
+      <p style={{fontSize: '1.05rem', color: "var(--text-muted)", fontWeight: '500'}}>김수한, 김시호, 김민건</p>
      </div>
 
     </div>
