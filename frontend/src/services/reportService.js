@@ -27,66 +27,42 @@ export const reportService = {
     }));
   },
   getReport: async (id) => {
-    // 단건 조회도 무조건 감지 기록(Events)에서 가져옴
-    const events = await detectionService.getDetections();
-        const numericId = String(id).replace(/[^0-9]/g, '');
-    let ev = events.find(e => {
-      const eId = String(e.event_id || e.id).replace(/[^0-9]/g, '');
-      return eId === numericId && eId !== '';
-    });
-    // If not found in current loaded pages, create a dummy wrapper so it can still fetch detail
-    if (!ev) {
-      ev = { event_id: numericId || id, id: numericId || id };
-    }
-    if (!ev) return null;
-    
-    // 상세 정보를 불러와서 이미지 배열 등 추가 정보 병합
+    const numericId = String(id).replace(/[^0-9]/g, '');
+    let det;
     try {
-      let detailRes;
-      try {
-        detailRes = await apiClient.get(`/api/detections/${ev.event_id || ev.id}`);
-      } catch (e) {
-        try {
-          detailRes = await apiClient.get(`/api/events/${ev.event_id || ev.id}`);
-        } catch (e2) {}
-      }
-      const detail = detailRes?.data?.data || detailRes?.data;
-      if (detail) {
-        ev = { ...ev, ...detail };
-        // 강제로 이미지 필드 복원
-        if (detail.detection_images && detail.detection_images.length > 0) {
-          ev.detection_images = detail.detection_images;
-        } else if (detail.event && detail.event.detection_images && detail.event.detection_images.length > 0) {
-          ev.detection_images = detail.event.detection_images;
-        } else if (detail.detections && detail.detections.length > 0 && detail.detections[0].detection_images) {
-          ev.detection_images = detail.detections[0].detection_images;
-        } else if (detail.images) {
-          ev.images = detail.images;
-        }
-      }
+      det = await detectionService.getDetection(numericId || id);
     } catch (e) {
-      console.error("단건 조회 실패, 목록 데이터로 폴백:", e);
+      console.error(e);
     }
+    
+    if (!det) {
+      const events = await detectionService.getDetections();
+      det = events.find(e => {
+        const eId = String(e.event_id || e.id).replace(/[^0-9]/g, '');
+        return eId === numericId && eId !== '';
+      }) || events[0];
+    }
+    if (!det) return null;
 
     return {
-      id: `REP-${ev.event_id || ev.id || 1}`,
-      report_id: `REP-${ev.event_id || ev.id || 1}`,
-      detection_id: ev.event_id || ev.id,
-      event_id: ev.event_id || ev.id,
-      type: ev.obstacle_type || ev.type || ev.event_type || '위험 요소',
-      event_type: ev.obstacle_type || ev.type || ev.event_type || '위험 요소',
-      title: `도로 위험 감지 자동 보고서 (${ev.obstacle_type || '위험 요소'})`,
-      subject: `도로 위험 감지 자동 보고서 (${ev.obstacle_type || '위험 요소'})`,
+      id: `REP-${det.event_id || det.id || 1}`,
+      report_id: `REP-${det.event_id || det.id || 1}`,
+      detection_id: det.event_id || det.id,
+      event_id: det.event_id || det.id,
+      type: det.obstacle_type || det.type || det.event_type || '위험 요소',
+      event_type: det.obstacle_type || det.type || det.event_type || '위험 요소',
+      title: `도로 위험 감지 자동 보고서 (${det.obstacle_type || '위험 요소'})`,
+      subject: `도로 위험 감지 자동 보고서 (${det.obstacle_type || '위험 요소'})`,
       status: '신고 완료',
       author: 'SYSTEM',
       created_by: 'SYSTEM',
-      created_at: ev.first_detected_at || ev.last_detected_at || ev.detected_at || ev.created_at || new Date().toISOString(),
-      address: ev.address || ev.location || '위치 정보 없음',
-      latitude: ev.latitude,
-      longitude: ev.longitude,
-      image_url: ev.image_url,
-      images: ev.images || ev.detection_images,
-      detection_images: ev.detection_images
+      created_at: det.first_detected_at || det.last_detected_at || det.detected_at || det.created_at || new Date().toISOString(),
+      address: det.address || det.location || '위치 정보 없음',
+      latitude: det.latitude,
+      longitude: det.longitude,
+      image_url: det.image_url,
+      images: det.images || det.detection_images,
+      detection_images: det.detection_images
     };
   },
   createReport: async (eventId) => {
