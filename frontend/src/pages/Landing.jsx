@@ -106,6 +106,7 @@ export default function Landing() {
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>개발 목적</h2>
+      <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b'}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
      </div>
      
      <div style={{display: 'flex', gap: '30px', flexWrap: 'wrap'}} className="fade-up d1">
@@ -200,6 +201,7 @@ export default function Landing() {
     <div className="section-inner">
      <div className="section-heading fade-up">
       <h2 style={{color: '#fff'}}>기대 효과</h2>
+      <p style={{color: '#94a3b8', marginTop: '16px'}}>SMART ROAD SAVER가 만들어갈 긍정적인 변화와 사회적 가치</p>
      </div>
      <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}} className="fade-up d1">
       
