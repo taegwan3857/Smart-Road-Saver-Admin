@@ -71,8 +71,8 @@ export default function Landing() {
        <Link to="/login" className="btn-primary">
         관리자 관제 센터 <i className="fas fa-arrow-right" style={{marginLeft: '8px'}}></i>
        </Link>
-       <a href="#purpose" onClick={scrollToSection} className="btn-secondary">
-        솔루션 알아보기
+       <a href="https://app-smart-road-saver.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+        운전자용 앱 열기 <i className="fas fa-mobile-alt" style={{marginLeft: '8px'}}></i>
        </a>
       </div>
      </div>
