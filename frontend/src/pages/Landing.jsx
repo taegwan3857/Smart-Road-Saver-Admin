@@ -48,7 +48,7 @@ export default function Landing() {
      <a href="#features" onClick={scrollToSection}>주요 내용 및 특징</a>
      <a href="#application" onClick={scrollToSection}>활용 분야</a>
      <a href="#effects" onClick={scrollToSection}>기대 효과</a>
-     <a href="#team" onClick={scrollToSection}>동아리 소개</a>
+     <a href="#team" onClick={scrollToSection}>개발자 소개</a>
     </nav>
    </header>
 
@@ -289,8 +289,8 @@ export default function Landing() {
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
-     <h2>동아리 소개</h2>
-     <p>동양미래대학교 컴퓨터공학부 웹응용소프트웨어공학과 동아리</p>\n     <div style={{fontSize: '2rem', fontWeight: '800', color: '#1d3162', marginTop: '16px'}}>MARS</div>
+     <h2>개발자 소개</h2>
+     <p>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
     </div>
     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
      
