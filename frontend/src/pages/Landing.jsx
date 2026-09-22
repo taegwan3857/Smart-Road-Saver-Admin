@@ -170,6 +170,7 @@ export default function Landing() {
    <section className="full-screen-section" id="application" style={{backgroundColor: "var(--bg-body)"}}>
     <div className="section-inner">
      <div className="section-heading fade-up">
+      <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>Applications</div>
       <h2>활용 분야 및 적용 방안</h2>
       <p>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
      </div>
@@ -201,6 +202,7 @@ export default function Landing() {
    <section className="full-screen-section" id="effects" style={{background: '#0f172a', color: '#fff'}}>
     <div className="section-inner">
      <div className="section-heading fade-up">
+      <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#60a5fa', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>Expected Effects</div>
       <h2 style={{color: '#fff'}}>기대 효과</h2>
      </div>
      <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}} className="fade-up d1">
@@ -229,6 +231,7 @@ export default function Landing() {
    <section className="full-screen-section" id="system" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
      <div className="section-heading fade-up" style={{marginBottom: '60px'}}>
+      <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>System Architecture</div>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>시스템 구성도</h2>
       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b'}}>엣지 디바이스부터 클라우드 백엔드, 사용자 프론트엔드까지의 데이터 흐름</p>
      </div>
@@ -289,7 +292,8 @@ export default function Landing() {
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
-     <h2>개발자 소개</h2>
+     <div style={{fontSize: '0.9rem', fontWeight: '800', color: '#3b82f6', letterSpacing: '2px', marginBottom: '12px', textTransform: 'uppercase'}}>Team Members</div>
+      <h2>개발자 소개</h2>
      <p>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
     </div>
     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
