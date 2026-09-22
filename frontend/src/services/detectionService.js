@@ -2,25 +2,58 @@ import apiClient from '../api/client';
 
 export const detectionService = {
   getDetections: async (params = {}) => {
-    // /api/events 사용 - 도로명 주소가 포함된 데이터 반환
-    // 백엔드가 한 페이지에 10개씩만 반환하므로 모든 페이지를 불러와 병합
+    // If limit is 1, just fetch one page and return early
+    if (params.limit === 1) {
+      const query = new URLSearchParams({...params, page: 1}).toString();
+      const response = await apiClient.get(`/api/events${query ? `?${query}` : ''}`);
+      const data = response.data?.data || response.data;
+      return Array.isArray(data) ? data.slice(0, 1) : [];
+    }
+
+    // For dashboard and lists, fetch concurrently in batches to drastically reduce delay
     let allData = [];
     let page = 1;
     let hasMore = true;
     
-    while(hasMore && page <= 50) { // 안전을 위해 최대 50페이지 제한
-      const query = new URLSearchParams({...params, page}).toString();
-      const response = await apiClient.get(`/api/events${query ? `?${query}` : ''}`);
-      const data = response.data?.data || response.data;
-      
-      if (!data || data.length === 0) {
-        hasMore = false;
-      } else {
-        allData = [...allData, ...data];
-        if (data.length < 10) hasMore = false; // 10개 미만이면 마지막 페이지
-        page++;
+    while(hasMore && page <= 50) {
+      // Fetch 5 pages concurrently
+      const promises = [];
+      for(let i=0; i<5; i++) {
+        const query = new URLSearchParams({...params, page: page + i}).toString();
+        promises.push(apiClient.get(`/api/events${query ? `?${query}` : ''}`).catch(() => null));
       }
+      
+      const responses = await Promise.all(promises);
+      
+      for(let i=0; i<responses.length; i++) {
+        const res = responses[i];
+        if (!res) {
+          hasMore = false;
+          break;
+        }
+        const data = res.data?.data || res.data;
+        if (!data || data.length === 0) {
+          hasMore = false;
+          break;
+        }
+        allData = [...allData, ...data];
+        if (data.length < 10) {
+          hasMore = false;
+          break;
+        }
+      }
+      page += 5;
+      
+      // If called from dashboard with a soft limit, we can break early, but keeping it simple
     }
+    
+    // Sort allData by date descending just in case concurrent fetching messed up order slightly across batches
+    allData.sort((a, b) => {
+      const dA = new Date(b.first_detected_at || b.created_at || b.detected_at || 0);
+      const dB = new Date(a.first_detected_at || a.created_at || a.detected_at || 0);
+      return dA - dB;
+    });
+    
     return allData;
   },
   getDetection: async (id) => {
