@@ -170,7 +170,7 @@ export default function Dashboard() {
     };
     
     fetchData();
-    const intervalId = setInterval(fetchData, 5000);
+    const intervalId = setInterval(fetchData, 2000);
     return () => clearInterval(intervalId);
   }, []);
 

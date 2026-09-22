@@ -148,7 +148,7 @@ export default function Header() {
       } catch (err) {}
     };
     fetchLatest();
-    const timer = setInterval(fetchLatest, 5000);
+    const timer = setInterval(fetchLatest, 2000);
     return () => clearInterval(timer);
   }, []);
 
