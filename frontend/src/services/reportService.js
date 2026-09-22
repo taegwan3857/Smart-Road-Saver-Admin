@@ -29,7 +29,15 @@ export const reportService = {
   getReport: async (id) => {
     // 단건 조회도 무조건 감지 기록(Events)에서 가져옴
     const events = await detectionService.getDetections();
-    let ev = events.find(e => `REP-${e.event_id||e.id}` === id || String(e.event_id) === String(id) || String(e.id) === String(id)) || events[0];
+        const numericId = String(id).replace(/[^0-9]/g, '');
+    let ev = events.find(e => {
+      const eId = String(e.event_id || e.id).replace(/[^0-9]/g, '');
+      return eId === numericId && eId !== '';
+    });
+    // If not found in current loaded pages, create a dummy wrapper so it can still fetch detail
+    if (!ev) {
+      ev = { event_id: numericId || id, id: numericId || id };
+    }
     if (!ev) return null;
     
     // 상세 정보를 불러와서 이미지 배열 등 추가 정보 병합
@@ -48,8 +56,10 @@ export const reportService = {
         // 강제로 이미지 필드 복원
         if (detail.detection_images && detail.detection_images.length > 0) {
           ev.detection_images = detail.detection_images;
-        } else if (detail.event && detail.event.detection_images) {
+        } else if (detail.event && detail.event.detection_images && detail.event.detection_images.length > 0) {
           ev.detection_images = detail.event.detection_images;
+        } else if (detail.detections && detail.detections.length > 0 && detail.detections[0].detection_images) {
+          ev.detection_images = detail.detections[0].detection_images;
         } else if (detail.images) {
           ev.images = detail.images;
         }
