@@ -322,7 +322,7 @@ export default function Landing() {
       <p>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
      </div>
      
-     <div style={{maxWidth: '800px', margin: '0 auto', background: '#1e1e1e', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.2)'}} className="fade-up d1">
+     <div style={{maxWidth: '1000px', margin: '0 auto', background: '#1e1e1e', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.2)'}} className="fade-up d1">
       {/* Terminal Header */}
       <div style={{background: '#2d2d2d', padding: '16px 24px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #444'}}>
        <div style={{display: 'flex', gap: '8px'}}>
