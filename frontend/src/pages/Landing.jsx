@@ -103,35 +103,29 @@ export default function Landing() {
    {/* Purpose */}
    {/* Purpose */}
    <section className="full-screen-section" id="purpose" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
-    <div className="section-inner" style={{maxWidth: '1000px', margin: '0 auto'}}>
-     <div className="section-heading fade-up" style={{marginBottom: '80px'}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+     <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>개발 목적</h2>
-      <p style={{marginTop: '16px', fontSize: '1.15rem', color: '#64748b'}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
+      <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b'}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
      </div>
      
-     <div style={{display: 'flex', flexDirection: 'column', gap: '60px'}} className="fade-up d1">
-      {/* 1 */}
-      <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start'}}>
-       <div style={{flex: '1 1 250px', borderTop: '3px solid #0f172a', paddingTop: '20px'}}>
-        <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#0f172a', margin: 0}}>기존 시스템의 한계</h3>
+     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px', maxWidth: '1000px', margin: '0 auto'}} className="fade-up d1">
+      {/* Problem */}
+      <div style={{background: 'linear-gradient(145deg, #fff1f2 0%, #ffe4e6 100%)', borderRadius: '32px', padding: '48px', boxShadow: '0 20px 40px rgba(225,29,72,0.1)', display: 'flex', flexDirection: 'column'}}>
+       <div style={{width: '64px', height: '64px', background: '#e11d48', borderRadius: '50%', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem', marginBottom: '30px', boxShadow: '0 10px 20px rgba(225,29,72,0.3)'}}>
+        <i className="fas fa-exclamation"></i>
        </div>
-       <div style={{flex: '2 1 450px', paddingTop: '20px'}}>
-        <p style={{fontSize: '1.15rem', color: '#475569', lineHeight: '1.8', wordBreak: 'keep-all', margin: 0}}>
-         매년 2만 건 이상의 교통사고가 도로 위의 장애물과 포트홀, 결빙 등으로 발생하고 있습니다. 그러나 사고 후 신고 또는 기존 도로 순찰 탐지 방법은 막대한 비용과 시간이 소요될 뿐만 아니라 순찰원의 2차 사고 위험까지 가지고 있으며 사고가 발생한 후에야 운전자가 직접 신고하고 대처하는 방식에 의존하여 사고 예방에 한계가 있었습니다.
-        </p>
-       </div>
+       <h3 style={{fontSize: '1.7rem', fontWeight: '800', color: '#881337', marginBottom: '20px', letterSpacing: '-0.5px'}}>기존 시스템의 한계</h3>
+       <p style={{fontSize: '1.1rem', color: '#9f1239', lineHeight: '1.8', wordBreak: 'keep-all', margin: 0}}>매년 2만 건 이상의 교통사고가 도로 위의 장애물과 포트홀, 결빙 등으로 발생하고 있습니다. 그러나 사고 후 신고 또는 기존 도로 순찰 탐지 방법은 막대한 비용과 시간이 소요될 뿐만 아니라 순찰원의 2차 사고 위험까지 가지고 있으며 사고가 발생한 후에야 운전자가 직접 신고하고 대처하는 방식에 의존하여 사고 예방에 한계가 있었습니다.</p>
       </div>
       
-      {/* 2 */}
-      <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start'}}>
-       <div style={{flex: '1 1 250px', borderTop: '3px solid #3b82f6', paddingTop: '20px'}}>
-        <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#0f172a', margin: 0}}>SMART ROAD SAVER의<br/>해결책</h3>
+      {/* Solution */}
+      <div style={{background: 'linear-gradient(145deg, #eff6ff 0%, #dbeafe 100%)', borderRadius: '32px', padding: '48px', boxShadow: '0 20px 40px rgba(37,99,235,0.1)', display: 'flex', flexDirection: 'column'}}>
+       <div style={{width: '64px', height: '64px', background: '#2563eb', borderRadius: '50%', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem', marginBottom: '30px', boxShadow: '0 10px 20px rgba(37,99,235,0.3)'}}>
+        <i className="fas fa-check"></i>
        </div>
-       <div style={{flex: '2 1 450px', paddingTop: '20px'}}>
-        <p style={{fontSize: '1.15rem', color: '#475569', lineHeight: '1.8', wordBreak: 'keep-all', margin: 0}}>
-         블랙박스와 결합하거나 별도의 디바이스로 구성된 SMART ROAD SAVER는 mmWave 레이더 센서와 비전 AI를 결합하여 일반 자동차들이 주행 중 도로 위의 위험 요소를 실시간으로 탐지하고 즉각 자동신고 및 전파함으로써 노면 결함으로 인한 사고를 사전에 차단하고, 또한 사용자가 신고된 위치를 지날 때 자동으로 알림을 받아 사고 위험을 대비하여 사고를 최소화 할 수 있도록 개발된 서비스입니다.
-        </p>
-       </div>
+       <h3 style={{fontSize: '1.7rem', fontWeight: '800', color: '#1e3a8a', marginBottom: '20px', letterSpacing: '-0.5px'}}>SMART ROAD SAVER</h3>
+       <p style={{fontSize: '1.1rem', color: '#1e40af', lineHeight: '1.8', wordBreak: 'keep-all', margin: 0}}>블랙박스와 결합하거나 별도의 디바이스로 구성된 SMART ROAD SAVER는 mmWave 레이더 센서와 비전 AI를 결합하여 일반 자동차들이 주행 중 도로 위의 위험 요소를 실시간으로 탐지하고 즉각 자동신고 및 전파함으로써 노면 결함으로 인한 사고를 사전에 차단하고, 또한 사용자가 신고된 위치를 지날 때 자동으로 알림을 받아 사고 위험을 대비하여 사고를 최소화 할 수 있도록 개발된 서비스입니다.</p>
       </div>
      </div>
     </div>
@@ -179,38 +173,46 @@ export default function Landing() {
 
    {/* Application */}
    <section className="full-screen-section" id="application" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
-    <div className="section-inner" style={{maxWidth: '1000px', margin: '0 auto'}}>
-     <div className="section-heading fade-up" style={{marginBottom: '60px'}}>
+    <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+     <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>활용 분야 및 적용 방안</h2>
-      <p style={{marginTop: '16px', fontSize: '1.15rem', color: '#64748b'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
+      <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
      </div>
      
-     <div style={{display: 'flex', flexDirection: 'column'}} className="fade-up d1">
+     <div style={{position: 'relative', maxWidth: '800px', margin: '0 auto'}} className="fade-up d1">
+      {/* Vertical Line */}
+      <div style={{position: 'absolute', left: '28px', top: '20px', bottom: '20px', width: '4px', background: '#f1f5f9', borderRadius: '4px'}}></div>
       
       {/* 1 */}
-      <div style={{display: 'flex', gap: '30px', padding: '40px 0', borderBottom: '1px solid #e2e8f0'}}>
-       <div style={{fontSize: '2.5rem', color: '#3b82f6', width: '60px', textAlign: 'center'}}><i className="fas fa-bus"></i></div>
-       <div>
-        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '12px'}}>전국 단위 관제 (일반/공공 차량)</h3>
-        <p style={{fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>일반 차량뿐만 아니라 시내버스, 택시, 도로순찰차량 등에 장착되어 전국의 도로를 탐지하고 관리할 수 있습니다. 이렇게 수집된 위험 요소는 지자체 및 도로관리기관에 자동으로 신고되어 신속한 보수를 가능하게 합니다.</p>
+      <div style={{position: 'relative', paddingLeft: '90px', paddingBottom: '60px'}}>
+       <div style={{position: 'absolute', left: '0', top: '0', width: '60px', height: '60px', borderRadius: '50%', background: '#10b981', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem', boxShadow: '0 0 0 10px #ffffff, 0 10px 20px rgba(16,185,129,0.3)', zIndex: 2}}>
+        <i className="fas fa-bus"></i>
+       </div>
+       <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px', paddingTop: '10px'}}>전국 단위 관제 (일반/공공 차량)</h3>
+       <div style={{background: '#f8fafc', padding: '32px', borderRadius: '24px', border: '1px solid #e2e8f0', fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', wordBreak: 'keep-all'}}>
+        일반 차량뿐만 아니라 시내버스, 택시, 도로순찰차량 등에 장착되어 전국의 도로를 탐지하고 관리할 수 있습니다. 이렇게 수집된 위험 요소는 지자체 및 도로관리기관에 자동으로 신고되어 신속한 보수를 가능하게 합니다.
        </div>
       </div>
       
       {/* 2 */}
-      <div style={{display: 'flex', gap: '30px', padding: '40px 0', borderBottom: '1px solid #e2e8f0'}}>
-       <div style={{fontSize: '2.5rem', color: '#3b82f6', width: '60px', textAlign: 'center'}}><i className="fas fa-mobile-alt"></i></div>
-       <div>
-        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '12px'}}>운전자 모바일 연동</h3>
-        <p style={{fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>운전자는 모바일 앱이나 내비게이션 연동을 통해 전방 위험 요소에 접근 시 실시간으로 알림을 받아 사고를 사전에 대비하고 예방할 수 있습니다.</p>
+      <div style={{position: 'relative', paddingLeft: '90px', paddingBottom: '60px'}}>
+       <div style={{position: 'absolute', left: '0', top: '0', width: '60px', height: '60px', borderRadius: '50%', background: '#8b5cf6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem', boxShadow: '0 0 0 10px #ffffff, 0 10px 20px rgba(139,92,246,0.3)', zIndex: 2}}>
+        <i className="fas fa-mobile-alt"></i>
+       </div>
+       <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px', paddingTop: '10px'}}>운전자 모바일 연동</h3>
+       <div style={{background: '#f8fafc', padding: '32px', borderRadius: '24px', border: '1px solid #e2e8f0', fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', wordBreak: 'keep-all'}}>
+        운전자는 모바일 앱이나 내비게이션 연동을 통해 전방 위험 요소에 접근 시 실시간으로 알림을 받아 사고를 사전에 대비하고 예방할 수 있습니다.
        </div>
       </div>
 
       {/* 3 */}
-      <div style={{display: 'flex', gap: '30px', padding: '40px 0'}}>
-       <div style={{fontSize: '2.5rem', color: '#3b82f6', width: '60px', textAlign: 'center'}}><i className="fas fa-desktop"></i></div>
-       <div>
-        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '12px'}}>관리자 웹 대시보드</h3>
-        <p style={{fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>관리자는 웹 대시보드를 통해 전국의 도로를 한눈에 관제하고 유연하게 대처할 수 있으며 이러한 시스템은 도로 위의 모든 차량과 지도 서비스 그리고 도로관리기관 등 광범위하게 적용될 수 있습니다.</p>
+      <div style={{position: 'relative', paddingLeft: '90px'}}>
+       <div style={{position: 'absolute', left: '0', top: '0', width: '60px', height: '60px', borderRadius: '50%', background: '#f59e0b', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem', boxShadow: '0 0 0 10px #ffffff, 0 10px 20px rgba(245,158,11,0.3)', zIndex: 2}}>
+        <i className="fas fa-desktop"></i>
+       </div>
+       <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px', paddingTop: '10px'}}>관리자 웹 대시보드</h3>
+       <div style={{background: '#f8fafc', padding: '32px', borderRadius: '24px', border: '1px solid #e2e8f0', fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', wordBreak: 'keep-all'}}>
+        관리자는 웹 대시보드를 통해 전국의 도로를 한눈에 관제하고 유연하게 대처할 수 있으며 이러한 시스템은 도로 위의 모든 차량과 지도 서비스 그리고 도로관리기관 등 광범위하게 적용될 수 있습니다.
        </div>
       </div>
 
