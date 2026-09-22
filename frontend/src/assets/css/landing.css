@@ -398,3 +398,8 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   .feature-card-new { padding: 32px 24px; }
   .effect-item { padding: 24px; }
 }
+
+/* Utility colors */
+.text-green { color: #10b981; }
+.text-blue { color: #3b82f6; }
+.text-purple { color: #8b5cf6; }

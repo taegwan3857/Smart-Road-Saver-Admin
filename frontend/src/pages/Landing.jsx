@@ -225,13 +225,61 @@ export default function Landing() {
    </section>
 
    {/* System Architecture (Image from Poster) */}
+   {/* System Architecture (CSS Built) */}
    <section className="full-screen-section" id="system" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
      <div className="section-heading fade-up" style={{marginBottom: '60px'}}>
       <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>시스템 구성도</h2>
+      <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b'}}>엣지 디바이스부터 클라우드 백엔드, 사용자 프론트엔드까지의 데이터 흐름</p>
      </div>
-     <div className="fade-up d1" style={{borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 40px rgba(0,0,0,0.05)', display: 'inline-block', border: '1px solid #e2e8f0'}}>
-      <img src="/system_arch.png" alt="시스템 구성도" style={{display: 'block', maxWidth: '100%', height: 'auto'}} />
+     
+     <div className="fade-up d1" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '40px 0'}}>
+      
+      {/* Edge / IoT */}
+      <div style={{background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+       <div style={{fontSize: '2.5rem', color: '#3b82f6', marginBottom: '16px'}}><i className="fas fa-car"></i></div>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>Edge AI (Jetson Nano)</h3>
+       <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-wifi text-blue" style={{marginRight:'8px'}}></i>mmWave 레이더</div>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-camera text-blue" style={{marginRight:'8px'}}></i>비전 카메라 (YOLO11n)</div>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-map-marker-alt text-blue" style={{marginRight:'8px'}}></i>GPS 수신기</div>
+       </div>
+      </div>
+
+      {/* Arrow */}
+      <div style={{fontSize: '2rem', color: '#cbd5e1', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+       <i className="fas fa-arrow-right hide-mobile"></i>
+       <i className="fas fa-arrow-down hide-desktop"></i>
+      </div>
+
+      {/* Backend */}
+      <div style={{background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+       <div style={{fontSize: '2.5rem', color: '#10b981', marginBottom: '16px'}}><i className="fas fa-server"></i></div>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>Cloud Backend</h3>
+       <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-database text-green" style={{marginRight:'8px'}}></i>Supabase DB</div>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-globe text-green" style={{marginRight:'8px'}}></i>PostGIS 공간 데이터</div>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-cogs text-green" style={{marginRight:'8px'}}></i>중복 병합 및 자동 신고 로직</div>
+       </div>
+      </div>
+
+      {/* Arrow */}
+      <div style={{fontSize: '2rem', color: '#cbd5e1', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+       <i className="fas fa-arrow-right hide-mobile"></i>
+       <i className="fas fa-arrow-down hide-desktop"></i>
+      </div>
+
+      {/* Client */}
+      <div style={{background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+       <div style={{fontSize: '2.5rem', color: '#8b5cf6', marginBottom: '16px'}}><i className="fas fa-users"></i></div>
+       <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>Frontend Clients</h3>
+       <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-desktop text-purple" style={{marginRight:'8px'}}></i>관리자 웹 (React JS)</div>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-mobile-alt text-purple" style={{marginRight:'8px'}}></i>사용자 앱 (React Native)</div>
+        <div style={{background: '#fff', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.95rem', fontWeight: '600', color: '#475569'}}><i className="fas fa-bell text-purple" style={{marginRight:'8px'}}></i>실시간 위험 접근 알림</div>
+       </div>
+      </div>
+
      </div>
     </div>
    </section>
@@ -241,8 +289,8 @@ export default function Landing() {
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "var(--bg-panel)"}}>
     <div className="section-inner">
     <div className="section-heading fade-up">
-     <h2>개발자 소개</h2>
-     <p>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
+     <h2>동아리 소개</h2>
+     <p>동양미래대학교 컴퓨터공학부 웹응용소프트웨어공학과 동아리</p>\n     <div style={{fontSize: '2rem', fontWeight: '800', color: '#1d3162', marginTop: '16px'}}>MARS</div>
     </div>
     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto'}} className="fade-up d1">
      
