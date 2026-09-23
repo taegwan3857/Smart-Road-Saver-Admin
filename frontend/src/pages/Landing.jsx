@@ -106,35 +106,36 @@ export default function Landing() {
      </div>
      
      <div className="hero-graphic-col slide-in-right">
-      <div className="radar-animation">
-              <div className="radar-circle circle-1"></div>
-       <div className="radar-circle circle-2"></div>
-       <div className="radar-circle circle-3"></div>
-       <div className="radar-scanner"></div>
-       
-       {/* 중앙 코어 아이콘 */}
-       <div className="radar-core">
-        <i className="fas fa-video"></i>
-       </div>
-       
-       {/* 탐지된 객체들 */}
-       <div className="radar-target target-1 green-target"><i className="fas fa-car-side"></i><div className="target-ripple green-ripple"></div></div>
-       <div className="radar-target target-2 green-target"><i className="fas fa-car"></i><div className="target-ripple green-ripple"></div></div>
-       <div className="radar-target target-3 red-target"><i className="fas fa-car-side" style={{transform: "scaleX(-1)"}}></i><div className="target-ripple red-ripple"></div></div>
-       <div className="radar-target target-4 blue-target"><i className="fas fa-map-marker-alt"></i><div className="target-ripple blue-ripple"></div></div>
-       
-       <div className="floating-ui ui-top-right">
-        <i className="fas fa-circle text-green blinking"></i> AI 분석 서버 활성화
-       </div>
-       <div className="floating-ui ui-bottom-left">
-        <strong><i className="fas fa-bolt text-blue"></i> YOLO11n</strong>
-        <span>객체 탐지 가동 중</span>
-       </div>
-       <div className="floating-ui ui-bottom-right">
-        <strong><i className="fas fa-wifi text-blue"></i> mmWave</strong>
-        <span>노면 상태 스캔</span>
-       </div>
-      </div>
+      <div className="smart-road-animation">
+        <div className="sr-road">
+          <div className="sr-lane-line"></div>
+          <div className="sr-hazard"></div>
+          <div className="sr-car"><i className="fas fa-car-side"></i></div>
+        </div>
+
+        <div className="sr-smart-pole">
+          <div className="sr-pole-head">
+            <i className="fas fa-video"></i>
+          </div>
+          <div className="sr-radar-wave"></div>
+          <div className="sr-vision-cone"></div>
+          <div className="sr-pole-label">Vision AI + mmWave</div>
+        </div>
+
+        <div className="sr-detection-box">
+          <div className="sr-bounding-box"></div>
+          <div className="sr-alert-tag"><i className="fas fa-exclamation-triangle"></i> 포트홀 탐지</div>
+        </div>
+
+        <div className="sr-data-link">
+          <div className="sr-packet"></div>
+        </div>
+
+        <div className="sr-gov-server">
+          <i className="fas fa-building"></i>
+          <span>지자체 자동 신고</span>
+        </div>
+            </div>
      </div>
     </div>
    </section>
