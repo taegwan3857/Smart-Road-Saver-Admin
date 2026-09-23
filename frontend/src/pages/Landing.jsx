@@ -115,32 +115,45 @@ export default function Landing() {
             <div className="sr-car-sensors">
               <div className="sr-radar-wave"></div>
               <div className="sr-vision-cone"></div>
-              <div className="sr-sensor-label">Vision AI + mmWave</div>
+              <div className="sr-sensor-label">Jetson Nano<br/>(Vision + mmWave)</div>
             </div>
           </div>
         </div>
 
-        
-
         <div className="sr-detection-box">
           <div className="sr-bounding-box"></div>
-          <div className="sr-alert-tag"><i className="fas fa-exclamation-triangle"></i> 포트홀 탐지</div>
+          <div className="sr-alert-tag"><i className="fas fa-exclamation-triangle"></i> 결빙/포트홀 탐지</div>
         </div>
 
-        <div className="sr-data-link">
-          <div className="sr-packet"></div>
+        {/* System Architecture Nodes */}
+        <div className="sr-node sr-cloud">
+          <i className="fas fa-cloud"></i>
+          <span>통합 백엔드</span>
+        </div>
+        <div className="sr-node sr-admin">
+          <i className="fas fa-desktop"></i>
+          <span>관리자 관제 웹</span>
+        </div>
+        <div className="sr-node sr-mobile">
+          <i className="fas fa-mobile-alt"></i>
+          <span>운전자 실시간 알림</span>
         </div>
 
-        <div className="sr-gov-server">
-          <i className="fas fa-building"></i>
-          <span>지자체 자동 신고</span>
+        {/* Data Links */}
+        <div className="sr-link-to-cloud">
+          <div className="sr-packet packet-up"></div>
         </div>
-            </div>
+        <div className="sr-link-to-admin">
+          <div className="sr-packet packet-down1"></div>
+        </div>
+        <div className="sr-link-to-mobile">
+          <div className="sr-packet packet-down2"></div>
+        </div>
+      </div>
      </div>
     </div>
    </section>
-
-   {/* Purpose */}
+ {/* Purpose */}
     <section className="full-screen-section" id="purpose" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
