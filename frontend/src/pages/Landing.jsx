@@ -230,19 +230,19 @@ export default function Landing() {
       <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px"}} className="fade-up d1">
        
        <div style={{background: '#f8fafc', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
-        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#f0fdf4', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-bus"></i></div>
+        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-bus"></i></div>
         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>전국 단위 관제</h3>
         <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 실시간으로 모니터링하고, 탐지된 위험 요소를 지자체에 자동으로 신고합니다.</p>
        </div>
 
        <div style={{background: '#f8fafc', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
-        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#f5f3ff', color: '#7c3aed', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-mobile-alt"></i></div>
+        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-mobile-alt"></i></div>
         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>운전자 모바일 연동</h3>
         <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>위험 구간에 접근하면 모바일 앱을 통해 실시간 푸시 알림을 제공하여 감속과 우회를 유도하고, 안전 운전을 돕습니다.</p>
        </div>
 
        <div style={{background: '#f8fafc', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
-        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#fffbeb', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-desktop"></i></div>
+        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#eff6ff', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-desktop"></i></div>
         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>웹 대시보드</h3>
         <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>수집된 위험 데이터를 지도 상에서 한눈에 파악하고, 지자체와 연계하여 즉각적인 유지보수를 지원합니다.</p>
        </div>
@@ -262,19 +262,19 @@ export default function Landing() {
       <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', gridAutoRows: 'minmax(200px, auto)'}} className="fade-up d1">
        {/* Left large */}
        <div style={{gridRow: "span 2", background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '16px', background: '#f1f5f9', color: '#334155', fontSize: '1.8rem', marginBottom: '32px'}}><i className="fas fa-shield-alt"></i></div>
+        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '16px', background: '#eff6ff', color: '#3b82f6', fontSize: '1.8rem', marginBottom: '32px'}}><i className="fas fa-shield-alt"></i></div>
         <h3 style={{fontSize: '1.6rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>사고 원천 예방</h3>
         <p style={{fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>24시간 실시간 탐지와 즉각적인 자동 신고로 도로 위 인명 피해와 사고를 원천적으로 예방합니다.</p>
        </div>
        {/* Top-right */}
        <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#f1f5f9', color: '#334155', fontSize: '1.5rem', marginBottom: '24px'}}><i className="fas fa-bell"></i></div>
+        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#eff6ff', color: '#3b82f6', fontSize: '1.5rem', marginBottom: '24px'}}><i className="fas fa-bell"></i></div>
         <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>2차 피해 차단</h3>
         <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>접근 경고 알림으로 감속과 우회를 유도하여 2차 사고를 방지합니다.</p>
        </div>
        {/* Bottom-right */}
        <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#f1f5f9', color: '#334155', fontSize: '1.5rem', marginBottom: '24px'}}><i className="fas fa-chart-line"></i></div>
+        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#eff6ff', color: '#3b82f6', fontSize: '1.5rem', marginBottom: '24px'}}><i className="fas fa-chart-line"></i></div>
         <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>비용 획기적 절감</h3>
         <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>수작업 순찰을 완전 자동화하여 막대한 예산과 시간을 절감합니다.</p>
        </div>
