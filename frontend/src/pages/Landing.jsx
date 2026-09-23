@@ -7,20 +7,91 @@ export default function Landing() {
  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
  const navigate = useNavigate();
 
- useEffect(() => {
-  const observer = new IntersectionObserver((entries) => {
-   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-     entry.target.classList.add('visible');
-    } else {
-     entry.target.classList.remove('visible');
-    }
-   });
-  }, { threshold: 0.1 });
+ 
+  useEffect(() => {
+    document.body.classList.remove('dark-theme');
+    
+    // Existing IntersectionObserver fade-up
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach((el) => observer.observe(el));
 
-  document.querySelectorAll('.fade-up, .fade-in, .slide-in-left, .slide-in-right').forEach(el => observer.observe(el));
-  return () => observer.disconnect();
- }, []);
+    // GSAP Advanced Animations (Parallax, Scrolljacking, Scrollytelling)
+    if (window.gsap && window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+
+      // 1. Parallax Scrolling on Hero
+      window.gsap.to('.hero-background', {
+        yPercent: 50,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+
+      // 2. Scrollytelling / Scrolljacking on Features (Numbered Steps)
+      // Pin the heading while steps scroll
+      window.ScrollTrigger.matchMedia({
+        "(min-width: 768px)": function() {
+          window.gsap.utils.toArray('.feature-step').forEach((step, i) => {
+            window.gsap.fromTo(step, 
+              { opacity: 0, y: 50 },
+              {
+                opacity: 1, 
+                y: 0,
+                scrollTrigger: {
+                  trigger: step,
+                  start: 'top 80%',
+                  end: 'top 50%',
+                  scrub: 1
+                }
+              }
+            );
+          });
+        }
+      });
+
+      // 3. Image Parallax / Scroll Interaction on Application (Zigzag)
+      window.gsap.utils.toArray('.app-block').forEach(block => {
+        const bg = block.querySelector('.app-accent');
+        if(bg) {
+          window.gsap.fromTo(bg,
+            { scale: 0.8, borderRadius: '100px' },
+            { 
+              scale: 1, 
+              borderRadius: '20px',
+              scrollTrigger: {
+                trigger: block,
+                start: 'top 90%',
+                end: 'center center',
+                scrub: 1
+              }
+            }
+          );
+        }
+      });
+    }
+
+    return () => {
+      fadeElements.forEach((el) => observer.unobserve(el));
+      if (window.ScrollTrigger) {
+        window.ScrollTrigger.getAll().forEach(t => t.kill());
+      }
+    };
+  }, []);
+
 
  const scrollToSection = (e) => {
   e.preventDefault();
@@ -145,7 +216,7 @@ export default function Landing() {
 
       <div style={{display: 'flex', flexDirection: 'column', gap: '0'}} className="fade-up d1">
        {/* Step 1 */}
-       <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
+       <div className="feature-step" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
         <div style={{minWidth: '80px'}}>
          <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>01</span>
         </div>
@@ -159,7 +230,7 @@ export default function Landing() {
        </div>
 
        {/* Step 2 */}
-       <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
+       <div className="feature-step" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
         <div style={{minWidth: '80px'}}>
          <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>02</span>
         </div>
@@ -173,7 +244,7 @@ export default function Landing() {
        </div>
 
        {/* Step 3 */}
-       <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0'}}>
+       <div className="feature-step" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0'}}>
         <div style={{minWidth: '80px'}}>
          <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>03</span>
         </div>
@@ -199,9 +270,9 @@ export default function Landing() {
 
       <div style={{display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '960px', margin: '0 auto'}} className="fade-up d1">
 
-       {/* Block 1 — left accent */}
-       <div style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
-        <div style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #059669, #34d399)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+       {/* Block 1 */}
+       <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
+        <div className="app-accent" style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #059669, #34d399)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
          <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>관제</span>
         </div>
         <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -210,9 +281,9 @@ export default function Landing() {
         </div>
        </div>
 
-       {/* Block 2 — right accent */}
-       <div style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px', flexDirection: 'row-reverse'}}>
-        <div style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #7c3aed, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+       {/* Block 2 */}
+       <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px', flexDirection: 'row-reverse'}}>
+        <div className="app-accent" style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #7c3aed, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
          <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>알림</span>
         </div>
         <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -221,9 +292,9 @@ export default function Landing() {
         </div>
        </div>
 
-       {/* Block 3 — left accent */}
-       <div style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
-        <div style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #d97706, #fbbf24)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+       {/* Block 3 */}
+       <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
+        <div className="app-accent" style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #d97706, #fbbf24)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
          <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>관리</span>
         </div>
         <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -326,70 +397,6 @@ export default function Landing() {
    </section>
    
    
-    {/* UI/UX Terms Section - CSS Sticky Scrolljacking */}
-    <section className="full-screen-section" id="scroll-terms" style={{backgroundColor: '#000000', padding: '0', position: 'relative'}}>
-     <div style={{display: 'flex', flexDirection: 'column'}}>
-      {/* Spacer for sticky effect */}
-      <div style={{display: 'flex', flexWrap: 'wrap', maxWidth: '1400px', margin: '0 auto', width: '100%', alignItems: 'flex-start'}}>
-       
-       {/* Left Pinned Side */}
-       <div style={{flex: '1 1 400px', position: 'sticky', top: '20vh', padding: '120px 40px', height: 'fit-content'}}>
-        <h2 style={{fontSize: '3rem', fontWeight: '900', color: '#ffffff', letterSpacing: '-0.05em', marginBottom: '20px', lineHeight: 1.2}}>
-         최신 웹 트렌드<br/>스크롤 인터랙션
-        </h2>
-        <p style={{fontSize: '1.15rem', color: '#9ca3af', wordBreak: 'keep-all', lineHeight: 1.7}}>
-         사용자 경험(UX)을 극대화하기 위해 웹 디자인 실무에서 활용되는 대표적인 5가지 스크롤 애니메이션 기법입니다. (현재 보시는 이 화면 또한 CSS Sticky를 활용한 스크롤 하이재킹 기법의 일종입니다.)
-        </p>
-       </div>
-
-       {/* Right Scrolling Side */}
-       <div style={{flex: '1 1 600px', padding: '120px 40px', display: 'flex', flexDirection: 'column', gap: '80px'}}>
-        
-        <div className="fade-up d1">
-         <div style={{fontSize: '1.2rem', fontWeight: '800', color: '#60a5fa', marginBottom: '12px'}}>01</div>
-         <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>스크롤 인터랙션 <span style={{fontSize:'1.2rem', color:'#6b7280', fontWeight:500}}>(Scroll Interaction)</span></h3>
-         <p style={{fontSize: '1.1rem', color: '#d1d5db', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>
-          사용자의 스크롤 동작에 반응하여 웹페이지의 요소들이 움직이거나 변하는 효과를 통칭하는 가장 대중적인 실무 용어입니다.
-         </p>
-        </div>
-
-        <div className="fade-up d1">
-         <div style={{fontSize: '1.2rem', fontWeight: '800', color: '#a78bfa', marginBottom: '12px'}}>02</div>
-         <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>스크롤리텔링 <span style={{fontSize:'1.2rem', color:'#6b7280', fontWeight:500}}>(Scrollytelling)</span></h3>
-         <p style={{fontSize: '1.1rem', color: '#d1d5db', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>
-          '스크롤(Scroll)'과 '스토리텔링(Storytelling)'의 합성어로, 스크롤을 내리며 제품의 특징을 한 편의 이야기처럼 순차적으로 보여주는 기획 방식을 뜻합니다.
-         </p>
-        </div>
-
-        <div className="fade-up d1">
-         <div style={{fontSize: '1.2rem', fontWeight: '800', color: '#34d399', marginBottom: '12px'}}>03</div>
-         <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>패럴랙스 스크롤링 <span style={{fontSize:'1.2rem', color:'#6b7280', fontWeight:500}}>(Parallax Scrolling)</span></h3>
-         <p style={{fontSize: '1.1rem', color: '#d1d5db', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>
-          화면의 배경과 전경(텍스트나 제품 이미지)의 이동 속도를 다르게 설정하여 화면에 시각적인 입체감과 깊이감을 주는 기법입니다.
-         </p>
-        </div>
-
-        <div className="fade-up d1">
-         <div style={{fontSize: '1.2rem', fontWeight: '800', color: '#f87171', marginBottom: '12px'}}>04</div>
-         <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>스크롤 하이재킹 <span style={{fontSize:'1.2rem', color:'#6b7280', fontWeight:500}}>(Scrolljacking)</span></h3>
-         <p style={{fontSize: '1.1rem', color: '#d1d5db', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>
-          스크롤 시 화면이 아래로 내려가는 대신 특정 섹션을 화면에 고정(Pinning)한 상태에서 3D 모델 회전 등의 애니메이션만 재생되도록 웹사이트가 스크롤 제어권을 가로채는 기법입니다.
-         </p>
-        </div>
-
-        <div className="fade-up d1" style={{paddingBottom: '120px'}}>
-         <div style={{fontSize: '1.2rem', fontWeight: '800', color: '#fbbf24', marginBottom: '12px'}}>05</div>
-         <h3 style={{fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginBottom: '16px'}}>이미지 시퀀스 애니메이션 <span style={{fontSize:'1.2rem', color:'#6b7280', fontWeight:500}}>(Image Sequence Animation)</span></h3>
-         <p style={{fontSize: '1.1rem', color: '#d1d5db', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>
-          수십에서 수백 장의 렌더링 이미지를 스크롤 위치(진행도)에 맞춰 빠르게 교체하여, 마치 사용자가 스크롤로 동영상을 앞뒤로 재생하는 것처럼 보이게 만드는 기술입니다.
-         </p>
-        </div>
-
-       </div>
-      </div>
-     </div>
-    </section>
-
     {/* Team Intro */}
    {/* Team Intro */}
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "#ffffff", overflow: 'hidden', padding: '100px 0'}}>
