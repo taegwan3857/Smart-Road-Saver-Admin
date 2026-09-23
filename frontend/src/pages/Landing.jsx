@@ -106,7 +106,7 @@ export default function Landing() {
     <div style={{maxWidth: '1000px', margin: '0 auto'}} className="fade-up d1">
         {/* Heading */}
         <div style={{marginBottom: '80px'}}>
-            <h2 style={{fontSize: '3rem', fontWeight: '900', letterSpacing: '-0.05em', color: '#0f172a'}}>개발 목적</h2>
+            <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>개발 목적</h2>
         </div>
         {/* Content */}
         <div style={{display: 'flex', flexDirection: 'column', gap: '60px'}}>
@@ -141,7 +141,7 @@ export default function Landing() {
    <section className="pdf-features-section full-screen-section" id="features" style={{backgroundColor: "#f1f5f9"}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '60px'}}>
-      <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>주요 내용 및 특징</h2>
+      <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>주요 내용 및 특징</h2>
       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', lineHeight: '1.6', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>
        <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI 딥러닝, 백엔드 서버, 앱과 웹의 프론트엔드까지 모든 과정을 직접 구현하고 개발한 시스템입니다.
       </p>
@@ -178,7 +178,7 @@ export default function Landing() {
    {/* Application */}
    <section className="full-screen-section" id="application" style={{backgroundColor: "#f8fafc", padding: '120px 24px'}}>
     <div style={{maxWidth: '1000px', margin: '0 auto'}} className="fade-up d1">
-        <h2 style={{fontSize: '3rem', fontWeight: '900', letterSpacing: '-0.05em', color: '#0f172a', marginBottom: '80px'}}>활용 분야</h2>
+        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a', marginBottom: '80px'}}>활용 분야</h2>
         <div style={{display: 'flex', flexDirection: 'column', gap: '60px'}}>
             
             <div style={{display: 'flex', gap: '30px', alignItems: 'flex-start'}}>
@@ -212,7 +212,7 @@ export default function Landing() {
    {/* Expected Effects */}
    <section className="full-screen-section" id="effects" style={{backgroundColor: '#0a0a0a', padding: '120px 24px'}}>
     <div style={{maxWidth: '1000px', margin: '0 auto'}} className="fade-up d1">
-        <h2 style={{fontSize: '3rem', fontWeight: '900', letterSpacing: '-0.05em', color: '#fff', marginBottom: '80px'}}>기대 효과</h2>
+        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#fff', marginBottom: '80px'}}>기대 효과</h2>
         
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '50px'}}>
             
@@ -240,7 +240,7 @@ export default function Landing() {
    <section className="full-screen-section" id="system" style={{backgroundColor: "#f1f5f9", padding: '100px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
      <div className="section-heading fade-up" style={{marginBottom: '60px'}}>
-      <h2 style={{fontSize: '2.5rem', fontWeight: '800', color: '#0f172a'}}>시스템 구성도</h2>
+      <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>시스템 구성도</h2>
       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b'}}>엣지 디바이스부터 클라우드 백엔드, 사용자 프론트엔드까지의 데이터 흐름</p>
      </div>
      
@@ -300,8 +300,8 @@ export default function Landing() {
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "#ffffff", overflow: 'hidden', padding: '100px 0'}}>
     <div className="section-inner" style={{maxWidth: '1400px', width: '100%', margin: '0 auto', padding: '0 24px'}}>
      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '40px'}}>
-      <h2>개발자 소개</h2>
-      <p>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
+      <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>개발자 소개</h2>
+      <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b'}}>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p>
      </div>
      
      <div style={{maxWidth: '1000px', width: '100%', margin: '0 auto', background: '#1e1e1e', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.2)'}} className="fade-up d1">
