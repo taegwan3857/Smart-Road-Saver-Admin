@@ -42,8 +42,8 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="sidebar-logo" onClick={() => navigate("/")} style={{cursor: "pointer"}}>
-        <img src={logoImg} alt="Smart Road Saver" style={{height: "36px", filter: "brightness(0) invert(1) opacity(0.8)"}} />
+      <div className="sidebar-logo" onClick={() => navigate("/")} style={{cursor: "pointer", justifyContent: "center"}}>
+        <img src={logoImg} alt="Smart Road Saver" style={{height: "44px", filter: "brightness(0) invert(1) opacity(0.8)"}} />
       </div>
       <nav className="sidebar-menu">
         <div className="sidebar-group-title">관제 대시보드</div>

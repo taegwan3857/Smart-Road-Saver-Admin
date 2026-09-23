@@ -383,7 +383,7 @@ export default function Landing() {
 
    {/* Footer */}
    <footer className="landing-footer">
-    <strong><i className="fas fa-shield-alt" style={{marginRight:'6px'}}></i>SMART ROAD SAVER</strong>
+    <img src={logoImg} alt="SMART ROAD SAVER" style={{height: "36px", filter: "brightness(0) invert(1) opacity(0.8)", marginBottom: "16px"}} />
     <p>© 2026 동양미래대학교 MARS. All rights reserved.</p>
    </footer>
   </div>
