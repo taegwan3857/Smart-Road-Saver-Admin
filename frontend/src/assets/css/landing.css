@@ -228,9 +228,21 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .qa-answer { padding: 0 24px 24px 24px; color: #64748b; line-height: 1.6; }
 
 /* Footer */
-.landing-footer { background: #1d3162; color: #94a3b8; padding: 48px; text-align: center; }
-.landing-footer strong { font-size: 1.2rem; color: #fff; display: block; margin-bottom: 12px; }
-.landing-footer p { margin: 0; font-size: 0.9rem; }
+.landing-footer { background: #1d3162; color: rgba(255,255,255,0.7); padding: 60px 0 30px; font-family: 'Pretendard', sans-serif; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; padding: 0 40px 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-left { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.footer-logo { height: 48px; filter: brightness(0) invert(1) opacity(0.9); margin-left: -6px; }
+.footer-desc { font-size: 0.95rem; line-height: 1.6; margin: 0; }
+.footer-right { display: flex; gap: 80px; }
+.footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-links h4 { color: #fff; font-size: 1rem; font-weight: 600; margin: 0 0 8px 0; letter-spacing: 0.5px; }
+.footer-links a, .footer-links span { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding: 24px 40px 0; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+.footer-social { display: flex; gap: 16px; color: rgba(255,255,255,0.5); font-size: 1.1rem; }
+.footer-social i { cursor: pointer; transition: color 0.2s; }
+.footer-social i:hover { color: white; }
 
 @media (max-width: 900px) {
   .landing-header { padding: 0 24px; }
@@ -455,3 +467,9 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   100% { box-shadow: 0 0 20px rgba(255,255,255,0.2); }
 }
 .dot-3 { top: 40%; left: 20%; animation: pulse-dot 2s infinite 0.5s; }
+
+@media (max-width: 768px) {
+  .footer-content { flex-direction: column; gap: 40px; padding: 0 24px 32px; }
+  .footer-right { gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; padding: 24px 24px 0; }
+}

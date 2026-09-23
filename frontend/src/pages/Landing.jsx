@@ -393,8 +393,33 @@ export default function Landing() {
 
    {/* Footer */}
    <footer className="landing-footer">
-    <img src={logoImg} alt="SMART ROAD SAVER" style={{height: "36px", filter: "brightness(0) invert(1) opacity(0.8)", marginBottom: "16px"}} />
-    <p>© 2026 동양미래대학교 MARS. All rights reserved.</p>
+    <div className="footer-content">
+      <div className="footer-left">
+        <img src={logoImg} alt="SMART ROAD SAVER" className="footer-logo" />
+        <p className="footer-desc">실시간 센서 데이터와 AI 분석으로<br/>도로 위의 위험을 가장 먼저 감지합니다.</p>
+      </div>
+      <div className="footer-right">
+        <div className="footer-links">
+          <h4>PROJECT</h4>
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#system">Architecture</a>
+        </div>
+        <div className="footer-links">
+          <h4>TEAM MARS</h4>
+          <span>동양미래대학교</span>
+          <span>컴퓨터공학부</span>
+          <span>2026 졸업작품</span>
+        </div>
+      </div>
+    </div>
+    <div className="footer-bottom">
+      <p>© 2026 동양미래대학교 MARS. All rights reserved.</p>
+      <div className="footer-social">
+        <i className="fab fa-github"></i>
+        <i className="fas fa-envelope"></i>
+      </div>
+    </div>
    </footer>
   </div>
  );
