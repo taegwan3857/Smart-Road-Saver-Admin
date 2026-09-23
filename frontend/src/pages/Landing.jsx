@@ -131,7 +131,7 @@ export default function Landing() {
     <section className="full-screen-section" id="purpose" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>개발 목적</h2>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>개발 목적</h2>
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
       </div>
 
@@ -145,7 +145,7 @@ export default function Landing() {
         <div>
          <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
           <span style={{width: '36px', height: '36px', borderRadius: '50%', background: '#fef2f2', color: '#ef4444', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'}}><i className="fas fa-times"></i></span>
-          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>기존 방식의 한계</h3>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', margin: 0}}>기존 방식의 한계</h3>
          </div>
          <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0, paddingLeft: '48px'}}>매년 2만 건 이상의 교통사고가 포트홀 등 도로 노면 결함으로 발생합니다. 기존 순찰 방식은 비용과 시간이 막대하게 소요되며 사전 예방에 한계가 있었습니다.</p>
         </div>
@@ -153,7 +153,7 @@ export default function Landing() {
         <div>
          <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
           <span style={{width: '36px', height: '36px', borderRadius: '50%', background: '#e8ebf3', color: '#1d3162', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'}}><i className="fas fa-check"></i></span>
-          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>우리의 해결책</h3>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', margin: 0}}>우리의 해결책</h3>
          </div>
          <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0, paddingLeft: '48px'}}>비전 AI와 mmWave 레이더를 결합하여 주행 중 위험 요소를 실시간 탐지하고, 자동 신고 및 앱 알림을 통해 사고를 원천 차단합니다.</p>
         </div>
@@ -166,7 +166,7 @@ export default function Landing() {
     <section className="full-screen-section" id="features" style={{backgroundColor: '#f8fafc', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>주요 특징</h2>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>주요 특징</h2>
        <p style={{marginTop: '20px', fontSize: '1.2rem', color: '#334155', fontWeight: '600', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>
         <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI, 서버, 프론트엔드까지<br/>
         모든 과정을 직접 구현한 시스템입니다.
@@ -182,7 +182,7 @@ export default function Landing() {
         <div style={{flex: '1 1 300px'}}>
          <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
           <i className="fas fa-microchip" style={{fontSize: '1.4rem', color: '#4f46e5'}}></i>
-          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>하드웨어 (mmWave 레이더 도입)</h3>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', margin: 0}}>하드웨어 (mmWave 레이더 도입)</h3>
          </div>
          <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0}}>기존 비전 AI의 한계였던 젖은 노면 및 블랙아이스 탐지를 위해 mmWave 레이더를 도입하여 어떠한 환경에서도 완벽한 탐지를 지원합니다.</p>
         </div>
@@ -196,7 +196,7 @@ export default function Landing() {
         <div style={{flex: '1 1 300px'}}>
          <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
           <i className="fas fa-brain" style={{fontSize: '1.4rem', color: '#2563eb'}}></i>
-          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>AI 모델 및 데이터 학습</h3>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', margin: 0}}>AI 모델 및 데이터 학습</h3>
          </div>
          <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0}}>카메라와 레이더 센서를 Jetson Nano에 장착하고, 직접 수집한 도로 결함 데이터를 학습시킨 독자적인 객체 탐지 모델을 가동합니다.</p>
         </div>
@@ -210,7 +210,7 @@ export default function Landing() {
         <div style={{flex: '1 1 300px'}}>
          <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
           <i className="fas fa-code" style={{fontSize: '1.4rem', color: '#9333ea'}}></i>
-          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>백엔드 및 풀스택 구축</h3>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', margin: 0}}>백엔드 및 풀스택 구축</h3>
          </div>
          <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0}}>실시간 데이터 통신, 중복 결함 병합 및 자동 신고 로직은 물론, 운전자용 모바일 앱과 관리자용 웹 대시보드를 100% 자체 개발하였습니다.</p>
         </div>
@@ -223,7 +223,7 @@ export default function Landing() {
     <section className="full-screen-section" id="application" style={{backgroundColor: '#ffffff', padding: '120px 24px', borderTop: '1px solid #eaeaea', borderBottom: '1px solid #eaeaea'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#111'}}>활용 분야</h2>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>활용 분야</h2>
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#666', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어<br/>주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
       </div>
 
@@ -231,19 +231,19 @@ export default function Landing() {
        
        <div style={{background: '#f8fafc', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
         <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#e8ebf3', color: '#1d3162', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-bus"></i></div>
-        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>전국 단위 관제</h3>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', marginBottom: '12px'}}>전국 단위 관제</h3>
         <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 실시간으로 모니터링하고, 탐지된 위험 요소를 지자체에 자동으로 신고합니다.</p>
        </div>
 
        <div style={{background: '#f8fafc', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
         <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#e8ebf3', color: '#1d3162', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-mobile-alt"></i></div>
-        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>운전자 모바일 연동</h3>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', marginBottom: '12px'}}>운전자 모바일 연동</h3>
         <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>위험 구간에 접근하면 모바일 앱을 통해 실시간 푸시 알림을 제공하여 감속과 우회를 유도하고, 안전 운전을 돕습니다.</p>
        </div>
 
        <div style={{background: '#f8fafc', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
         <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#e8ebf3', color: '#1d3162', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-desktop"></i></div>
-        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>웹 대시보드</h3>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1d3162', marginBottom: '12px'}}>웹 대시보드</h3>
         <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>수집된 위험 데이터를 지도 상에서 한눈에 파악하고, 지자체와 연계하여 즉각적인 유지보수를 지원합니다.</p>
        </div>
 
@@ -255,7 +255,7 @@ export default function Landing() {
     <section className="full-screen-section" id="effects" style={{backgroundColor: '#f8fafc', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>기대 효과</h2>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>기대 효과</h2>
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>SMART ROAD SAVER가 만들어갈 긍정적인 변화와 사회적 가치</p>
       </div>
 
@@ -263,19 +263,19 @@ export default function Landing() {
        {/* Left large */}
        <div style={{gridRow: "span 2", background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '36px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.5rem', marginBottom: '20px'}}><i className="fas fa-shield-alt"></i></div>
-        <h3 style={{fontSize: '1.6rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>사고 원천 예방</h3>
+        <h3 style={{fontSize: '1.6rem', fontWeight: '800', color: '#1d3162', marginBottom: '12px'}}>사고 원천 예방</h3>
         <p style={{fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>24시간 실시간 탐지와 즉각적인 자동 신고로 도로 위 인명 피해와 사고를 원천적으로 예방합니다.</p>
        </div>
        {/* Top-right */}
        <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', borderRadius: '12px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.3rem', marginBottom: '16px'}}><i className="fas fa-bell"></i></div>
-        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>2차 피해 차단</h3>
+        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#1d3162', marginBottom: '10px'}}>2차 피해 차단</h3>
         <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>접근 경고 알림으로 감속과 우회를 유도하여 2차 사고를 방지합니다.</p>
        </div>
        {/* Bottom-right */}
        <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', borderRadius: '12px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.3rem', marginBottom: '16px'}}><i className="fas fa-chart-line"></i></div>
-        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>비용 획기적 절감</h3>
+        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#1d3162', marginBottom: '10px'}}>비용 획기적 절감</h3>
         <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>수작업 순찰을 완전 자동화하여 막대한 예산과 시간을 절감합니다.</p>
        </div>
       </div>
@@ -287,7 +287,7 @@ export default function Landing() {
    {/* System Architecture (CSS Built) */}
    <section className="full-screen-section" id="system" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
-     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#0f172a"}}>시스템 구성도</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>엣지 디바이스부터 클라우드 백엔드, 사용자 프론트엔드까지의 데이터 흐름</p></div>
+     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#1d3162"}}>시스템 구성도</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>엣지 디바이스부터 클라우드 백엔드, 사용자 프론트엔드까지의 데이터 흐름</p></div>
      
      <div className="fade-up d1" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '40px 0'}}>
       
@@ -345,7 +345,7 @@ export default function Landing() {
    {/* Team Intro */}
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "#f8fafc", overflow: 'hidden', padding: '100px 0'}}>
     <div className="section-inner" style={{maxWidth: '1400px', width: '100%', margin: '0 auto', padding: '0 24px'}}>
-     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#0f172a"}}>팀원 소개</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p></div>
+     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#1d3162"}}>팀원 소개</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p></div>
      
      <div style={{maxWidth: '1000px', width: '100%', margin: '0 auto', background: '#1e1e1e', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.2)'}} className="fade-up d1">
       {/* Terminal Header */}

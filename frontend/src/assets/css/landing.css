@@ -51,7 +51,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 /* Hero Section */
 .hero-section {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1d3162 100%);
+  background: linear-gradient(135deg, #1d3162 0%, #1d3162 100%);
   color: #fff; display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden; box-sizing: border-box;
   padding: 80px 48px 0;
@@ -146,7 +146,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .bg-icon.warning { color: #f59e0b; }
 .bg-icon.time { color: #64748b; }
 .bg-icon.danger { color: #ef4444; }
-.bg-card h3 { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 16px; }
+.bg-card h3 { font-size: 1.25rem; font-weight: 800; color: #1d3162; margin-bottom: 16px; }
 .bg-card p { color: #64748b; line-height: 1.6; word-break: keep-all; margin: 0; }
 
 .bg-solution { max-width: 800px; width: 100%; }
@@ -215,7 +215,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .pdf-timeline-item.slide-in-right .pdf-content:hover { transform: translateX(-8px); }
 .pdf-timeline-item:nth-child(even) { flex-direction: row-reverse; text-align: right; }
 .pdf-timeline-item:nth-child(even) .pdf-content { border-radius: 20px; }
-.pdf-content h3 { font-size: 1.3rem; font-weight: 800; color: #0f172a; margin-bottom: 12px; }
+.pdf-content h3 { font-size: 1.3rem; font-weight: 800; color: #1d3162; margin-bottom: 12px; }
 .pdf-content p { color: #64748b; line-height: 1.6; margin: 0; word-break: keep-all; font-size: 1.05rem; }
 
 /* Q&A Section */
@@ -228,7 +228,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .qa-answer { padding: 0 24px 24px 24px; color: #64748b; line-height: 1.6; }
 
 /* Footer */
-.landing-footer { background: #0f172a; color: #94a3b8; padding: 48px; text-align: center; }
+.landing-footer { background: #1d3162; color: #94a3b8; padding: 48px; text-align: center; }
 .landing-footer strong { font-size: 1.2rem; color: #fff; display: block; margin-bottom: 12px; }
 .landing-footer p { margin: 0; font-size: 0.9rem; }
 
@@ -375,7 +375,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   margin-bottom: 16px;
 }
 .feature-card-new h3 {
-  font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 16px; line-height: 1.4; word-break: keep-all;
+  font-size: 1.35rem; font-weight: 800; color: #1d3162; margin-bottom: 16px; line-height: 1.4; word-break: keep-all;
 }
 .feature-card-new p {
   color: #64748b; font-size: 1.05rem; line-height: 1.6; margin: 0; word-break: keep-all; flex: 1;
