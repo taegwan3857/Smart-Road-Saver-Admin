@@ -399,18 +399,6 @@ export default function Landing() {
         <img src={logoImg} alt="SMART ROAD SAVER" className="footer-logo" />
         <p className="footer-desc">실시간 센서 데이터와 AI 분석으로<br/>도로 위의 위험을 가장 먼저 감지합니다.</p>
       </div>
-      <div className="footer-right">
-        <div className="footer-links">
-          <h4>프로젝트</h4>
-          <div className="horizontal-links">
-            <a href="#home">홈</a>
-            <span className="divider">·</span>
-            <a href="#features">주요 특징</a>
-            <span className="divider">·</span>
-            <a href="#system">시스템 구조</a>
-          </div>
-        </div>
-      </div>
     </div>
     <div className="footer-bottom">
       <p>© 2026 동양미래대학교 MARS. All rights reserved.</p>
