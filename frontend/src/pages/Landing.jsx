@@ -8,10 +8,11 @@ export default function Landing() {
  const navigate = useNavigate();
 
  
+  
   useEffect(() => {
     document.body.classList.remove('dark-theme');
     
-    // Existing IntersectionObserver fade-up
+    // Existing IntersectionObserver fade-up (only for elements that still have .fade-up)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -25,62 +26,57 @@ export default function Landing() {
     const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach((el) => observer.observe(el));
 
-    // GSAP Advanced Animations (Parallax, Scrolljacking, Scrollytelling)
+    // GSAP Advanced Animations
     if (window.gsap && window.ScrollTrigger) {
       window.gsap.registerPlugin(window.ScrollTrigger);
 
-      // 1. Parallax Scrolling on Hero
-      window.gsap.to('.hero-background', {
-        yPercent: 50,
+      // 1. Parallax Scrolling on Hero Graphic (Radar)
+      window.gsap.to('.hero-graphic-col', {
+        yPercent: 30,
         ease: 'none',
         scrollTrigger: {
-          trigger: '#hero',
+          trigger: '#home',
           start: 'top top',
           end: 'bottom top',
           scrub: true
         }
       });
 
-      // 2. Scrollytelling / Scrolljacking on Features (Numbered Steps)
-      // Pin the heading while steps scroll
-      window.ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function() {
-          window.gsap.utils.toArray('.feature-step').forEach((step, i) => {
-            window.gsap.fromTo(step, 
-              { opacity: 0, y: 50 },
-              {
-                opacity: 1, 
-                y: 0,
-                scrollTrigger: {
-                  trigger: step,
-                  start: 'top 80%',
-                  end: 'top 50%',
-                  scrub: 1
-                }
-              }
-            );
-          });
-        }
+      // 2. Scrollytelling on Features (Numbered Steps)
+      window.gsap.utils.toArray('.feature-step').forEach((step) => {
+        window.gsap.fromTo(step, 
+          { opacity: 0.2, x: -30 },
+          {
+            opacity: 1, 
+            x: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: step,
+              start: 'top 85%',
+              end: 'top 60%',
+              scrub: 1
+            }
+          }
+        );
       });
 
-      // 3. Image Parallax / Scroll Interaction on Application (Zigzag)
-      window.gsap.utils.toArray('.app-block').forEach(block => {
-        const bg = block.querySelector('.app-accent');
-        if(bg) {
-          window.gsap.fromTo(bg,
-            { scale: 0.8, borderRadius: '100px' },
-            { 
-              scale: 1, 
-              borderRadius: '20px',
-              scrollTrigger: {
-                trigger: block,
-                start: 'top 90%',
-                end: 'center center',
-                scrub: 1
-              }
+      // 3. Scroll Interaction on Application (Zigzag Blocks)
+      window.gsap.utils.toArray('.app-block').forEach((block, i) => {
+        const xOffset = i % 2 === 0 ? 50 : -50;
+        window.gsap.fromTo(block,
+          { opacity: 0, x: xOffset },
+          { 
+            opacity: 1,
+            x: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: block,
+              start: 'top 85%',
+              toggleActions: "play none none reverse"
             }
-          );
-        }
+          }
+        );
       });
     }
 
@@ -91,6 +87,7 @@ export default function Landing() {
       }
     };
   }, []);
+
 
 
  const scrollToSection = (e) => {
@@ -214,7 +211,7 @@ export default function Landing() {
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}><span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI, 서버, 프론트엔드까지 모든 과정을 직접 구현한 시스템입니다.</p>
       </div>
 
-      <div style={{display: 'flex', flexDirection: 'column', gap: '0'}} className="fade-up d1">
+      <div style={{display: "flex", flexDirection: "column", gap: "0"}}>
        {/* Step 1 */}
        <div className="feature-step" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
         <div style={{minWidth: '80px'}}>
@@ -268,7 +265,7 @@ export default function Landing() {
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
       </div>
 
-      <div style={{display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '960px', margin: '0 auto'}} className="fade-up d1">
+      <div style={{display: "flex", flexDirection: "column", gap: "24px", maxWidth: "960px", margin: "0 auto"}}>
 
        {/* Block 1 */}
        <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
