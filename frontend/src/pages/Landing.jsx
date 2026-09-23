@@ -58,27 +58,7 @@ export default function Landing() {
             }
           }
         );
-      });
-
-      // 3. Scroll Interaction on Application (Zigzag Blocks)
-      window.gsap.utils.toArray('.app-block').forEach((block, i) => {
-        const xOffset = i % 2 === 0 ? 50 : -50;
-        window.gsap.fromTo(block,
-          { opacity: 0, x: xOffset },
-          { 
-            opacity: 1,
-            x: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: block,
-              start: 'top 85%',
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      });
-    }
+      });    }
 
     return () => {
       fadeElements.forEach((el) => observer.unobserve(el));
@@ -207,8 +187,11 @@ export default function Landing() {
     <section className="full-screen-section" id="features" style={{backgroundColor: '#f8fafc', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>주요 내용 및 특징</h2>
-       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}><span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI, 서버, 프론트엔드까지 모든 과정을 직접 구현한 시스템입니다.</p>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>주요 특징</h2>
+       <p style={{marginTop: '20px', fontSize: '1.2rem', color: '#334155', fontWeight: '600', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>
+        <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI, 서버, 프론트엔드까지<br/>
+        모든 과정을 직접 구현한 시스템입니다.
+       </p>
       </div>
 
       <div style={{display: "flex", flexDirection: "column", gap: "0"}}>
@@ -258,14 +241,14 @@ export default function Landing() {
     </section>
 
     {/* Application — zigzag keyword blocks */}
-    <section className="full-screen-section" id="application" style={{backgroundColor: '#f8fafc', padding: '120px 24px'}}>
+    <section className="full-screen-section" id="application" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>활용 분야</h2>
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
       </div>
 
-      <div style={{display: "flex", flexDirection: "column", gap: "24px", maxWidth: "960px", margin: "0 auto"}}>
+      <div style={{display: "flex", flexDirection: "column", gap: "24px", maxWidth: "960px", margin: "0 auto"}} className="fade-up d1">
 
        {/* Block 1 */}
        <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
