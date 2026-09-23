@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logoImg from '../assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/authService';
 import Modal from '../components/common/Modal';
@@ -52,8 +53,7 @@ export default function Login() {
     <div className="login-page">
       <div className="login-card-split">
         <div className="login-left">
-          <i className="fas fa-shield-alt" style={{fontSize:"3rem",marginBottom:"20px"}}></i>
-          <h1>Smart Road Saver</h1>
+          <img src={logoImg} alt="Smart Road Saver Logo" style={{height: "60px", marginBottom: "20px"}} />
           <p>실시간 센서 데이터와 AI 분석으로<br />도로 위의 위험을 가장 먼저 감지합니다.</p>
           <div className="login-copyright">
             &copy; 2026 Smart Road Saver. All rights reserved.

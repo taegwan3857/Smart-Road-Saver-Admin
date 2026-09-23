@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import logoImg from '../assets/images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import '../assets/css/landing.css';
 
@@ -62,8 +63,8 @@ export default function Landing() {
   <div className="landing-container">
    {/* Nav */}
    <header className="landing-header">
-    <a href="#home" onClick={scrollToSection} className="landing-logo" style={{ textDecoration: 'none' }}>
-     <i className="fas fa-shield-alt"></i> SMART ROAD SAVER
+    <a href="#home" onClick={scrollToSection} className="landing-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+     <img src={logoImg} alt="SMART ROAD SAVER" style={{height: '28px'}} />
     </a>
     <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
      <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>

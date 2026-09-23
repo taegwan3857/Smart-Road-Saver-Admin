@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logoImg from '../../assets/images/logo.png';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { authService } from "../../services/authService";
 import Modal from "../common/Modal";
@@ -42,8 +43,7 @@ export default function Sidebar() {
   return (
     <>
       <div className="sidebar-logo" onClick={() => navigate("/")} style={{cursor: "pointer"}}>
-        <i className="fas fa-shield-alt"></i>
-        <span style={{marginLeft:"8px"}}>Smart Road Saver</span>
+        <img src={logoImg} alt="Smart Road Saver" style={{height: "22px"}} />
       </div>
       <nav className="sidebar-menu">
         <div className="sidebar-group-title">관제 대시보드</div>
