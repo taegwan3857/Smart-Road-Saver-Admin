@@ -107,10 +107,20 @@ export default function Landing() {
      
      <div className="hero-graphic-col slide-in-right">
       <div className="radar-animation">
-       <div className="radar-circle circle-1"></div>
+              <div className="radar-circle circle-1"></div>
        <div className="radar-circle circle-2"></div>
        <div className="radar-circle circle-3"></div>
        <div className="radar-scanner"></div>
+       
+       {/* 중앙 코어 아이콘 */}
+       <div className="radar-core">
+        <i className="fas fa-video"></i>
+       </div>
+       
+       {/* 탐지된 위험 요소 (빨간 점) */}
+       <div className="radar-dot dot-1"><div className="dot-ripple"></div></div>
+       <div className="radar-dot dot-2"><div className="dot-ripple"></div></div>
+       <div className="radar-dot dot-3"><div className="dot-ripple"></div></div>
        
        <div className="floating-ui ui-top-right">
         <i className="fas fa-circle text-green blinking"></i> AI 분석 서버 활성화
