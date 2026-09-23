@@ -12,7 +12,6 @@ export default function Landing() {
   useEffect(() => {
     document.body.classList.remove('dark-theme');
     
-    // Existing IntersectionObserver fade-up (only for elements that still have .fade-up)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,11 +25,9 @@ export default function Landing() {
     const fadeElements = document.querySelectorAll('.fade-up, .slide-in-right, .slide-in-left, .fade-in');
     fadeElements.forEach((el) => observer.observe(el));
 
-    // GSAP Advanced Animations
     if (window.gsap && window.ScrollTrigger) {
       window.gsap.registerPlugin(window.ScrollTrigger);
 
-      // 1. Parallax Scrolling on Hero Graphic (Radar)
       window.gsap.to('.hero-graphic-col', {
         yPercent: 30,
         ease: 'none',
@@ -41,24 +38,7 @@ export default function Landing() {
           scrub: true
         }
       });
-
-      // 2. Scrollytelling on Features (Numbered Steps)
-      window.gsap.utils.toArray('.feature-step').forEach((step) => {
-        window.gsap.fromTo(step, 
-          { opacity: 0.2, x: -30 },
-          {
-            opacity: 1, 
-            x: 0,
-            duration: 1,
-            scrollTrigger: {
-              trigger: step,
-              start: 'top 85%',
-              end: 'top 60%',
-              scrub: 1
-            }
-          }
-        );
-      });    }
+    }
 
     return () => {
       fadeElements.forEach((el) => observer.unobserve(el));
@@ -68,17 +48,15 @@ export default function Landing() {
     };
   }, []);
 
-
-
- const scrollToSection = (e) => {
-  e.preventDefault();
-  const targetId = e.currentTarget.getAttribute('href').substring(1);
-  const el = document.getElementById(targetId);
-  if (el) {
-   el.scrollIntoView({ behavior: 'smooth' });
-   setMobileMenuOpen(false);
-  }
- };
+  const scrollToSection = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href').substring(1);
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
 
  return (
   <div className="landing-container">
@@ -93,7 +71,7 @@ export default function Landing() {
     <nav className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
      <a href="#home" onClick={scrollToSection}>홈</a>
      <a href="#purpose" onClick={scrollToSection}>개발 목적</a>
-     <a href="#features" onClick={scrollToSection}>주요 내용 및 특징</a>
+     <a href="#features" onClick={scrollToSection}>주요특징</a>
      <a href="#application" onClick={scrollToSection}>활용 분야</a>
      <a href="#effects" onClick={scrollToSection}>기대 효과</a>
      <a href="#team" onClick={scrollToSection}>개발자 소개</a>
@@ -196,7 +174,7 @@ export default function Landing() {
 
       <div style={{display: "flex", flexDirection: "column", gap: "0"}}>
        {/* Step 1 */}
-       <div className="feature-step" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
+       <div className="feature-step fade-up d1" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
         <div style={{minWidth: '80px'}}>
          <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>01</span>
         </div>
@@ -210,7 +188,7 @@ export default function Landing() {
        </div>
 
        {/* Step 2 */}
-       <div className="feature-step" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
+       <div className="feature-step fade-up d2" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
         <div style={{minWidth: '80px'}}>
          <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>02</span>
         </div>
@@ -224,7 +202,7 @@ export default function Landing() {
        </div>
 
        {/* Step 3 */}
-       <div className="feature-step" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0'}}>
+       <div className="feature-step fade-up d3" style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0'}}>
         <div style={{minWidth: '80px'}}>
          <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>03</span>
         </div>
@@ -240,79 +218,64 @@ export default function Landing() {
      </div>
     </section>
 
-    {/* Application — zigzag keyword blocks */}
-    <section className="full-screen-section" id="application" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
+    {/* Application — clean minimal grid */}
+    <section className="full-screen-section" id="application" style={{backgroundColor: '#fafafa', padding: '120px 24px', borderTop: '1px solid #eaeaea', borderBottom: '1px solid #eaeaea'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>활용 분야</h2>
-       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#111'}}>활용 분야</h2>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#666', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
       </div>
 
-      <div style={{display: "flex", flexDirection: "column", gap: "24px", maxWidth: "960px", margin: "0 auto"}} className="fade-up d1">
-
-       {/* Block 1 */}
-       <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
-        <div className="app-accent" style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #059669, #34d399)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
-         <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>관제</span>
-        </div>
-        <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>전국 단위 관제</h3>
-         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 실시간으로 모니터링하고, 탐지된 위험 요소를 지자체에 자동으로 신고합니다.</p>
-        </div>
+      <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px"}} className="fade-up d1">
+       
+       <div style={{background: '#fff', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
+        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#f0fdf4', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-bus"></i></div>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>전국 단위 관제</h3>
+        <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 실시간으로 모니터링하고, 탐지된 위험 요소를 지자체에 자동으로 신고합니다.</p>
        </div>
 
-       {/* Block 2 */}
-       <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px', flexDirection: 'row-reverse'}}>
-        <div className="app-accent" style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #7c3aed, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
-         <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>알림</span>
-        </div>
-        <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>운전자 모바일 연동</h3>
-         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>위험 구간에 접근하면 모바일 앱을 통해 실시간 푸시 알림을 제공하여 감속과 우회를 유도하고, 안전 운전을 돕습니다.</p>
-        </div>
+       <div style={{background: '#fff', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
+        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#f5f3ff', color: '#7c3aed', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-mobile-alt"></i></div>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>운전자 모바일 연동</h3>
+        <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>위험 구간에 접근하면 모바일 앱을 통해 실시간 푸시 알림을 제공하여 감속과 우회를 유도하고, 안전 운전을 돕습니다.</p>
        </div>
 
-       {/* Block 3 */}
-       <div className="app-block" style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
-        <div className="app-accent" style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #d97706, #fbbf24)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
-         <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>관리</span>
-        </div>
-        <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>웹 대시보드</h3>
-         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>수집된 위험 데이터를 지도 상에서 한눈에 파악하고, 지자체와 연계하여 즉각적인 유지보수를 지원합니다.</p>
-        </div>
+       <div style={{background: '#fff', borderRadius: '16px', padding: '48px 40px', border: '1px solid #eaeaea', transition: 'transform 0.3s ease, box-shadow 0.3s ease'}} onMouseEnter={(e) => {e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 24px rgba(0,0,0,0.04)'}} onMouseLeave={(e) => {e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'}}>
+        <div style={{width: '48px', height: '48px', borderRadius: '12px', background: '#fffbeb', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '24px'}}><i className="fas fa-desktop"></i></div>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#111', marginBottom: '12px'}}>웹 대시보드</h3>
+        <p style={{fontSize: '1.05rem', color: '#666', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>수집된 위험 데이터를 지도 상에서 한눈에 파악하고, 지자체와 연계하여 즉각적인 유지보수를 지원합니다.</p>
        </div>
 
       </div>
      </div>
     </section>
 
-    {/* Effects — bento grid with stat keywords */}
-    <section className="full-screen-section" id="effects" style={{backgroundColor: '#111827', padding: '120px 24px'}}>
+    {/* Effects — bento grid with stat keywords (Light Theme) */}
+    <section className="full-screen-section" id="effects" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
-       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#fff'}}>기대 효과</h2>
-       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#94a3b8', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>SMART ROAD SAVER가 만들어갈 긍정적인 변화와 사회적 가치</p>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>기대 효과</h2>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>SMART ROAD SAVER가 만들어갈 긍정적인 변화와 사회적 가치</p>
       </div>
 
-      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', maxWidth: '900px', margin: '0 auto'}} className="fade-up d1">
-       {/* Large top-left */}
-       <div style={{gridRow: 'span 2', background: '#1e293b', borderRadius: '20px', padding: '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
-        <span style={{fontSize: '4rem', fontWeight: '900', color: '#3b82f6', lineHeight: 1, marginBottom: '20px'}}>24H</span>
-        <h3 style={{fontSize: '1.5rem', fontWeight: '800', color: '#fff', marginBottom: '12px'}}>사고 원천 예방</h3>
-        <p style={{fontSize: '1.05rem', color: '#94a3b8', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>24시간 실시간 탐지와 즉각적인 자동 신고로 도로 위 인명 피해와 사고를 원천적으로 예방합니다.</p>
+      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', gridAutoRows: 'minmax(200px, auto)'}} className="fade-up d1">
+       {/* Left large */}
+       <div style={{gridRow: "span 2", background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <span style={{fontSize: '4.5rem', fontWeight: '900', color: '#3b82f6', lineHeight: 1, marginBottom: '24px'}}>24H</span>
+        <h3 style={{fontSize: '1.6rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>사고 원천 예방</h3>
+        <p style={{fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>24시간 실시간 탐지와 즉각적인 자동 신고로 도로 위 인명 피해와 사고를 원천적으로 예방합니다.</p>
        </div>
        {/* Top-right */}
-       <div style={{background: '#1e293b', borderRadius: '20px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
+       <div style={{background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         <span style={{fontSize: '3rem', fontWeight: '900', color: '#10b981', lineHeight: 1, marginBottom: '16px'}}>SAFE</span>
-        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#fff', marginBottom: '10px'}}>2차 피해 차단</h3>
-        <p style={{fontSize: '1rem', color: '#94a3b8', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>접근 경고 알림으로 감속과 우회를 유도하여 2차 사고를 방지합니다.</p>
+        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>2차 피해 차단</h3>
+        <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>접근 경고 알림으로 감속과 우회를 유도하여 2차 사고를 방지합니다.</p>
        </div>
        {/* Bottom-right */}
-       <div style={{background: '#1e293b', borderRadius: '20px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
+       <div style={{background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         <span style={{fontSize: '3rem', fontWeight: '900', color: '#f59e0b', lineHeight: 1, marginBottom: '16px'}}>100%</span>
-        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#fff', marginBottom: '10px'}}>비용 획기적 절감</h3>
-        <p style={{fontSize: '1rem', color: '#94a3b8', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>수작업 순찰을 완전 자동화하여 막대한 예산과 시간을 절감합니다.</p>
+        <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>비용 획기적 절감</h3>
+        <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>수작업 순찰을 완전 자동화하여 막대한 예산과 시간을 절감합니다.</p>
        </div>
       </div>
      </div>
