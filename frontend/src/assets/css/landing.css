@@ -507,7 +507,8 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   transform: translateY(-50%);
 }
 .sr-car {
-  position: absolute; top: 15%; left: -50px; font-size: 2.5rem; color: #e2e8f0;
+  position: absolute; top: 50%; left: -50px; font-size: 2.5rem; color: #e2e8f0;
+  transform: translateY(-50%);
   animation: drive-car 4s infinite linear;
 }
 @keyframes drive-car {
@@ -535,7 +536,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .sr-vision-cone {
   position: absolute; top: 25px; left: 25px; width: 0; height: 0;
   border-left: 70px solid transparent; border-right: 70px solid transparent; border-bottom: 220px solid rgba(96, 165, 250, 0.15);
-  transform: translate(-50%, 0) rotate(35deg); transform-origin: top center; pointer-events: none;
+  transform: translate(-50%, 0) rotate(-135deg); transform-origin: top center; pointer-events: none;
 }
 @keyframes radar-ping {
   0% { width: 0; height: 0; opacity: 1; }
@@ -543,7 +544,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 }
 
 .sr-detection-box {
-  position: absolute; top: 52%; left: 47%; z-index: 20; opacity: 0; animation: detect-hazard 4s infinite;
+  position: absolute; top: 49.5%; left: 50.8%; z-index: 20; opacity: 0; animation: detect-hazard 4s infinite;
   transform: translate(-50%, -50%);
 }
 .sr-bounding-box {
@@ -568,7 +569,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .sr-gov-server span { font-size: 0.85rem; font-weight: 700; color: #fff; }
 
 .sr-data-link {
-  position: absolute; top: 52%; left: 22%; width: 25%; height: 35%;
+  position: absolute; top: 50%; left: 20%; width: 31%; height: 45%;
   border-right: 2px dashed rgba(16, 185, 129, 0.5);
   border-bottom: 2px dashed rgba(16, 185, 129, 0.5);
   border-bottom-right-radius: 12px;
