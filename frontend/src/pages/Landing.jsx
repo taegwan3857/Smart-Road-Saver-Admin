@@ -64,7 +64,7 @@ export default function Landing() {
    {/* Nav */}
    <header className="landing-header">
     <a href="#home" onClick={scrollToSection} className="landing-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-     <img src={logoImg} alt="SMART ROAD SAVER" style={{height: '28px'}} />
+     <img src={logoImg} alt="SMART ROAD SAVER" style={{height: '48px'}} />
     </a>
     <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
      <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>

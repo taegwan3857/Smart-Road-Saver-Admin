@@ -43,7 +43,7 @@ export default function Sidebar() {
   return (
     <>
       <div className="sidebar-logo" onClick={() => navigate("/")} style={{cursor: "pointer"}}>
-        <img src={logoImg} alt="Smart Road Saver" style={{height: "22px"}} />
+        <img src={logoImg} alt="Smart Road Saver" style={{height: "36px"}} />
       </div>
       <nav className="sidebar-menu">
         <div className="sidebar-group-title">관제 대시보드</div>
