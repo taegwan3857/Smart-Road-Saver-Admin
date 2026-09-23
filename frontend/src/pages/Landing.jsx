@@ -400,16 +400,24 @@ export default function Landing() {
       </div>
       <div className="footer-right">
         <div className="footer-links">
-          <h4>PROJECT</h4>
-          <a href="#home">Home</a>
-          <a href="#features">Features</a>
-          <a href="#system">Architecture</a>
+          <h4>프로젝트</h4>
+          <div className="horizontal-links">
+            <a href="#home">홈</a>
+            <span className="divider">·</span>
+            <a href="#features">주요 특징</a>
+            <span className="divider">·</span>
+            <a href="#system">시스템 구조</a>
+          </div>
         </div>
         <div className="footer-links">
-          <h4>TEAM MARS</h4>
-          <span>동양미래대학교</span>
-          <span>컴퓨터공학부</span>
-          <span>2026 졸업작품</span>
+          <h4>팀 MARS</h4>
+          <div className="horizontal-links">
+            <span>동양미래대학교</span>
+            <span className="divider">·</span>
+            <span>컴퓨터공학부</span>
+            <span className="divider">·</span>
+            <span>2026 졸업작품</span>
+          </div>
         </div>
       </div>
     </div>

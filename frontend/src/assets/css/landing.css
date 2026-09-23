@@ -233,7 +233,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 .footer-left { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
 .footer-logo { height: 48px; filter: brightness(0) invert(1) opacity(0.9); margin-left: -6px; }
 .footer-desc { font-size: 0.95rem; line-height: 1.6; margin: 0; }
-.footer-right { display: flex; gap: 80px; }
+.footer-right { display: flex; flex-direction: column; gap: 28px; }
 .footer-links { display: flex; flex-direction: column; gap: 12px; }
 .footer-links h4 { color: #fff; font-size: 1rem; font-weight: 600; margin: 0 0 8px 0; letter-spacing: 0.5px; }
 .footer-links a, .footer-links span { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
@@ -472,3 +472,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   .footer-right { gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; padding: 24px 24px 0; }
 }
+.horizontal-links { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.horizontal-links a, .horizontal-links span { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+.horizontal-links a:hover { color: #fff; }
+.horizontal-links .divider { color: rgba(255,255,255,0.2); font-size: 0.8rem; }
