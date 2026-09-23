@@ -542,7 +542,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 }
 
 .sr-detection-box {
-  position: absolute; top: 48%; left: 40%; z-index: 20; opacity: 0; animation: detect-hazard 6s infinite;
+  position: absolute; top: 50%; left: 44%; z-index: 20; opacity: 0; animation: detect-hazard 6s infinite;
   transform: translate(-50%, -50%);
 }
 .sr-bounding-box {
@@ -553,11 +553,10 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #ef4444; color: #fff;
   font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 4px; white-space: nowrap;
 }
-/* Car reaches left: 60% of road at around ~50% of the 6s animation */
 @keyframes detect-hazard {
-  0%, 45% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-  50%, 65% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  70%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  0%, 40% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  42%, 58% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  60%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
 }
 
 .sr-node {
@@ -578,7 +577,7 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
 
 /* DATA LINKS */
 .sr-link-to-cloud {
-  position: absolute; top: 15%; left: 40%; width: 30%; height: 33%;
+  position: absolute; top: 15%; left: 44%; width: 26%; height: 35%;
   border-left: 2px dashed rgba(168, 85, 247, 0.5);
   border-top: 2px dashed rgba(168, 85, 247, 0.5);
   border-top-left-radius: 12px;
@@ -604,11 +603,11 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   transform: translate(-5px, -5px);
 }
 @keyframes send-up {
-  0%, 50% { opacity: 0; top: 100%; left: 0; }
-  52% { opacity: 1; top: 100%; left: 0; }
-  58% { opacity: 1; top: 0; left: 0; }
-  64% { opacity: 1; top: 0; left: 100%; }
-  66%, 100% { opacity: 0; top: 0; left: 100%; }
+  0%, 43% { opacity: 0; top: 100%; left: 0; }
+  44% { opacity: 1; top: 100%; left: 0; }
+  50% { opacity: 1; top: 0; left: 0; }
+  56% { opacity: 1; top: 0; left: 100%; }
+  58%, 100% { opacity: 0; top: 0; left: 100%; }
 }
 
 .packet-down1 {
@@ -616,11 +615,11 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   transform: translate(5px, 5px);
 }
 @keyframes send-down1 {
-  0%, 65% { opacity: 0; top: 0; right: 0; left: auto; }
-  66% { opacity: 1; top: 0; right: 0; left: auto; }
-  72% { opacity: 1; top: 100%; right: 0; left: auto; }
-  84% { opacity: 1; top: 100%; right: 100%; left: auto; }
-  86%, 100% { opacity: 0; top: 100%; right: 100%; left: auto; }
+  0%, 57% { opacity: 0; top: 0; right: 0; left: auto; }
+  58% { opacity: 1; top: 0; right: 0; left: auto; }
+  66% { opacity: 1; top: 100%; right: 0; left: auto; }
+  78% { opacity: 1; top: 100%; right: 100%; left: auto; }
+  80%, 100% { opacity: 0; top: 100%; right: 100%; left: auto; }
 }
 
 .packet-down2 {
@@ -628,9 +627,9 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   transform: translate(-5px, -5px);
 }
 @keyframes send-down2 {
-  0%, 65% { opacity: 0; top: 0; left: 0; right: auto; }
-  66% { opacity: 1; top: 0; left: 0; right: auto; }
-  72% { opacity: 1; top: 0; left: 100%; right: auto; }
-  78% { opacity: 1; top: 100%; left: 100%; right: auto; }
-  80%, 100% { opacity: 0; top: 100%; left: 100%; right: auto; }
+  0%, 57% { opacity: 0; top: 0; left: 0; right: auto; }
+  58% { opacity: 1; top: 0; left: 0; right: auto; }
+  66% { opacity: 1; top: 0; left: 100%; right: auto; }
+  74% { opacity: 1; top: 100%; left: 100%; right: auto; }
+  76%, 100% { opacity: 0; top: 100%; left: 100%; right: auto; }
 }
