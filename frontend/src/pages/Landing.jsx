@@ -224,7 +224,7 @@ export default function Landing() {
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>활용 분야</h2>
-       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#666', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어<br/>주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#666', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어<br className="hide-mobile" />주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
       </div>
 
       <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px"}} className="fade-up d1">
