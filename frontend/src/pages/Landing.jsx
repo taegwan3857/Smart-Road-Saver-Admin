@@ -163,11 +163,11 @@ export default function Landing() {
 
       <div style={{display: 'flex', flexWrap: 'wrap', gap: '80px', alignItems: 'center'}} className="fade-up d1">
        {/* Illustration */}
-       <div style={{flex: '1 1 380px', display: 'flex', justifyContent: 'center'}}>
-        <img src="/purpose_illustration.jpg" alt="도로 위험요소 탐지 일러스트" style={{width: '100%', maxWidth: '460px', borderRadius: '20px'}} />
+       <div style={{flex: '1 1 0', minWidth: '400px', display: 'flex', justifyContent: 'center'}}>
+        <img src="/purpose_illustration.jpg" alt="도로 위험요소 탐지 일러스트" style={{width: '100%', borderRadius: '20px'}} />
        </div>
        {/* Text */}
-       <div style={{flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '48px'}}>
+       <div style={{flex: '1 1 0', minWidth: '400px', display: 'flex', flexDirection: 'column', gap: '48px'}}>
         <div>
          <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
           <span style={{width: '36px', height: '36px', borderRadius: '50%', background: '#fef2f2', color: '#ef4444', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'}}><i className="fas fa-times"></i></span>
