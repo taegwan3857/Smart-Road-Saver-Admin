@@ -259,22 +259,22 @@ export default function Landing() {
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>SMART ROAD SAVER가 만들어갈 긍정적인 변화와 사회적 가치</p>
       </div>
 
-      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', gridAutoRows: 'minmax(200px, auto)'}} className="fade-up d1">
+      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', gridAutoRows: 'auto'}} className="fade-up d1">
        {/* Left large */}
-       <div style={{gridRow: "span 2", background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '16px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.8rem', marginBottom: '32px'}}><i className="fas fa-shield-alt"></i></div>
+       <div style={{gridRow: "span 2", background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '36px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.5rem', marginBottom: '20px'}}><i className="fas fa-shield-alt"></i></div>
         <h3 style={{fontSize: '1.6rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>사고 원천 예방</h3>
         <p style={{fontSize: '1.1rem', color: '#475569', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>24시간 실시간 탐지와 즉각적인 자동 신고로 도로 위 인명 피해와 사고를 원천적으로 예방합니다.</p>
        </div>
        {/* Top-right */}
-       <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.5rem', marginBottom: '24px'}}><i className="fas fa-bell"></i></div>
+       <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', borderRadius: '12px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.3rem', marginBottom: '16px'}}><i className="fas fa-bell"></i></div>
         <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>2차 피해 차단</h3>
         <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>접근 경고 알림으로 감속과 우회를 유도하여 2차 사고를 방지합니다.</p>
        </div>
        {/* Bottom-right */}
-       <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.5rem', marginBottom: '24px'}}><i className="fas fa-chart-line"></i></div>
+       <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', borderRadius: '12px', background: '#e8ebf3', color: '#1d3162', fontSize: '1.3rem', marginBottom: '16px'}}><i className="fas fa-chart-line"></i></div>
         <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '10px'}}>비용 획기적 절감</h3>
         <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>수작업 순찰을 완전 자동화하여 막대한 예산과 시간을 절감합니다.</p>
        </div>
