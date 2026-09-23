@@ -118,9 +118,9 @@ export default function Landing() {
        </div>
        
        {/* 탐지된 위험 요소 (빨간 점) */}
-       <div className="radar-dot dot-1"><div className="dot-ripple"></div></div>
-       <div className="radar-dot dot-2"><div className="dot-ripple"></div></div>
-       <div className="radar-dot dot-3"><div className="dot-ripple"></div></div>
+       <div className="radar-target target-1"><i className="fas fa-car-side"></i><div className="target-ripple"></div></div>
+       <div className="radar-target target-2"><i className="fas fa-car"></i><div className="target-ripple"></div></div>
+       <div className="radar-target target-3"><i className="fas fa-car-side" style={{transform: "scaleX(-1)"}}></i><div className="target-ripple"></div></div>
        
        <div className="floating-ui ui-top-right">
         <i className="fas fa-circle text-green blinking"></i> AI 분석 서버 활성화
