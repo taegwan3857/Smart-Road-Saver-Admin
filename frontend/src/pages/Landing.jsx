@@ -23,7 +23,7 @@ export default function Landing() {
       },
       { threshold: 0.1 }
     );
-    const fadeElements = document.querySelectorAll('.fade-up');
+    const fadeElements = document.querySelectorAll('.fade-up, .slide-in-right, .slide-in-left, .fade-in');
     fadeElements.forEach((el) => observer.observe(el));
 
     // GSAP Advanced Animations
