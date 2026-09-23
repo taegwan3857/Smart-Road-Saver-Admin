@@ -110,17 +110,17 @@ export default function Landing() {
         <div className="sr-road">
           <div className="sr-lane-line"></div>
           <div className="sr-hazard"></div>
-          <div className="sr-car"><i className="fas fa-car-side"></i></div>
+          <div className="sr-car">
+            <i className="fas fa-car-side"></i>
+            <div className="sr-car-sensors">
+              <div className="sr-radar-wave"></div>
+              <div className="sr-vision-cone"></div>
+              <div className="sr-sensor-label">Vision AI + mmWave</div>
+            </div>
+          </div>
         </div>
 
-        <div className="sr-smart-pole">
-          <div className="sr-pole-head">
-            <i className="fas fa-video"></i>
-          </div>
-          <div className="sr-radar-wave"></div>
-          <div className="sr-vision-cone"></div>
-          <div className="sr-pole-label">Vision AI + mmWave</div>
-        </div>
+        
 
         <div className="sr-detection-box">
           <div className="sr-bounding-box"></div>
