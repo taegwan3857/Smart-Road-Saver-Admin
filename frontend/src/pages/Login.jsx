@@ -53,7 +53,7 @@ export default function Login() {
     <div className="login-page">
       <div className="login-card-split">
         <div className="login-left">
-          <img src={logoImg} alt="Smart Road Saver Logo" style={{height: "72px", marginBottom: "24px", marginLeft: "-10px", alignSelf: "flex-start", filter: "brightness(0) invert(1) opacity(0.8)"}} />
+          <img src={logoImg} alt="Smart Road Saver Logo" style={{height: "72px", marginBottom: "24px", marginLeft: "-10px", alignSelf: "flex-start", filter: "brightness(0) invert(1)"}} />
           <p>실시간 센서 데이터와 AI 분석으로<br />도로 위의 위험을 가장 먼저 감지합니다.</p>
           <div className="login-copyright">
             &copy; 2026 Smart Road Saver. All rights reserved.
