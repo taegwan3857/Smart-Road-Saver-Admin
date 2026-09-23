@@ -95,13 +95,20 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background:
   animation: scan 3s linear infinite; margin-top: -200px; margin-left: -200px;
 }
 @keyframes scan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.radar-target { position: absolute; color: #ef4444; font-size: 1.1rem; text-shadow: 0 0 10px rgba(239, 68, 68, 0.8); display: flex; align-items: center; justify-content: center; }
+.radar-target { position: absolute; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; z-index: 5; }
+.red-target { color: #ef4444; text-shadow: 0 0 10px rgba(239, 68, 68, 0.8); }
+.green-target { color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.8); }
+.blue-target { color: #3b82f6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.8); font-size: 1.3rem; }
 .target-1 { top: 30%; left: 60%; animation: pulse-dot 2s infinite; }
-.target-2 { top: 70%; left: 30%; animation: pulse-dot 2s infinite 1s; }
+.target-2 { top: 75%; left: 35%; animation: pulse-dot 2s infinite 1s; }
 .target-3 { top: 40%; left: 20%; animation: pulse-dot 2s infinite 0.5s; }
+.target-4 { top: 55%; left: 75%; animation: pulse-dot 2s infinite 1.5s; }
 .target-ripple {
-  position: absolute; width: 40px; height: 40px; border: 1px solid rgba(239, 68, 68, 0.8); border-radius: 50%; opacity: 0; animation: ripple 2s infinite; pointer-events: none;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; opacity: 0; animation: ripple 2s infinite; pointer-events: none;
 }
+.red-ripple { border: 1px solid rgba(239, 68, 68, 0.8); }
+.green-ripple { border: 1px solid rgba(16, 185, 129, 0.8); }
+.blue-ripple { border: 1px solid rgba(59, 130, 246, 0.8); }
 @keyframes pulse-dot { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
 @keyframes ripple { 0% { transform: scale(0.3); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
 

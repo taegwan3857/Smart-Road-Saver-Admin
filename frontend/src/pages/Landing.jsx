@@ -117,10 +117,11 @@ export default function Landing() {
         <i className="fas fa-video"></i>
        </div>
        
-       {/* 탐지된 위험 요소 (빨간 점) */}
-       <div className="radar-target target-1"><i className="fas fa-car-side"></i><div className="target-ripple"></div></div>
-       <div className="radar-target target-2"><i className="fas fa-car"></i><div className="target-ripple"></div></div>
-       <div className="radar-target target-3"><i className="fas fa-car-side" style={{transform: "scaleX(-1)"}}></i><div className="target-ripple"></div></div>
+       {/* 탐지된 객체들 */}
+       <div className="radar-target target-1 green-target"><i className="fas fa-car-side"></i><div className="target-ripple green-ripple"></div></div>
+       <div className="radar-target target-2 green-target"><i className="fas fa-car"></i><div className="target-ripple green-ripple"></div></div>
+       <div className="radar-target target-3 red-target"><i className="fas fa-car-side" style={{transform: "scaleX(-1)"}}></i><div className="target-ripple red-ripple"></div></div>
+       <div className="radar-target target-4 blue-target"><i className="fas fa-map-marker-alt"></i><div className="target-ripple blue-ripple"></div></div>
        
        <div className="floating-ui ui-top-right">
         <i className="fas fa-circle text-green blinking"></i> AI 분석 서버 활성화
@@ -407,16 +408,6 @@ export default function Landing() {
             <a href="#features">주요 특징</a>
             <span className="divider">·</span>
             <a href="#system">시스템 구조</a>
-          </div>
-        </div>
-        <div className="footer-links">
-          <h4>팀 MARS</h4>
-          <div className="horizontal-links">
-            <span>동양미래대학교</span>
-            <span className="divider">·</span>
-            <span>컴퓨터공학부</span>
-            <span className="divider">·</span>
-            <span>2026 졸업작품</span>
           </div>
         </div>
       </div>
