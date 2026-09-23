@@ -189,39 +189,49 @@ export default function Landing() {
      </div>
     </section>
 
-    {/* Application — editorial rows */}
-    <section className="full-screen-section" id="application" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
+    {/* Application — zigzag keyword blocks */}
+    <section className="full-screen-section" id="application" style={{backgroundColor: '#f8fafc', padding: '120px 24px'}}>
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>활용 분야</h2>
        <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
       </div>
 
-      <div style={{maxWidth: '900px', margin: '0 auto'}} className="fade-up d1">
-       {/* Row 1 */}
-       <div style={{display: 'flex', alignItems: 'center', gap: '24px', padding: '36px 0', borderTop: '1px solid #e2e8f0'}}>
-        <i className="fas fa-bus" style={{fontSize: '1.6rem', color: '#059669', width: '32px', textAlign: 'center', flexShrink: 0}}></i>
-        <div>
-         <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '8px'}}>전국 단위 관제</h3>
-         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 모니터링합니다.</p>
+      <div style={{display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '960px', margin: '0 auto'}} className="fade-up d1">
+
+       {/* Block 1 — left accent */}
+       <div style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
+        <div style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #059669, #34d399)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+         <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>관제</span>
+        </div>
+        <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>전국 단위 관제</h3>
+         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 실시간으로 모니터링하고, 탐지된 위험 요소를 지자체에 자동으로 신고합니다.</p>
         </div>
        </div>
-       {/* Row 2 */}
-       <div style={{display: 'flex', alignItems: 'center', gap: '24px', padding: '36px 0', borderTop: '1px solid #e2e8f0'}}>
-        <i className="fas fa-mobile-alt" style={{fontSize: '1.6rem', color: '#7c3aed', width: '32px', textAlign: 'center', flexShrink: 0}}></i>
-        <div>
-         <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '8px'}}>운전자 모바일 연동</h3>
-         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>위험 구간 접근 시 모바일 앱을 통해 실시간 푸시 알림을 제공하여 안전 운전을 유도합니다.</p>
+
+       {/* Block 2 — right accent */}
+       <div style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px', flexDirection: 'row-reverse'}}>
+        <div style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #7c3aed, #a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+         <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>알림</span>
+        </div>
+        <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>운전자 모바일 연동</h3>
+         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>위험 구간에 접근하면 모바일 앱을 통해 실시간 푸시 알림을 제공하여 감속과 우회를 유도하고, 안전 운전을 돕습니다.</p>
         </div>
        </div>
-       {/* Row 3 */}
-       <div style={{display: 'flex', alignItems: 'center', gap: '24px', padding: '36px 0', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0'}}>
-        <i className="fas fa-desktop" style={{fontSize: '1.6rem', color: '#d97706', width: '32px', textAlign: 'center', flexShrink: 0}}></i>
-        <div>
-         <h3 style={{fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', marginBottom: '8px'}}>웹 대시보드</h3>
-         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.6', margin: 0, wordBreak: 'keep-all'}}>수집된 위험 데이터를 한눈에 파악하고, 지자체와 연계하여 즉각적인 유지보수를 지원합니다.</p>
+
+       {/* Block 3 — left accent */}
+       <div style={{display: 'flex', flexWrap: 'wrap', borderRadius: '20px', overflow: 'hidden', minHeight: '200px'}}>
+        <div style={{flex: '0 0 160px', background: 'linear-gradient(135deg, #d97706, #fbbf24)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'}}>
+         <span style={{fontSize: '2.8rem', fontWeight: '900', color: '#fff', lineHeight: 1, textAlign: 'center'}}>관리</span>
+        </div>
+        <div style={{flex: '1 1 300px', background: '#fff', padding: '40px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+         <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '12px'}}>웹 대시보드</h3>
+         <p style={{fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', margin: 0, wordBreak: 'keep-all'}}>수집된 위험 데이터를 지도 상에서 한눈에 파악하고, 지자체와 연계하여 즉각적인 유지보수를 지원합니다.</p>
         </div>
        </div>
+
       </div>
      </div>
     </section>
