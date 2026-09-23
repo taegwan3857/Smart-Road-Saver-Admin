@@ -289,10 +289,10 @@ export default function Landing() {
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
      <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#1d3162"}}>시스템 구성도</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>엣지 디바이스부터 클라우드 백엔드, 사용자 프론트엔드까지의 데이터 흐름</p></div>
      
-     <div className="fade-up d1" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '40px 0'}}>
+     <div className="fade-up d1 system-flow" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '40px 0'}}>
       
       {/* Edge / IoT */}
-      <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+      <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', maxWidth: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
        <div style={{fontSize: '2.5rem', color: '#1d3162', marginBottom: '16px'}}><i className="fas fa-car"></i></div>
        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>Edge AI (Jetson Nano)</h3>
        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
@@ -309,7 +309,7 @@ export default function Landing() {
       </div>
 
       {/* Backend */}
-      <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+      <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', maxWidth: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
        <div style={{fontSize: '2.5rem', color: '#10b981', marginBottom: '16px'}}><i className="fas fa-server"></i></div>
        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>Cloud Backend</h3>
        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
@@ -326,7 +326,7 @@ export default function Landing() {
       </div>
 
       {/* Client */}
-      <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+      <div style={{background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '32px', width: '320px', maxWidth: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
        <div style={{fontSize: '2.5rem', color: '#8b5cf6', marginBottom: '16px'}}><i className="fas fa-users"></i></div>
        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#1e293b', marginBottom: '16px'}}>Frontend Clients</h3>
        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
