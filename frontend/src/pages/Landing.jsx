@@ -102,7 +102,38 @@ export default function Landing() {
 
    {/* Purpose */}
    {/* Purpose */}
-   <section className="full-screen-section" id="purpose" style={{backgroundColor: "#ffffff", padding: "120px 24px", overflow: "hidden"}}><div className="section-inner" style={{maxWidth: "1200px", margin: "0 auto"}}><div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#0f172a"}}>개발 목적</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p></div><div style={{display: "flex", flexWrap: "wrap", gap: "60px", maxWidth: "1000px", margin: "0 auto"}} className="fade-up d1"><div style={{flex: "1 1 300px", borderTop: "4px solid #e11d48", paddingTop: "32px"}}><div style={{fontSize: "2rem", color: "#e11d48", marginBottom: "16px"}}><i className="fas fa-exclamation-triangle"></i></div><h3 style={{fontSize: "1.8rem", fontWeight: "800", color: "#0f172a", marginBottom: "20px"}}>기존 방식의 한계</h3><p style={{fontSize: "1.15rem", color: "#475569", lineHeight: "1.8", wordBreak: "keep-all"}}>매년 2만 건 이상의 교통사고가 포트홀 등 도로 노면 결함으로 발생합니다. 기존 순찰 방식은 비용과 시간이 막대하게 소요되며 사전 예방에 한계가 있었습니다.</p></div><div style={{flex: "1 1 300px", borderTop: "4px solid #2563eb", paddingTop: "32px"}}><div style={{fontSize: "2rem", color: "#2563eb", marginBottom: "16px"}}><i className="fas fa-shield-alt"></i></div><h3 style={{fontSize: "1.8rem", fontWeight: "800", color: "#0f172a", marginBottom: "20px"}}>우리의 해결책</h3><p style={{fontSize: "1.15rem", color: "#475569", lineHeight: "1.8", wordBreak: "keep-all"}}>비전 AI와 mmWave 레이더를 결합하여 주행 중 위험 요소를 실시간 탐지하고, 자동 신고 및 앱 알림을 통해 사고를 원천 차단합니다.</p></div></div></div></section>
+   <section className="full-screen-section" id="purpose" style={{backgroundColor: "#ffffff", padding: "120px 24px", overflow: "hidden"}}>
+    <div className="section-inner" style={{maxWidth: "1200px", margin: "0 auto"}}>
+     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}>
+      <h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#0f172a"}}>개발 목적</h2>
+      <p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
+     </div>
+     
+     <div style={{display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center"}} className="fade-up d1">
+      
+      {/* Left side text */}
+      <div style={{flex: "1 1 400px", display: "flex", flexDirection: "column", gap: "40px"}}>
+       <div style={{borderLeft: "4px solid #e11d48", paddingLeft: "24px"}}>
+        <div style={{fontSize: "1.8rem", color: "#e11d48", marginBottom: "12px"}}><i className="fas fa-exclamation-triangle"></i></div>
+        <h3 style={{fontSize: "1.6rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>기존 방식의 한계</h3>
+        <p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all", margin: 0}}>매년 2만 건 이상의 교통사고가 포트홀 등 도로 노면 결함으로 발생합니다. 기존 순찰 방식은 비용과 시간이 막대하게 소요되며 사전 예방에 한계가 있었습니다.</p>
+       </div>
+       
+       <div style={{borderLeft: "4px solid #2563eb", paddingLeft: "24px"}}>
+        <div style={{fontSize: "1.8rem", color: "#2563eb", marginBottom: "12px"}}><i className="fas fa-shield-alt"></i></div>
+        <h3 style={{fontSize: "1.6rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>우리의 해결책</h3>
+        <p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all", margin: 0}}>비전 AI와 mmWave 레이더를 결합하여 주행 중 위험 요소를 실시간 탐지하고, 자동 신고 및 앱 알림을 통해 사고를 원천 차단합니다.</p>
+       </div>
+      </div>
+      
+      {/* Right side illustration */}
+      <div style={{flex: "1 1 500px", display: "flex", justifyContent: "center"}}>
+       <img src="/purpose_illustration.jpg" alt="Smart Road Saver Illustration" style={{width: "100%", maxWidth: "500px", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", mixBlendMode: "multiply"}} />
+      </div>
+
+     </div>
+    </div>
+   </section>
 
    {/* Features */}
    {/* Features */}
