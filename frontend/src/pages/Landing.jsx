@@ -132,7 +132,7 @@ export default function Landing() {
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>개발 목적</h2>
-       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>안전한 도로 환경 조성을 위한<br className="hide-desktop" /> 스마트 예방 시스템 도입</p>
       </div>
 
       <div style={{display: 'flex', flexWrap: 'wrap', gap: '80px', alignItems: 'center'}} className="fade-up d1">
@@ -224,7 +224,7 @@ export default function Landing() {
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>활용 분야</h2>
-       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#666', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어<br className="hide-mobile" />주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#666', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 <br className="hide-mobile" />주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
       </div>
 
       <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px"}} className="fade-up d1">
@@ -256,7 +256,7 @@ export default function Landing() {
      <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>기대 효과</h2>
-       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>SMART ROAD SAVER가 만들어갈 긍정적인 변화와 사회적 가치</p>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>SMART ROAD SAVER가 만들어갈<br className="hide-desktop" /> 긍정적인 변화와 사회적 가치</p>
       </div>
 
       <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', gridAutoRows: 'auto'}} className="fade-up d1">
@@ -287,7 +287,7 @@ export default function Landing() {
    {/* System Architecture (CSS Built) */}
    <section className="full-screen-section" id="system" style={{backgroundColor: "#ffffff", padding: '100px 24px'}}>
     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
-     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#1d3162"}}>시스템 구성도</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>엣지 디바이스부터 클라우드 백엔드, 사용자 프론트엔드까지의 데이터 흐름</p></div>
+     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#1d3162"}}>시스템 구성도</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>엣지 디바이스부터 클라우드 백엔드,<br className="hide-desktop" /> 사용자 프론트엔드까지의 데이터 흐름</p></div>
      
      <div className="fade-up d1 system-flow" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '40px 0'}}>
       
@@ -345,7 +345,7 @@ export default function Landing() {
    {/* Team Intro */}
    <section className="qa-section full-screen-section" id="team" style={{backgroundColor: "#f8fafc", overflow: 'hidden', padding: '100px 0'}}>
     <div className="section-inner" style={{maxWidth: '1400px', width: '100%', margin: '0 auto', padding: '0 24px'}}>
-     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#1d3162"}}>팀원 소개</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>SMART ROAD SAVER를 기획하고 개발한 MARS 팀원들을 소개합니다</p></div>
+     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#1d3162"}}>팀원 소개</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>SMART ROAD SAVER를 기획하고 개발한<br className="hide-desktop" /> MARS 팀원들을 소개합니다</p></div>
      
      <div style={{maxWidth: '1000px', width: '100%', margin: '0 auto', background: '#1e1e1e', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.2)'}} className="fade-up d1">
       {/* Terminal Header */}
