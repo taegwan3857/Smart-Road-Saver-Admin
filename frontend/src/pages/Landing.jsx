@@ -101,47 +101,124 @@ export default function Landing() {
    </section>
 
    {/* Purpose */}
-   {/* Purpose */}
-   <section className="full-screen-section" id="purpose" style={{backgroundColor: "#ffffff", padding: "120px 24px", overflow: "hidden"}}>
-    <div className="section-inner" style={{maxWidth: "1200px", margin: "0 auto"}}>
-     <div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}>
-      <h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#0f172a"}}>개발 목적</h2>
-      <p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
-     </div>
-     
-     <div style={{display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center"}} className="fade-up d1">
-      
-      {/* Left side text */}
-      <div style={{flex: "1 1 400px", display: "flex", flexDirection: "column", gap: "40px"}}>
-       <div style={{borderLeft: "4px solid #e11d48", paddingLeft: "24px"}}>
-        <div style={{fontSize: "1.8rem", color: "#e11d48", marginBottom: "12px"}}><i className="fas fa-exclamation-triangle"></i></div>
-        <h3 style={{fontSize: "1.6rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>기존 방식의 한계</h3>
-        <p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all", margin: 0}}>매년 2만 건 이상의 교통사고가 포트홀 등 도로 노면 결함으로 발생합니다. 기존 순찰 방식은 비용과 시간이 막대하게 소요되며 사전 예방에 한계가 있었습니다.</p>
-       </div>
-       
-       <div style={{borderLeft: "4px solid #2563eb", paddingLeft: "24px"}}>
-        <div style={{fontSize: "1.8rem", color: "#2563eb", marginBottom: "12px"}}><i className="fas fa-shield-alt"></i></div>
-        <h3 style={{fontSize: "1.6rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>우리의 해결책</h3>
-        <p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all", margin: 0}}>비전 AI와 mmWave 레이더를 결합하여 주행 중 위험 요소를 실시간 탐지하고, 자동 신고 및 앱 알림을 통해 사고를 원천 차단합니다.</p>
-       </div>
-      </div>
-      
-      {/* Right side illustration */}
-      <div style={{flex: "1 1 500px", display: "flex", justifyContent: "center"}}>
-       <img src="/purpose_illustration.jpg" alt="Smart Road Saver Illustration" style={{width: "100%", maxWidth: "500px", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", mixBlendMode: "multiply"}} />
+    <section className="full-screen-section" id="purpose" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
+     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>개발 목적</h2>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>안전한 도로 환경 조성을 위한 스마트 예방 시스템 도입</p>
       </div>
 
+      <div style={{display: 'flex', flexWrap: 'wrap', gap: '80px', alignItems: 'center'}} className="fade-up d1">
+       {/* Illustration */}
+       <div style={{flex: '1 1 380px', display: 'flex', justifyContent: 'center'}}>
+        <img src="/purpose_illustration.jpg" alt="도로 위험요소 탐지 일러스트" style={{width: '100%', maxWidth: '460px', borderRadius: '20px'}} />
+       </div>
+       {/* Text */}
+       <div style={{flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '48px'}}>
+        <div>
+         <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
+          <span style={{width: '36px', height: '36px', borderRadius: '50%', background: '#fef2f2', color: '#ef4444', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'}}><i className="fas fa-times"></i></span>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>기존 방식의 한계</h3>
+         </div>
+         <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0, paddingLeft: '48px'}}>매년 2만 건 이상의 교통사고가 포트홀 등 도로 노면 결함으로 발생합니다. 기존 순찰 방식은 비용과 시간이 막대하게 소요되며 사전 예방에 한계가 있었습니다.</p>
+        </div>
+        <div style={{height: '1px', background: '#e2e8f0'}}></div>
+        <div>
+         <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
+          <span style={{width: '36px', height: '36px', borderRadius: '50%', background: '#eff6ff', color: '#3b82f6', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'}}><i className="fas fa-check"></i></span>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>우리의 해결책</h3>
+         </div>
+         <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0, paddingLeft: '48px'}}>비전 AI와 mmWave 레이더를 결합하여 주행 중 위험 요소를 실시간 탐지하고, 자동 신고 및 앱 알림을 통해 사고를 원천 차단합니다.</p>
+        </div>
+       </div>
+      </div>
      </div>
-    </div>
-   </section>
+    </section>
 
-   {/* Features */}
-   {/* Features */}
-   {/* Features (Using the Timeline Design) */}
-   <section className="full-screen-section" id="features" style={{backgroundColor: "#f8fafc", padding: "120px 24px"}}><div className="section-inner" style={{maxWidth: "1200px", margin: "0 auto"}}><div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#0f172a"}}>주요 내용 및 특징</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}><span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI 딥러닝, 백엔드 서버, 앱과 웹의 프론트엔드까지 모든 과정을 직접 구현하고 개발한 시스템입니다.</p></div><div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px"}} className="fade-up d1"><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "#e0e7ff", color: "#4f46e5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-microchip"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>하드웨어 (mmWave 레이더 도입)</h3><p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all"}}>기존 비전 AI의 한계였던 젖은 노면 및 블랙아이스 탐지를 위해 mmWave 레이더를 도입하여 어떠한 환경에서도 완벽한 탐지를 지원합니다.</p></div><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "#dbeafe", color: "#2563eb", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-brain"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>AI 모델 및 데이터 학습</h3><p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all"}}>카메라와 레이더 센서를 Jetson Nano에 장착하고, 직접 수집한 방대한 도로 결함 데이터를 라벨링 및 학습시킨 독자적인 객체 탐지 모델을 가동합니다.</p></div><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "#f3e8ff", color: "#9333ea", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-server"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>백엔드 및 풀스택 구축</h3><p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all"}}>실시간 데이터 통신, 중복 결함 병합 및 자동 신고 로직은 물론, 운전자용 모바일 앱과 관리자용 웹 대시보드를 100% 자체 개발하였습니다.</p></div></div></div></section>
+    {/* Features — numbered step layout */}
+    <section className="full-screen-section" id="features" style={{backgroundColor: '#f8fafc', padding: '120px 24px'}}>
+     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>주요 내용 및 특징</h2>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}><span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 하드웨어부터 AI, 서버, 프론트엔드까지 모든 과정을 직접 구현한 시스템입니다.</p>
+      </div>
 
-   {/* Application */}
-   <section className="full-screen-section" id="application" style={{backgroundColor: "#ffffff", padding: "120px 24px"}}><div className="section-inner" style={{maxWidth: "1200px", margin: "0 auto"}}><div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#0f172a"}}>활용 분야</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#64748b", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p></div><div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px"}} className="fade-up d1"><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "#d1fae5", color: "#059669", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-bus"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>전국 단위 관제</h3><p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all"}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 실시간으로 모니터링합니다.</p></div><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "#fae8ff", color: "#c026d3", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-mobile-alt"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>운전자 모바일 연동</h3><p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all"}}>위험 구간 접근 시 모바일 앱을 통해 실시간 푸시 알림을 제공하여 안전 운전과 자발적 감속을 유도합니다.</p></div><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "#fef3c7", color: "#d97706", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-desktop"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#0f172a", marginBottom: "16px"}}>웹 대시보드</h3><p style={{fontSize: "1.1rem", color: "#475569", lineHeight: "1.7", wordBreak: "keep-all"}}>수집된 위험 데이터를 지도 상에서 한눈에 파악하고, 지자체와 연계하여 즉각적인 유지보수를 지원합니다.</p></div></div></div></section>
+      <div style={{display: 'flex', flexDirection: 'column', gap: '0'}} className="fade-up d1">
+       {/* Step 1 */}
+       <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
+        <div style={{minWidth: '80px'}}>
+         <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>01</span>
+        </div>
+        <div style={{flex: '1 1 300px'}}>
+         <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
+          <i className="fas fa-microchip" style={{fontSize: '1.4rem', color: '#4f46e5'}}></i>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>하드웨어 (mmWave 레이더 도입)</h3>
+         </div>
+         <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0}}>기존 비전 AI의 한계였던 젖은 노면 및 블랙아이스 탐지를 위해 mmWave 레이더를 도입하여 어떠한 환경에서도 완벽한 탐지를 지원합니다.</p>
+        </div>
+       </div>
+
+       {/* Step 2 */}
+       <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0', borderBottom: '1px solid #e2e8f0'}}>
+        <div style={{minWidth: '80px'}}>
+         <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>02</span>
+        </div>
+        <div style={{flex: '1 1 300px'}}>
+         <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
+          <i className="fas fa-brain" style={{fontSize: '1.4rem', color: '#2563eb'}}></i>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>AI 모델 및 데이터 학습</h3>
+         </div>
+         <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0}}>카메라와 레이더 센서를 Jetson Nano에 장착하고, 직접 수집한 도로 결함 데이터를 학습시킨 독자적인 객체 탐지 모델을 가동합니다.</p>
+        </div>
+       </div>
+
+       {/* Step 3 */}
+       <div style={{display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', padding: '48px 0'}}>
+        <div style={{minWidth: '80px'}}>
+         <span style={{fontSize: '3.5rem', fontWeight: '900', color: '#e2e8f0', lineHeight: 1}}>03</span>
+        </div>
+        <div style={{flex: '1 1 300px'}}>
+         <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
+          <i className="fas fa-code" style={{fontSize: '1.4rem', color: '#9333ea'}}></i>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0}}>백엔드 및 풀스택 구축</h3>
+         </div>
+         <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', wordBreak: 'keep-all', margin: 0}}>실시간 데이터 통신, 중복 결함 병합 및 자동 신고 로직은 물론, 운전자용 모바일 앱과 관리자용 웹 대시보드를 100% 자체 개발하였습니다.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    {/* Application — horizontal with connecting dots */}
+    <section className="full-screen-section" id="application" style={{backgroundColor: '#ffffff', padding: '120px 24px'}}>
+     <div className="section-inner" style={{maxWidth: '1200px', margin: '0 auto'}}>
+      <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
+       <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#0f172a'}}>활용 분야</h2>
+       <p style={{marginTop: '20px', fontSize: '1.15rem', color: '#64748b', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0'}}>본 시스템은 차량의 블랙박스 및 전용 기기로 탑재되어 주행 중 도로 위의 위험 요소를 실시간으로 탐지합니다.</p>
+      </div>
+
+      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '32px'}} className="fade-up d1">
+       {/* Item 1 */}
+       <div style={{flex: '1 1 280px', maxWidth: '340px', textAlign: 'center', padding: '40px 24px', background: '#f8fafc', borderRadius: '20px', border: '1px solid #f1f5f9'}}>
+        <div style={{width: '72px', height: '72px', borderRadius: '50%', background: '#ecfdf5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', margin: '0 auto 24px'}}><i className="fas fa-bus"></i></div>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>전국 단위 관제</h3>
+        <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>버스, 택시 등 공공 및 일반 차량에 장착되어 전국 도로망을 24시간 모니터링합니다.</p>
+       </div>
+       {/* Item 2 */}
+       <div style={{flex: '1 1 280px', maxWidth: '340px', textAlign: 'center', padding: '40px 24px', background: '#f8fafc', borderRadius: '20px', border: '1px solid #f1f5f9'}}>
+        <div style={{width: '72px', height: '72px', borderRadius: '50%', background: '#faf5ff', color: '#9333ea', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', margin: '0 auto 24px'}}><i className="fas fa-mobile-alt"></i></div>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>운전자 모바일 연동</h3>
+        <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>위험 구간 접근 시 모바일 앱을 통해 실시간 푸시 알림을 제공합니다.</p>
+       </div>
+       {/* Item 3 */}
+       <div style={{flex: '1 1 280px', maxWidth: '340px', textAlign: 'center', padding: '40px 24px', background: '#f8fafc', borderRadius: '20px', border: '1px solid #f1f5f9'}}>
+        <div style={{width: '72px', height: '72px', borderRadius: '50%', background: '#fffbeb', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', margin: '0 auto 24px'}}><i className="fas fa-desktop"></i></div>
+        <h3 style={{fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', marginBottom: '16px'}}>웹 대시보드</h3>
+        <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.7', wordBreak: 'keep-all', margin: 0}}>수집된 위험 데이터를 한눈에 파악하고 즉각적인 유지보수를 지원합니다.</p>
+       </div>
+      </div>
+     </div>
+    </section>
 
    {/* Expected Effects */}
    <section className="full-screen-section" id="effects" style={{backgroundColor: "#0a0a0a", padding: "120px 24px"}}><div className="section-inner" style={{maxWidth: "1200px", margin: "0 auto"}}><div className="section-heading fade-up" style={{textAlign: "center", marginBottom: "80px"}}><h2 style={{fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.05em", color: "#fff"}}>기대 효과</h2><p style={{marginTop: "20px", fontSize: "1.15rem", color: "#94a3b8", wordBreak: "keep-all", maxWidth: "800px", margin: "20px auto 0"}}>SMART ROAD SAVER가 만들어갈 긍정적인 변화와 사회적 가치</p></div><div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px"}} className="fade-up d1"><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "rgba(59,130,246,0.1)", color: "#60a5fa", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-shield-alt"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#fff", marginBottom: "16px"}}>사고 원천 예방</h3><p style={{fontSize: "1.1rem", color: "#a3a3a3", lineHeight: "1.7", wordBreak: "keep-all"}}>실시간 탐지와 즉각적인 자동 신고로 도로 위 인명 피해와 사고를 원천적으로 예방합니다.</p></div><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "rgba(16,185,129,0.1)", color: "#34d399", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-car-crash"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#fff", marginBottom: "16px"}}>2차 피해 차단</h3><p style={{fontSize: "1.1rem", color: "#a3a3a3", lineHeight: "1.7", wordBreak: "keep-all"}}>접근 경고 알림으로 자발적인 감속과 우회를 유도하여 결빙이나 포트홀로 인한 2차 사고를 방지합니다.</p></div><div><div style={{width: "60px", height: "60px", borderRadius: "16px", background: "rgba(245,158,11,0.1)", color: "#fbbf24", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", marginBottom: "24px"}}><i className="fas fa-won-sign"></i></div><h3 style={{fontSize: "1.5rem", fontWeight: "800", color: "#fff", marginBottom: "16px"}}>비용 획기적 절감</h3><p style={{fontSize: "1.1rem", color: "#a3a3a3", lineHeight: "1.7", wordBreak: "keep-all"}}>수작업 순찰과 사후 신고에 의존하던 방식을 100% 자동화하여 막대한 유지보수 예산과 시간을 절감합니다.</p></div></div></div></section>
