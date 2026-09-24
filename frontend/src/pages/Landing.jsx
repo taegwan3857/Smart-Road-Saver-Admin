@@ -132,12 +132,12 @@ export default function Landing() {
             <span>LIVE DETECTION FEED</span>
           </div>
           <div className="hud-body">
-            <div className="hud-line"><span className="time">00:00:01</span> <span className="sys">[SYS]</span> System Online...</div>
-            <div className="hud-line"><span className="time">00:00:03</span> <span className="sensor">[RADAR]</span> Scanning road surface...</div>
-            <div className="hud-line"><span className="time">00:00:04</span> <span className="sensor">[VISION]</span> Analyzing frames (60fps)</div>
-            <div className="hud-line alert"><span className="time">00:00:05</span> <span className="warn">[WARN]</span> Anomaly detected!</div>
-            <div className="hud-line highlight"><span className="time">00:00:05</span> <span className="ai">[AI]</span> Pothole match 98.4%</div>
-            <div className="hud-line"><span className="time">00:00:06</span> <span className="net">[NET]</span> Syncing to Cloud Server...</div>
+            <div className="hud-line"><span className="time">00:00:01</span> <span className="sys">[시스템]</span> 시스템 정상 동작 중...</div>
+            <div className="hud-line"><span className="time">00:00:03</span> <span className="sensor">[레이더]</span> 노면 스캔 중...</div>
+            <div className="hud-line"><span className="time">00:00:04</span> <span className="sensor">[비전]</span> 프레임 분석 중 (60fps)</div>
+            <div className="hud-line alert"><span className="time">00:00:05</span> <span className="warn">[경고]</span> 이상 징후 감지!</div>
+            <div className="hud-line highlight"><span className="time">00:00:05</span> <span className="ai">[AI]</span> 포트홀 일치율 98.4%</div>
+            <div className="hud-line"><span className="time">00:00:06</span> <span className="net">[네트워크]</span> 클라우드 서버 동기화 완료...</div>
           </div>
         </div>
       </div>
