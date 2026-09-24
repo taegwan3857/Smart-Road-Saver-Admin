@@ -185,7 +185,7 @@ export default function Landing() {
       <div className="section-heading fade-up" style={{textAlign: 'center', marginBottom: '80px'}}>
        <h2 style={{fontSize: '2.5rem', fontWeight: '800', letterSpacing: '-0.05em', color: '#1d3162'}}>주요 특징</h2>
        <p style={{marginTop: '20px', fontSize: '1.2rem', color: '#334155', fontWeight: '600', wordBreak: 'keep-all', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6'}}>
-        <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 <br className="hide-desktop" />하드웨어부터 AI, 서버, 프론트엔드까지<br className="hide-mobile" />
+        <span style={{whiteSpace: 'nowrap'}}>SMART ROAD SAVER</span>는 <br className="hide-desktop" />하드웨어부터 AI, 서버, 프론트엔드까지 <br className="hide-mobile" />
         모든 과정을 직접 구현한 시스템입니다.
        </p>
       </div>
