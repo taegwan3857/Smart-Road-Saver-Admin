@@ -125,29 +125,20 @@ export default function Landing() {
           <div className="sr-alert-tag"><i className="fas fa-exclamation-triangle"></i> 결빙/포트홀 탐지</div>
         </div>
 
-        {/* System Architecture Nodes */}
-        <div className="sr-node sr-cloud">
-          <i className="fas fa-cloud"></i>
-          <span>통합 백엔드</span>
-        </div>
-        <div className="sr-node sr-admin">
-          <i className="fas fa-desktop"></i>
-          <span>관리자 관제 웹</span>
-        </div>
-        <div className="sr-node sr-mobile">
-          <i className="fas fa-mobile-alt"></i>
-          <span>운전자 실시간 알림</span>
-        </div>
-
-        {/* Data Links */}
-        <div className="sr-link-to-cloud">
-          <div className="sr-packet packet-up"></div>
-        </div>
-        <div className="sr-link-to-admin">
-          <div className="sr-packet packet-down1"></div>
-        </div>
-        <div className="sr-link-to-mobile">
-          <div className="sr-packet packet-down2"></div>
+        {/* Live HUD Panel replacing the old flowchart nodes */}
+        <div className="sr-hud-panel">
+          <div className="hud-header">
+            <div className="hud-dot"></div>
+            <span>LIVE DETECTION FEED</span>
+          </div>
+          <div className="hud-body">
+            <div className="hud-line"><span className="time">00:00:01</span> <span className="sys">[SYS]</span> System Online...</div>
+            <div className="hud-line"><span className="time">00:00:03</span> <span className="sensor">[RADAR]</span> Scanning road surface...</div>
+            <div className="hud-line"><span className="time">00:00:04</span> <span className="sensor">[VISION]</span> Analyzing frames (60fps)</div>
+            <div className="hud-line alert"><span className="time">00:00:05</span> <span className="warn">[WARN]</span> Anomaly detected!</div>
+            <div className="hud-line highlight"><span className="time">00:00:05</span> <span className="ai">[AI]</span> Pothole match 98.4%</div>
+            <div className="hud-line"><span className="time">00:00:06</span> <span className="net">[NET]</span> Syncing to Cloud Server...</div>
+          </div>
         </div>
       </div>
      </div>
